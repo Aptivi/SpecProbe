@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PackageOutputPath>../SpecProbe.Bin</PackageOutputPath>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>1.0.0</Version>
+    <Authors>Aptivi</Authors>
+    <Description>SpecProbe is the reboot of the Linux and Windows hardware information frontend.</Description>
+    <Copyright>Copyright © 2023 Aptivi</Copyright>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Aptivi/SpecProbe</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>git://github.com/Aptivi/SpecProbe.git</RepositoryUrl>
+    <PackageIcon>OfficialAppIcon-SpecProbe-512.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>hardware, information</PackageTags>
+    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>../SpecProbe.Bin/</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\aptivi_snk.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpecProbe.Native\SpecProbe.Native.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../SpecProbe.Bin</PackageOutputPath>
+    <OutputPath>../SpecProbe.Bin/</OutputPath>
+    <Nullable>disable</Nullable>
+    <PackageId>SpecProbe.Native</PackageId>
+    <Authors>Aptivi</Authors>
+    <Title>SpecProbe.Native</Title>
+    <PackageDescription>SpecProbe native helper library</PackageDescription>
+    <PackageTags>specprobe;native;runtime;csharp;library</PackageTags>
+    <PackageProjectUrl>https://github.com/Aptivi/SpecProbe</PackageProjectUrl>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIcon>OfficialAppIcon-SpecProbe-512.png</PackageIcon>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Aptivi/SpecProbe.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.0.0</Version>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\aptivi_snk.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="runtimes\win-x64\native\" />
+    <Folder Include="runtimes\win-x64\native\" />
+    <Folder Include="runtimes\win-x86\native\" />
+    <Folder Include="runtimes\win-x86\native\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- This is the only way to reliably copy all the runtimes -->
+    <None Include="runtimes\**\*.*" Pack="True" PackagePath="runtimes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <!-- Necessary targets -->
+    <None Include="SpecProbe.Native.targets" Pack="True" PackagePath="/" />
+
+    <!-- For packaging -->
+    <None Include="../SpecProbe/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
