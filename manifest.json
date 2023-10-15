@@ -1,0 +1,205 @@
+{
+  "sitemap": {
+    "baseUrl": "https://aptivi.github.io/SpecProbe/"
+  },
+  "source_base_path": "/github/workspace/DocGen",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.HardwareProber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.HardwareProber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.HardwarePartType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.HardwarePartType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.MemoryPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.MemoryPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.VideoPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.VideoPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.Types.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.Parts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.Parts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Hardware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Hardware.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Kernel.UnameManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Kernel.UnameManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Kernel.UnameTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Kernel.UnameTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Kernel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Kernel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
