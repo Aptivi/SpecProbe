@@ -25,6 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="runtimes\osx-x64\native\" />
     <Folder Include="runtimes\win-x64\native\" />
     <Folder Include="runtimes\win-x64\native\" />
     <Folder Include="runtimes\win-x86\native\" />
