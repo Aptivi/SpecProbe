@@ -28,5 +28,6 @@ namespace SpecProbe.Hardware.Probers
         // Platform-specific functions
         BaseHardwarePartInfo[] GetBaseHardwarePartsWindows();
         BaseHardwarePartInfo[] GetBaseHardwarePartsLinux();
+        BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS();
     }
 }

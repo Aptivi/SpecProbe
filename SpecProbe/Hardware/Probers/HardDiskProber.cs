@@ -33,6 +33,8 @@ namespace SpecProbe.Hardware.Probers
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
+            else if (PlatformHelper.IsOnMacOS())
+                return GetBaseHardwarePartsMacOS();
             else
                 return GetBaseHardwarePartsLinux();
         }
@@ -116,6 +118,11 @@ namespace SpecProbe.Hardware.Probers
 
             // Finally, return an array containing information
             return diskParts.ToArray();
+        }
+
+        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        {
+            throw new NotImplementedException();
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()

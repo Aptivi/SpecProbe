@@ -33,6 +33,8 @@ namespace SpecProbe.Hardware.Probers
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
+            else if (PlatformHelper.IsOnMacOS())
+                return GetBaseHardwarePartsMacOS();
             else
                 return GetBaseHardwarePartsLinux();
         }
@@ -102,6 +104,11 @@ namespace SpecProbe.Hardware.Probers
                 VideoCardName = videoCardName,
             };
             return new[] { part };
+        }
+
+        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        {
+            throw new NotImplementedException();
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
