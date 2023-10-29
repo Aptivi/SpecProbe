@@ -25,23 +25,23 @@ if [ -z $releaseconf ]; then
 fi
 
 # Check for dependencies
-rarpath=`which rar`
+zippath=`which zip`
 if [ ! $? == 0 ]; then
-	echo rar is not found.
+	echo zip is not found.
 	exit 1
 fi
 
 # Pack binary
 echo Packing binary...
-"$rarpath" a -ep1 -r -m5 /tmp/$version-bin.rar "../SpecProbe.Bin/net6.0/"
-"$rarpath" a -ep1 -r -m5 /tmp/$version-demo.rar "../SpecProbe.ConsoleTest.Bin/net6.0/"
+cd "../SpecProbe.Bin/net6.0/" && "$zippath" -r /tmp/$version-bin.zip . && cd -
+cd "../SpecProbe.ConsoleTest.Bin/net6.0/" && "$zippath" -r /tmp/$version-bin.zip . && cd -
 if [ ! $? == 0 ]; then
-	echo Packing using rar failed.
+	echo Packing using zip failed.
 	exit 1
 fi
 
 # Inform success
-mv ~/tmp/$version-bin.rar .
-mv ~/tmp/$version-demo.rar .
+mv ~/tmp/$version-bin.zip .
+mv ~/tmp/$version-demo.zip .
 echo Build and pack successful.
 exit 0
