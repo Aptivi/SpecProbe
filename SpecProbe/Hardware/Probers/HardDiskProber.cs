@@ -122,7 +122,137 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
-            throw new NotImplementedException();
+            // Some variables to install.
+            List<HardDiskPart> diskParts = new();
+            List<HardDiskPart.PartitionPart> partitions = new();
+
+            // Get the blocks
+            try
+            {
+                List<int> virtuals = new();
+                string blockListFolder = "/dev";
+                string[] blockFolders = Directory.GetFiles(blockListFolder).Where((dir) => dir.Contains("/dev/disk")).ToArray();
+                for (int i = 0; i < blockFolders.Length; i++)
+                {
+                    string blockFolder = blockFolders[i];
+
+                    // Necessary for diskutil parsing
+                    string diskUtilTrue = "Yes";
+                    string diskUtilFixed = "Fixed";
+                    string blockVirtualTag = "Virtual:";
+                    string blockDiskSizeTag = "Disk Size:";
+                    string blockVirtualDiskSizeTag = "Volume Used Space:";
+                    string blockRemovableMediaTag = "Removable Media:";
+                    string blockIsWholeTag = "Whole:";
+                    string blockDiskTag = "Part of Whole:";
+
+                    // Some variables for the block
+                    bool blockVirtual = false;
+                    bool blockFixed = true;
+                    bool blockIsDisk = true;
+                    string reallyDiskId = "";
+                    ulong actualSize = 0;
+                    int diskNum = 1;
+
+                    // Execute "diskutil info" on that block
+                    string diskutilOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/diskutil", $"info {blockFolder}");
+                    string[] diskutilOutputLines = diskutilOutput.Replace("\r", "").Split('\n');
+                    foreach (string diskutilOutputLine in diskutilOutputLines)
+                    {
+                        if (!blockFixed)
+                            break;
+                        string trimmedLine = diskutilOutputLine.Trim();
+                        if (trimmedLine.StartsWith(blockVirtualTag))
+                        {
+                            // Trim the tag to get the value.
+                            blockVirtual = trimmedLine[blockVirtualTag.Length..].Trim() == diskUtilTrue;
+                        }
+                        if (trimmedLine.StartsWith(blockRemovableMediaTag))
+                        {
+                            // Trim the tag to get the value.
+                            blockFixed = trimmedLine[blockRemovableMediaTag.Length..].Trim() == diskUtilFixed;
+                        }
+                        if (trimmedLine.StartsWith(blockIsWholeTag))
+                        {
+                            // Trim the tag to get the value.
+                            blockIsDisk = trimmedLine[blockIsWholeTag.Length..].Trim() == diskUtilTrue;
+                        }
+                        if (trimmedLine.StartsWith(blockDiskTag))
+                        {
+                            // Trim the tag to get the value.
+                            reallyDiskId = trimmedLine[blockDiskTag.Length..].Trim();
+                            diskNum = int.Parse(reallyDiskId["disk".Length..]) + 1;
+                            if (virtuals.Contains(diskNum))
+                                blockVirtual = true;
+                        }
+                        if (trimmedLine.StartsWith(blockDiskSizeTag) && !blockVirtual)
+                        {
+                            // Trim the tag to get the value like:
+                            //    Disk Size:                 107.4 GB (107374182400 Bytes) (exactly 209715200 512-Byte-Units)
+                            string sizes = trimmedLine[blockDiskSizeTag.Length..].Trim();
+
+                            // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
+                            // get the number of bytes from that.
+                            sizes = sizes[(sizes.IndexOf('(') + 1)..sizes.IndexOf(" Bytes)")];
+                            actualSize = ulong.Parse(sizes);
+                        }
+                        if (trimmedLine.StartsWith(blockVirtualDiskSizeTag) && blockVirtual)
+                        {
+                            // Trim the tag to get the value like:
+                            //    Volume Used Space:         2.0 GB (2013110272 Bytes) (exactly 3931856 512-Byte-Units)
+                            string sizes = trimmedLine[blockVirtualDiskSizeTag.Length..].Trim();
+
+                            // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
+                            // get the number of bytes from that.
+                            sizes = sizes[(sizes.IndexOf('(') + 1)..sizes.IndexOf(" Bytes)")];
+                            actualSize = ulong.Parse(sizes);
+                        }
+                    }
+
+                    // Don't continue if the drive is not fixed
+                    if (!blockFixed)
+                        continue;
+
+                    // Get the disk and the partition number
+                    int partNum = 0;
+                    if (!blockIsDisk)
+                    {
+                        string part = Path.GetFileName(blockFolder)[(reallyDiskId.Length + 1)..];
+                        part = part.Contains("s") ? part[..part.IndexOf("s")] : part;
+                        partNum = int.Parse(part);
+                    }
+                    if (blockVirtual && !virtuals.Contains(diskNum))
+                        virtuals.Add(diskNum);
+
+                    // Now, either put it to a partition or a disk
+                    if (blockIsDisk)
+                    {
+                        partitions.Clear();
+                        diskParts.Add(new HardDiskPart
+                        {
+                            HardDiskSize = actualSize,
+                            HardDiskNumber = diskNum,
+                            Partitions = partitions.ToArray(),
+                        });
+                    }
+                    else
+                    {
+                        partitions.Add(new HardDiskPart.PartitionPart
+                        {
+                            PartitionNumber = partNum,
+                            PartitionSize = (long)actualSize,
+                        });
+                        diskParts[diskNum - 1].Partitions = partitions.ToArray();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                HardwareProber.errors.Add(ex);
+            }
+
+            // Finally, return an array containing information
+            return diskParts.ToArray();
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()

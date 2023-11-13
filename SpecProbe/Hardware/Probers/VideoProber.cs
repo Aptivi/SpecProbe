@@ -108,7 +108,104 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
-            throw new NotImplementedException();
+            // Video card list
+            List<VideoPart> videos = new();
+
+            // Some tags
+            string videoCardNameTag = "Device ID:";
+            string videoCardVendorTag = "Vendor ID:";
+
+            // Some variables to install.
+            string videoCardName = "";
+            string videoCardDevName = "";
+            string videoCardVendor = "";
+
+            try
+            {
+                // Check notarization status
+                if (HardwareProber.notarized)
+                    return GetBaseHardwarePartsMacOSNotarized();
+
+                // Probe the video cards
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/system_profiler", "SPDisplaysDataType");
+                string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
+                foreach (string sysctlOutputLine in sysctlOutputLines)
+                {
+                    string line = sysctlOutputLine.Trim();
+                    if (line.StartsWith(videoCardNameTag))
+                        videoCardDevName = line[videoCardNameTag.Length..].Trim();
+                    if (line.StartsWith(videoCardVendorTag))
+                        videoCardVendor = line[videoCardVendorTag.Length..].Trim();
+                }
+                videoCardName = 
+                    $"V: {videoCardVendor} " +
+                    $"M: {videoCardDevName}";
+            }
+            catch (Exception ex)
+            {
+                HardwareProber.errors.Add(ex);
+            }
+
+            // Finally, return a single item array containing information
+            videos.Add(new VideoPart
+            {
+                VideoCardName = videoCardName
+            });
+            return videos.ToArray();
+        }
+
+        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOSNotarized()
+        {
+            // Video card list
+            List<VideoPart> videos = new();
+
+            // Some variables to install.
+            string videoCardName;
+
+            try
+            {
+                // Check notarization status
+                if (!HardwareProber.notarized)
+                    return GetBaseHardwarePartsMacOS();
+
+                // Probe the online displays
+                var status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, null, out uint displays);
+                if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
+                    throw new Exception(
+                        $"CGGetOnlineDisplayList() probing part from Quartz failed: {status}\n" +
+                        $"Check out https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()} for more info."
+                    );
+
+                // Probe the screens
+                uint[] screens = new uint[displays];
+                status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, ref screens, out displays);
+                if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
+                    throw new Exception(
+                        $"CGGetOnlineDisplayList() screen listing part from Quartz failed: {status}\n" +
+                        $"Check out https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()} for more info."
+                    );
+
+                // Probe the model and the vendor number as the video card name
+                foreach (var screen in screens)
+                {
+                    videoCardName =
+                        $"V: {PlatformMacInterop.CGDisplayVendorNumber(screen)} " +
+                        $"M: {PlatformMacInterop.CGDisplayModelNumber(screen)}";
+
+                    VideoPart part = new()
+                    {
+                        VideoCardName = videoCardName,
+                    };
+                    videos.Add(part);
+                }
+            }
+            catch (Exception ex)
+            {
+                HardwareProber.errors.Add(ex);
+            }
+
+            // Finally, return an array containing information
+            return videos.ToArray();
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()

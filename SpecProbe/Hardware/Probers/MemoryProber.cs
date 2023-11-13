@@ -104,7 +104,38 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
-            throw new NotImplementedException();
+            // Some variables to install.
+            long totalMemory = 0;
+            long totalPhysicalMemory = 0;
+
+            // Some constants
+            const string total = "hw.memsize: ";
+            const string totalUsable = "hw.memsize_usable: ";
+
+            try
+            {
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "hw.memsize_usable hw.memsize");
+                string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
+                foreach (string sysctlOutputLine in sysctlOutputLines)
+                {
+                    if (sysctlOutputLine.StartsWith(total))
+                        totalMemory = long.Parse(sysctlOutputLine[total.Length..]);
+                    if (sysctlOutputLine.StartsWith(totalUsable))
+                        totalPhysicalMemory = long.Parse(sysctlOutputLine[totalUsable.Length..]);
+                }
+            }
+            catch (Exception ex)
+            {
+                HardwareProber.errors.Add(ex);
+            }
+
+            // Finally, return a single item array containing information
+            MemoryPart part = new()
+            {
+                TotalMemory = totalMemory,
+                TotalPhysicalMemory = totalPhysicalMemory,
+            };
+            return new[] { part };
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()

@@ -29,6 +29,7 @@ namespace SpecProbe.Hardware
     /// </summary>
     public static class HardwareProber
     {
+        internal static bool notarized = false;
         internal static List<Exception> errors = new();
         private static ProcessorPart[] cachedProcessors;
         private static MemoryPart[] cachedMemory;
@@ -68,6 +69,13 @@ namespace SpecProbe.Hardware
         /// </summary>
         public static Exception[] Errors =>
             errors.ToArray();
+
+        /// <summary>
+        /// For Apple's code signing.
+        /// </summary>
+        /// <param name="notarized">If your application is using hardened macOS runtime, set this to true.</param>
+        public static void SetNotarized(bool notarized) =>
+            HardwareProber.notarized = notarized;
 
         private static ProcessorPart[] ProbeProcessors()
         {

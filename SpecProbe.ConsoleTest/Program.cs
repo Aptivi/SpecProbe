@@ -135,6 +135,7 @@ namespace SpecProbe.ConsoleTest
             {
                 TextWriterColor.WriteColor("Error: ", false, 3);
                 TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
             }
         }
     }

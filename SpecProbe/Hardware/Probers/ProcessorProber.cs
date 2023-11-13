@@ -201,7 +201,74 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
-            throw new NotImplementedException();
+            // Some variables to install.
+            int numberOfCores = 0;
+            int numberOfCoresForEachCore = 1;
+            uint cacheL1 = 0;
+            uint cacheL2 = 0;
+            uint cacheL3 = 0;
+            string name = "";
+            string cpuidVendor = "";
+            double clockSpeed = 0.0;
+
+            // Some constants
+            const string physicalId = "machdep.cpu.core_count: ";
+            const string cpuCores = "machdep.cpu.cores_per_package: ";
+            const string cpuClockSpeed = "hw.cpufrequency: ";
+            const string vendorId = "machdep.cpu.vendor: ";
+            const string modelId = "machdep.cpu.brand_string: ";
+            const string l1Name = "hw.l1icachesize: ";
+            const string l2Name = "hw.l2cachesize: ";
+
+            try
+            {
+                // First, get the vendor information from the SpecProber if not running on ARM
+                if (!PlatformHelper.IsOnArmOrArm64())
+                {
+                    Initializer.InitializeNative();
+                    cpuidVendor = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_vendor());
+                    name = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_cpu_name());
+                }
+
+                // Then, fill the rest
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string hw.l1icachesize hw.l2cachesize");
+                string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
+                foreach (string sysctlOutputLine in sysctlOutputLines)
+                {
+                    if (sysctlOutputLine.StartsWith(physicalId))
+                        numberOfCores = int.Parse(sysctlOutputLine[physicalId.Length..]);
+                    if (sysctlOutputLine.StartsWith(cpuCores))
+                        numberOfCoresForEachCore = int.Parse(sysctlOutputLine[cpuCores.Length..]);
+                    if (sysctlOutputLine.StartsWith(cpuClockSpeed))
+                        clockSpeed = double.Parse(sysctlOutputLine[cpuClockSpeed.Length..]) / 1000 / 1000;
+                    if (sysctlOutputLine.StartsWith(vendorId) && string.IsNullOrEmpty(cpuidVendor))
+                        cpuidVendor = sysctlOutputLine[vendorId.Length..];
+                    if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
+                        name = sysctlOutputLine[modelId.Length..];
+                    if (sysctlOutputLine.StartsWith(l1Name))
+                        cacheL1 = uint.Parse(sysctlOutputLine[l1Name.Length..]);
+                    if (sysctlOutputLine.StartsWith(l2Name))
+                        cacheL2 = uint.Parse(sysctlOutputLine[l2Name.Length..]);
+                }
+            }
+            catch (Exception ex)
+            {
+                HardwareProber.errors.Add(ex);
+            }
+
+            // Finally, return a single item array containing processor information
+            ProcessorPart processorPart = new()
+            {
+                ProcessorCores = numberOfCores,
+                CoresForEachCore = numberOfCoresForEachCore,
+                L1CacheSize = cacheL1,
+                L2CacheSize = cacheL2,
+                L3CacheSize = cacheL3,
+                Name = name,
+                CpuidVendor = cpuidVendor,
+                Speed = clockSpeed,
+            };
+            return new[] { processorPart };
         }
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
