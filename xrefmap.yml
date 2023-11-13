@@ -65,6 +65,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Hardware.HardwareProber.Processors
   nameWithType: HardwareProber.Processors
+- uid: SpecProbe.Hardware.HardwareProber.SetNotarized(System.Boolean)
+  name: SetNotarized(bool)
+  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_SetNotarized_System_Boolean_
+  commentId: M:SpecProbe.Hardware.HardwareProber.SetNotarized(System.Boolean)
+  name.vb: SetNotarized(Boolean)
+  fullName: SpecProbe.Hardware.HardwareProber.SetNotarized(bool)
+  fullName.vb: SpecProbe.Hardware.HardwareProber.SetNotarized(Boolean)
+  nameWithType: HardwareProber.SetNotarized(bool)
+  nameWithType.vb: HardwareProber.SetNotarized(Boolean)
+- uid: SpecProbe.Hardware.HardwareProber.SetNotarized*
+  name: SetNotarized
+  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_SetNotarized_
+  commentId: Overload:SpecProbe.Hardware.HardwareProber.SetNotarized
+  isSpec: "True"
+  fullName: SpecProbe.Hardware.HardwareProber.SetNotarized
+  nameWithType: HardwareProber.SetNotarized
 - uid: SpecProbe.Hardware.HardwareProber.Video
   name: Video
   href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Video
