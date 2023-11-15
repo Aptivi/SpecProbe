@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>SpecProbe.ConsoleTest</RootNamespace>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <LangVersion>latest</LangVersion>
     <SignAssembly>True</SignAssembly>
