@@ -262,63 +262,101 @@ namespace SpecProbe.Hardware.Probers
 
             try
             {
-                // First, get the list of logical partitions so that we can get the letters agnostically
-                var drives = DriveInfo.GetDrives();
-                List<(string letter, long partSize)> parts = [];
-                foreach (var drive in drives)
-                {
-                    if (drive.IsReady)
-                    {
-                        // Drive is ready. Now, check the type, as this prober only checks for HDD
-                        if (drive.DriveType == DriveType.Fixed)
-                            parts.Add(("\\\\.\\" + drive.Name[..(drive.Name.Length - 1)], drive.TotalSize));
-                    }
-                }
+                // First, get the list of physical partitions up to \\.\PHYSICALDRIVE15
+                int maxDrives = 15;
+                List<string> drives = [];
+                for (int drvIdx = 0; drvIdx <= maxDrives; drvIdx++)
+                    drives.Add(@$"\\.\PHYSICALDRIVE{drvIdx}");
 
-                // Then, open the file handle to these drives for us to be able to get the hard drive geometry
-                List<IntPtr> driveHandles = [];
-                foreach (var (letter, partSize) in parts)
+                // Then, open the file handle to the physical drives for us to be able to filter them for partitions
+                List<IntPtr> finalDrives = [];
+                foreach (string drive in drives)
                 {
-                    IntPtr driveHandle = PlatformWindowsInterop.CreateFile(letter, FileAccess.Read, FileShare.ReadWrite, IntPtr.Zero, FileMode.Open, FileAttributes.System, IntPtr.Zero);
+                    IntPtr driveHandle = PlatformWindowsInterop.CreateFile(drive, FileAccess.Read, FileShare.ReadWrite, IntPtr.Zero, FileMode.Open, FileAttributes.System, IntPtr.Zero);
                     if (driveHandle != new IntPtr(-1))
-                        driveHandles.Add(driveHandle);
-                }
-
-                // Enumerate through the handles to try to get their drive geometry
-                for (int i = 0; i < driveHandles.Count; i++)
-                {
-                    // Try to get drive storage info
-                    IntPtr drive = driveHandles[i];
-                    bool result = PlatformWindowsInterop.DeviceIoControl(drive, PlatformWindowsInterop.EIOControlCode.DiskGetDriveGeometry, null, 0, out PlatformWindowsInterop.DISK_GEOMETRY drvGeom, Marshal.SizeOf<PlatformWindowsInterop.DISK_GEOMETRY>(), out _, IntPtr.Zero);
-                    if (!result)
-                        continue;
-
-                    // Get the hard disk size and number
-                    bool partResult = PlatformWindowsInterop.DeviceIoControl(drive, PlatformWindowsInterop.EIOControlCode.StorageGetDeviceNumber, null, 0, out PlatformWindowsInterop.STORAGE_DEVICE_NUMBER devNumber, Marshal.SizeOf<PlatformWindowsInterop.STORAGE_DEVICE_NUMBER>(), out _, IntPtr.Zero);
-                    if (!partResult)
-                        continue;
-                    ulong hardDiskSize = (ulong)(drvGeom.Cylinders * drvGeom.TracksPerCylinder * drvGeom.SectorsPerTrack * drvGeom.BytesPerSector);
-                    int diskNum = devNumber.DeviceNumber;
-
-                    // Install the initial hard disk part
-                    if (diskParts.Count == 0 || !diskParts.Any((part) => part.HardDiskNumber == diskNum))
                     {
-                        partitions.Clear();
-                        diskParts.Add(new HardDiskPart
+                        maxDrives++;
+                        finalDrives.Add(driveHandle);
+
+                        // Get the hard drive number
+                        bool result = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveGeometry, null, 0, out PlatformWindowsInterop.DISK_GEOMETRY drvGeom, Marshal.SizeOf<PlatformWindowsInterop.DISK_GEOMETRY>(), out _, IntPtr.Zero);
+                        if (!result)
+                            continue;
+                        bool numResult = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.StorageGetDeviceNumber, null, 0, out PlatformWindowsInterop.STORAGE_DEVICE_NUMBER devNumber, Marshal.SizeOf<PlatformWindowsInterop.STORAGE_DEVICE_NUMBER>(), out _, IntPtr.Zero);
+                        if (!numResult)
+                            continue;
+                        ulong hardDiskSize = (ulong)(drvGeom.Cylinders * drvGeom.TracksPerCylinder * drvGeom.SectorsPerTrack * drvGeom.BytesPerSector);
+                        int diskNum = devNumber.DeviceNumber;
+
+                        // Create a hard drive instance
+                        var hdd = new HardDiskPart()
                         {
                             HardDiskSize = hardDiskSize,
-                        });
-                    }
+                            HardDiskNumber = diskNum,
+                        };
 
-                    // Now, deal with making partition info classes
-                    int partNum = devNumber.PartitionNumber;
-                    partitions.Add(new HardDiskPart.PartitionPart
-                    {
-                        PartitionNumber = partNum,
-                        PartitionSize = parts[i].partSize,
-                    });
-                    diskParts[^1].HardDiskNumber = diskNum;
-                    diskParts[^1].Partitions = [.. partitions];
+                        // Check the type
+                        if (drvGeom.MediaType == PlatformWindowsInterop.MEDIA_TYPE.FixedMedia)
+                        {
+                            // Get the partitions
+                            var parts = new List<HardDiskPart.PartitionPart>();
+                            IntPtr driveLayoutPtr = IntPtr.Zero;
+                            int buffSize = 1024;
+                            int error;
+                            do
+                            {
+                                // Allocate the drive layout pointer
+                                error = 0;
+                                driveLayoutPtr = Marshal.AllocHGlobal(buffSize);
+
+                                // Try to get the drive layout
+                                bool partResult = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveLayoutEx, IntPtr.Zero, 0, driveLayoutPtr, (uint)buffSize, out _, IntPtr.Zero);
+                                if (partResult)
+                                {
+                                    // Get all the partitions
+                                    PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX driveLayout = Marshal.PtrToStructure<PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX>(driveLayoutPtr);
+                                    for (uint partIdx = 0; partIdx < driveLayout.PartitionCount; partIdx++)
+                                    {
+                                        // Make a pointer to a partition info instance
+                                        IntPtr ptr = new(driveLayoutPtr.ToInt64() + Marshal.OffsetOf(typeof(PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX), "PartitionEntry").ToInt64() + (partIdx * Marshal.SizeOf(typeof(PlatformWindowsInterop.PARTITION_INFORMATION_EX))));
+                                        PlatformWindowsInterop.PARTITION_INFORMATION_EX partInfo = Marshal.PtrToStructure<PlatformWindowsInterop.PARTITION_INFORMATION_EX>(ptr);
+
+                                        // Check to see if this partition is a recognizable MBR/GPT partition
+                                        if ((partInfo.PartitionStyle != PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR) || partInfo.Mbr.RecognizedPartition)
+                                        {
+                                            // Add this partition
+                                            parts.Add(new()
+                                            {
+                                                PartitionNumber = (int)partInfo.PartitionNumber,
+                                                PartitionSize = partInfo.PartitionLength,
+                                            });
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    // Increase the buffer size by multiplying it by two.
+                                    error = Marshal.GetLastWin32Error();
+                                    buffSize *= 2;
+                                }
+
+                                // Free the drive layout handle
+                                Marshal.FreeHGlobal(driveLayoutPtr);
+                                driveLayoutPtr = IntPtr.Zero;
+                            } while (error == 0x7A);
+
+                            // Add a hard disk
+                            diskParts.Add(new()
+                            {
+                                HardDiskSize = hardDiskSize,
+                                HardDiskNumber = diskNum,
+                                Partitions = [.. parts],
+                            });
+                        }
+
+                        // Close the handle
+                        PlatformWindowsInterop.CloseHandle(driveHandle);
+                    }
                 }
             }
             catch (Exception ex)

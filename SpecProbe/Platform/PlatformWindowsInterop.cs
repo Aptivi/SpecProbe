@@ -420,6 +420,13 @@ namespace SpecProbe.Platform
             VideoSetDisplayBrightness = (EFileDevice.Video << 16) | (0x0127 << 2) | EMethod.Buffered | (0 << 14)
         }
 
+        public enum PARTITION_STYLE : uint
+        {
+            PARTITION_STYLE_MBR = 0,
+            PARTITION_STYLE_GPT = 1,
+            PARTITION_STYLE_RAW = 2
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         internal struct DISK_GEOMETRY
         {
@@ -431,13 +438,112 @@ namespace SpecProbe.Platform
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct STORAGE_DEVICE_NUMBER
+        internal struct STORAGE_DEVICE_NUMBER
         {
             public int DeviceType;
             public int DeviceNumber;
             public int PartitionNumber;
         }
 
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct DRIVE_LAYOUT_INFORMATION_MBR
+        {
+            [FieldOffset(0)]
+            public uint Signature;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct DRIVE_LAYOUT_INFORMATION_GPT
+        {
+            [FieldOffset(0)]
+            public Guid DiskId;
+            [FieldOffset(16)]
+            public long StartingUsableOffset;
+            [FieldOffset(24)]
+            public long UsableLength;
+            [FieldOffset(32)]
+            public uint MaxPartitionCount;
+        }
+
+        [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Unicode)]
+        internal struct PARTITION_INFORMATION_GPT
+        {
+            [FieldOffset(0)]
+            public Guid PartitionType;
+            [FieldOffset(16)]
+            public Guid PartitionId;
+            [FieldOffset(32)]
+            public ulong Attributes;
+            [FieldOffset(40)]
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 36)]
+            public string Name;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct PARTITION_INFORMATION_MBR
+        {
+            #region Constants
+            public const byte PARTITION_ENTRY_UNUSED = 0x00;
+            public const byte PARTITION_FAT_12 = 0x01;
+            public const byte PARTITION_FAT_16 = 0x04;
+            public const byte PARTITION_EXTENDED = 0x05;
+            public const byte PARTITION_IFS = 0x07;
+            public const byte PARTITION_FAT32 = 0x0B;
+            public const byte PARTITION_LDM = 0x42;
+            public const byte PARTITION_NTFT = 0x80;
+            public const byte PARTITION_VALID_NTFT = 0xC0;
+            #endregion
+
+            [FieldOffset(0)]
+            [MarshalAs(UnmanagedType.U1)]
+            public byte PartitionType;
+            [FieldOffset(1)]
+            [MarshalAs(UnmanagedType.I1)]
+            public bool BootIndicator;
+            [FieldOffset(2)]
+            [MarshalAs(UnmanagedType.I1)]
+            public bool RecognizedPartition;
+            [FieldOffset(4)]
+            public uint HiddenSectors;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct PARTITION_INFORMATION_EX
+        {
+            [FieldOffset(0)]
+            public PARTITION_STYLE PartitionStyle;
+            [FieldOffset(8)]
+            public long StartingOffset;
+            [FieldOffset(16)]
+            public long PartitionLength;
+            [FieldOffset(24)]
+            public uint PartitionNumber;
+            [FieldOffset(28)]
+            [MarshalAs(UnmanagedType.I1)]
+            public bool RewritePartition;
+            [FieldOffset(32)]
+            public PARTITION_INFORMATION_MBR Mbr;
+            [FieldOffset(32)]
+            public PARTITION_INFORMATION_GPT Gpt;
+        }
+
+        /// <summary>
+        /// Contains extended information about a drive's partitions.
+        /// </summary>
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct DRIVE_LAYOUT_INFORMATION_EX
+        {
+            [FieldOffset(0)]
+            public PARTITION_STYLE PartitionStyle;
+            [FieldOffset(4)]
+            public uint PartitionCount;
+            [FieldOffset(8)]
+            public DRIVE_LAYOUT_INFORMATION_MBR Mbr;
+            [FieldOffset(8)]
+            public DRIVE_LAYOUT_INFORMATION_GPT Gpt;
+            [FieldOffset(48)]
+            public PARTITION_INFORMATION_EX PartitionEntry;
+        }
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern IntPtr CreateFile(
@@ -450,16 +556,20 @@ namespace SpecProbe.Platform
             IntPtr templateFile
         );
 
-        [DllImport("Kernel32.dll", SetLastError = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool CloseHandle(IntPtr hObject);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool DeviceIoControl(
             IntPtr hDevice,
-            uint IoControlCode,
-            byte[] InBuffer,
-            int nInBufferSize,
-            byte[] OutBuffer,
-            int nOutBufferSize,
-            out int pBytesReturned,
-            IntPtr Overlapped
+            EIOControlCode dwIoControlCode,
+            IntPtr lpInBuffer,
+            uint nInBufferSize,
+            [Out] IntPtr lpOutBuffer,
+            uint nOutBufferSize,
+            out uint lpBytesReturned,
+            IntPtr lpOverlapped
         );
 
         [DllImport("Kernel32.dll", SetLastError = true)]
