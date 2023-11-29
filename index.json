@@ -59,21 +59,6 @@
     "title": "Namespace SpecProbe.Hardware | SpecProbe API - Aptivi Internals",
     "keywords": "Namespace SpecProbe.Hardware Classes HardwareProber Hardware probing class"
   },
-  "api/SpecProbe.Kernel.UnameManager.html": {
-    "href": "api/SpecProbe.Kernel.UnameManager.html",
-    "title": "Class UnameManager | SpecProbe API - Aptivi Internals",
-    "keywords": "Class UnameManager Kernel information probing manager Inheritance object UnameManager Namespace: SpecProbe.Kernel Assembly: SpecProbe.dll Syntax public static class UnameManager Methods | Edit this page View Source GetUname(UnameTypes) Gets details from the uname process Declaration public static string GetUname(UnameTypes unameTypes) Parameters Type Name Description UnameTypes unameTypes All the uname types the high-level APIs passed Returns Type Description string Uname string output"
-  },
-  "api/SpecProbe.Kernel.UnameTypes.html": {
-    "href": "api/SpecProbe.Kernel.UnameTypes.html",
-    "title": "Enum UnameTypes | SpecProbe API - Aptivi Internals",
-    "keywords": "Enum UnameTypes The uname types Namespace: SpecProbe.Kernel Assembly: SpecProbe.dll Syntax public enum UnameTypes Fields Name Description All All! same as \"uname -a\" KernelName The kernel name KernelRelease Kernel release version KernelVersion Kernel release extended version Machine Machine type NetworkNode The network node host name (usually a hostname) OperatingSystem Operating system type"
-  },
-  "api/SpecProbe.Kernel.html": {
-    "href": "api/SpecProbe.Kernel.html",
-    "title": "Namespace SpecProbe.Kernel | SpecProbe API - Aptivi Internals",
-    "keywords": "Namespace SpecProbe.Kernel Classes UnameManager Kernel information probing manager Enums UnameTypes The uname types"
-  },
   "index.html": {
     "href": "index.html",
     "title": "What is SpecProbe? | SpecProbe API - Aptivi Internals",

@@ -2,97 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.HardwareProber.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.HardwarePartType.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.MemoryPart.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.VideoPart.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.Types.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.Parts.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Hardware.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Kernel.UnameManager.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Kernel.UnameTypes.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://aptivi.github.io/SpecProbe/api/SpecProbe.Kernel.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://aptivi.github.io/SpecProbe/index.html</loc>
-    <lastmod>2023-11-29T10:55:01+00:00</lastmod>
+    <lastmod>2023-11-29T11:06:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

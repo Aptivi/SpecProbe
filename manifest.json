@@ -134,36 +134,6 @@
       "version": ""
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Kernel.UnameManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Kernel.UnameManager.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Kernel.UnameTypes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Kernel.UnameTypes.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Kernel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Kernel.html"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
