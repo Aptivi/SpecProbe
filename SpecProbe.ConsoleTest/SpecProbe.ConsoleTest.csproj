@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Terminaux" Version="1.12.1.1" />
+    <PackageReference Include="Terminaux" Version="1.12.3" />
   </ItemGroup>
 
   <ItemGroup>
