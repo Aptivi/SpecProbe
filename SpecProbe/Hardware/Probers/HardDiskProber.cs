@@ -43,8 +43,8 @@ namespace SpecProbe.Hardware.Probers
         {
             // TODO: Android devices must be rooted to be able to run this.
             // Some variables to install.
-            List<HardDiskPart> diskParts = new();
-            List<HardDiskPart.PartitionPart> partitions = new();
+            List<HardDiskPart> diskParts = [];
+            List<HardDiskPart.PartitionPart> partitions = [];
 
             // Get the blocks
             try
@@ -105,7 +105,7 @@ namespace SpecProbe.Hardware.Probers
                         {
                             HardDiskSize = actualSize,
                             HardDiskNumber = devNum,
-                            Partitions = partitions.ToArray(),
+                            Partitions = [.. partitions],
                         });
                         partitions.Clear();
                     }
@@ -123,13 +123,13 @@ namespace SpecProbe.Hardware.Probers
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Some variables to install.
-            List<HardDiskPart> diskParts = new();
-            List<HardDiskPart.PartitionPart> partitions = new();
+            List<HardDiskPart> diskParts = [];
+            List<HardDiskPart.PartitionPart> partitions = [];
 
             // Get the blocks
             try
             {
-                List<int> virtuals = new();
+                List<int> virtuals = [];
                 string blockListFolder = "/dev";
                 string[] blockFolders = Directory.GetFiles(blockListFolder).Where((dir) => dir.Contains("/dev/disk")).ToArray();
                 for (int i = 0; i < blockFolders.Length; i++)
@@ -232,7 +232,7 @@ namespace SpecProbe.Hardware.Probers
                         {
                             HardDiskSize = actualSize,
                             HardDiskNumber = diskNum,
-                            Partitions = partitions.ToArray(),
+                            Partitions = [.. partitions],
                         });
                     }
                     else
@@ -242,7 +242,7 @@ namespace SpecProbe.Hardware.Probers
                             PartitionNumber = partNum,
                             PartitionSize = (long)actualSize,
                         });
-                        diskParts[diskNum - 1].Partitions = partitions.ToArray();
+                        diskParts[diskNum - 1].Partitions = [.. partitions];
                     }
                 }
             }
@@ -257,14 +257,14 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
-            List<HardDiskPart> diskParts = new();
-            List<HardDiskPart.PartitionPart> partitions = new();
+            List<HardDiskPart> diskParts = [];
+            List<HardDiskPart.PartitionPart> partitions = [];
 
             try
             {
                 // First, get the list of logical partitions so that we can get the letters agnostically
                 var drives = DriveInfo.GetDrives();
-                List<(string letter, long partSize)> parts = new();
+                List<(string letter, long partSize)> parts = [];
                 foreach (var drive in drives)
                 {
                     if (drive.IsReady)
@@ -276,7 +276,7 @@ namespace SpecProbe.Hardware.Probers
                 }
 
                 // Then, open the file handle to these drives for us to be able to get the hard drive geometry
-                List<IntPtr> driveHandles = new();
+                List<IntPtr> driveHandles = [];
                 foreach (var (letter, partSize) in parts)
                 {
                     IntPtr driveHandle = PlatformWindowsInterop.CreateFile(letter, FileAccess.Read, FileShare.ReadWrite, IntPtr.Zero, FileMode.Open, FileAttributes.System, IntPtr.Zero);
@@ -318,7 +318,7 @@ namespace SpecProbe.Hardware.Probers
                         PartitionSize = parts[i].partSize,
                     });
                     diskParts[^1].HardDiskNumber = diskNum;
-                    diskParts[^1].Partitions = partitions.ToArray();
+                    diskParts[^1].Partitions = [.. partitions];
                 }
             }
             catch (Exception ex)

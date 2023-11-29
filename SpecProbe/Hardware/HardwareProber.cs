@@ -30,7 +30,7 @@ namespace SpecProbe.Hardware
     public static class HardwareProber
     {
         internal static bool notarized = false;
-        internal static List<Exception> errors = new();
+        internal static List<Exception> errors = [];
         private static ProcessorPart[] cachedProcessors;
         private static MemoryPart[] cachedMemory;
         private static VideoPart[] cachedVideos;

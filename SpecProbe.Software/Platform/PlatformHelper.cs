@@ -16,14 +16,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using SpecProbe.Kernel;
+using SpecProbe.Software.Kernel;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace SpecProbe.Platform
 {
-    internal static class PlatformHelper
+    /// <summary>
+    /// Platform helper
+    /// </summary>
+    public static class PlatformHelper
     {
         /// <summary>
         /// Is this system a Windows system?

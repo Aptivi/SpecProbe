@@ -22,7 +22,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace SpecProbe.Kernel
+namespace SpecProbe.Software.Kernel
 {
     /// <summary>
     /// Kernel information probing manager
@@ -78,7 +78,7 @@ namespace SpecProbe.Kernel
             UnameS.WaitForExit();
 
             // Return the output
-            return UnameS.StandardOutput.ReadToEnd().Trim(new char[] { '\n' });
+            return UnameS.StandardOutput.ReadToEnd().Trim(['\n']);
         }
     }
 }

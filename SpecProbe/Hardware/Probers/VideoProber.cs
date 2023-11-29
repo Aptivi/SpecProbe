@@ -52,7 +52,7 @@ namespace SpecProbe.Hardware.Probers
                 {
                     // The system is running proprietary NVIDIA drivers. Use the interface for performance
                     string[] nvidiaGpuFolders = Directory.GetDirectories(nvidiaGpuListDirectory).Where((dir) => !dir.EndsWith("power")).ToArray();
-                    List<VideoPart> videos = new();
+                    List<VideoPart> videos = [];
                     foreach (string nvidiaGpuFolder in nvidiaGpuFolders)
                     {
                         // Get information
@@ -109,7 +109,7 @@ namespace SpecProbe.Hardware.Probers
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Video card list
-            List<VideoPart> videos = new();
+            List<VideoPart> videos = [];
 
             // Some tags
             string videoCardNameTag = "Device ID:";
@@ -157,7 +157,7 @@ namespace SpecProbe.Hardware.Probers
         public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOSNotarized()
         {
             // Video card list
-            List<VideoPart> videos = new();
+            List<VideoPart> videos = [];
 
             // Some variables to install.
             string videoCardName;
@@ -210,7 +210,7 @@ namespace SpecProbe.Hardware.Probers
 
         public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
-            List<VideoPart> parts = new();
+            List<VideoPart> parts = [];
 
             try
             {
