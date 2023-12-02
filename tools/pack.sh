@@ -34,6 +34,7 @@ fi
 # Pack binary
 echo Packing binary...
 cd "../SpecProbe.Bin/net8.0/" && "$zippath" -r /tmp/$version-bin.zip . && cd -
+cd "../SpecProbe.Bin/netstandard2.0/" && "$zippath" -r /tmp/$version-software.zip . && cd -
 cd "../SpecProbe.ConsoleTest.Bin/net8.0/" && "$zippath" -r /tmp/$version-bin.zip . && cd -
 if [ ! $? == 0 ]; then
 	echo Packing using zip failed.
@@ -42,6 +43,7 @@ fi
 
 # Inform success
 mv ~/tmp/$version-bin.zip .
+mv ~/tmp/$version-software.zip .
 mv ~/tmp/$version-demo.zip .
 echo Build and pack successful.
 exit 0
