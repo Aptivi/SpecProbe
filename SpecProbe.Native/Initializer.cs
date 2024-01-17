@@ -23,6 +23,10 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+#if !NETCOREAPP
+using NativeLibraryManager;
+#endif
+
 namespace SpecProbe.Native
 {
     internal static class Initializer
@@ -36,8 +40,24 @@ namespace SpecProbe.Native
                 return;
             string libPath = GetLibraryPath();
             if (!File.Exists(libPath))
-                throw new Exception("Can't load specprober library.");
+                throw new Exception("Can't load specprober library because it isn't found.");
+#if NETCOREAPP
             NativeLibrary.SetDllImportResolver(typeof(Initializer).Assembly, ResolveLibrary);
+#else
+            var bytes = File.ReadAllBytes(GetLibraryPath());
+            var libManager = new LibraryManager(
+                new LibraryItem(NativeLibraryManager.Platform.Windows, Bitness.x32,
+                    new LibraryFile("libspecprober.dll", bytes)),
+                new LibraryItem(NativeLibraryManager.Platform.Windows, Bitness.x64,
+                    new LibraryFile("libspecprober.dll", bytes)),
+                new LibraryItem(NativeLibraryManager.Platform.MacOs, Bitness.x64,
+                    new LibraryFile("libspecprober.dylib", bytes)),
+                new LibraryItem(NativeLibraryManager.Platform.Linux, Bitness.x64,
+                    new LibraryFile("libspecprober.so", bytes)),
+                new LibraryItem(NativeLibraryManager.Platform.Linux, Bitness.x32,
+                    new LibraryFile("libspecprober.so", bytes)));
+            libManager.LoadNativeLibrary();
+#endif
             _initialized = true;
         }
 
@@ -55,6 +75,7 @@ namespace SpecProbe.Native
             return path;
         }
 
+#if NETCOREAPP
         private static nint ResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
         {
             IntPtr libHandle = IntPtr.Zero;
@@ -65,6 +86,7 @@ namespace SpecProbe.Native
             }
             return libHandle;
         }
+#endif
 
         /// <summary>
         /// Is this system a Windows system?
