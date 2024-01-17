@@ -58,7 +58,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-    <PackageReference Include="NativeLibraryManager" Version="1.0.23" Condition="'$(TargetFramework)' == 'net48'" />
+    <PackageReference Include="NativeLand" Version="1.0.0" Condition="'$(TargetFramework)' == 'net48'" />
   </ItemGroup>
 
 </Project>

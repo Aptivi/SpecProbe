@@ -24,7 +24,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 #if !NETCOREAPP
-using NativeLibraryManager;
+using NativeLand;
 #endif
 
 namespace SpecProbe.Native
@@ -46,15 +46,15 @@ namespace SpecProbe.Native
 #else
             var bytes = File.ReadAllBytes(GetLibraryPath());
             var libManager = new LibraryManager(
-                new LibraryItem(NativeLibraryManager.Platform.Windows, Bitness.x32,
+                new LibraryItem(NativeLand.Tools.Platform.Windows, Architecture.X86,
                     new LibraryFile("libspecprober.dll", bytes)),
-                new LibraryItem(NativeLibraryManager.Platform.Windows, Bitness.x64,
+                new LibraryItem(NativeLand.Tools.Platform.Windows, Architecture.X64,
                     new LibraryFile("libspecprober.dll", bytes)),
-                new LibraryItem(NativeLibraryManager.Platform.MacOs, Bitness.x64,
+                new LibraryItem(NativeLand.Tools.Platform.MacOS, Architecture.X64,
                     new LibraryFile("libspecprober.dylib", bytes)),
-                new LibraryItem(NativeLibraryManager.Platform.Linux, Bitness.x64,
+                new LibraryItem(NativeLand.Tools.Platform.Linux, Architecture.X64,
                     new LibraryFile("libspecprober.so", bytes)),
-                new LibraryItem(NativeLibraryManager.Platform.Linux, Bitness.x32,
+                new LibraryItem(NativeLand.Tools.Platform.Linux, Architecture.X86,
                     new LibraryFile("libspecprober.so", bytes)));
             libManager.LoadNativeLibrary();
 #endif
