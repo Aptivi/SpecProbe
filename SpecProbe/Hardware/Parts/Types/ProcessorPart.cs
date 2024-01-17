@@ -109,7 +109,7 @@ namespace SpecProbe.Hardware.Parts.Types
                 {
                     "AuthenticAMD" => "AMD",
                     "GenuineIntel" => "Intel",
-                    _              => Name.Contains(' ') ? Name.Split(' ')[0] : "Unknown",
+                    _              => Name.Contains(" ") ? Name.Split(' ')[0] : "Unknown",
                 };
             }
         }

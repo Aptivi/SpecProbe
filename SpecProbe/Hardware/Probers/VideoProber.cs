@@ -65,7 +65,7 @@ namespace SpecProbe.Hardware.Probers
                             if (gpuStateStr.StartsWith(modelTag))
                             {
                                 // Trim the tag to get the GPU name, such as "GeForce GTX 680", "Tesla P100-PCIE-12GB", or "GeForce RTX 4090"
-                                videoCardName = gpuStateStr[modelTag.Length..];
+                                videoCardName = gpuStateStr.Substring(modelTag.Length);
                             }
                         }
 
@@ -89,7 +89,7 @@ namespace SpecProbe.Hardware.Probers
                         if (glxinfoOutputLine.StartsWith(rendererTag))
                         {
                             // Trim the tag to get the GPU name.
-                            videoCardName = glxinfoOutputLine[rendererTag.Length..];
+                            videoCardName = glxinfoOutputLine.Substring(rendererTag.Length);
                         }
                     }
                 }
@@ -134,9 +134,9 @@ namespace SpecProbe.Hardware.Probers
                 {
                     string line = sysctlOutputLine.Trim();
                     if (line.StartsWith(videoCardNameTag))
-                        videoCardDevName = line[videoCardNameTag.Length..].Trim();
+                        videoCardDevName = line.Substring(videoCardNameTag.Length).Trim();
                     if (line.StartsWith(videoCardVendorTag))
-                        videoCardVendor = line[videoCardVendorTag.Length..].Trim();
+                        videoCardVendor = line.Substring(videoCardVendorTag.Length).Trim();
                 }
                 videoCardName = 
                     $"V: {videoCardVendor} " +

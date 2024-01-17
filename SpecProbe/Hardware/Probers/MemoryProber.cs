@@ -120,9 +120,9 @@ namespace SpecProbe.Hardware.Probers
                 foreach (string sysctlOutputLine in sysctlOutputLines)
                 {
                     if (sysctlOutputLine.StartsWith(total))
-                        totalMemory = long.Parse(sysctlOutputLine[total.Length..]);
+                        totalMemory = long.Parse(sysctlOutputLine.Substring(total.Length));
                     if (sysctlOutputLine.StartsWith(totalUsable))
-                        totalPhysicalMemory = long.Parse(sysctlOutputLine[totalUsable.Length..]);
+                        totalPhysicalMemory = long.Parse(sysctlOutputLine.Substring(totalUsable.Length));
                 }
             }
             catch (Exception ex)

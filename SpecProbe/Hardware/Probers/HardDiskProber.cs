@@ -69,11 +69,11 @@ namespace SpecProbe.Hardware.Probers
                         ulong actualSize = blockSize * 512;
 
                         // Get the partitions
-                        string devName = blockFolder[(blockFolder.LastIndexOf("/") + 1)..];
+                        string devName = blockFolder.Substring(blockFolder.LastIndexOf("/") + 1);
                         string devPartFolderInitial = $"{blockFolder}/{devName}";
 
                         // Check if the dev name ends with a number (such as nvme0n1p1, mmcblk0p1, etc.)
-                        bool appendPartitionChar = int.TryParse($"{devName[^1]}", out int devNum);
+                        bool appendPartitionChar = int.TryParse($"{devName[devName.Length - 1]}", out int devNum);
                         int partNum = 1;
                         while (true)
                         {
@@ -166,23 +166,23 @@ namespace SpecProbe.Hardware.Probers
                         if (trimmedLine.StartsWith(blockVirtualTag))
                         {
                             // Trim the tag to get the value.
-                            blockVirtual = trimmedLine[blockVirtualTag.Length..].Trim() == diskUtilTrue;
+                            blockVirtual = trimmedLine.Substring(blockVirtualTag.Length).Trim() == diskUtilTrue;
                         }
                         if (trimmedLine.StartsWith(blockRemovableMediaTag))
                         {
                             // Trim the tag to get the value.
-                            blockFixed = trimmedLine[blockRemovableMediaTag.Length..].Trim() == diskUtilFixed;
+                            blockFixed = trimmedLine.Substring(blockRemovableMediaTag.Length).Trim() == diskUtilFixed;
                         }
                         if (trimmedLine.StartsWith(blockIsWholeTag))
                         {
                             // Trim the tag to get the value.
-                            blockIsDisk = trimmedLine[blockIsWholeTag.Length..].Trim() == diskUtilTrue;
+                            blockIsDisk = trimmedLine.Substring(blockIsWholeTag.Length).Trim() == diskUtilTrue;
                         }
                         if (trimmedLine.StartsWith(blockDiskTag))
                         {
                             // Trim the tag to get the value.
-                            reallyDiskId = trimmedLine[blockDiskTag.Length..].Trim();
-                            diskNum = int.Parse(reallyDiskId["disk".Length..]) + 1;
+                            reallyDiskId = trimmedLine.Substring(blockDiskTag.Length).Trim();
+                            diskNum = int.Parse(reallyDiskId.Substring("disk".Length)) + 1;
                             if (virtuals.Contains(diskNum))
                                 blockVirtual = true;
                         }
@@ -190,22 +190,22 @@ namespace SpecProbe.Hardware.Probers
                         {
                             // Trim the tag to get the value like:
                             //    Disk Size:                 107.4 GB (107374182400 Bytes) (exactly 209715200 512-Byte-Units)
-                            string sizes = trimmedLine[blockDiskSizeTag.Length..].Trim();
+                            string sizes = trimmedLine.Substring(blockDiskSizeTag.Length).Trim();
 
                             // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
                             // get the number of bytes from that.
-                            sizes = sizes[(sizes.IndexOf('(') + 1)..sizes.IndexOf(" Bytes)")];
+                            sizes = sizes.Substring((sizes.IndexOf('(') + 1), sizes.IndexOf(" Bytes)"));
                             actualSize = ulong.Parse(sizes);
                         }
                         if (trimmedLine.StartsWith(blockVirtualDiskSizeTag) && blockVirtual)
                         {
                             // Trim the tag to get the value like:
                             //    Volume Used Space:         2.0 GB (2013110272 Bytes) (exactly 3931856 512-Byte-Units)
-                            string sizes = trimmedLine[blockVirtualDiskSizeTag.Length..].Trim();
+                            string sizes = trimmedLine.Substring(blockVirtualDiskSizeTag.Length).Trim();
 
                             // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
                             // get the number of bytes from that.
-                            sizes = sizes[(sizes.IndexOf('(') + 1)..sizes.IndexOf(" Bytes)")];
+                            sizes = sizes.Substring((sizes.IndexOf('(') + 1), sizes.IndexOf(" Bytes)"));
                             actualSize = ulong.Parse(sizes);
                         }
                     }
@@ -218,8 +218,8 @@ namespace SpecProbe.Hardware.Probers
                     int partNum = 0;
                     if (!blockIsDisk)
                     {
-                        string part = Path.GetFileName(blockFolder)[(reallyDiskId.Length + 1)..];
-                        part = part.Contains("s") ? part[..part.IndexOf("s")] : part;
+                        string part = Path.GetFileName(blockFolder).Substring(reallyDiskId.Length + 1);
+                        part = part.Contains("s") ? part.Substring(0, part.IndexOf("s")) : part;
                         partNum = int.Parse(part);
                     }
                     if (blockVirtual && !virtuals.Contains(diskNum))

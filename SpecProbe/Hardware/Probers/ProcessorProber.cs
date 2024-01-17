@@ -88,7 +88,7 @@ namespace SpecProbe.Hardware.Probers
                         if (cpuInfoLine.StartsWith(armVendorName))
                         {
                             string armVendorId = cpuInfoLine.Replace(armVendorName, "");
-                            armVendorId = armVendorId[2..];
+                            armVendorId = armVendorId.Substring(2);
                             int armVendorIdInt = int.Parse(armVendorId, NumberStyles.AllowHexSpecifier);
                             cpuidVendor = armVendorIdInt switch
                             {
@@ -237,19 +237,19 @@ namespace SpecProbe.Hardware.Probers
                 foreach (string sysctlOutputLine in sysctlOutputLines)
                 {
                     if (sysctlOutputLine.StartsWith(physicalId))
-                        numberOfCores = int.Parse(sysctlOutputLine[physicalId.Length..]);
+                        numberOfCores = int.Parse(sysctlOutputLine.Substring(physicalId.Length));
                     if (sysctlOutputLine.StartsWith(cpuCores))
-                        numberOfCoresForEachCore = int.Parse(sysctlOutputLine[cpuCores.Length..]);
+                        numberOfCoresForEachCore = int.Parse(sysctlOutputLine.Substring(cpuCores.Length));
                     if (sysctlOutputLine.StartsWith(cpuClockSpeed))
-                        clockSpeed = double.Parse(sysctlOutputLine[cpuClockSpeed.Length..]) / 1000 / 1000;
+                        clockSpeed = double.Parse(sysctlOutputLine.Substring(cpuClockSpeed.Length)) / 1000 / 1000;
                     if (sysctlOutputLine.StartsWith(vendorId) && string.IsNullOrEmpty(cpuidVendor))
-                        cpuidVendor = sysctlOutputLine[vendorId.Length..];
+                        cpuidVendor = sysctlOutputLine.Substring(vendorId.Length);
                     if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
-                        name = sysctlOutputLine[modelId.Length..];
+                        name = sysctlOutputLine.Substring(modelId.Length);
                     if (sysctlOutputLine.StartsWith(l1Name))
-                        cacheL1 = uint.Parse(sysctlOutputLine[l1Name.Length..]);
+                        cacheL1 = uint.Parse(sysctlOutputLine.Substring(l1Name.Length));
                     if (sysctlOutputLine.StartsWith(l2Name))
-                        cacheL2 = uint.Parse(sysctlOutputLine[l2Name.Length..]);
+                        cacheL2 = uint.Parse(sysctlOutputLine.Substring(l2Name.Length));
                 }
             }
             catch (Exception ex)
