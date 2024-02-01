@@ -522,3 +522,37 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
   nameWithType: VideoPart.VideoCardName
+- uid: SpecProbe.Platform
+  name: SpecProbe.Platform
+  href: api/SpecProbe.Platform.html
+  commentId: N:SpecProbe.Platform
+  fullName: SpecProbe.Platform
+  nameWithType: SpecProbe.Platform
+- uid: SpecProbe.Platform.RidGraphReader
+  name: RidGraphReader
+  href: api/SpecProbe.Platform.RidGraphReader.html
+  commentId: T:SpecProbe.Platform.RidGraphReader
+  fullName: SpecProbe.Platform.RidGraphReader
+  nameWithType: RidGraphReader
+- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid
+  name: GetGraphFromRid()
+  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid
+  commentId: M:SpecProbe.Platform.RidGraphReader.GetGraphFromRid
+  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid()
+  nameWithType: RidGraphReader.GetGraphFromRid()
+- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(System.String)
+  name: GetGraphFromRid(string)
+  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid_System_String_
+  commentId: M:SpecProbe.Platform.RidGraphReader.GetGraphFromRid(System.String)
+  name.vb: GetGraphFromRid(String)
+  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(string)
+  fullName.vb: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(String)
+  nameWithType: RidGraphReader.GetGraphFromRid(string)
+  nameWithType.vb: RidGraphReader.GetGraphFromRid(String)
+- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid*
+  name: GetGraphFromRid
+  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid_
+  commentId: Overload:SpecProbe.Platform.RidGraphReader.GetGraphFromRid
+  isSpec: "True"
+  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid
+  nameWithType: RidGraphReader.GetGraphFromRid

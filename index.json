@@ -59,6 +59,16 @@
     "title": "Namespace SpecProbe.Hardware | SpecProbe API - Aptivi",
     "keywords": "Namespace SpecProbe.Hardware Classes HardwareProber Hardware probing class"
   },
+  "api/SpecProbe.Platform.RidGraphReader.html": {
+    "href": "api/SpecProbe.Platform.RidGraphReader.html",
+    "title": "Class RidGraphReader | SpecProbe API - Aptivi",
+    "keywords": "Class RidGraphReader Tools for reading the RID graph Inheritance object RidGraphReader Namespace: SpecProbe.Platform Assembly: SpecProbe.dll Syntax public static class RidGraphReader Methods | Edit this page View Source GetGraphFromRid() Gets the graph from the current RID Declaration public static string[] GetGraphFromRid() Returns Type Description string[] List of RIDs from the current RID to the base RID | Edit this page View Source GetGraphFromRid(string) Gets the graph from the specified RID Declaration public static string[] GetGraphFromRid(string rid) Parameters Type Name Description string rid Returns Type Description string[] List of RIDs from the specified RID to the base RID"
+  },
+  "api/SpecProbe.Platform.html": {
+    "href": "api/SpecProbe.Platform.html",
+    "title": "Namespace SpecProbe.Platform | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Platform Classes RidGraphReader Tools for reading the RID graph"
+  },
   "index.html": {
     "href": "index.html",
     "title": "| SpecProbe API - Aptivi",
