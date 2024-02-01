@@ -19,6 +19,7 @@
 
 using SpecProbe.Hardware;
 using SpecProbe.Hardware.Parts.Types;
+using SpecProbe.Platform;
 using System.Diagnostics;
 using Terminaux.Writer.ConsoleWriters;
 using Terminaux.Writer.FancyWriters;
@@ -120,6 +121,18 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor($"{partition.PartitionSize}", true, 8);
                 }
             }
+            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+            TextWriterColor.Write();
+            stopwatch.Reset();
+
+            // RID graph
+            SeparatorWriterColor.WriteSeparator("RID graph", true, 15);
+            stopwatch.Start();
+            string[] graph = RidGraphReader.GetGraphFromRid();
+            stopwatch.Stop();
+            TextWriterColor.WriteColor("- Found RIDs: ", false, 3);
+            TextWriterColor.WriteColor($"{string.Join(", ", graph)}", true, 8);
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
             TextWriterColor.Write();
