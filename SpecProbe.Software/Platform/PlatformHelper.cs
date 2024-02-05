@@ -20,6 +20,8 @@
 using SpecProbe.Software.Kernel;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace SpecProbe.Platform
@@ -81,12 +83,84 @@ namespace SpecProbe.Platform
             RuntimeInformation.OSArchitecture == Architecture.Arm64;
 
         /// <summary>
+        /// Is this system a Unix system that contains musl libc?
+        /// </summary>
+        /// <returns>True if running on Unix systems that use musl libc. Otherwise, false.</returns>
+        public static bool IsOnUnixMusl()
+        {
+            try
+            {
+                if (!IsOnUnix() || IsOnMacOS() || IsOnWindows())
+                    return false;
+                var gnuRel = gnuGetLibcVersion();
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Is this system a Unix system that is from WSL (Windows Subsystem for Linux)?
+        /// </summary>
+        /// <returns>True if running on WSL. Otherwise, false.</returns>
+        public static bool IsOnUnixWsl()
+        {
+            // Now, get a path that allows us to detect WSL using WSLInterop.
+            string wslInteropPath = "/proc/sys/fs/binfmt_misc/WSLInterop";
+            string wslInteropMagic = "4d5a";
+
+            // Check to see if we have this file
+            if (!File.Exists(wslInteropPath))
+                return false;
+            string stream = File.ReadAllText(wslInteropPath);
+            return stream.Contains(wslInteropMagic);
+        }
+
+        /// <summary>
+        /// Polls $TERM_PROGRAM to get terminal emulator
+        /// </summary>
+        public static string GetTerminalEmulator() =>
+            Environment.GetEnvironmentVariable("TERM_PROGRAM") ?? "";
+
+        /// <summary>
+        /// Polls $TERM to get terminal type (vt100, dumb, ...)
+        /// </summary>
+        public static string GetTerminalType() =>
+            Environment.GetEnvironmentVariable("TERM") ?? "";
+
+        /// <summary>
+        /// Is Terminaux running from GRILO?
+        /// </summary>
+        public static bool IsRunningFromGrilo() =>
+            (Assembly.GetEntryAssembly()?.GetName()?.Name?.StartsWith("GRILO")) ?? false;
+
+        /// <summary>
+        /// Is Terminaux running from TMUX?
+        /// </summary>
+        public static bool IsRunningFromTmux() =>
+            Environment.GetEnvironmentVariable("TMUX") is not null;
+
+        /// <summary>
+        /// Is Terminaux running from GNU Screen?
+        /// </summary>
+        public static bool IsRunningFromScreen() =>
+            Environment.GetEnvironmentVariable("STY") is not null;
+
+        /// <summary>
+        /// Is Terminaux running from Mono?
+        /// </summary>
+        public static bool IsRunningFromMono() =>
+            Type.GetType("Mono.Runtime") is not null;
+
+        /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
         /// </summary>
         /// <param name="File">Full path to file</param>
         /// <param name="Args">Arguments, if any</param>
         /// <returns>Output of a command from stdout</returns>
-        public static string ExecuteProcessToString(string File, string Args)
+        internal static string ExecuteProcessToString(string File, string Args)
         {
             var CommandProcess = new Process();
             var CommandProcessStart = new ProcessStartInfo()
@@ -107,5 +181,10 @@ namespace SpecProbe.Platform
             CommandProcess.WaitForExit();
             return CommandProcess.StandardOutput.ReadToEnd();
         }
+
+        #region Interop
+        [DllImport("libc", EntryPoint = "gnu_get_libc_version")]
+        private static extern IntPtr gnuGetLibcVersion();
+        #endregion
     }
 }

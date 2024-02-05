@@ -138,6 +138,18 @@ namespace SpecProbe.ConsoleTest
             TextWriterColor.Write();
             stopwatch.Reset();
 
+            // WSL parse
+            SeparatorWriterColor.WriteSeparator("Running on WSL?", true, 15);
+            stopwatch.Start();
+            bool wsl = PlatformHelper.IsOnUnixWsl();
+            stopwatch.Stop();
+            TextWriterColor.WriteColor("- WSL: ", false, 3);
+            TextWriterColor.WriteColor($"{wsl}", true, 8);
+            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+            TextWriterColor.Write();
+            stopwatch.Reset();
+
             totalStopwatch.Stop();
             TextWriterColor.WriteColor("Total time: ", false, 3);
             TextWriterColor.WriteColor($"{totalStopwatch.Elapsed}", true, 8);
