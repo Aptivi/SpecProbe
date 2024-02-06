@@ -16,6 +16,7 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageIcon>OfficialAppIcon-SpecProbe-512.png</PackageIcon>
     <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Aptivi/SpecProbe.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
