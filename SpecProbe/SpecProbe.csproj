@@ -7,7 +7,7 @@
     <PackageOutputPath>../SpecProbe.Bin</PackageOutputPath>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>1.4.1</Version>
+    <Version>1.4.2</Version>
     <Authors>Aptivi</Authors>
     <Description>SpecProbe is the reboot of the Linux, macOS, and Windows hardware information frontend.</Description>
     <Copyright>Copyright © 2023 Aptivi</Copyright>
