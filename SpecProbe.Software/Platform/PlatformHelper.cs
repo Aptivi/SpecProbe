@@ -46,13 +46,6 @@ namespace SpecProbe.Platform
             IsOnWindows() || IsOnUnixWsl();
 
         /// <summary>
-        /// Is this system a Windows system and a WSL system?
-        /// </summary>
-        /// <returns>True if running on Windows (Windows 10, Windows 11, etc.) and running on WSL. Otherwise, false.</returns>
-        public static bool IsOnWindowsAndWsl() =>
-            IsOnWindows() && IsOnUnixWsl();
-
-        /// <summary>
         /// Is this system a Unix system? True for macOS, too!
         /// </summary>
         /// <returns>True if running on Unix (Linux, *nix, etc.). Otherwise, false.</returns>
