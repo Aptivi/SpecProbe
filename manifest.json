@@ -2,7 +2,7 @@
   "sitemap": {
     "baseUrl": "https://aptivi.github.io/SpecProbe/"
   },
-  "source_base_path": "/github/workspace/DocGen",
+  "source_base_path": "/home/runner/work/SpecProbe/SpecProbe/DocGen",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
