@@ -1,4 +1,4 @@
-OUTPUTS = SpecProbe.*/bin SpecProbe.*/obj SpecProbe/bin SpecProbe/obj
+OUTPUTS = SpecProbe.*/bin SpecProbe.*/obj SpecProbe/bin SpecProbe/obj SpecProbe.Bin SpecProbe.ConsoleTest.Bin
 
 .PHONY: all
 
@@ -8,6 +8,12 @@ all: all-online
 
 all-online:
 	$(MAKE) -C tools invoke-build
+
+dbg:
+	$(MAKE) -C tools invoke-build ENVIRONMENT=Debug
+
+doc:
+	$(MAKE) -C tools invoke-doc-build
 
 clean:
 	rm -rf $(OUTPUTS)
