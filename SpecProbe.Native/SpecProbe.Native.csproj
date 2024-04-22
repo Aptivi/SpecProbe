@@ -4,8 +4,6 @@
     <TargetFrameworks>net8.0;net48</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageOutputPath>../SpecProbe.Bin</PackageOutputPath>
-    <OutputPath>../SpecProbe.Bin/</OutputPath>
     <Nullable>disable</Nullable>
     <PackageId>SpecProbe.Native</PackageId>
     <Authors>Aptivi</Authors>

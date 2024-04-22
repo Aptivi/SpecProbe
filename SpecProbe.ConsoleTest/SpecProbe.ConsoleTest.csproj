@@ -9,7 +9,6 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\aptivi_snk.snk</AssemblyOriginatorKeyFile>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <OutputPath>../SpecProbe.ConsoleTest.Bin/</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
