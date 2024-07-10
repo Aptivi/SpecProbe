@@ -194,7 +194,8 @@ namespace SpecProbe.Hardware.Probers
 
                             // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
                             // get the number of bytes from that.
-                            sizes = sizes.Substring((sizes.IndexOf('(') + 1), sizes.IndexOf(" Bytes)"));
+                            sizes = sizes.Substring(sizes.IndexOf('(') + 1);
+                            sizes = sizes.Substring(0, sizes.IndexOf(' '));
                             actualSize = ulong.Parse(sizes);
                         }
                         if (trimmedLine.StartsWith(blockVirtualDiskSizeTag) && blockVirtual)
@@ -205,7 +206,8 @@ namespace SpecProbe.Hardware.Probers
 
                             // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
                             // get the number of bytes from that.
-                            sizes = sizes.Substring((sizes.IndexOf('(') + 1), sizes.IndexOf(" Bytes)"));
+                            sizes = sizes.Substring(sizes.IndexOf('(') + 1);
+                            sizes = sizes.Substring(0, sizes.IndexOf(' '));
                             actualSize = ulong.Parse(sizes);
                         }
                     }
