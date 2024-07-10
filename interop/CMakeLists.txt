@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(specprober
-    VERSION     0.1.0
+    VERSION     0.1.0.1
     DESCRIPTION "Native helper library for SpecProbe's managed world hardware parsing"
     LANGUAGES   C
 )

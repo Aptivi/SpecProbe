@@ -19,51 +19,18 @@
 /* -------------------------------------------------------------------- */
 
 #include <stdio.h>
+#include <cpuid.h>
 #include <string.h>
 #include <stdlib.h>
 
 /* -------------------------------------------------------------------- */
 
-#define EAX_VENDOR     0x80000000 ;
-#define EAX_NAME_PART1 0x80000002 ;
-#define EAX_NAME_PART2 0x80000003 ;
-#define EAX_NAME_PART3 0x80000004 ;
+#define EAX_VENDOR     0x0
+#define EAX_NAME_PART1 0x80000002
+#define EAX_NAME_PART2 0x80000003
+#define EAX_NAME_PART3 0x80000004
 
 /* -------------------------------------------------------------------- */
-
-static inline
-void
-    native_cpuid
-    (
-        unsigned int *eax,
-        unsigned int *ebx,
-        unsigned int *ecx,
-        unsigned int *edx
-    )
-/*
- * -----------------------------------------------------------------------
- * Name        : native_cpuid
- * Description : Assembly code to get CPUID information
- * -----------------------------------------------------------------------
- * Arguments   :
- *   - [OUT] eax: EAX address containing the first part of the result
- *   - [OUT] ebx: EBX address containing the second part of the result
- *   - [OUT] ecx: ECX address containing the third part of the result
- *   - [OUT] edx: EDX address containing the fourth part of the result
- * Returning   : Nothing
- * -----------------------------------------------------------------------
- * Exposure    : Internal
- * -----------------------------------------------------------------------
- */
-{
-    asm volatile("cpuid"
-    : "=a" (*eax),
-      "=b" (*ebx),
-      "=c" (*ecx),
-      "=d" (*edx)
-    : "0" (*eax), "2" (*ecx)
-    : "memory");
-}
 
 char*
     specprobe_get_vendor
@@ -83,8 +50,7 @@ char*
 {
     // Vendor (AuthenticAMD, GenuineIntel, ...)
     unsigned int eax, ebx, ecx, edx;
-    eax = EAX_VENDOR;
-    native_cpuid(&eax, &ebx, &ecx, &edx);
+    __get_cpuid(EAX_VENDOR, &eax, &ebx, &ecx, &edx);
 
     // Create a new string containing vendor information
     char* vendor = (char*)malloc(13);
@@ -116,8 +82,7 @@ specprobe_get_cpu_name
 {
     // CPU name (AMD Athlon(tm) XP 1500+, ...)
     unsigned int eax, ebx, ecx, edx;
-    eax = EAX_NAME_PART1;
-    native_cpuid(&eax, &ebx, &ecx, &edx);
+    __get_cpuid(EAX_NAME_PART1, &eax, &ebx, &ecx, &edx);
 
     // Do the allocation work, part 1...
     char* name = (char*)malloc(49);
@@ -127,16 +92,14 @@ specprobe_get_cpu_name
     memcpy(name + 12, &edx, 4);
 
     // Part 2...
-    eax = EAX_NAME_PART2;
-    native_cpuid(&eax, &ebx, &ecx, &edx);
+    __get_cpuid(EAX_NAME_PART2, &eax, &ebx, &ecx, &edx);
     memcpy(name + 16, &eax, 4);
     memcpy(name + 20, &ebx, 4);
     memcpy(name + 24, &ecx, 4);
     memcpy(name + 28, &edx, 4);
 
     // Part 3...
-    eax = EAX_NAME_PART3;
-    native_cpuid(&eax, &ebx, &ecx, &edx);
+    __get_cpuid(EAX_NAME_PART3, &eax, &ebx, &ecx, &edx);
     memcpy(name + 32, &eax, 4);
     memcpy(name + 36, &ebx, 4);
     memcpy(name + 40, &ecx, 4);
