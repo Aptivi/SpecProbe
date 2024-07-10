@@ -36,7 +36,7 @@ namespace SpecProbe.ConsoleTest
             var totalStopwatch = new Stopwatch();
 
             // Processor
-            SeparatorWriterColor.WriteSeparatorColor("Processor information", true, 15);
+            SeparatorWriterColor.WriteSeparatorColor("Processor information", 15);
             stopwatch.Start();
             totalStopwatch.Start();
             var processors = HardwareProber.Processors;
@@ -62,7 +62,7 @@ namespace SpecProbe.ConsoleTest
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             // Memory
@@ -81,7 +81,7 @@ namespace SpecProbe.ConsoleTest
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             // Video
@@ -96,7 +96,7 @@ namespace SpecProbe.ConsoleTest
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             // Hard drive
@@ -123,7 +123,7 @@ namespace SpecProbe.ConsoleTest
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             // RID graph
@@ -135,7 +135,7 @@ namespace SpecProbe.ConsoleTest
             TextWriterColor.WriteColor($"{string.Join(", ", graph)}", true, 8);
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             // WSL parse
@@ -147,13 +147,13 @@ namespace SpecProbe.ConsoleTest
             TextWriterColor.WriteColor($"{wsl}", true, 8);
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             stopwatch.Reset();
 
             totalStopwatch.Stop();
             TextWriterColor.WriteColor("Total time: ", false, 3);
             TextWriterColor.WriteColor($"{totalStopwatch.Elapsed}", true, 8);
-            TextWriterColor.Write();
+            TextWriterRaw.Write();
             totalStopwatch.Reset();
 
             // List errors
