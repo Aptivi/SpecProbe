@@ -38,10 +38,7 @@ namespace SpecProbe.Platform
 #if NET
             GetGraphFromRid(RuntimeInformation.RuntimeIdentifier);
 #else
-            GetGraphFromRid(
-                $"{(PlatformHelper.IsOnWindows() ? "win" : PlatformHelper.IsOnMacOS() ? "osx" : PlatformHelper.IsOnUnix() ? "linux" : "freebsd")}-" +
-                RuntimeInformation.OSArchitecture.ToString().ToLower()
-            );
+            GetGraphFromRid(PlatformHelper.GetCurrentGenericRid());
 #endif
 
         /// <summary>

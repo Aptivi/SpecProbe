@@ -68,6 +68,18 @@ namespace SpecProbe.Platform
         }
 
         /// <summary>
+        /// Is this system an Android system?
+        /// </summary>
+        /// <returns>True if running on Android phones using Termux. Otherwise, false.</returns>
+        public static bool IsOnAndroid()
+        {
+            if (IsOnUnix() && !IsOnMacOS())
+                return File.Exists("/system/build.prop");
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Is this system an ARM or ARM64 system?
         /// </summary>
         /// <returns>True if running on ARM or ARM64 systems. Otherwise, false.</returns>
@@ -160,6 +172,15 @@ namespace SpecProbe.Platform
         /// </summary>
         public static bool IsRunningFromMono() =>
             Type.GetType("Mono.Runtime") is not null;
+
+        /// <summary>
+        /// Gets the current runtime identifier
+        /// </summary>
+        /// <returns>Returns a runtime identifier (win-x64 for example).</returns>
+        public static string GetCurrentGenericRid() =>
+            $"{(IsOnWindows() ? "win" : IsOnMacOS() ? "osx" : IsOnUnix() ? "linux" : "freebsd")}-" +
+            $"{(IsOnUnixMusl() ? "musl-" : "")}" +
+            $"{RuntimeInformation.OSArchitecture.ToString().ToLower()}";
 
         /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
