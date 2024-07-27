@@ -20,6 +20,7 @@
 using SpecProbe.Hardware.Parts;
 using SpecProbe.Hardware.Parts.Types;
 using SpecProbe.Platform;
+using SpecProbe.Software.Platform;
 using System;
 using System.Globalization;
 using System.IO;

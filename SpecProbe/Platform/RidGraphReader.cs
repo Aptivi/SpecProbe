@@ -18,6 +18,7 @@
 //
 
 using SpecProbe.Properties;
+using SpecProbe.Software.Platform;
 using System;
 using System.Runtime.InteropServices;
 using System.Text.Json;

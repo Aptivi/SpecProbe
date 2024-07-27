@@ -20,6 +20,7 @@
 using SpecProbe.Hardware;
 using SpecProbe.Hardware.Parts.Types;
 using SpecProbe.Platform;
+using SpecProbe.Software.Platform;
 using System.Diagnostics;
 using Terminaux.Writer.ConsoleWriters;
 using Terminaux.Writer.FancyWriters;

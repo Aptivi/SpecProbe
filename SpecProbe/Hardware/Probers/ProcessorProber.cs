@@ -22,6 +22,7 @@ using SpecProbe.Hardware.Parts.Types;
 using SpecProbe.Native;
 using SpecProbe.Native.Helpers;
 using SpecProbe.Platform;
+using SpecProbe.Software.Platform;
 using System;
 using System.Globalization;
 using System.IO;

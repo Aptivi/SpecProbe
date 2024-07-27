@@ -24,7 +24,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace SpecProbe.Platform
+namespace SpecProbe.Software.Platform
 {
     /// <summary>
     /// Platform helper
