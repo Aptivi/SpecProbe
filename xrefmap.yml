@@ -1,588 +1,524 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: SpecProbe.Hardware
-  name: SpecProbe.Hardware
-  href: api/SpecProbe.Hardware.html
-  commentId: N:SpecProbe.Hardware
-  fullName: SpecProbe.Hardware
-  nameWithType: SpecProbe.Hardware
-- uid: SpecProbe.Hardware.HardwareProber
+- uid: SpecProbe
+  name: SpecProbe
+  href: api/SpecProbe.html
+  commentId: N:SpecProbe
+  fullName: SpecProbe
+  nameWithType: SpecProbe
+- uid: SpecProbe.HardwareProber
   name: HardwareProber
-  href: api/SpecProbe.Hardware.HardwareProber.html
-  commentId: T:SpecProbe.Hardware.HardwareProber
-  fullName: SpecProbe.Hardware.HardwareProber
+  href: api/SpecProbe.HardwareProber.html
+  commentId: T:SpecProbe.HardwareProber
+  fullName: SpecProbe.HardwareProber
   nameWithType: HardwareProber
-- uid: SpecProbe.Hardware.HardwareProber.Errors
+- uid: SpecProbe.HardwareProber.Errors
   name: Errors
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Errors
-  commentId: P:SpecProbe.Hardware.HardwareProber.Errors
-  fullName: SpecProbe.Hardware.HardwareProber.Errors
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Errors
+  commentId: P:SpecProbe.HardwareProber.Errors
+  fullName: SpecProbe.HardwareProber.Errors
   nameWithType: HardwareProber.Errors
-- uid: SpecProbe.Hardware.HardwareProber.Errors*
+- uid: SpecProbe.HardwareProber.Errors*
   name: Errors
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Errors_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.Errors
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Errors_
+  commentId: Overload:SpecProbe.HardwareProber.Errors
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.Errors
+  fullName: SpecProbe.HardwareProber.Errors
   nameWithType: HardwareProber.Errors
-- uid: SpecProbe.Hardware.HardwareProber.HardDisk
+- uid: SpecProbe.HardwareProber.HardDisk
   name: HardDisk
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_HardDisk
-  commentId: P:SpecProbe.Hardware.HardwareProber.HardDisk
-  fullName: SpecProbe.Hardware.HardwareProber.HardDisk
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_HardDisk
+  commentId: P:SpecProbe.HardwareProber.HardDisk
+  fullName: SpecProbe.HardwareProber.HardDisk
   nameWithType: HardwareProber.HardDisk
-- uid: SpecProbe.Hardware.HardwareProber.HardDisk*
+- uid: SpecProbe.HardwareProber.HardDisk*
   name: HardDisk
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_HardDisk_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.HardDisk
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_HardDisk_
+  commentId: Overload:SpecProbe.HardwareProber.HardDisk
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.HardDisk
+  fullName: SpecProbe.HardwareProber.HardDisk
   nameWithType: HardwareProber.HardDisk
-- uid: SpecProbe.Hardware.HardwareProber.Memory
+- uid: SpecProbe.HardwareProber.Memory
   name: Memory
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Memory
-  commentId: P:SpecProbe.Hardware.HardwareProber.Memory
-  fullName: SpecProbe.Hardware.HardwareProber.Memory
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Memory
+  commentId: P:SpecProbe.HardwareProber.Memory
+  fullName: SpecProbe.HardwareProber.Memory
   nameWithType: HardwareProber.Memory
-- uid: SpecProbe.Hardware.HardwareProber.Memory*
+- uid: SpecProbe.HardwareProber.Memory*
   name: Memory
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Memory_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.Memory
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Memory_
+  commentId: Overload:SpecProbe.HardwareProber.Memory
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.Memory
+  fullName: SpecProbe.HardwareProber.Memory
   nameWithType: HardwareProber.Memory
-- uid: SpecProbe.Hardware.HardwareProber.Processors
+- uid: SpecProbe.HardwareProber.Processors
   name: Processors
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Processors
-  commentId: P:SpecProbe.Hardware.HardwareProber.Processors
-  fullName: SpecProbe.Hardware.HardwareProber.Processors
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Processors
+  commentId: P:SpecProbe.HardwareProber.Processors
+  fullName: SpecProbe.HardwareProber.Processors
   nameWithType: HardwareProber.Processors
-- uid: SpecProbe.Hardware.HardwareProber.Processors*
+- uid: SpecProbe.HardwareProber.Processors*
   name: Processors
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Processors_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.Processors
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Processors_
+  commentId: Overload:SpecProbe.HardwareProber.Processors
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.Processors
+  fullName: SpecProbe.HardwareProber.Processors
   nameWithType: HardwareProber.Processors
-- uid: SpecProbe.Hardware.HardwareProber.SetNotarized(System.Boolean)
+- uid: SpecProbe.HardwareProber.SetNotarized(System.Boolean)
   name: SetNotarized(bool)
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_SetNotarized_System_Boolean_
-  commentId: M:SpecProbe.Hardware.HardwareProber.SetNotarized(System.Boolean)
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_SetNotarized_System_Boolean_
+  commentId: M:SpecProbe.HardwareProber.SetNotarized(System.Boolean)
   name.vb: SetNotarized(Boolean)
-  fullName: SpecProbe.Hardware.HardwareProber.SetNotarized(bool)
-  fullName.vb: SpecProbe.Hardware.HardwareProber.SetNotarized(Boolean)
+  fullName: SpecProbe.HardwareProber.SetNotarized(bool)
+  fullName.vb: SpecProbe.HardwareProber.SetNotarized(Boolean)
   nameWithType: HardwareProber.SetNotarized(bool)
   nameWithType.vb: HardwareProber.SetNotarized(Boolean)
-- uid: SpecProbe.Hardware.HardwareProber.SetNotarized*
+- uid: SpecProbe.HardwareProber.SetNotarized*
   name: SetNotarized
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_SetNotarized_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.SetNotarized
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_SetNotarized_
+  commentId: Overload:SpecProbe.HardwareProber.SetNotarized
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.SetNotarized
+  fullName: SpecProbe.HardwareProber.SetNotarized
   nameWithType: HardwareProber.SetNotarized
-- uid: SpecProbe.Hardware.HardwareProber.Video
+- uid: SpecProbe.HardwareProber.Video
   name: Video
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Video
-  commentId: P:SpecProbe.Hardware.HardwareProber.Video
-  fullName: SpecProbe.Hardware.HardwareProber.Video
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Video
+  commentId: P:SpecProbe.HardwareProber.Video
+  fullName: SpecProbe.HardwareProber.Video
   nameWithType: HardwareProber.Video
-- uid: SpecProbe.Hardware.HardwareProber.Video*
+- uid: SpecProbe.HardwareProber.Video*
   name: Video
-  href: api/SpecProbe.Hardware.HardwareProber.html#SpecProbe_Hardware_HardwareProber_Video_
-  commentId: Overload:SpecProbe.Hardware.HardwareProber.Video
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Video_
+  commentId: Overload:SpecProbe.HardwareProber.Video
   isSpec: "True"
-  fullName: SpecProbe.Hardware.HardwareProber.Video
+  fullName: SpecProbe.HardwareProber.Video
   nameWithType: HardwareProber.Video
-- uid: SpecProbe.Hardware.Parts
-  name: SpecProbe.Hardware.Parts
-  href: api/SpecProbe.Hardware.Parts.html
-  commentId: N:SpecProbe.Hardware.Parts
-  fullName: SpecProbe.Hardware.Parts
-  nameWithType: SpecProbe.Hardware.Parts
-- uid: SpecProbe.Hardware.Parts.BaseHardwarePartInfo
+- uid: SpecProbe.Parts
+  name: SpecProbe.Parts
+  href: api/SpecProbe.Parts.html
+  commentId: N:SpecProbe.Parts
+  fullName: SpecProbe.Parts
+  nameWithType: SpecProbe.Parts
+- uid: SpecProbe.Parts.BaseHardwarePartInfo
   name: BaseHardwarePartInfo
-  href: api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html
-  commentId: T:SpecProbe.Hardware.Parts.BaseHardwarePartInfo
-  fullName: SpecProbe.Hardware.Parts.BaseHardwarePartInfo
+  href: api/SpecProbe.Parts.BaseHardwarePartInfo.html
+  commentId: T:SpecProbe.Parts.BaseHardwarePartInfo
+  fullName: SpecProbe.Parts.BaseHardwarePartInfo
   nameWithType: BaseHardwarePartInfo
-- uid: SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type
+- uid: SpecProbe.Parts.BaseHardwarePartInfo.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html#SpecProbe_Hardware_Parts_BaseHardwarePartInfo_Type
-  commentId: P:SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type
-  fullName: SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type
+  href: api/SpecProbe.Parts.BaseHardwarePartInfo.html#SpecProbe_Parts_BaseHardwarePartInfo_Type
+  commentId: P:SpecProbe.Parts.BaseHardwarePartInfo.Type
+  fullName: SpecProbe.Parts.BaseHardwarePartInfo.Type
   nameWithType: BaseHardwarePartInfo.Type
-- uid: SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type*
+- uid: SpecProbe.Parts.BaseHardwarePartInfo.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html#SpecProbe_Hardware_Parts_BaseHardwarePartInfo_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type
+  href: api/SpecProbe.Parts.BaseHardwarePartInfo.html#SpecProbe_Parts_BaseHardwarePartInfo_Type_
+  commentId: Overload:SpecProbe.Parts.BaseHardwarePartInfo.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.BaseHardwarePartInfo.Type
+  fullName: SpecProbe.Parts.BaseHardwarePartInfo.Type
   nameWithType: BaseHardwarePartInfo.Type
-- uid: SpecProbe.Hardware.Parts.HardwarePartType
+- uid: SpecProbe.Parts.HardwarePartType
   name: HardwarePartType
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html
-  commentId: T:SpecProbe.Hardware.Parts.HardwarePartType
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType
+  href: api/SpecProbe.Parts.HardwarePartType.html
+  commentId: T:SpecProbe.Parts.HardwarePartType
+  fullName: SpecProbe.Parts.HardwarePartType
   nameWithType: HardwarePartType
-- uid: SpecProbe.Hardware.Parts.HardwarePartType.HardDisk
+- uid: SpecProbe.Parts.HardwarePartType.HardDisk
   name: HardDisk
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html#SpecProbe_Hardware_Parts_HardwarePartType_HardDisk
-  commentId: F:SpecProbe.Hardware.Parts.HardwarePartType.HardDisk
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType.HardDisk
+  href: api/SpecProbe.Parts.HardwarePartType.html#SpecProbe_Parts_HardwarePartType_HardDisk
+  commentId: F:SpecProbe.Parts.HardwarePartType.HardDisk
+  fullName: SpecProbe.Parts.HardwarePartType.HardDisk
   nameWithType: HardwarePartType.HardDisk
-- uid: SpecProbe.Hardware.Parts.HardwarePartType.Memory
+- uid: SpecProbe.Parts.HardwarePartType.Memory
   name: Memory
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html#SpecProbe_Hardware_Parts_HardwarePartType_Memory
-  commentId: F:SpecProbe.Hardware.Parts.HardwarePartType.Memory
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType.Memory
+  href: api/SpecProbe.Parts.HardwarePartType.html#SpecProbe_Parts_HardwarePartType_Memory
+  commentId: F:SpecProbe.Parts.HardwarePartType.Memory
+  fullName: SpecProbe.Parts.HardwarePartType.Memory
   nameWithType: HardwarePartType.Memory
-- uid: SpecProbe.Hardware.Parts.HardwarePartType.Processor
+- uid: SpecProbe.Parts.HardwarePartType.Processor
   name: Processor
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html#SpecProbe_Hardware_Parts_HardwarePartType_Processor
-  commentId: F:SpecProbe.Hardware.Parts.HardwarePartType.Processor
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType.Processor
+  href: api/SpecProbe.Parts.HardwarePartType.html#SpecProbe_Parts_HardwarePartType_Processor
+  commentId: F:SpecProbe.Parts.HardwarePartType.Processor
+  fullName: SpecProbe.Parts.HardwarePartType.Processor
   nameWithType: HardwarePartType.Processor
-- uid: SpecProbe.Hardware.Parts.HardwarePartType.Unknown
+- uid: SpecProbe.Parts.HardwarePartType.Unknown
   name: Unknown
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html#SpecProbe_Hardware_Parts_HardwarePartType_Unknown
-  commentId: F:SpecProbe.Hardware.Parts.HardwarePartType.Unknown
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType.Unknown
+  href: api/SpecProbe.Parts.HardwarePartType.html#SpecProbe_Parts_HardwarePartType_Unknown
+  commentId: F:SpecProbe.Parts.HardwarePartType.Unknown
+  fullName: SpecProbe.Parts.HardwarePartType.Unknown
   nameWithType: HardwarePartType.Unknown
-- uid: SpecProbe.Hardware.Parts.HardwarePartType.Video
+- uid: SpecProbe.Parts.HardwarePartType.Video
   name: Video
-  href: api/SpecProbe.Hardware.Parts.HardwarePartType.html#SpecProbe_Hardware_Parts_HardwarePartType_Video
-  commentId: F:SpecProbe.Hardware.Parts.HardwarePartType.Video
-  fullName: SpecProbe.Hardware.Parts.HardwarePartType.Video
+  href: api/SpecProbe.Parts.HardwarePartType.html#SpecProbe_Parts_HardwarePartType_Video
+  commentId: F:SpecProbe.Parts.HardwarePartType.Video
+  fullName: SpecProbe.Parts.HardwarePartType.Video
   nameWithType: HardwarePartType.Video
-- uid: SpecProbe.Hardware.Parts.IHardwarePartInfo
+- uid: SpecProbe.Parts.IHardwarePartInfo
   name: IHardwarePartInfo
-  href: api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html
-  commentId: T:SpecProbe.Hardware.Parts.IHardwarePartInfo
-  fullName: SpecProbe.Hardware.Parts.IHardwarePartInfo
+  href: api/SpecProbe.Parts.IHardwarePartInfo.html
+  commentId: T:SpecProbe.Parts.IHardwarePartInfo
+  fullName: SpecProbe.Parts.IHardwarePartInfo
   nameWithType: IHardwarePartInfo
-- uid: SpecProbe.Hardware.Parts.IHardwarePartInfo.Type
+- uid: SpecProbe.Parts.IHardwarePartInfo.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html#SpecProbe_Hardware_Parts_IHardwarePartInfo_Type
-  commentId: P:SpecProbe.Hardware.Parts.IHardwarePartInfo.Type
-  fullName: SpecProbe.Hardware.Parts.IHardwarePartInfo.Type
+  href: api/SpecProbe.Parts.IHardwarePartInfo.html#SpecProbe_Parts_IHardwarePartInfo_Type
+  commentId: P:SpecProbe.Parts.IHardwarePartInfo.Type
+  fullName: SpecProbe.Parts.IHardwarePartInfo.Type
   nameWithType: IHardwarePartInfo.Type
-- uid: SpecProbe.Hardware.Parts.IHardwarePartInfo.Type*
+- uid: SpecProbe.Parts.IHardwarePartInfo.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html#SpecProbe_Hardware_Parts_IHardwarePartInfo_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.IHardwarePartInfo.Type
+  href: api/SpecProbe.Parts.IHardwarePartInfo.html#SpecProbe_Parts_IHardwarePartInfo_Type_
+  commentId: Overload:SpecProbe.Parts.IHardwarePartInfo.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.IHardwarePartInfo.Type
+  fullName: SpecProbe.Parts.IHardwarePartInfo.Type
   nameWithType: IHardwarePartInfo.Type
-- uid: SpecProbe.Hardware.Parts.Types
-  name: SpecProbe.Hardware.Parts.Types
-  href: api/SpecProbe.Hardware.Parts.Types.html
-  commentId: N:SpecProbe.Hardware.Parts.Types
-  fullName: SpecProbe.Hardware.Parts.Types
-  nameWithType: SpecProbe.Hardware.Parts.Types
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart
+- uid: SpecProbe.Parts.Types
+  name: SpecProbe.Parts.Types
+  href: api/SpecProbe.Parts.Types.html
+  commentId: N:SpecProbe.Parts.Types
+  fullName: SpecProbe.Parts.Types
+  nameWithType: SpecProbe.Parts.Types
+- uid: SpecProbe.Parts.Types.HardDiskPart
   name: HardDiskPart
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html
-  commentId: T:SpecProbe.Hardware.Parts.Types.HardDiskPart
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html
+  commentId: T:SpecProbe.Parts.Types.HardDiskPart
+  fullName: SpecProbe.Parts.Types.HardDiskPart
   nameWithType: HardDiskPart
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber
+- uid: SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber
   name: HardDiskNumber
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_HardDiskNumber
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_HardDiskNumber
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber
+  fullName: SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber
   nameWithType: HardDiskPart.HardDiskNumber
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber*
+- uid: SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber*
   name: HardDiskNumber
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_HardDiskNumber_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_HardDiskNumber_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskNumber
+  fullName: SpecProbe.Parts.Types.HardDiskPart.HardDiskNumber
   nameWithType: HardDiskPart.HardDiskNumber
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize
+- uid: SpecProbe.Parts.Types.HardDiskPart.HardDiskSize
   name: HardDiskSize
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_HardDiskSize
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_HardDiskSize
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.HardDiskSize
+  fullName: SpecProbe.Parts.Types.HardDiskPart.HardDiskSize
   nameWithType: HardDiskPart.HardDiskSize
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize*
+- uid: SpecProbe.Parts.Types.HardDiskPart.HardDiskSize*
   name: HardDiskSize
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_HardDiskSize_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_HardDiskSize_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.HardDiskSize
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.HardDiskSize
+  fullName: SpecProbe.Parts.Types.HardDiskPart.HardDiskSize
   nameWithType: HardDiskPart.HardDiskSize
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionCount
   name: PartitionCount
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionCount
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionCount
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.PartitionCount
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionCount
   nameWithType: HardDiskPart.PartitionCount
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount*
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionCount*
   name: PartitionCount
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionCount_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionCount_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.PartitionCount
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionCount
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionCount
   nameWithType: HardDiskPart.PartitionCount
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionPart
   name: HardDiskPart.PartitionPart
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html
-  commentId: T:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart
+  href: api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html
+  commentId: T:SpecProbe.Parts.Types.HardDiskPart.PartitionPart
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionPart
   nameWithType: HardDiskPart.PartitionPart
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
   name: PartitionNumber
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionPart_PartitionNumber
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
+  href: api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionPart_PartitionNumber
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
   nameWithType: HardDiskPart.PartitionPart.PartitionNumber
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber*
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber*
   name: PartitionNumber
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionPart_PartitionNumber_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
+  href: api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionPart_PartitionNumber_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionNumber
   nameWithType: HardDiskPart.PartitionPart.PartitionNumber
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
   name: PartitionSize
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionPart_PartitionSize
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
+  href: api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionPart_PartitionSize
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
   nameWithType: HardDiskPart.PartitionPart.PartitionSize
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize*
+- uid: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize*
   name: PartitionSize
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_PartitionPart_PartitionSize_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
+  href: api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html#SpecProbe_Parts_Types_HardDiskPart_PartitionPart_PartitionSize_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
+  fullName: SpecProbe.Parts.Types.HardDiskPart.PartitionPart.PartitionSize
   nameWithType: HardDiskPart.PartitionPart.PartitionSize
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions
+- uid: SpecProbe.Parts.Types.HardDiskPart.Partitions
   name: Partitions
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_Partitions
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_Partitions
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.Partitions
+  fullName: SpecProbe.Parts.Types.HardDiskPart.Partitions
   nameWithType: HardDiskPart.Partitions
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions*
+- uid: SpecProbe.Parts.Types.HardDiskPart.Partitions*
   name: Partitions
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_Partitions_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_Partitions_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.Partitions
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.Partitions
+  fullName: SpecProbe.Parts.Types.HardDiskPart.Partitions
   nameWithType: HardDiskPart.Partitions
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.Type
+- uid: SpecProbe.Parts.Types.HardDiskPart.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_Type
-  commentId: P:SpecProbe.Hardware.Parts.Types.HardDiskPart.Type
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.Type
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_Type
+  commentId: P:SpecProbe.Parts.Types.HardDiskPart.Type
+  fullName: SpecProbe.Parts.Types.HardDiskPart.Type
   nameWithType: HardDiskPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.HardDiskPart.Type*
+- uid: SpecProbe.Parts.Types.HardDiskPart.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html#SpecProbe_Hardware_Parts_Types_HardDiskPart_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.HardDiskPart.Type
+  href: api/SpecProbe.Parts.Types.HardDiskPart.html#SpecProbe_Parts_Types_HardDiskPart_Type_
+  commentId: Overload:SpecProbe.Parts.Types.HardDiskPart.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.HardDiskPart.Type
+  fullName: SpecProbe.Parts.Types.HardDiskPart.Type
   nameWithType: HardDiskPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart
+- uid: SpecProbe.Parts.Types.MemoryPart
   name: MemoryPart
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html
-  commentId: T:SpecProbe.Hardware.Parts.Types.MemoryPart
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart
+  href: api/SpecProbe.Parts.Types.MemoryPart.html
+  commentId: T:SpecProbe.Parts.Types.MemoryPart
+  fullName: SpecProbe.Parts.Types.MemoryPart
   nameWithType: MemoryPart
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory
+- uid: SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory
   name: SystemReservedMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_SystemReservedMemory
-  commentId: P:SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_SystemReservedMemory
+  commentId: P:SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory
   nameWithType: MemoryPart.SystemReservedMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory*
+- uid: SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory*
   name: SystemReservedMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_SystemReservedMemory_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_SystemReservedMemory_
+  commentId: Overload:SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.SystemReservedMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.SystemReservedMemory
   nameWithType: MemoryPart.SystemReservedMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory
+- uid: SpecProbe.Parts.Types.MemoryPart.TotalMemory
   name: TotalMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_TotalMemory
-  commentId: P:SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_TotalMemory
+  commentId: P:SpecProbe.Parts.Types.MemoryPart.TotalMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.TotalMemory
   nameWithType: MemoryPart.TotalMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory*
+- uid: SpecProbe.Parts.Types.MemoryPart.TotalMemory*
   name: TotalMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_TotalMemory_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_TotalMemory_
+  commentId: Overload:SpecProbe.Parts.Types.MemoryPart.TotalMemory
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.TotalMemory
   nameWithType: MemoryPart.TotalMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory
+- uid: SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory
   name: TotalPhysicalMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_TotalPhysicalMemory
-  commentId: P:SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_TotalPhysicalMemory
+  commentId: P:SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory
   nameWithType: MemoryPart.TotalPhysicalMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory*
+- uid: SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory*
   name: TotalPhysicalMemory
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_TotalPhysicalMemory_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_TotalPhysicalMemory_
+  commentId: Overload:SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.TotalPhysicalMemory
+  fullName: SpecProbe.Parts.Types.MemoryPart.TotalPhysicalMemory
   nameWithType: MemoryPart.TotalPhysicalMemory
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.Type
+- uid: SpecProbe.Parts.Types.MemoryPart.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_Type
-  commentId: P:SpecProbe.Hardware.Parts.Types.MemoryPart.Type
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.Type
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_Type
+  commentId: P:SpecProbe.Parts.Types.MemoryPart.Type
+  fullName: SpecProbe.Parts.Types.MemoryPart.Type
   nameWithType: MemoryPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.MemoryPart.Type*
+- uid: SpecProbe.Parts.Types.MemoryPart.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.MemoryPart.html#SpecProbe_Hardware_Parts_Types_MemoryPart_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.MemoryPart.Type
+  href: api/SpecProbe.Parts.Types.MemoryPart.html#SpecProbe_Parts_Types_MemoryPart_Type_
+  commentId: Overload:SpecProbe.Parts.Types.MemoryPart.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.MemoryPart.Type
+  fullName: SpecProbe.Parts.Types.MemoryPart.Type
   nameWithType: MemoryPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart
+- uid: SpecProbe.Parts.Types.ProcessorPart
   name: ProcessorPart
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html
-  commentId: T:SpecProbe.Hardware.Parts.Types.ProcessorPart
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html
+  commentId: T:SpecProbe.Parts.Types.ProcessorPart
+  fullName: SpecProbe.Parts.Types.ProcessorPart
   nameWithType: ProcessorPart
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore
+- uid: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
   name: CoresForEachCore
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_CoresForEachCore
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CoresForEachCore
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
+  fullName: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
   nameWithType: ProcessorPart.CoresForEachCore
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore*
+- uid: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore*
   name: CoresForEachCore
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_CoresForEachCore_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CoresForEachCore_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.CoresForEachCore
+  fullName: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
   nameWithType: ProcessorPart.CoresForEachCore
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor
+- uid: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   name: CpuidVendor
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_CpuidVendor
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CpuidVendor
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   nameWithType: ProcessorPart.CpuidVendor
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor*
+- uid: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor*
   name: CpuidVendor
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_CpuidVendor_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CpuidVendor_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.CpuidVendor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   nameWithType: ProcessorPart.CpuidVendor
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize
+- uid: SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
   name: L1CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L1CacheSize
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L1CacheSize
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
   nameWithType: ProcessorPart.L1CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize*
+- uid: SpecProbe.Parts.Types.ProcessorPart.L1CacheSize*
   name: L1CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L1CacheSize_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L1CacheSize_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L1CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
   nameWithType: ProcessorPart.L1CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize
+- uid: SpecProbe.Parts.Types.ProcessorPart.L2CacheSize
   name: L2CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L2CacheSize
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L2CacheSize
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.L2CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L2CacheSize
   nameWithType: ProcessorPart.L2CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize*
+- uid: SpecProbe.Parts.Types.ProcessorPart.L2CacheSize*
   name: L2CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L2CacheSize_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L2CacheSize_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.L2CacheSize
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L2CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L2CacheSize
   nameWithType: ProcessorPart.L2CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize
+- uid: SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
   name: L3CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L3CacheSize
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L3CacheSize
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
   nameWithType: ProcessorPart.L3CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize*
+- uid: SpecProbe.Parts.Types.ProcessorPart.L3CacheSize*
   name: L3CacheSize
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_L3CacheSize_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L3CacheSize_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.L3CacheSize
+  fullName: SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
   nameWithType: ProcessorPart.L3CacheSize
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Name
+- uid: SpecProbe.Parts.Types.ProcessorPart.Name
   name: Name
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Name
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.Name
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Name
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Name
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Name
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Name
   nameWithType: ProcessorPart.Name
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Name*
+- uid: SpecProbe.Parts.Types.ProcessorPart.Name*
   name: Name
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Name_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.Name
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Name_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Name
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Name
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Name
   nameWithType: ProcessorPart.Name
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores
+- uid: SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
   name: ProcessorCores
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_ProcessorCores
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_ProcessorCores
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
   nameWithType: ProcessorPart.ProcessorCores
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores*
+- uid: SpecProbe.Parts.Types.ProcessorPart.ProcessorCores*
   name: ProcessorCores
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_ProcessorCores_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_ProcessorCores_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.ProcessorCores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
   nameWithType: ProcessorPart.ProcessorCores
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed
+- uid: SpecProbe.Parts.Types.ProcessorPart.Speed
   name: Speed
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Speed
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Speed
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Speed
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Speed
   nameWithType: ProcessorPart.Speed
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed*
+- uid: SpecProbe.Parts.Types.ProcessorPart.Speed*
   name: Speed
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Speed_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Speed_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Speed
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Speed
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Speed
   nameWithType: ProcessorPart.Speed
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores
+- uid: SpecProbe.Parts.Types.ProcessorPart.TotalCores
   name: TotalCores
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_TotalCores
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_TotalCores
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.TotalCores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.TotalCores
   nameWithType: ProcessorPart.TotalCores
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores*
+- uid: SpecProbe.Parts.Types.ProcessorPart.TotalCores*
   name: TotalCores
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_TotalCores_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_TotalCores_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.TotalCores
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.TotalCores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.TotalCores
   nameWithType: ProcessorPart.TotalCores
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Type
+- uid: SpecProbe.Parts.Types.ProcessorPart.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Type
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.Type
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Type
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Type
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Type
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Type
   nameWithType: ProcessorPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Type*
+- uid: SpecProbe.Parts.Types.ProcessorPart.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.Type
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Type_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Type
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Type
   nameWithType: ProcessorPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor
+- uid: SpecProbe.Parts.Types.ProcessorPart.Vendor
   name: Vendor
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Vendor
-  commentId: P:SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Vendor
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Vendor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Vendor
   nameWithType: ProcessorPart.Vendor
-- uid: SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor*
+- uid: SpecProbe.Parts.Types.ProcessorPart.Vendor*
   name: Vendor
-  href: api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html#SpecProbe_Hardware_Parts_Types_ProcessorPart_Vendor_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Vendor_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Vendor
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.ProcessorPart.Vendor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Vendor
   nameWithType: ProcessorPart.Vendor
-- uid: SpecProbe.Hardware.Parts.Types.VideoPart
+- uid: SpecProbe.Parts.Types.VideoPart
   name: VideoPart
-  href: api/SpecProbe.Hardware.Parts.Types.VideoPart.html
-  commentId: T:SpecProbe.Hardware.Parts.Types.VideoPart
-  fullName: SpecProbe.Hardware.Parts.Types.VideoPart
+  href: api/SpecProbe.Parts.Types.VideoPart.html
+  commentId: T:SpecProbe.Parts.Types.VideoPart
+  fullName: SpecProbe.Parts.Types.VideoPart
   nameWithType: VideoPart
-- uid: SpecProbe.Hardware.Parts.Types.VideoPart.Type
+- uid: SpecProbe.Parts.Types.VideoPart.Type
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.VideoPart.html#SpecProbe_Hardware_Parts_Types_VideoPart_Type
-  commentId: P:SpecProbe.Hardware.Parts.Types.VideoPart.Type
-  fullName: SpecProbe.Hardware.Parts.Types.VideoPart.Type
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_Type
+  commentId: P:SpecProbe.Parts.Types.VideoPart.Type
+  fullName: SpecProbe.Parts.Types.VideoPart.Type
   nameWithType: VideoPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.VideoPart.Type*
+- uid: SpecProbe.Parts.Types.VideoPart.Type*
   name: Type
-  href: api/SpecProbe.Hardware.Parts.Types.VideoPart.html#SpecProbe_Hardware_Parts_Types_VideoPart_Type_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.VideoPart.Type
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_Type_
+  commentId: Overload:SpecProbe.Parts.Types.VideoPart.Type
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.VideoPart.Type
+  fullName: SpecProbe.Parts.Types.VideoPart.Type
   nameWithType: VideoPart.Type
-- uid: SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
+- uid: SpecProbe.Parts.Types.VideoPart.VideoCardName
   name: VideoCardName
-  href: api/SpecProbe.Hardware.Parts.Types.VideoPart.html#SpecProbe_Hardware_Parts_Types_VideoPart_VideoCardName
-  commentId: P:SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
-  fullName: SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_VideoCardName
+  commentId: P:SpecProbe.Parts.Types.VideoPart.VideoCardName
+  fullName: SpecProbe.Parts.Types.VideoPart.VideoCardName
   nameWithType: VideoPart.VideoCardName
-- uid: SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName*
+- uid: SpecProbe.Parts.Types.VideoPart.VideoCardName*
   name: VideoCardName
-  href: api/SpecProbe.Hardware.Parts.Types.VideoPart.html#SpecProbe_Hardware_Parts_Types_VideoPart_VideoCardName_
-  commentId: Overload:SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_VideoCardName_
+  commentId: Overload:SpecProbe.Parts.Types.VideoPart.VideoCardName
   isSpec: "True"
-  fullName: SpecProbe.Hardware.Parts.Types.VideoPart.VideoCardName
+  fullName: SpecProbe.Parts.Types.VideoPart.VideoCardName
   nameWithType: VideoPart.VideoCardName
-- uid: SpecProbe.Platform
-  name: SpecProbe.Platform
-  href: api/SpecProbe.Platform.html
-  commentId: N:SpecProbe.Platform
-  fullName: SpecProbe.Platform
-  nameWithType: SpecProbe.Platform
-- uid: SpecProbe.Platform.Platform
-  name: Platform
-  href: api/SpecProbe.Platform.Platform.html
-  commentId: T:SpecProbe.Platform.Platform
-  fullName: SpecProbe.Platform.Platform
-  nameWithType: Platform
-- uid: SpecProbe.Platform.Platform.Linux
-  name: Linux
-  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Linux
-  commentId: F:SpecProbe.Platform.Platform.Linux
-  fullName: SpecProbe.Platform.Platform.Linux
-  nameWithType: Platform.Linux
-- uid: SpecProbe.Platform.Platform.MacOS
-  name: MacOS
-  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_MacOS
-  commentId: F:SpecProbe.Platform.Platform.MacOS
-  fullName: SpecProbe.Platform.Platform.MacOS
-  nameWithType: Platform.MacOS
-- uid: SpecProbe.Platform.Platform.Unknown
-  name: Unknown
-  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Unknown
-  commentId: F:SpecProbe.Platform.Platform.Unknown
-  fullName: SpecProbe.Platform.Platform.Unknown
-  nameWithType: Platform.Unknown
-- uid: SpecProbe.Platform.Platform.Windows
-  name: Windows
-  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Windows
-  commentId: F:SpecProbe.Platform.Platform.Windows
-  fullName: SpecProbe.Platform.Platform.Windows
-  nameWithType: Platform.Windows
-- uid: SpecProbe.Platform.RidGraphReader
-  name: RidGraphReader
-  href: api/SpecProbe.Platform.RidGraphReader.html
-  commentId: T:SpecProbe.Platform.RidGraphReader
-  fullName: SpecProbe.Platform.RidGraphReader
-  nameWithType: RidGraphReader
-- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid
-  name: GetGraphFromRid()
-  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid
-  commentId: M:SpecProbe.Platform.RidGraphReader.GetGraphFromRid
-  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid()
-  nameWithType: RidGraphReader.GetGraphFromRid()
-- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(System.String)
-  name: GetGraphFromRid(string)
-  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid_System_String_
-  commentId: M:SpecProbe.Platform.RidGraphReader.GetGraphFromRid(System.String)
-  name.vb: GetGraphFromRid(String)
-  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(string)
-  fullName.vb: SpecProbe.Platform.RidGraphReader.GetGraphFromRid(String)
-  nameWithType: RidGraphReader.GetGraphFromRid(string)
-  nameWithType.vb: RidGraphReader.GetGraphFromRid(String)
-- uid: SpecProbe.Platform.RidGraphReader.GetGraphFromRid*
-  name: GetGraphFromRid
-  href: api/SpecProbe.Platform.RidGraphReader.html#SpecProbe_Platform_RidGraphReader_GetGraphFromRid_
-  commentId: Overload:SpecProbe.Platform.RidGraphReader.GetGraphFromRid
-  isSpec: "True"
-  fullName: SpecProbe.Platform.RidGraphReader.GetGraphFromRid
-  nameWithType: RidGraphReader.GetGraphFromRid

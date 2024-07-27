@@ -1,78 +1,63 @@
 {
-  "api/SpecProbe.Hardware.HardwareProber.html": {
-    "href": "api/SpecProbe.Hardware.HardwareProber.html",
+  "api/SpecProbe.HardwareProber.html": {
+    "href": "api/SpecProbe.HardwareProber.html",
     "title": "Class HardwareProber | SpecProbe API - Aptivi",
-    "keywords": "Class HardwareProber Hardware probing class Inheritance object HardwareProber Namespace: SpecProbe.Hardware Assembly: SpecProbe.dll Syntax public static class HardwareProber Properties | Edit this page View Source Errors Gets the list of hardware prober errors Declaration public static Exception[] Errors { get; } Property Value Type Description Exception[] | Edit this page View Source HardDisk Gets the list of hard disks Declaration public static HardDiskPart[] HardDisk { get; } Property Value Type Description HardDiskPart[] | Edit this page View Source Memory Gets the list of memory (always 1) Declaration public static MemoryPart[] Memory { get; } Property Value Type Description MemoryPart[] | Edit this page View Source Processors Gets the list of processors (always 1) Declaration public static ProcessorPart[] Processors { get; } Property Value Type Description ProcessorPart[] | Edit this page View Source Video Gets the list of video cards Declaration public static VideoPart[] Video { get; } Property Value Type Description VideoPart[] Methods | Edit this page View Source SetNotarized(bool) For Apple's code signing. Declaration public static void SetNotarized(bool notarized) Parameters Type Name Description bool notarized If your application is using hardened macOS runtime, set this to true."
+    "keywords": "Class HardwareProber Hardware probing class Inheritance object HardwareProber Namespace: SpecProbe Assembly: SpecProbe.dll Syntax public static class HardwareProber Properties | Edit this page View Source Errors Gets the list of hardware prober errors Declaration public static Exception[] Errors { get; } Property Value Type Description Exception[] | Edit this page View Source HardDisk Gets the list of hard disks Declaration public static HardDiskPart[] HardDisk { get; } Property Value Type Description HardDiskPart[] | Edit this page View Source Memory Gets the list of memory (always 1) Declaration public static MemoryPart[] Memory { get; } Property Value Type Description MemoryPart[] | Edit this page View Source Processors Gets the list of processors (always 1) Declaration public static ProcessorPart[] Processors { get; } Property Value Type Description ProcessorPart[] | Edit this page View Source Video Gets the list of video cards Declaration public static VideoPart[] Video { get; } Property Value Type Description VideoPart[] Methods | Edit this page View Source SetNotarized(bool) For Apple's code signing. Declaration public static void SetNotarized(bool notarized) Parameters Type Name Description bool notarized If your application is using hardened macOS runtime, set this to true."
   },
-  "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html": {
-    "href": "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html",
+  "api/SpecProbe.Parts.BaseHardwarePartInfo.html": {
+    "href": "api/SpecProbe.Parts.BaseHardwarePartInfo.html",
     "title": "Class BaseHardwarePartInfo | SpecProbe API - Aptivi",
-    "keywords": "Class BaseHardwarePartInfo Base hardware part information class Inheritance object BaseHardwarePartInfo HardDiskPart MemoryPart ProcessorPart VideoPart Implements IHardwarePartInfo Namespace: SpecProbe.Hardware.Parts Assembly: SpecProbe.dll Syntax public abstract class BaseHardwarePartInfo : IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration public virtual HardwarePartType Type { get; } Property Value Type Description HardwarePartType Implements IHardwarePartInfo"
+    "keywords": "Class BaseHardwarePartInfo Base hardware part information class Inheritance object BaseHardwarePartInfo HardDiskPart MemoryPart ProcessorPart VideoPart Implements IHardwarePartInfo Namespace: SpecProbe.Parts Assembly: SpecProbe.dll Syntax public abstract class BaseHardwarePartInfo : IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration public virtual HardwarePartType Type { get; } Property Value Type Description HardwarePartType Implements IHardwarePartInfo"
   },
-  "api/SpecProbe.Hardware.Parts.HardwarePartType.html": {
-    "href": "api/SpecProbe.Hardware.Parts.HardwarePartType.html",
+  "api/SpecProbe.Parts.HardwarePartType.html": {
+    "href": "api/SpecProbe.Parts.HardwarePartType.html",
     "title": "Enum HardwarePartType | SpecProbe API - Aptivi",
-    "keywords": "Enum HardwarePartType Hardware part type Namespace: SpecProbe.Hardware.Parts Assembly: SpecProbe.dll Syntax public enum HardwarePartType Fields Name Description HardDisk Hard Drive Memory Random Access Memory Processor Processors Unknown Unknown hardware type Video Video Adapters (Graphics Cards)"
+    "keywords": "Enum HardwarePartType Hardware part type Namespace: SpecProbe.Parts Assembly: SpecProbe.dll Syntax public enum HardwarePartType Fields Name Description HardDisk Hard Drive Memory Random Access Memory Processor Processors Unknown Unknown hardware type Video Video Adapters (Graphics Cards)"
   },
-  "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html": {
-    "href": "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html",
+  "api/SpecProbe.Parts.IHardwarePartInfo.html": {
+    "href": "api/SpecProbe.Parts.IHardwarePartInfo.html",
     "title": "Interface IHardwarePartInfo | SpecProbe API - Aptivi",
-    "keywords": "Interface IHardwarePartInfo Hardware part info interface Namespace: SpecProbe.Hardware.Parts Assembly: SpecProbe.dll Syntax public interface IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration HardwarePartType Type { get; } Property Value Type Description HardwarePartType"
+    "keywords": "Interface IHardwarePartInfo Hardware part info interface Namespace: SpecProbe.Parts Assembly: SpecProbe.dll Syntax public interface IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration HardwarePartType Type { get; } Property Value Type Description HardwarePartType"
   },
-  "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html",
+  "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html": {
+    "href": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html",
     "title": "Class HardDiskPart.PartitionPart | SpecProbe API - Aptivi",
-    "keywords": "Class HardDiskPart.PartitionPart Partition class for the hard drive Inheritance object HardDiskPart.PartitionPart Namespace: SpecProbe.Hardware.Parts.Types Assembly: SpecProbe.dll Syntax public class HardDiskPart.PartitionPart Properties | Edit this page View Source PartitionNumber Partition number defined by the operating system Declaration public int PartitionNumber { get; } Property Value Type Description int | Edit this page View Source PartitionSize Partition size in bytes Declaration public long PartitionSize { get; } Property Value Type Description long"
+    "keywords": "Class HardDiskPart.PartitionPart Partition class for the hard drive Inheritance object HardDiskPart.PartitionPart Namespace: SpecProbe.Parts.Types Assembly: SpecProbe.dll Syntax public class HardDiskPart.PartitionPart Properties | Edit this page View Source PartitionNumber Partition number defined by the operating system Declaration public int PartitionNumber { get; } Property Value Type Description int | Edit this page View Source PartitionSize Partition size in bytes Declaration public long PartitionSize { get; } Property Value Type Description long"
   },
-  "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html",
+  "api/SpecProbe.Parts.Types.HardDiskPart.html": {
+    "href": "api/SpecProbe.Parts.Types.HardDiskPart.html",
     "title": "Class HardDiskPart | SpecProbe API - Aptivi",
-    "keywords": "Class HardDiskPart Hard disk part Inheritance object BaseHardwarePartInfo HardDiskPart Implements IHardwarePartInfo Namespace: SpecProbe.Hardware.Parts.Types Assembly: SpecProbe.dll Syntax public class HardDiskPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source HardDiskNumber Hard disk number Declaration public int HardDiskNumber { get; } Property Value Type Description int | Edit this page View Source HardDiskSize Hard disk size in bytes Declaration public ulong HardDiskSize { get; } Property Value Type Description ulong | Edit this page View Source PartitionCount Number of partitions Declaration public int PartitionCount { get; } Property Value Type Description int | Edit this page View Source Partitions List of partitions Declaration public HardDiskPart.PartitionPart[] Partitions { get; } Property Value Type Description PartitionPart[] | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type Implements IHardwarePartInfo"
+    "keywords": "Class HardDiskPart Hard disk part Inheritance object BaseHardwarePartInfo HardDiskPart Implements IHardwarePartInfo Namespace: SpecProbe.Parts.Types Assembly: SpecProbe.dll Syntax public class HardDiskPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source HardDiskNumber Hard disk number Declaration public int HardDiskNumber { get; } Property Value Type Description int | Edit this page View Source HardDiskSize Hard disk size in bytes Declaration public ulong HardDiskSize { get; } Property Value Type Description ulong | Edit this page View Source PartitionCount Number of partitions Declaration public int PartitionCount { get; } Property Value Type Description int | Edit this page View Source Partitions List of partitions Declaration public HardDiskPart.PartitionPart[] Partitions { get; } Property Value Type Description PartitionPart[] | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type Implements IHardwarePartInfo"
   },
-  "api/SpecProbe.Hardware.Parts.Types.MemoryPart.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.MemoryPart.html",
+  "api/SpecProbe.Parts.Types.MemoryPart.html": {
+    "href": "api/SpecProbe.Parts.Types.MemoryPart.html",
     "title": "Class MemoryPart | SpecProbe API - Aptivi",
-    "keywords": "Class MemoryPart Memory part Inheritance object BaseHardwarePartInfo MemoryPart Implements IHardwarePartInfo Namespace: SpecProbe.Hardware.Parts.Types Assembly: SpecProbe.dll Syntax public class MemoryPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source SystemReservedMemory System reserved memory (can't be used by the operating system) Declaration public long SystemReservedMemory { get; } Property Value Type Description long | Edit this page View Source TotalMemory Total memory available to the system Declaration public long TotalMemory { get; } Property Value Type Description long | Edit this page View Source TotalPhysicalMemory Total memory installed physically, including reserved memory Declaration public long TotalPhysicalMemory { get; } Property Value Type Description long | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type Implements IHardwarePartInfo"
+    "keywords": "Class MemoryPart Memory part Inheritance object BaseHardwarePartInfo MemoryPart Implements IHardwarePartInfo Namespace: SpecProbe.Parts.Types Assembly: SpecProbe.dll Syntax public class MemoryPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source SystemReservedMemory System reserved memory (can't be used by the operating system) Declaration public long SystemReservedMemory { get; } Property Value Type Description long | Edit this page View Source TotalMemory Total memory available to the system Declaration public long TotalMemory { get; } Property Value Type Description long | Edit this page View Source TotalPhysicalMemory Total memory installed physically, including reserved memory Declaration public long TotalPhysicalMemory { get; } Property Value Type Description long | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type Implements IHardwarePartInfo"
   },
-  "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html",
+  "api/SpecProbe.Parts.Types.ProcessorPart.html": {
+    "href": "api/SpecProbe.Parts.Types.ProcessorPart.html",
     "title": "Class ProcessorPart | SpecProbe API - Aptivi",
-    "keywords": "Class ProcessorPart Processor part Inheritance object BaseHardwarePartInfo ProcessorPart Implements IHardwarePartInfo Namespace: SpecProbe.Hardware.Parts.Types Assembly: SpecProbe.dll Syntax public class ProcessorPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source CoresForEachCore Number of cores for each core (with hyperthreading enabled, it's more than one for each physical core) Declaration public int CoresForEachCore { get; } Property Value Type Description int | Edit this page View Source CpuidVendor Processor vendor from CPUID Declaration public string CpuidVendor { get; } Property Value Type Description string | Edit this page View Source L1CacheSize Size of the L1 cache in bytes Declaration public uint L1CacheSize { get; } Property Value Type Description uint | Edit this page View Source L2CacheSize Size of the L2 cache in bytes Declaration public uint L2CacheSize { get; } Property Value Type Description uint | Edit this page View Source L3CacheSize Size of the L3 cache in bytes Declaration public uint L3CacheSize { get; } Property Value Type Description uint | Edit this page View Source Name Processor name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source ProcessorCores Number of cores Declaration public int ProcessorCores { get; } Property Value Type Description int | Edit this page View Source Speed Processor in Mhz Declaration public double Speed { get; } Property Value Type Description double | Edit this page View Source TotalCores Total number of processor cores Declaration public int TotalCores { get; } Property Value Type Description int | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type | Edit this page View Source Vendor Processor vendor (real) Declaration public string Vendor { get; } Property Value Type Description string Implements IHardwarePartInfo"
+    "keywords": "Class ProcessorPart Processor part Inheritance object BaseHardwarePartInfo ProcessorPart Implements IHardwarePartInfo Namespace: SpecProbe.Parts.Types Assembly: SpecProbe.dll Syntax public class ProcessorPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source CoresForEachCore Number of cores for each core (with hyperthreading enabled, it's more than one for each physical core) Declaration public int CoresForEachCore { get; } Property Value Type Description int | Edit this page View Source CpuidVendor Processor vendor from CPUID Declaration public string CpuidVendor { get; } Property Value Type Description string | Edit this page View Source L1CacheSize Size of the L1 cache in bytes Declaration public uint L1CacheSize { get; } Property Value Type Description uint | Edit this page View Source L2CacheSize Size of the L2 cache in bytes Declaration public uint L2CacheSize { get; } Property Value Type Description uint | Edit this page View Source L3CacheSize Size of the L3 cache in bytes Declaration public uint L3CacheSize { get; } Property Value Type Description uint | Edit this page View Source Name Processor name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source ProcessorCores Number of cores Declaration public int ProcessorCores { get; } Property Value Type Description int | Edit this page View Source Speed Processor in Mhz Declaration public double Speed { get; } Property Value Type Description double | Edit this page View Source TotalCores Total number of processor cores Declaration public int TotalCores { get; } Property Value Type Description int | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type | Edit this page View Source Vendor Processor vendor (real) Declaration public string Vendor { get; } Property Value Type Description string Implements IHardwarePartInfo"
   },
-  "api/SpecProbe.Hardware.Parts.Types.VideoPart.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.VideoPart.html",
+  "api/SpecProbe.Parts.Types.VideoPart.html": {
+    "href": "api/SpecProbe.Parts.Types.VideoPart.html",
     "title": "Class VideoPart | SpecProbe API - Aptivi",
-    "keywords": "Class VideoPart Video card part Inheritance object BaseHardwarePartInfo VideoPart Implements IHardwarePartInfo Namespace: SpecProbe.Hardware.Parts.Types Assembly: SpecProbe.dll Syntax public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type | Edit this page View Source VideoCardName Video card name Declaration public string VideoCardName { get; } Property Value Type Description string Implements IHardwarePartInfo"
+    "keywords": "Class VideoPart Video card part Inheritance object BaseHardwarePartInfo VideoPart Implements IHardwarePartInfo Namespace: SpecProbe.Parts.Types Assembly: SpecProbe.dll Syntax public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration public override HardwarePartType Type { get; } Property Value Type Description HardwarePartType Overrides BaseHardwarePartInfo.Type | Edit this page View Source VideoCardName Video card name Declaration public string VideoCardName { get; } Property Value Type Description string Implements IHardwarePartInfo"
   },
-  "api/SpecProbe.Hardware.Parts.Types.html": {
-    "href": "api/SpecProbe.Hardware.Parts.Types.html",
-    "title": "Namespace SpecProbe.Hardware.Parts.Types | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Hardware.Parts.Types Classes HardDiskPart Hard disk part HardDiskPart.PartitionPart Partition class for the hard drive MemoryPart Memory part ProcessorPart Processor part VideoPart Video card part"
+  "api/SpecProbe.Parts.Types.html": {
+    "href": "api/SpecProbe.Parts.Types.html",
+    "title": "Namespace SpecProbe.Parts.Types | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Parts.Types Classes HardDiskPart Hard disk part HardDiskPart.PartitionPart Partition class for the hard drive MemoryPart Memory part ProcessorPart Processor part VideoPart Video card part"
   },
-  "api/SpecProbe.Hardware.Parts.html": {
-    "href": "api/SpecProbe.Hardware.Parts.html",
-    "title": "Namespace SpecProbe.Hardware.Parts | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Hardware.Parts Classes BaseHardwarePartInfo Base hardware part information class Interfaces IHardwarePartInfo Hardware part info interface Enums HardwarePartType Hardware part type"
+  "api/SpecProbe.Parts.html": {
+    "href": "api/SpecProbe.Parts.html",
+    "title": "Namespace SpecProbe.Parts | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Parts Classes BaseHardwarePartInfo Base hardware part information class Interfaces IHardwarePartInfo Hardware part info interface Enums HardwarePartType Hardware part type"
   },
-  "api/SpecProbe.Hardware.html": {
-    "href": "api/SpecProbe.Hardware.html",
-    "title": "Namespace SpecProbe.Hardware | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Hardware Classes HardwareProber Hardware probing class"
-  },
-  "api/SpecProbe.Platform.Platform.html": {
-    "href": "api/SpecProbe.Platform.Platform.html",
-    "title": "Enum Platform | SpecProbe API - Aptivi",
-    "keywords": "Enum Platform Platform (operating system). Namespace: SpecProbe.Platform Assembly: SpecProbe.dll Syntax public enum Platform Fields Name Description Linux Linux platform. MacOS MacOS platform. Unknown Unknown platform Windows Windows platform."
-  },
-  "api/SpecProbe.Platform.RidGraphReader.html": {
-    "href": "api/SpecProbe.Platform.RidGraphReader.html",
-    "title": "Class RidGraphReader | SpecProbe API - Aptivi",
-    "keywords": "Class RidGraphReader Tools for reading the RID graph Inheritance object RidGraphReader Namespace: SpecProbe.Platform Assembly: SpecProbe.dll Syntax public static class RidGraphReader Methods | Edit this page View Source GetGraphFromRid() Gets the graph from the current RID Declaration public static string[] GetGraphFromRid() Returns Type Description string[] List of RIDs from the current RID to the base RID | Edit this page View Source GetGraphFromRid(string) Gets the graph from the specified RID Declaration public static string[] GetGraphFromRid(string rid) Parameters Type Name Description string rid Returns Type Description string[] List of RIDs from the specified RID to the base RID"
-  },
-  "api/SpecProbe.Platform.html": {
-    "href": "api/SpecProbe.Platform.html",
-    "title": "Namespace SpecProbe.Platform | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Platform Classes RidGraphReader Tools for reading the RID graph Enums Platform Platform (operating system)."
+  "api/SpecProbe.html": {
+    "href": "api/SpecProbe.html",
+    "title": "Namespace SpecProbe | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe Classes HardwareProber Hardware probing class"
   },
   "index.html": {
     "href": "index.html",

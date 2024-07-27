@@ -15,150 +15,120 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.HardwareProber.yml",
+      "source_relative_path": "api/SpecProbe.HardwareProber.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.HardwareProber.html"
+          "relative_path": "api/SpecProbe.HardwareProber.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.yml",
+      "source_relative_path": "api/SpecProbe.Parts.BaseHardwarePartInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.BaseHardwarePartInfo.html"
+          "relative_path": "api/SpecProbe.Parts.BaseHardwarePartInfo.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.HardwarePartType.yml",
+      "source_relative_path": "api/SpecProbe.Parts.HardwarePartType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.HardwarePartType.html"
+          "relative_path": "api/SpecProbe.Parts.HardwarePartType.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.yml",
+      "source_relative_path": "api/SpecProbe.Parts.IHardwarePartInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.IHardwarePartInfo.html"
+          "relative_path": "api/SpecProbe.Parts.IHardwarePartInfo.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.PartitionPart.html"
+          "relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.HardDiskPart.html"
+          "relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.MemoryPart.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.MemoryPart.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.MemoryPart.html"
+          "relative_path": "api/SpecProbe.Parts.Types.MemoryPart.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.ProcessorPart.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.ProcessorPart.html"
+          "relative_path": "api/SpecProbe.Parts.Types.ProcessorPart.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.VideoPart.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.VideoPart.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.VideoPart.html"
+          "relative_path": "api/SpecProbe.Parts.Types.VideoPart.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.Types.yml",
+      "source_relative_path": "api/SpecProbe.Parts.Types.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.Types.html"
+          "relative_path": "api/SpecProbe.Parts.Types.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.Parts.yml",
+      "source_relative_path": "api/SpecProbe.Parts.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.Parts.html"
+          "relative_path": "api/SpecProbe.Parts.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Hardware.yml",
+      "source_relative_path": "api/SpecProbe.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Hardware.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Platform.Platform.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Platform.Platform.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Platform.RidGraphReader.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Platform.RidGraphReader.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Platform.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SpecProbe.Platform.html"
+          "relative_path": "api/SpecProbe.html"
         }
       },
       "version": ""
