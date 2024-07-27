@@ -127,14 +127,16 @@ namespace SpecProbe.Hardware.Probers
                         if (cpuInfoLine.StartsWith(vendorId))
                         {
                             Initializer.InitializeNative();
-                            cpuidVendor = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_vendor());
+                            var vendorDelegate = ProcessorHelper.GetVendorDelegate();
+                            cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
                             if (string.IsNullOrEmpty(cpuidVendor))
                                 cpuidVendor = cpuInfoLine.Replace(vendorId, "");
                         }
                         if (cpuInfoLine.StartsWith(modelId))
                         {
                             Initializer.InitializeNative();
-                            name = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_cpu_name());
+                            var cpuNameDelegate = ProcessorHelper.GetCpuNameDelegate();
+                            name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
                             if (string.IsNullOrEmpty(name))
                                 name = cpuInfoLine.Replace(modelId, "");
                         }
@@ -227,8 +229,10 @@ namespace SpecProbe.Hardware.Probers
                 if (!PlatformHelper.IsOnArmOrArm64())
                 {
                     Initializer.InitializeNative();
-                    cpuidVendor = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_vendor());
-                    name = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_cpu_name());
+                    var cpuNameDelegate = ProcessorHelper.GetCpuNameDelegate();
+                    var vendorDelegate = ProcessorHelper.GetVendorDelegate();
+                    cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
+                    name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
                 }
 
                 // Then, fill the rest
@@ -349,8 +353,10 @@ namespace SpecProbe.Hardware.Probers
                 if (!PlatformHelper.IsOnArmOrArm64())
                 {
                     Initializer.InitializeNative();
-                    cpuidVendor = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_vendor());
-                    name = Marshal.PtrToStringAnsi(ProcessorHelper.specprobe_get_cpu_name());
+                    var cpuNameDelegate = ProcessorHelper.GetCpuNameDelegate();
+                    var vendorDelegate = ProcessorHelper.GetVendorDelegate();
+                    cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
+                    name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
                     PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION[] procInfo = new PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION[numberOfCores * numberOfCoresForEachCore];
                     uint powerBufferSize = (uint)(procInfo.Length * Marshal.SizeOf(typeof(PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION)));
                     uint status = PlatformWindowsInterop.CallNtPowerInformation(11, IntPtr.Zero, 0, procInfo, powerBufferSize);

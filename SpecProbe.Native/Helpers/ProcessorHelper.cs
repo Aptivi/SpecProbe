@@ -18,16 +18,18 @@
 //
 
 using System;
-using System.Runtime.InteropServices;
 
 namespace SpecProbe.Native.Helpers
 {
-    internal class ProcessorHelper
+    internal static class ProcessorHelper
     {
-        [DllImport("libspecprober", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr specprobe_get_vendor();
+        internal delegate IntPtr specprobe_get_vendor();
+        internal delegate IntPtr specprobe_get_cpu_name();
 
-        [DllImport("libspecprober", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr specprobe_get_cpu_name();
+        internal static specprobe_get_vendor GetVendorDelegate() =>
+            Initializer.libManager.GetNativeMethodDelegate<specprobe_get_vendor>(nameof(specprobe_get_vendor));
+
+        internal static specprobe_get_cpu_name GetCpuNameDelegate() =>
+            Initializer.libManager.GetNativeMethodDelegate<specprobe_get_cpu_name>(nameof(specprobe_get_cpu_name));
     }
 }

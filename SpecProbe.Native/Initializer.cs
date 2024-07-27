@@ -23,6 +23,8 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
+using SpecProbe.Platform;
+
 
 
 #if !NETCOREAPP
@@ -33,6 +35,7 @@ namespace SpecProbe.Native
 {
     internal static class Initializer
     {
+        internal static LibraryManager libManager;
         private static bool _initialized;
         private const string LibraryName = "libspecprober";
 
@@ -43,23 +46,18 @@ namespace SpecProbe.Native
             string libPath = GetLibraryPath();
             if (!File.Exists(libPath))
                 throw new Exception("Can't load specprober library because it isn't found.");
-#if NETCOREAPP
-            NativeLibrary.SetDllImportResolver(typeof(Initializer).Assembly, ResolveLibrary);
-#else
-            var bytes = File.ReadAllBytes(GetLibraryPath());
-            var libManager = new LibraryManager(
-                new LibraryItem(NativeLand.Tools.Platform.Windows, Architecture.X86,
-                    new LibraryFile("libspecprober.dll", bytes)),
-                new LibraryItem(NativeLand.Tools.Platform.Windows, Architecture.X64,
-                    new LibraryFile("libspecprober.dll", bytes)),
-                new LibraryItem(NativeLand.Tools.Platform.MacOS, Architecture.X64,
-                    new LibraryFile("libspecprober.dylib", bytes)),
-                new LibraryItem(NativeLand.Tools.Platform.Linux, Architecture.X64,
-                    new LibraryFile("libspecprober.so", bytes)),
-                new LibraryItem(NativeLand.Tools.Platform.Linux, Architecture.X86,
-                    new LibraryFile("libspecprober.so", bytes)));
+            libManager = new LibraryManager(
+                new LibraryItem(NativeLand.Platform.Windows, Architecture.X86,
+                    new LibraryFile(libPath)),
+                new LibraryItem(NativeLand.Platform.Windows, Architecture.X64,
+                    new LibraryFile(libPath)),
+                new LibraryItem(NativeLand.Platform.MacOS, Architecture.X64,
+                    new LibraryFile(libPath)),
+                new LibraryItem(NativeLand.Platform.Linux, Architecture.X64,
+                    new LibraryFile(libPath)),
+                new LibraryItem(NativeLand.Platform.Linux, Architecture.X86,
+                    new LibraryFile(libPath)));
             libManager.LoadNativeLibrary();
-#endif
             _initialized = true;
         }
 
@@ -67,56 +65,14 @@ namespace SpecProbe.Native
         {
             string execPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "/";
             string nonSpecificRid =
-                    (IsOnWindows() ? "win-" :
-                     IsOnMacOS() ? "osx-" :
-                     IsOnUnix() ? "linux-" :
+                    (PlatformHelper.IsOnWindows() ? "win-" :
+                     PlatformHelper.IsOnMacOS() ? "osx-" :
+                     PlatformHelper.IsOnUnix() ? "linux-" :
                      "freebsd-") + RuntimeInformation.OSArchitecture.ToString().ToLower();
             string directory = $"runtimes/{nonSpecificRid}/native/";
-            string libName = $"{LibraryName}{(IsOnWindows() ? ".dll" : IsOnMacOS() ? ".dylib" : ".so")}";
+            string libName = $"{LibraryName}{(PlatformHelper.IsOnWindows() ? ".dll" : PlatformHelper.IsOnMacOS() ? ".dylib" : ".so")}";
             string path = $"{execPath}{directory}{libName}";
             return path;
-        }
-
-#if NETCOREAPP
-        private static nint ResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
-        {
-            IntPtr libHandle = IntPtr.Zero;
-            if (libraryName == LibraryName)
-            {
-                string path = GetLibraryPath();
-                libHandle = NativeLibrary.Load(path);
-            }
-            return libHandle;
-        }
-#endif
-
-        /// <summary>
-        /// Is this system a Windows system?
-        /// </summary>
-        /// <returns>True if running on Windows (Windows 10, Windows 11, etc.). Otherwise, false.</returns>
-        internal static bool IsOnWindows() =>
-            Environment.OSVersion.Platform == PlatformID.Win32NT;
-
-        /// <summary>
-        /// Is this system a Unix system? True for macOS, too!
-        /// </summary>
-        /// <returns>True if running on Unix (Linux, *nix, etc.). Otherwise, false.</returns>
-        internal static bool IsOnUnix() =>
-            Environment.OSVersion.Platform == PlatformID.Unix;
-
-        /// <summary>
-        /// Is this system a macOS system?
-        /// </summary>
-        /// <returns>True if running on macOS (MacBook, iMac, etc.). Otherwise, false.</returns>
-        internal static bool IsOnMacOS()
-        {
-            if (IsOnUnix())
-            {
-                string System = UnameManager.GetUname(UnameTypes.KernelName);
-                return System.Contains("Darwin");
-            }
-            else
-                return false;
         }
     }
 }
