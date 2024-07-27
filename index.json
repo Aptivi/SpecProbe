@@ -59,6 +59,11 @@
     "title": "Namespace SpecProbe.Hardware | SpecProbe API - Aptivi",
     "keywords": "Namespace SpecProbe.Hardware Classes HardwareProber Hardware probing class"
   },
+  "api/SpecProbe.Platform.Platform.html": {
+    "href": "api/SpecProbe.Platform.Platform.html",
+    "title": "Enum Platform | SpecProbe API - Aptivi",
+    "keywords": "Enum Platform Platform (operating system). Namespace: SpecProbe.Platform Assembly: SpecProbe.dll Syntax public enum Platform Fields Name Description Linux Linux platform. MacOS MacOS platform. Unknown Unknown platform Windows Windows platform."
+  },
   "api/SpecProbe.Platform.RidGraphReader.html": {
     "href": "api/SpecProbe.Platform.RidGraphReader.html",
     "title": "Class RidGraphReader | SpecProbe API - Aptivi",
@@ -67,7 +72,7 @@
   "api/SpecProbe.Platform.html": {
     "href": "api/SpecProbe.Platform.html",
     "title": "Namespace SpecProbe.Platform | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Platform Classes RidGraphReader Tools for reading the RID graph"
+    "keywords": "Namespace SpecProbe.Platform Classes RidGraphReader Tools for reading the RID graph Enums Platform Platform (operating system)."
   },
   "index.html": {
     "href": "index.html",

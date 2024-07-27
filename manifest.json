@@ -135,6 +135,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Platform.Platform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Platform.Platform.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Platform.RidGraphReader.yml",
       "output": {
         ".html": {

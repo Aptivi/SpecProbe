@@ -528,6 +528,36 @@ references:
   commentId: N:SpecProbe.Platform
   fullName: SpecProbe.Platform
   nameWithType: SpecProbe.Platform
+- uid: SpecProbe.Platform.Platform
+  name: Platform
+  href: api/SpecProbe.Platform.Platform.html
+  commentId: T:SpecProbe.Platform.Platform
+  fullName: SpecProbe.Platform.Platform
+  nameWithType: Platform
+- uid: SpecProbe.Platform.Platform.Linux
+  name: Linux
+  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Linux
+  commentId: F:SpecProbe.Platform.Platform.Linux
+  fullName: SpecProbe.Platform.Platform.Linux
+  nameWithType: Platform.Linux
+- uid: SpecProbe.Platform.Platform.MacOS
+  name: MacOS
+  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_MacOS
+  commentId: F:SpecProbe.Platform.Platform.MacOS
+  fullName: SpecProbe.Platform.Platform.MacOS
+  nameWithType: Platform.MacOS
+- uid: SpecProbe.Platform.Platform.Unknown
+  name: Unknown
+  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Unknown
+  commentId: F:SpecProbe.Platform.Platform.Unknown
+  fullName: SpecProbe.Platform.Platform.Unknown
+  nameWithType: Platform.Unknown
+- uid: SpecProbe.Platform.Platform.Windows
+  name: Windows
+  href: api/SpecProbe.Platform.Platform.html#SpecProbe_Platform_Platform_Windows
+  commentId: F:SpecProbe.Platform.Platform.Windows
+  fullName: SpecProbe.Platform.Platform.Windows
+  nameWithType: Platform.Windows
 - uid: SpecProbe.Platform.RidGraphReader
   name: RidGraphReader
   href: api/SpecProbe.Platform.RidGraphReader.html
