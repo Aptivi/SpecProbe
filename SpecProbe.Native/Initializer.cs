@@ -40,15 +40,15 @@ namespace SpecProbe.Native
             if (!File.Exists(libPath))
                 throw new Exception("Can't load specprober library because it isn't found.");
             libManager = new LibraryManager(
-                new LibraryItem(NativeLand.Platform.Windows, Architecture.X86,
+                new LibraryItem(Platform.Windows, Architecture.X86,
                     new LibraryFile(libPath)),
-                new LibraryItem(NativeLand.Platform.Windows, Architecture.X64,
+                new LibraryItem(Platform.Windows, Architecture.X64,
                     new LibraryFile(libPath)),
-                new LibraryItem(NativeLand.Platform.MacOS, Architecture.X64,
+                new LibraryItem(Platform.MacOS, Architecture.X64,
                     new LibraryFile(libPath)),
-                new LibraryItem(NativeLand.Platform.Linux, Architecture.X64,
+                new LibraryItem(Platform.Linux, Architecture.X64,
                     new LibraryFile(libPath)),
-                new LibraryItem(NativeLand.Platform.Linux, Architecture.X86,
+                new LibraryItem(Platform.Linux, Architecture.X86,
                     new LibraryFile(libPath)));
             libManager.LoadNativeLibrary();
             _initialized = true;
