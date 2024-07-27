@@ -19,7 +19,6 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>hardware, information</PackageTags>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
-    <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -32,6 +31,14 @@
 
   <ItemGroup>
     <None Include="../SpecProbe/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/ridgraph.json" />
   </ItemGroup>
 
 </Project>

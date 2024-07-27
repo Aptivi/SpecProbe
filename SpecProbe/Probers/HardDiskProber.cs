@@ -17,9 +17,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Hardware.Parts;
-using SpecProbe.Hardware.Parts.Types;
-using SpecProbe.Platform;
+using SpecProbe.Parts;
+using SpecProbe.Parts.Types;
+using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace SpecProbe.Hardware.Probers
+namespace SpecProbe.Probers
 {
     internal class HardDiskProber : IHardwareProber
     {
@@ -322,11 +322,11 @@ namespace SpecProbe.Hardware.Probers
                                     for (uint partIdx = 0; partIdx < driveLayout.PartitionCount; partIdx++)
                                     {
                                         // Make a pointer to a partition info instance
-                                        IntPtr ptr = new(driveLayoutPtr.ToInt64() + Marshal.OffsetOf(typeof(PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX), "PartitionEntry").ToInt64() + (partIdx * Marshal.SizeOf(typeof(PlatformWindowsInterop.PARTITION_INFORMATION_EX))));
+                                        IntPtr ptr = new(driveLayoutPtr.ToInt64() + Marshal.OffsetOf(typeof(PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX), "PartitionEntry").ToInt64() + partIdx * Marshal.SizeOf(typeof(PlatformWindowsInterop.PARTITION_INFORMATION_EX)));
                                         PlatformWindowsInterop.PARTITION_INFORMATION_EX partInfo = Marshal.PtrToStructure<PlatformWindowsInterop.PARTITION_INFORMATION_EX>(ptr);
 
                                         // Check to see if this partition is a recognizable MBR/GPT partition
-                                        if ((partInfo.PartitionStyle != PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR) || partInfo.Mbr.RecognizedPartition)
+                                        if (partInfo.PartitionStyle != PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR || partInfo.Mbr.RecognizedPartition)
                                         {
                                             // Add this partition
                                             parts.Add(new()

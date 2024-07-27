@@ -17,20 +17,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Software.Kernel;
 using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Threading;
 using SpecProbe.Software.Platform;
-
-
-
-
-#if !NETCOREAPP
 using NativeLand;
-#endif
 
 namespace SpecProbe.Native
 {

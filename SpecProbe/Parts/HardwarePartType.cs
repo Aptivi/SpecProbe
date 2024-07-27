@@ -17,16 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Hardware.Parts
+namespace SpecProbe.Parts
 {
     /// <summary>
-    /// Hardware part info interface
+    /// Hardware part type
     /// </summary>
-    public interface IHardwarePartInfo
+    public enum HardwarePartType
     {
         /// <summary>
-        /// Hardware part type
+        /// Unknown hardware type
         /// </summary>
-        HardwarePartType Type { get; }
+        Unknown = 0,
+        /// <summary>
+        /// Processors
+        /// </summary>
+        Processor,
+        /// <summary>
+        /// Random Access Memory
+        /// </summary>
+        Memory,
+        /// <summary>
+        /// Video Adapters (Graphics Cards)
+        /// </summary>
+        Video,
+        /// <summary>
+        /// Hard Drive
+        /// </summary>
+        HardDisk,
     }
 }

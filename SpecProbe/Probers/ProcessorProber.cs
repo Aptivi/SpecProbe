@@ -17,18 +17,18 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Hardware.Parts;
-using SpecProbe.Hardware.Parts.Types;
 using SpecProbe.Native;
 using SpecProbe.Native.Helpers;
-using SpecProbe.Platform;
+using SpecProbe.Parts;
+using SpecProbe.Parts.Types;
+using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace SpecProbe.Hardware.Probers
+namespace SpecProbe.Probers
 {
     internal class ProcessorProber : IHardwareProber
     {
@@ -94,7 +94,7 @@ namespace SpecProbe.Hardware.Probers
                             cpuidVendor = armVendorIdInt switch
                             {
                                 0x41 => "ARM",
-                                _    => "",
+                                _ => "",
                             };
                             if (string.IsNullOrEmpty(name))
                                 name = "ARM Processor";

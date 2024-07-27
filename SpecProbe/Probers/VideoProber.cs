@@ -17,9 +17,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Hardware.Parts;
-using SpecProbe.Hardware.Parts.Types;
-using SpecProbe.Platform;
+using SpecProbe.Parts;
+using SpecProbe.Parts.Types;
+using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace SpecProbe.Hardware.Probers
+namespace SpecProbe.Probers
 {
     internal class VideoProber : IHardwareProber
     {
@@ -139,7 +139,7 @@ namespace SpecProbe.Hardware.Probers
                     if (line.StartsWith(videoCardVendorTag))
                         videoCardVendor = line.Substring(videoCardVendorTag.Length).Trim();
                 }
-                videoCardName = 
+                videoCardName =
                     $"V: {videoCardVendor} " +
                     $"M: {videoCardDevName}";
             }

@@ -17,26 +17,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Hardware.Parts.Types
+namespace SpecProbe.Parts
 {
     /// <summary>
-    /// Video card part
+    /// Base hardware part information class
     /// </summary>
-    public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo
+    public abstract class BaseHardwarePartInfo : IHardwarePartInfo
     {
-        private string videoCardName;
-
         /// <inheritdoc/>
-        public override HardwarePartType Type =>
-            HardwarePartType.Video;
-
-        /// <summary>
-        /// Video card name
-        /// </summary>
-        public string VideoCardName
-        {
-            get => videoCardName;
-            internal set => videoCardName = value;
-        }
+        public virtual HardwarePartType Type =>
+            HardwarePartType.Unknown;
     }
 }

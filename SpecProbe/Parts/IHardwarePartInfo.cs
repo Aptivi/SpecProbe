@@ -17,15 +17,16 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Hardware.Parts
+namespace SpecProbe.Parts
 {
     /// <summary>
-    /// Base hardware part information class
+    /// Hardware part info interface
     /// </summary>
-    public abstract class BaseHardwarePartInfo : IHardwarePartInfo
+    public interface IHardwarePartInfo
     {
-        /// <inheritdoc/>
-        public virtual HardwarePartType Type =>
-            HardwarePartType.Unknown;
+        /// <summary>
+        /// Hardware part type
+        /// </summary>
+        HardwarePartType Type { get; }
     }
 }

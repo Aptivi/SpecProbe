@@ -17,9 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Hardware;
-using SpecProbe.Hardware.Parts.Types;
-using SpecProbe.Platform;
+using SpecProbe.Parts.Types;
 using SpecProbe.Software.Platform;
 using System.Diagnostics;
 using Terminaux.Writer.ConsoleWriters;

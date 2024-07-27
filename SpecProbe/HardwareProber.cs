@@ -17,13 +17,13 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Hardware.Parts.Types;
-using SpecProbe.Hardware.Probers;
+using SpecProbe.Parts.Types;
+using SpecProbe.Probers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SpecProbe.Hardware
+namespace SpecProbe
 {
     /// <summary>
     /// Hardware probing class

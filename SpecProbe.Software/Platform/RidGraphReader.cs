@@ -17,14 +17,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Properties;
-using SpecProbe.Software.Platform;
-using System;
-using System.Runtime.InteropServices;
+using System.IO;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace SpecProbe.Platform
+namespace SpecProbe.Software.Platform
 {
     /// <summary>
     /// Tools for reading the RID graph
@@ -36,11 +33,7 @@ namespace SpecProbe.Platform
         /// </summary>
         /// <returns>List of RIDs from the current RID to the base RID</returns>
         public static string[] GetGraphFromRid() =>
-#if NET
-            GetGraphFromRid(RuntimeInformation.RuntimeIdentifier);
-#else
             GetGraphFromRid(PlatformHelper.GetCurrentGenericRid());
-#endif
 
         /// <summary>
         /// Gets the graph from the specified RID
@@ -48,7 +41,7 @@ namespace SpecProbe.Platform
         /// <returns>List of RIDs from the specified RID to the base RID</returns>
         public static string[] GetGraphFromRid(string rid)
         {
-            string graphJson = Resources.RidGraph;
+            string graphJson = GetRidGraphJson();
             var graphInstance = JsonNode.Parse(graphJson);
             foreach (var ridGraph in graphInstance.AsObject())
             {
@@ -59,7 +52,14 @@ namespace SpecProbe.Platform
                     return graphArray;
                 }
             }
-            return Array.Empty<string>();
+            return [];
+        }
+
+        private static string GetRidGraphJson()
+        {
+            var ridGraphStream = typeof(RidGraphReader).Assembly.GetManifestResourceStream("SpecProbe.Software.Resources.ridgraph.json");
+            var reader = new StreamReader(ridGraphStream);
+            return reader.ReadToEnd();
         }
     }
 }

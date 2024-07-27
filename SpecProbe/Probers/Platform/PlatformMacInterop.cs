@@ -20,7 +20,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace SpecProbe.Platform
+namespace SpecProbe.Probers.Platform
 {
     internal static unsafe class PlatformMacInterop
     {

@@ -17,7 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Platform
+namespace SpecProbe.Software.Platform
 {
     /// <summary>
     /// Platform (operating system).
