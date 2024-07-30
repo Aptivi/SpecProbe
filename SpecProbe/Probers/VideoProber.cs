@@ -17,6 +17,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Native.Helpers;
+using SpecProbe.Native.Structs;
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
@@ -229,6 +231,9 @@ namespace SpecProbe.Probers
                     devNum++;
                     devInfo.cb = Marshal.SizeOf(devInfo);
                 }
+
+                // Employ libdxhelper to get info about GPUs
+                int result = VideoHelper.GetGpus().Invoke(out IntPtr gpus);
             }
             catch (Exception ex)
             {

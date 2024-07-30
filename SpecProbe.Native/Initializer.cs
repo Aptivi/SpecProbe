@@ -31,19 +31,23 @@ namespace SpecProbe.Native
         internal static LibraryManager libManager;
         private static bool _initialized;
         private const string LibraryName = "libspecprober";
+        private const string LibraryName2 = "libdxhelper";
 
         internal static void InitializeNative()
         {
             if (_initialized)
                 return;
-            string libPath = GetLibraryPath();
+            string libPath = GetLibraryPath(LibraryName);
+            string libDxPath = GetLibraryPath(LibraryName2);
             if (!File.Exists(libPath))
                 throw new Exception("Can't load specprober library because it isn't found.");
+            if (!File.Exists(libDxPath) && PlatformHelper.IsOnWindows())
+                throw new Exception("Can't load dxhelper library because it isn't found.");
             libManager = new LibraryManager(
                 new LibraryItem(Platform.Windows, Architecture.X86,
-                    new LibraryFile(libPath)),
+                    new LibraryFile(libPath), new LibraryFile(libDxPath)),
                 new LibraryItem(Platform.Windows, Architecture.X64,
-                    new LibraryFile(libPath)),
+                    new LibraryFile(libPath), new LibraryFile(libDxPath)),
                 new LibraryItem(Platform.MacOS, Architecture.X64,
                     new LibraryFile(libPath)),
                 new LibraryItem(Platform.Linux, Architecture.X64,
@@ -54,7 +58,7 @@ namespace SpecProbe.Native
             _initialized = true;
         }
 
-        private static string GetLibraryPath()
+        private static string GetLibraryPath(string libraryName)
         {
             string execPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "/";
             string nonSpecificRid =
@@ -63,7 +67,7 @@ namespace SpecProbe.Native
                      PlatformHelper.IsOnUnix() ? "linux-" :
                      "freebsd-") + RuntimeInformation.OSArchitecture.ToString().ToLower();
             string directory = $"runtimes/{nonSpecificRid}/native/";
-            string libName = $"{LibraryName}{(PlatformHelper.IsOnWindows() ? ".dll" : PlatformHelper.IsOnMacOS() ? ".dylib" : ".so")}";
+            string libName = $"{libraryName}{(PlatformHelper.IsOnWindows() ? ".dll" : PlatformHelper.IsOnMacOS() ? ".dylib" : ".so")}";
             string path = $"{execPath}{directory}{libName}";
             return path;
         }

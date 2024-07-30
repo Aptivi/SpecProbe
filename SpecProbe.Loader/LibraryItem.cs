@@ -81,13 +81,14 @@ namespace SpecProbe.Loader
                 // Try to find a symbol
                 if (PlatformHelper.IsOnWindows())
                 {
-                    result = Windows.GetProcAddress(file.handle, symbolName);
+                    string resultingSymbol = symbolName;
+                    result = Windows.GetProcAddress(file.handle, resultingSymbol);
                     if (result == IntPtr.Zero)
                     {
-                        symbolName = "_" + symbolName + "@";
+                        resultingSymbol = "_" + resultingSymbol + "@";
                         for (int stackSize = 0; stackSize < 128; stackSize += 4)
                         {
-                            IntPtr candidate = Windows.GetProcAddress(file.handle, symbolName + stackSize);
+                            IntPtr candidate = Windows.GetProcAddress(file.handle, resultingSymbol + stackSize);
                             if (candidate != IntPtr.Zero)
                             {
                                 result = candidate;
