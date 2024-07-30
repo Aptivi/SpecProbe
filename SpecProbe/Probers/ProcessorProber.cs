@@ -45,7 +45,8 @@ namespace SpecProbe.Probers
         public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
         {
             // Some variables to install.
-            int numberOfCores = 0;
+            int numberOfLogicalCores = 0;
+            int numberOfPhysicalCores = 0;
             int numberOfCoresForEachCore = 1;
             uint cacheL1 = 0;
             uint cacheL2 = 0;
@@ -56,6 +57,7 @@ namespace SpecProbe.Probers
 
             // Some constants
             const string physicalId = "physical id\t: ";
+            const string logicalId = "processor\t: ";
             const string cpuCores = "cpu cores\t: ";
             const string cpuClockSpeed = "cpu MHz\t\t: ";
             const string vendorId = "vendor_id\t: ";
@@ -76,9 +78,9 @@ namespace SpecProbe.Probers
                         // Get the processor number
                         if (cpuInfoLine.StartsWith(processorNum))
                         {
-                            string physicalIdString = cpuInfoLine.Replace(processorNum, "");
-                            int physicalIdNum = int.Parse(physicalIdString);
-                            numberOfCores = physicalIdNum + 1;
+                            string logicalIdString = cpuInfoLine.Replace(processorNum, "");
+                            int logicalIdNum = int.Parse(logicalIdString);
+                            numberOfLogicalCores = logicalIdNum + 1;
                         }
 
                         // Get the processor name
@@ -107,10 +109,18 @@ namespace SpecProbe.Probers
                         {
                             string physicalIdString = cpuInfoLine.Replace(physicalId, "");
                             int physicalIdNum = int.Parse(physicalIdString);
-                            numberOfCores = physicalIdNum + 1;
+                            numberOfPhysicalCores = physicalIdNum + 1;
                         }
 
-                        // Get the number of cores for each physical processor
+                        // Get the number of logical processors
+                        if (cpuInfoLine.StartsWith(logicalId))
+                        {
+                            string logicalIdString = cpuInfoLine.Replace(logicalId, "");
+                            int logicalIdNum = int.Parse(logicalIdString);
+                            numberOfLogicalCores = logicalIdNum + 1;
+                        }
+
+                        // Get the number of logical processors
                         if (cpuInfoLine.StartsWith(cpuCores))
                         {
                             string coreNumString = cpuInfoLine.Replace(cpuCores, "");
@@ -191,8 +201,9 @@ namespace SpecProbe.Probers
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
             {
-                ProcessorCores = numberOfCores,
-                CoresForEachCore = numberOfCoresForEachCore,
+                ProcessorCores = numberOfPhysicalCores,
+                LogicalCores = numberOfLogicalCores,
+                Cores = numberOfCoresForEachCore,
                 L1CacheSize = cacheL1,
                 L2CacheSize = cacheL2,
                 L3CacheSize = cacheL3,
@@ -266,7 +277,8 @@ namespace SpecProbe.Probers
             ProcessorPart processorPart = new()
             {
                 ProcessorCores = numberOfCores,
-                CoresForEachCore = numberOfCoresForEachCore,
+                Cores = numberOfCoresForEachCore,
+                LogicalCores = numberOfCoresForEachCore * numberOfCores,
                 L1CacheSize = cacheL1,
                 L2CacheSize = cacheL2,
                 L3CacheSize = cacheL3,
@@ -282,6 +294,7 @@ namespace SpecProbe.Probers
             // Some variables to install.
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
+            int numberOfLogicalCores = 0;
             uint cacheL1 = 0;
             uint cacheL2 = 0;
             uint cacheL3 = 0;
@@ -364,6 +377,10 @@ namespace SpecProbe.Probers
                     if (status == 0)
                         clockSpeed = procInfo[0].MaxMhz;
                 }
+
+                // Finally, get the actual logical processor count
+                PlatformWindowsInterop.GetSystemInfo(out PlatformWindowsInterop.SYSTEM_INFO system);
+                numberOfLogicalCores = (int)system.dwNumberOfProcessors;
             }
             catch (Exception ex)
             {
@@ -374,7 +391,8 @@ namespace SpecProbe.Probers
             ProcessorPart processorPart = new()
             {
                 ProcessorCores = numberOfCores,
-                CoresForEachCore = numberOfCoresForEachCore,
+                Cores = numberOfCoresForEachCore,
+                LogicalCores = numberOfLogicalCores,
                 L1CacheSize = cacheL1,
                 L2CacheSize = cacheL2,
                 L3CacheSize = cacheL3,

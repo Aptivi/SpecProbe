@@ -45,9 +45,9 @@ namespace SpecProbe.ConsoleTest
                 TextWriterColor.WriteColor("- Processor cores: ", false, 3);
                 TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
                 TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.CoresForEachCore}", true, 8);
-                TextWriterColor.WriteColor("- Total cores: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.TotalCores}", true, 8);
+                TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
+                TextWriterColor.WriteColor("- Logical cores: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
                 TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
                 TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
                 TextWriterColor.WriteColor("- Name: ", false, 3);

@@ -74,11 +74,30 @@ namespace SpecProbe.Probers.Platform
             public uint CurrentIdleState;
         }
 
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct SYSTEM_INFO
+        {
+            public ushort wProcessorArch;
+            public ushort wReserved;
+            public uint dwPageSize;
+            public nint lpMinimumApplicationAddress;
+            public nint lpMaximumApplicationAddress;
+            public nint dwActiveProcessorMask;
+            public uint dwNumberOfProcessors;
+            public uint dwProcessorType;
+            public uint dwAllocationGranularity;
+            public ushort dwProcessorLevel;
+            public ushort dwProcessorRevision;
+        }
+
         [DllImport("kernel32.dll")]
         internal static extern unsafe bool GetLogicalProcessorInformation(SYSTEM_LOGICAL_PROCESSOR_INFORMATION* buffer, out int bufferSize);
 
         [DllImport("powrprof.dll", SetLastError = true)]
         internal static extern uint CallNtPowerInformation(int informationLevel, IntPtr lpInputBuffer, uint nInputBufferSize, [Out] PROCESSOR_POWER_INFORMATION[] lpOutputBuffer, uint nOutputBufferSize);
+
+        [DllImport("kernel32", SetLastError = true)]
+        internal static extern void GetSystemInfo(out SYSTEM_INFO lpSystemInfo);
         #endregion
 
         #region Memory information Win32 API pinvokes

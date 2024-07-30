@@ -45,7 +45,8 @@ namespace SpecProbe.Parts.Types
     public class ProcessorPart : BaseHardwarePartInfo, IHardwarePartInfo
     {
         private int coresNum;
-        private int coresForEachCore;
+        private int logicalCores;
+        private int numCores;
         private uint cacheL1;
         private uint cacheL2;
         private uint cacheL3;
@@ -58,7 +59,7 @@ namespace SpecProbe.Parts.Types
             HardwarePartType.Processor;
 
         /// <summary>
-        /// Number of cores
+        /// Number of cores (physical)
         /// </summary>
         public int ProcessorCores
         {
@@ -66,18 +67,21 @@ namespace SpecProbe.Parts.Types
             internal set => coresNum = value;
         }
         /// <summary>
-        /// Number of cores for each core (with hyperthreading enabled, it's more than one for each physical core)
+        /// Number of cores (logical)
         /// </summary>
-        public int CoresForEachCore
+        public int LogicalCores
         {
-            get => coresForEachCore;
-            internal set => coresForEachCore = value;
+            get => logicalCores;
+            internal set => logicalCores = value;
         }
         /// <summary>
-        /// Total number of processor cores
+        /// Number of cores for each physical processor
         /// </summary>
-        public int TotalCores =>
-            ProcessorCores * CoresForEachCore;
+        public int Cores
+        {
+            get => numCores;
+            internal set => numCores = value;
+        }
         /// <summary>
         /// Size of the L1 cache in bytes
         /// </summary>
