@@ -18,7 +18,6 @@
 //
 
 using System;
-using System.IO;
 
 namespace SpecProbe.Loader
 {
