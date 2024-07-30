@@ -29,9 +29,9 @@ using System.Runtime.InteropServices;
 
 namespace SpecProbe.Probers
 {
-    internal class MemoryProber : IHardwareProber
+    internal static class MemoryProber
     {
-        public BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
@@ -41,7 +41,7 @@ namespace SpecProbe.Probers
                 return GetBaseHardwarePartsLinux();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
         {
             // Some variables to install.
             long totalMemory = 0;
@@ -104,7 +104,7 @@ namespace SpecProbe.Probers
             return new[] { part };
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Some variables to install.
             long totalMemory = 0;
@@ -140,7 +140,7 @@ namespace SpecProbe.Probers
             return new[] { part };
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
             // Some variables to install.
             long totalMemory = 0;

@@ -29,9 +29,9 @@ using System.Runtime.InteropServices;
 
 namespace SpecProbe.Probers
 {
-    internal class VideoProber : IHardwareProber
+    internal static class VideoProber
     {
-        public BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
@@ -41,7 +41,7 @@ namespace SpecProbe.Probers
                 return GetBaseHardwarePartsLinux();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
         {
             // Some variables to install.
             string videoCardName = "";
@@ -108,7 +108,7 @@ namespace SpecProbe.Probers
             return new[] { part };
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Video card list
             List<VideoPart> videos = [];
@@ -156,7 +156,7 @@ namespace SpecProbe.Probers
             return videos.ToArray();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOSNotarized()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOSNotarized()
         {
             // Video card list
             List<VideoPart> videos = [];
@@ -210,7 +210,7 @@ namespace SpecProbe.Probers
             return videos.ToArray();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
             List<VideoPart> parts = [];
 

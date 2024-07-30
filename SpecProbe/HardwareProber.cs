@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers;
 using System;
@@ -32,44 +33,45 @@ namespace SpecProbe
     {
         internal static bool notarized = false;
         internal static List<Exception> errors = [];
-        private static ProcessorPart[] cachedProcessors;
-        private static MemoryPart[] cachedMemory;
-        private static VideoPart[] cachedVideos;
-        private static HardDiskPart[] cachedHardDisks;
-        private static readonly ProcessorProber processorProber = new();
-        private static readonly MemoryProber memoryProber = new();
-        private static readonly VideoProber videoProber = new();
-        private static readonly HardDiskProber hardDiskProber = new();
+        private static readonly Dictionary<HardwarePartType, BaseHardwarePartInfo[]> cachedParts = [];
 
         /// <summary>
         /// Gets the list of processors (always 1)
         /// </summary>
         public static ProcessorPart[] Processors =>
-            cachedProcessors is not null ? cachedProcessors : ProbeProcessors();
+            (cachedParts.Keys.Contains(HardwarePartType.Processor) && cachedParts[HardwarePartType.Processor].Length > 0 ?
+             cachedParts[HardwarePartType.Processor] :
+             ProcessorProber.GetBaseHardwareParts()) as ProcessorPart[];
 
         /// <summary>
         /// Gets the list of memory (always 1)
         /// </summary>
         public static MemoryPart[] Memory =>
-            cachedMemory is not null ? cachedMemory : ProbeMemory();
+            (cachedParts.Keys.Contains(HardwarePartType.Memory) && cachedParts[HardwarePartType.Memory].Length > 0 ?
+             cachedParts[HardwarePartType.Memory] :
+             MemoryProber.GetBaseHardwareParts()) as MemoryPart[];
 
         /// <summary>
         /// Gets the list of video cards
         /// </summary>
         public static VideoPart[] Video =>
-            cachedVideos is not null ? cachedVideos : ProbeVideo();
+            (cachedParts.Keys.Contains(HardwarePartType.Video) && cachedParts[HardwarePartType.Video].Length > 0 ?
+             cachedParts[HardwarePartType.Video] :
+             VideoProber.GetBaseHardwareParts()) as VideoPart[];
 
         /// <summary>
         /// Gets the list of hard disks
         /// </summary>
         public static HardDiskPart[] HardDisk =>
-            cachedHardDisks is not null ? cachedHardDisks : ProbeHardDisk();
+            (cachedParts.Keys.Contains(HardwarePartType.HardDisk) && cachedParts[HardwarePartType.HardDisk].Length > 0 ?
+             cachedParts[HardwarePartType.HardDisk] :
+             HardDiskProber.GetBaseHardwareParts()) as HardDiskPart[];
 
         /// <summary>
         /// Gets the list of hardware prober errors
         /// </summary>
         public static Exception[] Errors =>
-            errors.ToArray();
+            [.. errors];
 
         /// <summary>
         /// For Apple's code signing.
@@ -77,41 +79,5 @@ namespace SpecProbe
         /// <param name="notarized">If your application is using hardened macOS runtime, set this to true.</param>
         public static void SetNotarized(bool notarized) =>
             HardwareProber.notarized = notarized;
-
-        private static ProcessorPart[] ProbeProcessors()
-        {
-            // Get the base part class instances from the part prober
-            var processorBases = processorProber.GetBaseHardwareParts();
-            var processors = processorBases.Cast<ProcessorPart>();
-            cachedProcessors = processors.ToArray();
-            return cachedProcessors;
-        }
-
-        private static MemoryPart[] ProbeMemory()
-        {
-            // Get the base part class instances from the part prober
-            var memoryBases = memoryProber.GetBaseHardwareParts();
-            var memory = memoryBases.Cast<MemoryPart>();
-            cachedMemory = memory.ToArray();
-            return cachedMemory;
-        }
-
-        private static VideoPart[] ProbeVideo()
-        {
-            // Get the base part class instances from the part prober
-            var videoBases = videoProber.GetBaseHardwareParts();
-            var videos = videoBases.Cast<VideoPart>();
-            cachedVideos = videos.ToArray();
-            return cachedVideos;
-        }
-
-        private static HardDiskPart[] ProbeHardDisk()
-        {
-            // Get the base part class instances from the part prober
-            var hardDiskBases = hardDiskProber.GetBaseHardwareParts();
-            var hardDisks = hardDiskBases.Cast<HardDiskPart>();
-            cachedHardDisks = hardDisks.ToArray();
-            return cachedHardDisks;
-        }
     }
 }

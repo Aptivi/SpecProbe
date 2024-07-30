@@ -29,9 +29,9 @@ using System.Runtime.InteropServices;
 
 namespace SpecProbe.Probers
 {
-    internal class HardDiskProber : IHardwareProber
+    internal static class HardDiskProber
     {
-        public BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
@@ -41,7 +41,7 @@ namespace SpecProbe.Probers
                 return GetBaseHardwarePartsLinux();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
         {
             // TODO: Android devices must be rooted to be able to run this.
             // Some variables to install.
@@ -122,7 +122,7 @@ namespace SpecProbe.Probers
             return diskParts.ToArray();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Some variables to install.
             List<HardDiskPart> diskParts = [];
@@ -259,7 +259,7 @@ namespace SpecProbe.Probers
             return diskParts.ToArray();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
             List<HardDiskPart> diskParts = [];
             List<HardDiskPart.PartitionPart> partitions = [];

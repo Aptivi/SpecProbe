@@ -30,9 +30,9 @@ using System.Runtime.InteropServices;
 
 namespace SpecProbe.Probers
 {
-    internal class ProcessorProber : IHardwareProber
+    internal static class ProcessorProber
     {
-        public BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
         {
             if (PlatformHelper.IsOnWindows())
                 return GetBaseHardwarePartsWindows();
@@ -42,7 +42,7 @@ namespace SpecProbe.Probers
                 return GetBaseHardwarePartsLinux();
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
         {
             // Some variables to install.
             int numberOfCores = 0;
@@ -203,7 +203,7 @@ namespace SpecProbe.Probers
             return new[] { processorPart };
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
         {
             // Some variables to install.
             int numberOfCores = 0;
@@ -277,7 +277,7 @@ namespace SpecProbe.Probers
             return new[] { processorPart };
         }
 
-        public BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
         {
             // Some variables to install.
             int numberOfCores = 0;
