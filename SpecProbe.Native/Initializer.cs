@@ -21,8 +21,8 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using SpecProbe.Loader;
 using SpecProbe.Software.Platform;
-using NativeLand;
 
 namespace SpecProbe.Native
 {

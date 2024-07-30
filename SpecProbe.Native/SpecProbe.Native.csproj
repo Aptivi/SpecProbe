@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
+    <ProjectReference Include="..\SpecProbe.Loader\SpecProbe.Loader.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,10 +44,6 @@
     <!-- For packaging -->
     <None Include="../SpecProbe/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="NativeLand" Version="2.0.0.1" />
   </ItemGroup>
 
 </Project>

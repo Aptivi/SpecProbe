@@ -17,28 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Software.Platform
+using System;
+using System.IO;
+
+namespace SpecProbe.Loader
 {
     /// <summary>
-    /// Platform (operating system).
+    /// A class to store information about a native library file or a stream.
     /// </summary>
-    public enum Platform
+    public class LibraryFile
     {
+        internal IntPtr handle = IntPtr.Zero;
+
         /// <summary>
-        /// Windows platform.
+        /// Path to the native library file.
         /// </summary>
-        Windows,
+        public string FilePath { get; }
+
         /// <summary>
-        /// Linux platform.
+        /// Initializes the library file class instance
         /// </summary>
-        Linux,
-        /// <summary>
-        /// MacOS platform.
-        /// </summary>
-        MacOS,
-        /// <summary>
-        /// Unknown platform
-        /// </summary>
-        Unknown = -1,
+        /// <param name="filePath">Path to the native library file.</param>
+        public LibraryFile(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath))
+                throw new ArgumentNullException(nameof(filePath), "Path to the native library file is not specified");
+            FilePath = filePath;
+        }
     }
 }
