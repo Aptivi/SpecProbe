@@ -347,19 +347,19 @@ references:
   commentId: T:SpecProbe.Parts.Types.ProcessorPart
   fullName: SpecProbe.Parts.Types.ProcessorPart
   nameWithType: ProcessorPart
-- uid: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
-  name: CoresForEachCore
-  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CoresForEachCore
-  commentId: P:SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
-  fullName: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
-  nameWithType: ProcessorPart.CoresForEachCore
-- uid: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore*
-  name: CoresForEachCore
-  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CoresForEachCore_
-  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
+- uid: SpecProbe.Parts.Types.ProcessorPart.Cores
+  name: Cores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Cores
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Cores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Cores
+  nameWithType: ProcessorPart.Cores
+- uid: SpecProbe.Parts.Types.ProcessorPart.Cores*
+  name: Cores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Cores_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Cores
   isSpec: "True"
-  fullName: SpecProbe.Parts.Types.ProcessorPart.CoresForEachCore
-  nameWithType: ProcessorPart.CoresForEachCore
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Cores
+  nameWithType: ProcessorPart.Cores
 - uid: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   name: CpuidVendor
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_CpuidVendor
@@ -412,6 +412,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.ProcessorPart.L3CacheSize
   nameWithType: ProcessorPart.L3CacheSize
+- uid: SpecProbe.Parts.Types.ProcessorPart.LogicalCores
+  name: LogicalCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_LogicalCores
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.LogicalCores
+  fullName: SpecProbe.Parts.Types.ProcessorPart.LogicalCores
+  nameWithType: ProcessorPart.LogicalCores
+- uid: SpecProbe.Parts.Types.ProcessorPart.LogicalCores*
+  name: LogicalCores
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_LogicalCores_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.LogicalCores
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.ProcessorPart.LogicalCores
+  nameWithType: ProcessorPart.LogicalCores
 - uid: SpecProbe.Parts.Types.ProcessorPart.Name
   name: Name
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Name
@@ -451,19 +464,6 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.ProcessorPart.Speed
   nameWithType: ProcessorPart.Speed
-- uid: SpecProbe.Parts.Types.ProcessorPart.TotalCores
-  name: TotalCores
-  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_TotalCores
-  commentId: P:SpecProbe.Parts.Types.ProcessorPart.TotalCores
-  fullName: SpecProbe.Parts.Types.ProcessorPart.TotalCores
-  nameWithType: ProcessorPart.TotalCores
-- uid: SpecProbe.Parts.Types.ProcessorPart.TotalCores*
-  name: TotalCores
-  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_TotalCores_
-  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.TotalCores
-  isSpec: "True"
-  fullName: SpecProbe.Parts.Types.ProcessorPart.TotalCores
-  nameWithType: ProcessorPart.TotalCores
 - uid: SpecProbe.Parts.Types.ProcessorPart.Type
   name: Type
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Type
