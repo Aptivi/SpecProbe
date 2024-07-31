@@ -27,11 +27,10 @@
 #include <dxgi.h>
 #include <vector>
 #include <sstream>
-#include <comdef.h>
 
 /* -------------------------------------------------------------------- */
 
-struct
+extern "C" struct
     spdx_gpu_info
     /*
     * -----------------------------------------------------------------------
@@ -42,17 +41,19 @@ struct
     * -----------------------------------------------------------------------
     */
 {
+public:
     UINT vendorId = 0x0;
     UINT deviceId = 0x0;
-    const char* name = "";
+    WCHAR name[128] = {};
 };
 
 /* -------------------------------------------------------------------- */
 
-extern "C" __declspec(dllexport) bool
+extern "C" __declspec(dllexport) BOOL
     spdx_get_gpus
     (
-        spdx_gpu_info* devices
+        spdx_gpu_info**& devices,
+        UINT& length
     )
     /*
     * -----------------------------------------------------------------------
@@ -60,6 +61,7 @@ extern "C" __declspec(dllexport) bool
     * Description : Gets a list of graphics cards according to DirectX
     * -----------------------------------------------------------------------
     * Arguments   : An output array of devices (passed by reference)
+    *               A length of the array (passed by reference)
     * Returning   : true if succeeded; false if failed.
     * -----------------------------------------------------------------------
     * Exposure    : Exposed to the SpecProbe managed world
@@ -67,7 +69,7 @@ extern "C" __declspec(dllexport) bool
     */
 {
     // Create a list
-    std::vector<spdx_gpu_info>* devicesList = {};
+    std::vector<spdx_gpu_info*> devicesList = {};
     
     // Create the DXGI factory
     IDXGIFactory* factory;
@@ -93,20 +95,21 @@ extern "C" __declspec(dllexport) bool
         }
 
         // Install info
-        spdx_gpu_info device;
-        _bstr_t b(desc.Description);
-        device.vendorId = desc.VendorId;
-        device.deviceId = desc.DeviceId;
-        device.name = b + "\0";
+        spdx_gpu_info* device = new spdx_gpu_info();
+        device->vendorId = desc.VendorId;
+        device->deviceId = desc.DeviceId;
+        wcscpy_s(device->name, desc.Description);
 
         // Add this device to the array vector
-        devicesList->push_back(device);
+        devicesList.push_back(device);
         adapter->Release();
     }
 
     // Indicate success
     factory->Release();
-    devices = devicesList->data();
+    devices = new spdx_gpu_info * [devicesList.size()];
+    std::copy(std::begin(devicesList), std::end(devicesList), devices);
+    length = i - 1;
     return (i > 0);
 }
 

@@ -19,28 +19,28 @@
 
 /* -------------------------------------------------------------------- */
 
-#pragma once
-#include <vector>
-#include <wtypes.h>
+#include "../spdx_query.h"
 
 /* -------------------------------------------------------------------- */
 
-struct
-    spdx_gpu_info
+int main()
 {
-public:
-    UINT vendorId = 0x0;
-    UINT deviceId = 0x0;
-    WCHAR name[128] = {};
-};
-
-/* -------------------------------------------------------------------- */
-
-extern "C" __declspec(dllexport) BOOL
-    spdx_get_gpus
-    (
-        spdx_gpu_info**& devices,
-        UINT& length
-    );
+    printf("spdx_query test...\n");
+    spdx_gpu_info** gpus = nullptr;
+    UINT length = 0;
+    BOOL result = spdx_get_gpus(gpus, length);
+    if (!result || length == 0)
+    {
+        printf("none.\n");
+        return 1;
+    }
+    for (int i = 0; i < length; i++)
+    {
+        spdx_gpu_info* info = gpus[i];
+        printf("info->vendorId: %i\n", info->vendorId);
+        printf("info->deviceId: %i\n", info->deviceId);
+        printf("info->name: %ws\n", info->name);
+    }
+}
 
 /* -------------------------------------------------------------------- */

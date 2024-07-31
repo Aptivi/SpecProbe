@@ -22,14 +22,15 @@ using System.Runtime.InteropServices;
 
 namespace SpecProbe.Native.Structs
 {
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4, Size = 264)]
     internal struct GpuInfo
     {
-        // ushort, was UINT
-        ushort vendorId;
-        ushort deviceId;
+        // uint, was UINT
+        internal int vendorId;
+        internal int deviceId;
 
-        // IntPtr, was const char*
-        IntPtr name;
+        // IntPtr, was WCHAR[128]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+        internal string name;
     }
 }

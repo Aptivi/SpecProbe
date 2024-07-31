@@ -218,22 +218,18 @@ namespace SpecProbe.Probers
 
             try
             {
-                // Employ EnumDisplayDevices() and keep enumerating until we find the last device
-                var devInfo = new PlatformWindowsInterop.DISPLAY_DEVICE();
-                devInfo.cb = Marshal.SizeOf(devInfo);
-                uint devNum = 0;
-                while (PlatformWindowsInterop.EnumDisplayDevices(null, devNum, ref devInfo, 1))
+                // Employ libdxhelper to get info about GPUs
+                bool result = VideoHelper.GetGpus().Invoke(out IntPtr gpus, out int length);
+                if (!result)
+                    throw new Exception("Can't parse video cards.");
+                for (int i = 0; i < length - 1; i++)
                 {
+                    GpuInfo gpuPart = (GpuInfo)Marshal.PtrToStructure(gpus + (264 * i), typeof(GpuInfo));
                     parts.Add(new VideoPart()
                     {
-                        VideoCardName = devInfo.DeviceString
+                        VideoCardName = gpuPart.name
                     });
-                    devNum++;
-                    devInfo.cb = Marshal.SizeOf(devInfo);
                 }
-
-                // Employ libdxhelper to get info about GPUs
-                int result = VideoHelper.GetGpus().Invoke(out IntPtr gpus);
             }
             catch (Exception ex)
             {

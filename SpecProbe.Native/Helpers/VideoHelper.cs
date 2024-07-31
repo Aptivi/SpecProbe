@@ -23,7 +23,7 @@ namespace SpecProbe.Native.Helpers
 {
     internal static class VideoHelper
     {
-        internal delegate int spdx_get_gpus(out IntPtr gpus);
+        internal delegate bool spdx_get_gpus(out IntPtr gpus, out int length);
 
         internal static spdx_get_gpus GetGpus() =>
             Initializer.libManager.GetNativeMethodDelegate<spdx_get_gpus>(nameof(spdx_get_gpus));
