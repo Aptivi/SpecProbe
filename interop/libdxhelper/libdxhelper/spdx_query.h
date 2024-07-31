@@ -39,7 +39,7 @@ public:
 extern "C" __declspec(dllexport) BOOL
     spdx_get_gpus
     (
-        spdx_gpu_info**& devices,
+        spdx_gpu_info*& devices,
         UINT& length
     );
 

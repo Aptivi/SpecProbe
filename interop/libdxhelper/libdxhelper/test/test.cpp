@@ -26,7 +26,7 @@
 int main()
 {
     printf("spdx_query test...\n");
-    spdx_gpu_info** gpus = nullptr;
+    spdx_gpu_info* gpus = nullptr;
     UINT length = 0;
     BOOL result = spdx_get_gpus(gpus, length);
     if (!result || length == 0)
@@ -36,10 +36,10 @@ int main()
     }
     for (int i = 0; i < length; i++)
     {
-        spdx_gpu_info* info = gpus[i];
-        printf("info->vendorId: %i\n", info->vendorId);
-        printf("info->deviceId: %i\n", info->deviceId);
-        printf("info->name: %ws\n", info->name);
+        spdx_gpu_info info = gpus[i];
+        printf("info->vendorId: %i\n", info.vendorId);
+        printf("info->deviceId: %i\n", info.deviceId);
+        printf("info->name: %ws\n", info.name);
     }
 }
 

@@ -52,7 +52,7 @@ public:
 extern "C" __declspec(dllexport) BOOL
     spdx_get_gpus
     (
-        spdx_gpu_info**& devices,
+        spdx_gpu_info*& devices,
         UINT& length
     )
     /*
@@ -69,7 +69,7 @@ extern "C" __declspec(dllexport) BOOL
     */
 {
     // Create a list
-    std::vector<spdx_gpu_info*> devicesList = {};
+    std::vector<spdx_gpu_info> devicesList = {};
     
     // Create the DXGI factory
     IDXGIFactory* factory;
@@ -95,10 +95,10 @@ extern "C" __declspec(dllexport) BOOL
         }
 
         // Install info
-        spdx_gpu_info* device = new spdx_gpu_info();
-        device->vendorId = desc.VendorId;
-        device->deviceId = desc.DeviceId;
-        wcscpy_s(device->name, desc.Description);
+        spdx_gpu_info device = spdx_gpu_info();
+        device.vendorId = desc.VendorId;
+        device.deviceId = desc.DeviceId;
+        wcscpy_s(device.name, desc.Description);
 
         // Add this device to the array vector
         devicesList.push_back(device);
@@ -107,7 +107,7 @@ extern "C" __declspec(dllexport) BOOL
 
     // Indicate success
     factory->Release();
-    devices = new spdx_gpu_info * [devicesList.size()];
+    devices = new spdx_gpu_info[devicesList.size()];
     std::copy(std::begin(devicesList), std::end(devicesList), devices);
     length = i - 1;
     return (i > 0);
