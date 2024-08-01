@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace SpecProbe.Probers
 {
@@ -222,12 +223,30 @@ namespace SpecProbe.Probers
                 bool result = VideoHelper.GetGpus().Invoke(out IntPtr gpus, out int length);
                 if (!result)
                     throw new Exception("Can't parse video cards.");
+
+                // Enumerate parsed GPUs
                 for (int i = 0; i < length - 1; i++)
                 {
-                    GpuInfo gpuPart = (GpuInfo)Marshal.PtrToStructure(gpus + (264 * i), typeof(GpuInfo));
+                    // Get the GPU part
+                    int size = Marshal.SizeOf(typeof(GpuInfo));
+                    GpuInfo gpuPart = (GpuInfo)Marshal.PtrToStructure(gpus + (size * i), typeof(GpuInfo));
+
+                    // Build the name
+                    char[] nameChars = gpuPart.name;
+                    StringBuilder builder = new();
+                    for (int c = 0; c < nameChars.Length; c += 2)
+                    {
+                        // Get the character and check for null char
+                        char character = nameChars[c];
+                        if (character == '\0')
+                            break;
+                        builder.Append(character);
+                    }
+
+                    // Install the part
                     parts.Add(new VideoPart()
                     {
-                        VideoCardName = gpuPart.name
+                        VideoCardName = builder.ToString()
                     });
                 }
             }

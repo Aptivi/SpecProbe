@@ -30,7 +30,7 @@ namespace SpecProbe.Native.Structs
         internal int deviceId;
 
         // IntPtr, was WCHAR[128]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        internal string name;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        internal char[] name;
     }
 }
