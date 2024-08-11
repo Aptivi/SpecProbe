@@ -44,15 +44,11 @@ namespace SpecProbe.Native
             if (!File.Exists(libDxPath) && PlatformHelper.IsOnWindows())
                 throw new Exception("Can't load dxhelper library because it isn't found.");
             libManager = new LibraryManager(
-                new LibraryItem(Platform.Windows, Architecture.X86,
-                    new LibraryFile(libPath), new LibraryFile(libDxPath)),
                 new LibraryItem(Platform.Windows, Architecture.X64,
                     new LibraryFile(libPath), new LibraryFile(libDxPath)),
                 new LibraryItem(Platform.MacOS, Architecture.X64,
                     new LibraryFile(libPath)),
                 new LibraryItem(Platform.Linux, Architecture.X64,
-                    new LibraryFile(libPath)),
-                new LibraryItem(Platform.Linux, Architecture.X86,
                     new LibraryFile(libPath)));
             libManager.LoadNativeLibrary();
             _initialized = true;
