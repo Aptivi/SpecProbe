@@ -46,6 +46,8 @@ namespace SpecProbe.Native
             libManager = new LibraryManager(
                 new LibraryItem(Platform.Windows, Architecture.X64,
                     new LibraryFile(libPath), new LibraryFile(libDxPath)),
+                new LibraryItem(Platform.Windows, Architecture.Arm64,
+                    new LibraryFile(libDxPath)),
                 new LibraryItem(Platform.MacOS, Architecture.X64,
                     new LibraryFile(libPath)),
                 new LibraryItem(Platform.Linux, Architecture.X64,
