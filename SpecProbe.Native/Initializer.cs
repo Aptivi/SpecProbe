@@ -30,28 +30,46 @@ namespace SpecProbe.Native
     {
         internal static LibraryManager libManager;
         private static bool _initialized;
-        private const string LibraryName = "libspecprober";
-        private const string LibraryName2 = "libdxhelper";
 
         internal static void InitializeNative()
         {
             if (_initialized)
                 return;
-            string libPath = GetLibraryPath(LibraryName);
-            string libDxPath = GetLibraryPath(LibraryName2);
-            if (!File.Exists(libPath))
-                throw new Exception("Can't load specprober library because it isn't found.");
-            if (!File.Exists(libDxPath) && PlatformHelper.IsOnWindows())
-                throw new Exception("Can't load dxhelper library because it isn't found.");
-            libManager = new LibraryManager(
-                new LibraryItem(Platform.Windows, Architecture.X64,
-                    new LibraryFile(libPath), new LibraryFile(libDxPath)),
-                new LibraryItem(Platform.Windows, Architecture.Arm64,
-                    new LibraryFile(libDxPath)),
-                new LibraryItem(Platform.MacOS, Architecture.X64,
-                    new LibraryFile(libPath)),
-                new LibraryItem(Platform.Linux, Architecture.X64,
-                    new LibraryFile(libPath)));
+            string libPath = GetLibraryPath("libspecprober");
+            string libDxPath = GetLibraryPath("libdxhelper");
+
+            // Detect the platform
+            var platform = PlatformHelper.GetPlatform();
+            var bitness = PlatformHelper.GetArchitecture();
+            switch (platform)
+            {
+                case Platform.Windows:
+                    libManager = bitness switch
+                    {
+                        Architecture.X64 =>
+                            new LibraryManager(new LibraryFile(libPath), new LibraryFile(libDxPath)),
+                        Architecture.Arm64 =>
+                            new LibraryManager(new LibraryFile(libDxPath)),
+                        _ =>
+                            throw new PlatformNotSupportedException("32-bit systems are no longer supported. See https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/ for more info."),
+                    };
+                    break;
+                case Platform.Linux:
+                case Platform.MacOS:
+                    switch (bitness)
+                    {
+                        case Architecture.X64:
+                            libManager = new LibraryManager(
+                                new LibraryFile(libPath));
+                            break;
+                        case Architecture.Arm:
+                        case Architecture.X86:
+                            throw new PlatformNotSupportedException("32-bit systems are no longer supported. See https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/ for more info.");
+                    }
+                    break;
+            }
+
+            // Load the native library
             libManager.LoadNativeLibrary();
             _initialized = true;
         }

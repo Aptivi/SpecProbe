@@ -184,6 +184,34 @@ namespace SpecProbe.Software.Platform
             $"{RuntimeInformation.OSArchitecture.ToString().ToLower()}";
 
         /// <summary>
+        /// Gets the platform enumeration from the current platform
+        /// </summary>
+        /// <returns>Platform enumeration from the current platform</returns>
+        /// <exception cref="PlatformNotSupportedException"></exception>
+        public static Platform GetPlatform()
+        {
+            if (PlatformHelper.IsOnWindows())
+                return Platform.Windows;
+            else if (PlatformHelper.IsOnMacOS())
+                return Platform.MacOS;
+            else if (PlatformHelper.IsOnUnix())
+                return Platform.Linux;
+            else
+                throw new PlatformNotSupportedException("This operating system is not supported.");
+        }
+
+        /// <summary>
+        /// Gets the architecture
+        /// </summary>
+        /// <returns>The current architecture</returns>
+        public static Architecture GetArchitecture()
+        {
+            var bitness = RuntimeInformation.OSArchitecture;
+            bitness = bitness == Architecture.X64 ? RuntimeInformation.ProcessArchitecture : bitness;
+            return bitness;
+        }
+
+        /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
         /// </summary>
         /// <param name="File">Full path to file</param>

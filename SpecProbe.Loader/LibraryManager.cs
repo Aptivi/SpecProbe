@@ -32,11 +32,10 @@ namespace SpecProbe.Loader
     {
         private bool _libLoaded = false;
         private readonly object _resourceLocker = new();
-        private readonly LibraryItem[] _items;
+        private readonly LibraryFile[] _files;
 
         /// <summary>
-        /// Extract and load native library based on current platform and process bitness.
-        /// Throws an exception if current platform is not supported.
+        /// Loads native libraries.
         /// </summary>
         public void LoadNativeLibrary()
         {
@@ -46,32 +45,13 @@ namespace SpecProbe.Loader
                 if (_libLoaded)
                     return;
 
-                // Load the native library when we find an item that is compatible with our system
-                // architecture and type
-                var item = FindItem();
-                item.LoadItem();
+                // Load the native libraries
+                foreach (var libraryFile in _files)
+                    libraryFile.LoadItem();
 
                 // Set internal flag to let applications know
                 _libLoaded = true;
             }
-        }
-
-        /// <summary>
-        /// Finds a library item based on current platform and bitness.
-        /// </summary>
-        /// <returns>Library item based on platform and bitness.</returns>
-        /// <exception cref="PlatformNotSupportedException"></exception>
-        public LibraryItem FindItem()
-        {
-            // Get the platform and the bitness
-            var platform = GetPlatform();
-            var bitness = RuntimeInformation.OSArchitecture;
-            bitness = bitness == Architecture.X64 ? RuntimeInformation.ProcessArchitecture : bitness;
-
-            // Now, try to get a library item
-            var item = _items.SingleOrDefault(x => x.Platform == platform && x.Bitness == bitness) ??
-                throw new PlatformNotSupportedException($"There is no supported native library for platform '{platform}' and bitness '{bitness}'");
-            return item;
         }
 
         /// <summary>
@@ -83,42 +63,31 @@ namespace SpecProbe.Loader
         public T GetNativeMethodDelegate<T>(string methodName)
             where T : class
         {
-            var item = FindItem();
-            var @delegate = item.GetNativeMethodDelegate<T>(methodName);
-            return @delegate;
-        }
-
-        private static Platform GetPlatform()
-        {
-            if (PlatformHelper.IsOnWindows())
-                return Platform.Windows;
-            else if (PlatformHelper.IsOnMacOS())
-                return Platform.MacOS;
-            else if (PlatformHelper.IsOnUnix())
-                return Platform.Linux;
-            else
-                throw new PlatformNotSupportedException("This operating system is not supported.");
+            T nativeDelegate = null;
+            foreach (var libraryFile in _files)
+            {
+                if (libraryFile.NativeMethodExists(methodName, out IntPtr ptr))
+                    nativeDelegate = libraryFile.GetNativeMethodDelegate<T>(ptr);
+            }
+            return nativeDelegate;
         }
 
         /// <summary>
         /// Creates a new library manager.
         /// </summary>
-        /// <param name="items">Library binaries for different platforms.</param>
-        public LibraryManager(params LibraryItem[] items)
+        /// <param name="files">Library binaries for different platforms.</param>
+        public LibraryManager(params LibraryFile[] files)
         {
             // Check the items
-            if (items is null || items.Length == 0)
-                throw new ArgumentNullException(nameof(items), "Provide library items.");
-            List<(Platform, Architecture)> processed = [];
-            foreach (var item in items)
+            files ??= [];
+            List<string> processed = [];
+            foreach (var item in files)
             {
-                var platform = item.Platform;
-                var architecture = item.Bitness;
-                if (processed.Contains((platform, architecture)))
-                    throw new Exception($"Duplicate library items found. [{nameof(platform)}: {platform} | {nameof(architecture)}: {architecture}]");
-                processed.Add((platform, architecture));
+                if (processed.Contains(item.FilePath))
+                    throw new Exception($"Duplicate library files found. [{item.FilePath}]");
+                processed.Add(item.FilePath);
             }
-            _items = items;
+            _files = files;
         }
     }
 }
