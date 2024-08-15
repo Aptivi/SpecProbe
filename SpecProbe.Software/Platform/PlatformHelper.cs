@@ -176,10 +176,11 @@ namespace SpecProbe.Software.Platform
         /// <summary>
         /// Gets the current runtime identifier
         /// </summary>
+        /// <param name="includeMusl">Whether to detect MUSL libc</param>
         /// <returns>Returns a runtime identifier (win-x64 for example).</returns>
-        public static string GetCurrentGenericRid() =>
+        public static string GetCurrentGenericRid(bool includeMusl = true) =>
             $"{(IsOnWindows() ? "win" : IsOnMacOS() ? "osx" : IsOnUnix() ? "linux" : "freebsd")}-" +
-            $"{(IsOnUnixMusl() ? "musl-" : "")}" +
+            $"{(includeMusl && IsOnUnixMusl() ? "musl-" : "")}" +
             $"{RuntimeInformation.OSArchitecture.ToString().ToLower()}";
 
         /// <summary>
