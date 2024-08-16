@@ -258,6 +258,12 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.FAT32
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.FAT32
   nameWithType: PartitionType.FAT32
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.Linux
+  name: Linux
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_Linux
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.Linux
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.Linux
+  nameWithType: PartitionType.Linux
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.NTFS
   name: NTFS
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_NTFS
@@ -282,6 +288,12 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.SFS
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.SFS
   nameWithType: PartitionType.SFS
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.SwapOrSolaris
+  name: SwapOrSolaris
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_SwapOrSolaris
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.SwapOrSolaris
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.SwapOrSolaris
+  nameWithType: PartitionType.SwapOrSolaris
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.Unallocated
   name: Unallocated
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_Unallocated

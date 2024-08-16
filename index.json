@@ -27,7 +27,7 @@
   "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html",
     "title": "Enum PartitionType | SpecProbe API - Aptivi",
-    "keywords": "Enum PartitionType Partition type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionType Fields Name Description EFISystem EFI system partition Extended Extended partition FAT12 FAT12 partition FAT16 FAT16 partition FAT32 FAT32 partition NTFS NTFS/HPFS/exFAT partition NTFT Valid NTFT partition OldMinix Old Minix or NTFT partition SFS SFS/LDM partition Unallocated Unallocated partition Unknown Unknown partition type"
+    "keywords": "Enum PartitionType Partition type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionType Fields Name Description EFISystem EFI system partition Extended Extended partition FAT12 FAT12 partition FAT16 FAT16 partition FAT32 FAT32 partition Linux Linux partition NTFS NTFS/HPFS/exFAT partition NTFT Valid NTFT partition OldMinix Old Minix or NTFT partition SFS SFS/LDM partition SwapOrSolaris Linux Swap / Solaris partition Unallocated Unallocated partition Unknown Unknown partition type"
   },
   "api/SpecProbe.Parts.Types.HardDisk.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.html",
