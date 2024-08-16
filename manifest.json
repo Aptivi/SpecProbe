@@ -55,6 +55,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Parts.Types.HardDisk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Parts.Types.HardDisk.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.yml",
       "output": {
         ".html": {
