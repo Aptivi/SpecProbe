@@ -212,6 +212,13 @@ namespace SpecProbe.Software.Platform
         }
 
         /// <summary>
+        /// Checks to see if the program is running under .NET Framework
+        /// </summary>
+        /// <returns>True if running under .NET Framework; False if otherwise.</returns>
+        public static bool IsDotNetFx() =>
+            RuntimeInformation.FrameworkDescription.Contains("Framework");
+
+        /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
         /// </summary>
         /// <param name="File">Full path to file</param>
