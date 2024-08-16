@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -41,18 +42,25 @@ namespace SpecProbe.Software.Platform
         /// <returns>List of RIDs from the specified RID to the base RID</returns>
         public static string[] GetGraphFromRid(string rid)
         {
+            // Sync with this source: https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json
             string graphJson = GetRidGraphJson();
-            var graphInstance = JsonNode.Parse(graphJson);
+            var graphInstance = JsonNode.Parse(graphJson)["runtimes"];
+            List<string> finalGraph = [];
             foreach (var ridGraph in graphInstance.AsObject())
             {
                 if (ridGraph.Key == rid)
                 {
-                    var graph = ridGraph.Value;
-                    var graphArray = graph.Deserialize<string[]>();
-                    return graphArray;
+                    finalGraph.Add(ridGraph.Key);
+                    var currentGraph = ridGraph.Value;
+                    while (((JsonArray)currentGraph["#import"]).Count > 0)
+                    {
+                        foreach (var element in (JsonArray)currentGraph["#import"])
+                            finalGraph.Add(element.GetValue<string>());
+                        currentGraph = graphInstance[finalGraph[finalGraph.Count - 1]];
+                    }
                 }
             }
-            return [];
+            return [.. finalGraph];
         }
 
         private static string GetRidGraphJson()
