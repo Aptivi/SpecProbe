@@ -24,6 +24,7 @@ using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -77,11 +78,15 @@ namespace SpecProbe.Probers
                         // Check if the dev name ends with a number (such as nvme0n1p1, mmcblk0p1, etc.)
                         bool appendPartitionChar = int.TryParse($"{devName[devName.Length - 1]}", out int devNum);
                         int partNum = 1;
+                        PartitionTableType ptType = PartitionTableType.Unknown;
                         while (true)
                         {
                             string partPath = appendPartitionChar ?
                                 $"{devPartFolderInitial}p{partNum}" :
                                 $"{devPartFolderInitial}{partNum}";
+                            string partDevPath = appendPartitionChar ?
+                                $"/dev/{devName}p{partNum}" :
+                                $"/dev/{devName}{partNum}";
                             if (!Directory.Exists(partPath))
                             {
                                 if (partNum <= 4)
@@ -91,14 +96,42 @@ namespace SpecProbe.Probers
                                 }
                                 break;
                             }
+
+                            // Get the actual size
                             string partSizeFile = $"{partPath}/size";
+                            string partStartFile = $"{partPath}/start";
                             string partSizeStr = File.ReadAllLines(partSizeFile)[0];
+                            string partStartStr = File.ReadAllLines(partStartFile)[0];
                             long partSize = long.Parse(partSizeStr);
+                            long partStart = long.Parse(partStartStr);
                             long partActualSize = partSize * 512;
+                            long partActualStart = partStart * 512;
+
+                            // Get the partition type
+                            string options = $"-f --output PARTTYPE -n {partDevPath}";
+                            string optionsPt = $"-f --output PTTYPE -n {partDevPath}";
+                            string output = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", options).Trim(['\r', '\n']);
+                            string outputPt = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", optionsPt).Trim(['\r', '\n']);
+                            var type = PartitionType.Unknown;
+                            if (Guid.TryParse(output, out Guid gptType))
+                                type = DetermineType(gptType);
+                            else if (int.TryParse(output.Substring(2), NumberStyles.HexNumber, null, out int mbrType))
+                                type = (PartitionType)mbrType;
+                            ptType = outputPt switch
+                            {
+                                "dos" => PartitionTableType.MBR,
+                                "gpt" => PartitionTableType.GPT,
+                                "mac" => PartitionTableType.Apple,
+                                "" =>    PartitionTableType.Unknown,
+                                _ =>     PartitionTableType.Other,
+                            };
                             partitions.Add(new HardDiskPart.PartitionPart
                             {
                                 PartitionNumber = partNum,
                                 PartitionSize = partActualSize,
+                                PartitionOffset = partActualStart,
+                                PartitionType = type,
+                                PartitionBootable = type == PartitionType.EFISystem,
                             });
                             partNum++;
                         }
@@ -109,6 +142,7 @@ namespace SpecProbe.Probers
                             HardDiskSize = actualSize,
                             HardDiskNumber = devNum,
                             Partitions = [.. partitions],
+                            PartitionTableType = ptType,
                         });
                         partitions.Clear();
                     }
@@ -343,41 +377,7 @@ namespace SpecProbe.Probers
                                             if (isGpt)
                                             {
                                                 var typeGuid = partInfo.Gpt.PartitionType;
-                                                if (typeGuid == Guid.Parse("00000000-0000-0000-0000-000000000000"))
-                                                {
-                                                    // Unused entry
-                                                    type = PartitionType.Unallocated;
-                                                }
-                                                else if (typeGuid == Guid.Parse("ebd0a0a2-b9e5-4433-87c0-68b6b72699c7"))
-                                                {
-                                                    // Basic data
-                                                    type = PartitionType.NTFS;
-                                                }
-                                                else if (typeGuid == Guid.Parse("c12a7328-f81f-11d2-ba4b-00a0c93ec93b"))
-                                                {
-                                                    // EFI system
-                                                    type = PartitionType.EFISystem;
-                                                }
-                                                else if (typeGuid == Guid.Parse("e3c9e316-0b5c-4db8-817d-f92df00215ae"))
-                                                {
-                                                    // Microsoft Reserved
-                                                    type = PartitionType.FAT32;
-                                                }
-                                                else if (typeGuid == Guid.Parse("de94bba4-06d1-4d40-a16a-bfd50179d6ac"))
-                                                {
-                                                    // Microsoft Recovery
-                                                    type = PartitionType.FAT32;
-                                                }
-                                                else if (typeGuid == Guid.Parse("5808c8aa-7e8f-42e0-85d2-e1e90434cfb3"))
-                                                {
-                                                    // LDM metadata
-                                                    type = PartitionType.SFS;
-                                                }
-                                                else if (typeGuid == Guid.Parse("af9b60a0-1431-4f62-bc68-3311714a69ad"))
-                                                {
-                                                    // LDM metadata
-                                                    type = PartitionType.SFS;
-                                                }
+                                                type = DetermineType(typeGuid);
                                             }
                                             else
                                             {
@@ -464,6 +464,46 @@ namespace SpecProbe.Probers
 
             // Finally, return an item array containing information
             return diskParts.ToArray();
+        }
+
+        private static PartitionType DetermineType(Guid partitionTypeGptGuid)
+        {
+            if (partitionTypeGptGuid == Guid.Parse("00000000-0000-0000-0000-000000000000"))
+            {
+                // Unused entry
+                return PartitionType.Unallocated;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("ebd0a0a2-b9e5-4433-87c0-68b6b72699c7"))
+            {
+                // Basic data
+                return PlatformHelper.IsOnUnix() ? PartitionType.Linux : PartitionType.NTFS;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("c12a7328-f81f-11d2-ba4b-00a0c93ec93b"))
+            {
+                // EFI system
+                return PartitionType.EFISystem;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("e3c9e316-0b5c-4db8-817d-f92df00215ae"))
+            {
+                // Microsoft Reserved
+                return PartitionType.FAT32;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("de94bba4-06d1-4d40-a16a-bfd50179d6ac"))
+            {
+                // Microsoft Recovery
+                return PartitionType.FAT32;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("5808c8aa-7e8f-42e0-85d2-e1e90434cfb3"))
+            {
+                // LDM metadata
+                return PartitionType.SFS;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("af9b60a0-1431-4f62-bc68-3311714a69ad"))
+            {
+                // LDM metadata
+                return PartitionType.SFS;
+            }
+            return PartitionType.Unknown;
         }
     }
 }

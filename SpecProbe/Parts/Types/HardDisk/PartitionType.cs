@@ -61,6 +61,14 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// </summary>
         OldMinix = 0x80,
         /// <summary>
+        /// Linux Swap / Solaris partition
+        /// </summary>
+        SwapOrSolaris = 0x82,
+        /// <summary>
+        /// Linux partition
+        /// </summary>
+        Linux = 0x83,
+        /// <summary>
         /// Valid NTFT partition
         /// </summary>
         NTFT = 0xC0,

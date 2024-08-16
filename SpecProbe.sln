@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Native", "SpecPro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Software", "SpecProbe.Software\SpecProbe.Software.csproj", "{3FE338BD-8ED3-4687-BE8E-4D7C8B512FD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecProbe.Loader", "SpecProbe.Loader\SpecProbe.Loader.csproj", "{25486EF1-7202-4137-A47B-17A283DF82D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Loader", "SpecProbe.Loader\SpecProbe.Loader.csproj", "{25486EF1-7202-4137-A47B-17A283DF82D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
