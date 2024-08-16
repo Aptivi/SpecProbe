@@ -109,6 +109,8 @@ namespace SpecProbe.ConsoleTest
                 TextWriterColor.WriteColor($"{hardDisk.HardDiskSize}", true, 8);
                 TextWriterColor.WriteColor("- Partition count: ", false, 3);
                 TextWriterColor.WriteColor($"{hardDisk.PartitionCount}", true, 8);
+                TextWriterColor.WriteColor("- Partition table type: ", false, 3);
+                TextWriterColor.WriteColor($"{hardDisk.PartitionTableType}", true, 8);
                 for (int i = 0; i < hardDisk.Partitions.Length; i++)
                 {
                     HardDiskPart.PartitionPart partition = hardDisk.Partitions[i];
@@ -118,6 +120,12 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor($"{partition.PartitionNumber}", true, 8);
                     TextWriterColor.WriteColor("  - Partition size: ", false, 3);
                     TextWriterColor.WriteColor($"{partition.PartitionSize}", true, 8);
+                    TextWriterColor.WriteColor("  - Partition offset: ", false, 3);
+                    TextWriterColor.WriteColor($"{partition.PartitionOffset} -> {partition.PartitionOffsetTo}", true, 8);
+                    TextWriterColor.WriteColor("  - Partition type: ", false, 3);
+                    TextWriterColor.WriteColor($"{partition.PartitionType}", true, 8);
+                    TextWriterColor.WriteColor("  - Partition bootable? ", false, 3);
+                    TextWriterColor.WriteColor($"{partition.PartitionBootable}", true, 8);
                 }
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);

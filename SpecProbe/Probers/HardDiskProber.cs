@@ -19,6 +19,7 @@
 
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
+using SpecProbe.Parts.Types.HardDisk;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
@@ -273,15 +274,11 @@ namespace SpecProbe.Probers
                     drives.Add(@$"\\.\PHYSICALDRIVE{drvIdx}");
 
                 // Then, open the file handle to the physical drives for us to be able to filter them for partitions
-                List<IntPtr> finalDrives = [];
                 foreach (string drive in drives)
                 {
                     IntPtr driveHandle = PlatformWindowsInterop.CreateFile(drive, FileAccess.Read, FileShare.ReadWrite, IntPtr.Zero, FileMode.Open, FileAttributes.System, IntPtr.Zero);
                     if (driveHandle != new IntPtr(-1))
                     {
-                        maxDrives++;
-                        finalDrives.Add(driveHandle);
-
                         // Get the hard drive number
                         bool result = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveGeometry, null, 0, out PlatformWindowsInterop.DISK_GEOMETRY drvGeom, Marshal.SizeOf<PlatformWindowsInterop.DISK_GEOMETRY>(), out _, IntPtr.Zero);
                         if (!result)
@@ -292,16 +289,17 @@ namespace SpecProbe.Probers
                         ulong hardDiskSize = (ulong)(drvGeom.Cylinders * drvGeom.TracksPerCylinder * drvGeom.SectorsPerTrack * drvGeom.BytesPerSector);
                         int diskNum = devNumber.DeviceNumber;
 
-                        // Create a hard drive instance
-                        var hdd = new HardDiskPart()
-                        {
-                            HardDiskSize = hardDiskSize,
-                            HardDiskNumber = diskNum,
-                        };
-
                         // Check the type
                         if (drvGeom.MediaType == PlatformWindowsInterop.MEDIA_TYPE.FixedMedia)
                         {
+                            // Add a hard disk
+                            var disk = new HardDiskPart()
+                            {
+                                HardDiskSize = hardDiskSize,
+                                HardDiskNumber = diskNum,
+                                Partitions = [],
+                            };
+
                             // Get the partitions
                             var parts = new List<HardDiskPart.PartitionPart>();
                             IntPtr driveLayoutPtr = IntPtr.Zero;
@@ -317,8 +315,19 @@ namespace SpecProbe.Probers
                                 bool partResult = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveLayoutEx, IntPtr.Zero, 0, driveLayoutPtr, (uint)buffSize, out _, IntPtr.Zero);
                                 if (partResult)
                                 {
-                                    // Get all the partitions
+                                    // Get partition table type
                                     PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX driveLayout = Marshal.PtrToStructure<PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX>(driveLayoutPtr);
+                                    switch (driveLayout.PartitionStyle)
+                                    {
+                                        case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR:
+                                            disk.PartitionTableType = PartitionTableType.MBR;
+                                            break;
+                                        case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT:
+                                            disk.PartitionTableType = PartitionTableType.GPT;
+                                            break;
+                                    }
+
+                                    // Get all the partitions
                                     for (uint partIdx = 0; partIdx < driveLayout.PartitionCount; partIdx++)
                                     {
                                         // Make a pointer to a partition info instance
@@ -326,15 +335,104 @@ namespace SpecProbe.Probers
                                         PlatformWindowsInterop.PARTITION_INFORMATION_EX partInfo = Marshal.PtrToStructure<PlatformWindowsInterop.PARTITION_INFORMATION_EX>(ptr);
 
                                         // Check to see if this partition is a recognizable MBR/GPT partition
-                                        if (partInfo.PartitionStyle != PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR || partInfo.Mbr.RecognizedPartition)
+                                        var type = PartitionType.Unknown;
+                                        bool isGpt = partInfo.PartitionStyle == PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT;
+                                        if (isGpt || partInfo.Mbr.RecognizedPartition)
                                         {
-                                            // Add this partition
-                                            parts.Add(new()
+                                            // Try to get partition type
+                                            if (isGpt)
                                             {
-                                                PartitionNumber = (int)partInfo.PartitionNumber,
-                                                PartitionSize = partInfo.PartitionLength,
-                                            });
+                                                var typeGuid = partInfo.Gpt.PartitionType;
+                                                if (typeGuid == Guid.Parse("00000000-0000-0000-0000-000000000000"))
+                                                {
+                                                    // Unused entry
+                                                    type = PartitionType.Unallocated;
+                                                }
+                                                else if (typeGuid == Guid.Parse("ebd0a0a2-b9e5-4433-87c0-68b6b72699c7"))
+                                                {
+                                                    // Basic data
+                                                    type = PartitionType.NTFS;
+                                                }
+                                                else if (typeGuid == Guid.Parse("c12a7328-f81f-11d2-ba4b-00a0c93ec93b"))
+                                                {
+                                                    // EFI system
+                                                    type = PartitionType.EFISystem;
+                                                }
+                                                else if (typeGuid == Guid.Parse("e3c9e316-0b5c-4db8-817d-f92df00215ae"))
+                                                {
+                                                    // Microsoft Reserved
+                                                    type = PartitionType.FAT32;
+                                                }
+                                                else if (typeGuid == Guid.Parse("de94bba4-06d1-4d40-a16a-bfd50179d6ac"))
+                                                {
+                                                    // Microsoft Recovery
+                                                    type = PartitionType.FAT32;
+                                                }
+                                                else if (typeGuid == Guid.Parse("5808c8aa-7e8f-42e0-85d2-e1e90434cfb3"))
+                                                {
+                                                    // LDM metadata
+                                                    type = PartitionType.SFS;
+                                                }
+                                                else if (typeGuid == Guid.Parse("af9b60a0-1431-4f62-bc68-3311714a69ad"))
+                                                {
+                                                    // LDM metadata
+                                                    type = PartitionType.SFS;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                switch (partInfo.Mbr.PartitionType)
+                                                {
+                                                    // Values from https://learn.microsoft.com/en-us/windows/win32/fileio/disk-partition-types
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_ENTRY_UNUSED:
+                                                        // Unused entry
+                                                        type = PartitionType.Unallocated;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_EXTENDED:
+                                                        // Extended
+                                                        type = PartitionType.Extended;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT_12:
+                                                        // FAT12
+                                                        type = PartitionType.FAT12;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT_16:
+                                                        // FAT16
+                                                        type = PartitionType.FAT16;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT32:
+                                                        // FAT32
+                                                        type = PartitionType.FAT32;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_IFS:
+                                                        // IFS
+                                                        type = PartitionType.NTFS;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_LDM:
+                                                        // LDM
+                                                        type = PartitionType.SFS;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_NTFT:
+                                                        // NTFT
+                                                        type = PartitionType.OldMinix;
+                                                        break;
+                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_VALID_NTFT:
+                                                        // Valid NTFT
+                                                        type = PartitionType.NTFT;
+                                                        break;
+                                                }
+                                            }
                                         }
+
+                                        // Add this partition
+                                        parts.Add(new()
+                                        {
+                                            PartitionNumber = (int)partInfo.PartitionNumber,
+                                            PartitionSize = partInfo.PartitionLength,
+                                            PartitionType = type,
+                                            PartitionBootable = isGpt ? type == PartitionType.EFISystem : partInfo.Mbr.BootIndicator,
+                                            PartitionOffset = partInfo.StartingOffset,
+                                        });
                                     }
                                 }
                                 else
@@ -350,12 +448,8 @@ namespace SpecProbe.Probers
                             } while (error == 0x7A);
 
                             // Add a hard disk
-                            diskParts.Add(new()
-                            {
-                                HardDiskSize = hardDiskSize,
-                                HardDiskNumber = diskNum,
-                                Partitions = [.. parts],
-                            });
+                            disk.Partitions = parts.ToArray();
+                            diskParts.Add(disk);
                         }
 
                         // Close the handle

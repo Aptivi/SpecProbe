@@ -20,6 +20,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace SpecProbe.Probers.Platform
 {
@@ -447,6 +448,31 @@ namespace SpecProbe.Probers.Platform
             PARTITION_STYLE_RAW = 2
         }
 
+        [Flags]
+        public enum FileSystemFeature : uint
+        {
+            CasePreservedNames = 2,
+            CaseSensitiveSearch = 1,
+            DaxVolume = 0x20000000,
+            FileCompression = 0x10,
+            NamedStreams = 0x40000,
+            PersistentACLS = 8,
+            ReadOnlyVolume = 0x80000,
+            SequentialWriteOnce = 0x100000,
+            SupportsEncryption = 0x20000,
+            SupportsExtendedAttributes = 0x00800000,
+            SupportsHardLinks = 0x00400000,
+            SupportsObjectIDs = 0x10000,
+            SupportsOpenByFileId = 0x01000000,
+            SupportsReparsePoints = 0x80,
+            SupportsSparseFiles = 0x40,
+            SupportsTransactions = 0x200000,
+            SupportsUsnJournal = 0x02000000,
+            UnicodeOnDisk = 4,
+            VolumeIsCompressed = 0x8000,
+            VolumeQuotas = 0x20
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         internal struct DISK_GEOMETRY
         {
@@ -616,8 +642,21 @@ namespace SpecProbe.Probers.Platform
             IntPtr Overlapped
         );
 
-        [DllImport("kernel32.dll")]
+        [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern DriveType GetDriveType([MarshalAs(UnmanagedType.LPStr)] string lpRootPathName);
+
+        [DllImport("Kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public extern static bool GetVolumeInformation(
+            string rootPathName,
+            StringBuilder volumeNameBuffer,
+            int volumeNameSize,
+            out uint volumeSerialNumber,
+            out uint maximumComponentLength,
+            out FileSystemFeature fileSystemFlags,
+            StringBuilder fileSystemNameBuffer,
+            int nFileSystemNameSize
+        );
         #endregion
     }
 }
