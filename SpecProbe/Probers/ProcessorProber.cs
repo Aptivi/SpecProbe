@@ -19,11 +19,11 @@
 
 using SpecProbe.Native;
 using SpecProbe.Native.Helpers;
-using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -32,19 +32,20 @@ namespace SpecProbe.Probers
 {
     internal static class ProcessorProber
     {
-        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static ProcessorPart Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
-                return GetBaseHardwarePartsWindows();
+                return ProbeWindows(out errors);
             else if (PlatformHelper.IsOnMacOS())
-                return GetBaseHardwarePartsMacOS();
+                return ProbeMacOS(out errors);
             else
-                return GetBaseHardwarePartsLinux();
+                return ProbeLinux(out errors);
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static ProcessorPart ProbeLinux(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             int numberOfLogicalCores = 0;
             int numberOfPhysicalCores = 0;
             int numberOfCoresForEachCore = 1;
@@ -195,7 +196,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing processor information
@@ -211,12 +212,14 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
             };
-            return new[] { processorPart };
+            errors = [.. exceptions];
+            return processorPart;
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static ProcessorPart ProbeMacOS(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
             uint cacheL1 = 0;
@@ -270,7 +273,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing processor information
@@ -286,12 +289,14 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
             };
-            return new[] { processorPart };
+            errors = [.. exceptions];
+            return processorPart;
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static ProcessorPart ProbeWindows(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
             int numberOfLogicalCores = 0;
@@ -384,7 +389,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing processor information
@@ -400,7 +405,8 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
             };
-            return new[] { processorPart };
+            errors = [.. exceptions];
+            return processorPart;
         }
     }
 }

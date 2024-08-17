@@ -17,11 +17,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -31,19 +31,20 @@ namespace SpecProbe.Probers
 {
     internal static class MemoryProber
     {
-        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static MemoryPart Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
-                return GetBaseHardwarePartsWindows();
+                return ProbeWindows(out errors);
             else if (PlatformHelper.IsOnMacOS())
-                return GetBaseHardwarePartsMacOS();
+                return ProbeMacOS(out errors);
             else
-                return GetBaseHardwarePartsLinux();
+                return ProbeLinux(out errors);
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static MemoryPart ProbeLinux(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             long totalMemory = 0;
             long totalPhysicalMemory = 0;
 
@@ -68,7 +69,6 @@ namespace SpecProbe.Probers
                     }
                 }
 
-                // TODO: Some systems don't have block_size_bytes. In this case, keep the value zero.
                 // Open the cache list to get cache sizes in kilobytes
                 string memoryBlockListFolder = "/sys/devices/system/memory";
                 string memoryBlockSizeFile = $"{memoryBlockListFolder}/block_size_bytes";
@@ -92,7 +92,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing information
@@ -101,12 +101,14 @@ namespace SpecProbe.Probers
                 TotalMemory = totalMemory,
                 TotalPhysicalMemory = totalPhysicalMemory,
             };
-            return new[] { part };
+            errors = [.. exceptions];
+            return part;
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static MemoryPart ProbeMacOS(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             long totalMemory = 0;
             long totalPhysicalMemory = 0;
 
@@ -128,7 +130,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing information
@@ -137,12 +139,14 @@ namespace SpecProbe.Probers
                 TotalMemory = totalMemory,
                 TotalPhysicalMemory = totalPhysicalMemory,
             };
-            return new[] { part };
+            errors = [.. exceptions];
+            return part;
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static MemoryPart ProbeWindows(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             long totalMemory = 0;
             long totalPhysicalMemory = 0;
 
@@ -164,7 +168,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing information
@@ -173,7 +177,8 @@ namespace SpecProbe.Probers
                 TotalMemory = totalMemory,
                 TotalPhysicalMemory = totalPhysicalMemory,
             };
-            return new[] { part };
+            errors = [.. exceptions];
+            return part;
         }
     }
 }

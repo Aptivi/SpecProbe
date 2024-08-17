@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Software.Platform;
 using System.Diagnostics;
@@ -38,26 +39,31 @@ namespace SpecProbe.ConsoleTest
             SeparatorWriterColor.WriteSeparatorColor("Processor information", 15);
             stopwatch.Start();
             totalStopwatch.Start();
-            var processors = HardwareProber.Processors;
+            var processor = HardwareProber.GetProcessor();
+            var processorErrors = HardwareProber.GetParseExceptions(HardwarePartType.Processor);
             stopwatch.Stop();
-            foreach (var processor in processors)
+            TextWriterColor.WriteColor("- Processor cores: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
+            TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
+            TextWriterColor.WriteColor("- Logical cores: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
+            TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
+            TextWriterColor.WriteColor("- Name: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.Name}", true, 8);
+            TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
+            TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
+            TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
+            TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
+            TextWriterColor.WriteColor("- Clock speed: ", false, 3);
+            TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+            TextWriterRaw.Write();
+            foreach (var exc in processorErrors)
             {
-                TextWriterColor.WriteColor("- Processor cores: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
-                TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
-                TextWriterColor.WriteColor("- Logical cores: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
-                TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
-                TextWriterColor.WriteColor("- Name: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Name}", true, 8);
-                TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
-                TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
-                TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
-                TextWriterColor.WriteColor("- Clock speed: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+                TextWriterColor.WriteColor("Error: ", false, 3);
+                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
@@ -67,16 +73,21 @@ namespace SpecProbe.ConsoleTest
             // Memory
             SeparatorWriterColor.WriteSeparator("Memory information", true, 15);
             stopwatch.Start();
-            var memoryParts = HardwareProber.Memory;
+            var memory = HardwareProber.GetMemory();
+            var memoryErrors = HardwareProber.GetParseExceptions(HardwarePartType.Memory);
             stopwatch.Stop();
-            foreach (var memory in memoryParts)
+            TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
+            TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
+            TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
+            TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
+            TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
+            TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+            TextWriterRaw.Write();
+            foreach (var exc in memoryErrors)
             {
-                TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
-                TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
-                TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
-                TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
-                TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
-                TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+                TextWriterColor.WriteColor("Error: ", false, 3);
+                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
@@ -86,12 +97,20 @@ namespace SpecProbe.ConsoleTest
             // Video
             SeparatorWriterColor.WriteSeparator("Video information", true, 15);
             stopwatch.Start();
-            var videoParts = HardwareProber.Video;
+            var videoParts = HardwareProber.GetVideos();
+            var videoErrors = HardwareProber.GetParseExceptions(HardwarePartType.Video);
             stopwatch.Stop();
             foreach (var video in videoParts)
             {
                 TextWriterColor.WriteColor("- Video card name: ", false, 3);
                 TextWriterColor.WriteColor($"{video.VideoCardName}", true, 8);
+            }
+            TextWriterRaw.Write();
+            foreach (var exc in videoErrors)
+            {
+                TextWriterColor.WriteColor("Error: ", false, 3);
+                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
             }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
@@ -101,7 +120,8 @@ namespace SpecProbe.ConsoleTest
             // Hard drive
             SeparatorWriterColor.WriteSeparator("Hard drive information", true, 15);
             stopwatch.Start();
-            var hardDiskParts = HardwareProber.HardDisk;
+            var hardDiskParts = HardwareProber.GetHardDisks();
+            var hardDiskErrors = HardwareProber.GetParseExceptions(HardwarePartType.HardDisk);
             stopwatch.Stop();
             foreach (var hardDisk in hardDiskParts)
             {
@@ -114,7 +134,7 @@ namespace SpecProbe.ConsoleTest
                 for (int i = 0; i < hardDisk.Partitions.Length; i++)
                 {
                     HardDiskPart.PartitionPart partition = hardDisk.Partitions[i];
-                    TextWriterColor.WriteColor("  - Partition number (real): ", false, 3);
+                    TextWriterColor.WriteColor("--- Partition number (real): ", false, 3);
                     TextWriterColor.WriteColor($"{i + 1}", true, 8);
                     TextWriterColor.WriteColor("  - Partition number (OS): ", false, 3);
                     TextWriterColor.WriteColor($"{partition.PartitionNumber}", true, 8);
@@ -128,6 +148,13 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor($"{partition.PartitionBootable}", true, 8);
                 }
             }
+            TextWriterRaw.Write();
+            foreach (var exc in hardDiskErrors)
+            {
+                TextWriterColor.WriteColor("Error: ", false, 3);
+                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
+            }
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
             TextWriterRaw.Write();
@@ -140,6 +167,7 @@ namespace SpecProbe.ConsoleTest
             stopwatch.Stop();
             TextWriterColor.WriteColor("- Found RIDs: ", false, 3);
             TextWriterColor.WriteColor($"{string.Join(", ", graph)}", true, 8);
+            TextWriterRaw.Write();
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
             TextWriterRaw.Write();
@@ -152,24 +180,18 @@ namespace SpecProbe.ConsoleTest
             stopwatch.Stop();
             TextWriterColor.WriteColor("- WSL: ", false, 3);
             TextWriterColor.WriteColor($"{wsl}", true, 8);
+            TextWriterRaw.Write();
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
             TextWriterRaw.Write();
             stopwatch.Reset();
 
             totalStopwatch.Stop();
+            SeparatorWriterColor.WriteSeparator("Conclusion", true, 15);
             TextWriterColor.WriteColor("Total time: ", false, 3);
             TextWriterColor.WriteColor($"{totalStopwatch.Elapsed}", true, 8);
             TextWriterRaw.Write();
             totalStopwatch.Reset();
-
-            // List errors
-            foreach (var exc in HardwareProber.Errors)
-            {
-                TextWriterColor.WriteColor("Error: ", false, 3);
-                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
-                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
-            }
         }
     }
 }

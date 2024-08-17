@@ -19,7 +19,6 @@
 
 using SpecProbe.Native.Helpers;
 using SpecProbe.Native.Structs;
-using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
@@ -34,19 +33,20 @@ namespace SpecProbe.Probers
 {
     internal static class VideoProber
     {
-        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static VideoPart[] Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
-                return GetBaseHardwarePartsWindows();
+                return ProbeWindows(out errors);
             else if (PlatformHelper.IsOnMacOS())
-                return GetBaseHardwarePartsMacOS();
+                return ProbeMacOS(out errors);
             else
-                return GetBaseHardwarePartsLinux();
+                return ProbeLinux(out errors);
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static VideoPart[] ProbeLinux(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             string videoCardName = "";
 
             try
@@ -79,6 +79,7 @@ namespace SpecProbe.Probers
                             VideoCardName = videoCardName,
                         });
                     }
+                    errors = [.. exceptions];
                     return videos.ToArray();
                 }
                 else
@@ -100,7 +101,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing information
@@ -108,12 +109,14 @@ namespace SpecProbe.Probers
             {
                 VideoCardName = videoCardName,
             };
+            errors = [.. exceptions];
             return new[] { part };
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static VideoPart[] ProbeMacOS(out Exception[] errors)
         {
             // Video card list
+            List<Exception> exceptions = [];
             List<VideoPart> videos = [];
 
             // Some tags
@@ -129,7 +132,7 @@ namespace SpecProbe.Probers
             {
                 // Check notarization status
                 if (HardwareProber.notarized)
-                    return GetBaseHardwarePartsMacOSNotarized();
+                    return ProbeMacOSNotarized(out errors);
 
                 // Probe the video cards
                 string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/system_profiler", "SPDisplaysDataType");
@@ -148,7 +151,7 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return a single item array containing information
@@ -156,12 +159,14 @@ namespace SpecProbe.Probers
             {
                 VideoCardName = videoCardName
             });
+            errors = [.. exceptions];
             return videos.ToArray();
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOSNotarized()
+        public static VideoPart[] ProbeMacOSNotarized(out Exception[] errors)
         {
             // Video card list
+            List<Exception> exceptions = [];
             List<VideoPart> videos = [];
 
             // Some variables to install.
@@ -171,7 +176,7 @@ namespace SpecProbe.Probers
             {
                 // Check notarization status
                 if (!HardwareProber.notarized)
-                    return GetBaseHardwarePartsMacOS();
+                    return ProbeMacOS(out errors);
 
                 // Probe the online displays
                 var status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, null, out uint displays);
@@ -206,15 +211,17 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return an array containing information
+            errors = [.. exceptions];
             return videos.ToArray();
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static VideoPart[] ProbeWindows(out Exception[] errors)
         {
+            List<Exception> exceptions = [];
             List<VideoPart> parts = [];
 
             try
@@ -252,10 +259,11 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return an array containing information
+            errors = [.. exceptions];
             return parts.ToArray();
         }
     }

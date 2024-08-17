@@ -17,7 +17,6 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Parts.Types.HardDisk;
 using SpecProbe.Probers.Platform;
@@ -33,20 +32,20 @@ namespace SpecProbe.Probers
 {
     internal static class HardDiskProber
     {
-        public static BaseHardwarePartInfo[] GetBaseHardwareParts()
+        public static HardDiskPart[] Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
-                return GetBaseHardwarePartsWindows();
+                return ProbeWindows(out errors);
             else if (PlatformHelper.IsOnMacOS())
-                return GetBaseHardwarePartsMacOS();
+                return ProbeMacOS(out errors);
             else
-                return GetBaseHardwarePartsLinux();
+                return ProbeLinux(out errors);
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsLinux()
+        public static HardDiskPart[] ProbeLinux(out Exception[] errors)
         {
-            // TODO: Android devices must be rooted to be able to run this.
             // Some variables to install.
+            List<Exception> exceptions = [];
             List<HardDiskPart> diskParts = [];
             List<HardDiskPart.PartitionPart> partitions = [];
 
@@ -150,16 +149,18 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return an array containing information
+            errors = [.. exceptions];
             return diskParts.ToArray();
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsMacOS()
+        public static HardDiskPart[] ProbeMacOS(out Exception[] errors)
         {
             // Some variables to install.
+            List<Exception> exceptions = [];
             List<HardDiskPart> diskParts = [];
             List<HardDiskPart.PartitionPart> partitions = [];
 
@@ -327,15 +328,17 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return an array containing information
+            errors = [.. exceptions];
             return diskParts.ToArray();
         }
 
-        public static BaseHardwarePartInfo[] GetBaseHardwarePartsWindows()
+        public static HardDiskPart[] ProbeWindows(out Exception[] errors)
         {
+            List<Exception> exceptions = [];
             List<HardDiskPart> diskParts = [];
             List<HardDiskPart.PartitionPart> partitions = [];
 
@@ -499,10 +502,11 @@ namespace SpecProbe.Probers
             }
             catch (Exception ex)
             {
-                HardwareProber.errors.Add(ex);
+                exceptions.Add(ex);
             }
 
             // Finally, return an item array containing information
+            errors = [.. exceptions];
             return diskParts.ToArray();
         }
 

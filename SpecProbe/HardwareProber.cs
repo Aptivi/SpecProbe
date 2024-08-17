@@ -32,46 +32,67 @@ namespace SpecProbe
     public static class HardwareProber
     {
         internal static bool notarized = false;
-        internal static List<Exception> errors = [];
-        private static readonly Dictionary<HardwarePartType, BaseHardwarePartInfo[]> cachedParts = [];
+        private static readonly Dictionary<HardwarePartType, (BaseHardwarePartInfo[] parts, Exception[] errors)> cachedParts = [];
 
         /// <summary>
-        /// Gets the list of processors (always 1)
+        /// Gets processor information
         /// </summary>
-        public static ProcessorPart[] Processors =>
-            (cachedParts.Keys.Contains(HardwarePartType.Processor) && cachedParts[HardwarePartType.Processor].Length > 0 ?
-             cachedParts[HardwarePartType.Processor] :
-             ProcessorProber.GetBaseHardwareParts()) as ProcessorPart[];
+        public static ProcessorPart GetProcessor()
+        {
+            if (cachedParts.Keys.Contains(HardwarePartType.Processor) && cachedParts[HardwarePartType.Processor].parts.Length > 0)
+                return cachedParts[HardwarePartType.Processor].parts[0] as ProcessorPart;
+            var part = ProcessorProber.Probe(out Exception[] errors);
+            cachedParts.Add(HardwarePartType.Processor, ([part], errors));
+            return part;
+        }
 
         /// <summary>
-        /// Gets the list of memory (always 1)
+        /// Gets memory information
         /// </summary>
-        public static MemoryPart[] Memory =>
-            (cachedParts.Keys.Contains(HardwarePartType.Memory) && cachedParts[HardwarePartType.Memory].Length > 0 ?
-             cachedParts[HardwarePartType.Memory] :
-             MemoryProber.GetBaseHardwareParts()) as MemoryPart[];
+        public static MemoryPart GetMemory()
+        {
+            if (cachedParts.Keys.Contains(HardwarePartType.Memory) && cachedParts[HardwarePartType.Memory].parts.Length > 0)
+                return cachedParts[HardwarePartType.Memory].parts[0] as MemoryPart;
+            var part = MemoryProber.Probe(out Exception[] errors);
+            cachedParts.Add(HardwarePartType.Memory, ([part], errors));
+            return part;
+        }
 
         /// <summary>
         /// Gets the list of video cards
         /// </summary>
-        public static VideoPart[] Video =>
-            (cachedParts.Keys.Contains(HardwarePartType.Video) && cachedParts[HardwarePartType.Video].Length > 0 ?
-             cachedParts[HardwarePartType.Video] :
-             VideoProber.GetBaseHardwareParts()) as VideoPart[];
+        public static VideoPart[] GetVideos()
+        {
+            if (cachedParts.Keys.Contains(HardwarePartType.Video) && cachedParts[HardwarePartType.Video].parts.Length > 0)
+                return cachedParts[HardwarePartType.Video].parts as VideoPart[];
+            var parts = VideoProber.Probe(out Exception[] errors);
+            cachedParts.Add(HardwarePartType.Video, (parts, errors));
+            return parts;
+        }
 
         /// <summary>
         /// Gets the list of hard disks
         /// </summary>
-        public static HardDiskPart[] HardDisk =>
-            (cachedParts.Keys.Contains(HardwarePartType.HardDisk) && cachedParts[HardwarePartType.HardDisk].Length > 0 ?
-             cachedParts[HardwarePartType.HardDisk] :
-             HardDiskProber.GetBaseHardwareParts()) as HardDiskPart[];
+        public static HardDiskPart[] GetHardDisks()
+        {
+            if (cachedParts.Keys.Contains(HardwarePartType.HardDisk) && cachedParts[HardwarePartType.HardDisk].parts.Length > 0)
+                return cachedParts[HardwarePartType.HardDisk].parts as HardDiskPart[];
+            var parts = HardDiskProber.Probe(out Exception[] errors);
+            cachedParts.Add(HardwarePartType.HardDisk, (parts, errors));
+            return parts;
+        }
 
         /// <summary>
-        /// Gets the list of hardware prober errors
+        /// Gets hardware parsing errors for a specific hardware part type
         /// </summary>
-        public static Exception[] Errors =>
-            [.. errors];
+        /// <param name="type">Hardware part type</param>
+        /// <returns>An array of parse exceptions</returns>
+        public static Exception[] GetParseExceptions(HardwarePartType type)
+        {
+            if (!cachedParts.TryGetValue(type, out var partsTuple))
+                return [];
+            return partsTuple.errors;
+        }
 
         /// <summary>
         /// For Apple's code signing.
