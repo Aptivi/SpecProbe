@@ -1743,6 +1743,19 @@ references:
   commentId: T:SpecProbe.Parts.Types.VideoPart
   fullName: SpecProbe.Parts.Types.VideoPart
   nameWithType: VideoPart
+- uid: SpecProbe.Parts.Types.VideoPart.ModelId
+  name: ModelId
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_ModelId
+  commentId: P:SpecProbe.Parts.Types.VideoPart.ModelId
+  fullName: SpecProbe.Parts.Types.VideoPart.ModelId
+  nameWithType: VideoPart.ModelId
+- uid: SpecProbe.Parts.Types.VideoPart.ModelId*
+  name: ModelId
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_ModelId_
+  commentId: Overload:SpecProbe.Parts.Types.VideoPart.ModelId
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.VideoPart.ModelId
+  nameWithType: VideoPart.ModelId
 - uid: SpecProbe.Parts.Types.VideoPart.Type
   name: Type
   href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_Type
@@ -1756,6 +1769,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.VideoPart.Type
   nameWithType: VideoPart.Type
+- uid: SpecProbe.Parts.Types.VideoPart.VendorId
+  name: VendorId
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_VendorId
+  commentId: P:SpecProbe.Parts.Types.VideoPart.VendorId
+  fullName: SpecProbe.Parts.Types.VideoPart.VendorId
+  nameWithType: VideoPart.VendorId
+- uid: SpecProbe.Parts.Types.VideoPart.VendorId*
+  name: VendorId
+  href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_VendorId_
+  commentId: Overload:SpecProbe.Parts.Types.VideoPart.VendorId
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.VideoPart.VendorId
+  nameWithType: VideoPart.VendorId
 - uid: SpecProbe.Parts.Types.VideoPart.VideoCardName
   name: VideoCardName
   href: api/SpecProbe.Parts.Types.VideoPart.html#SpecProbe_Parts_Types_VideoPart_VideoCardName
