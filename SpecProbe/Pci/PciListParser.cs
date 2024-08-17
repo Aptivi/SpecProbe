@@ -55,6 +55,20 @@ namespace SpecProbe.Pci
         }
 
         /// <summary>
+        /// Checks to see if a vendor is registered
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsVendorRegistered(int vendorId)
+        {
+            var vendors = ListVendors();
+            foreach (var vendor in vendors)
+                if (vendor.Id == vendorId)
+                    return true;
+            return false;
+        }
+
+        /// <summary>
         /// Lists all the devices that a vendor made
         /// </summary>
         /// <param name="vendorId">Vendor ID</param>
@@ -77,6 +91,23 @@ namespace SpecProbe.Pci
                 if (device.Id == deviceId)
                     return device;
 			throw new ArgumentException($"Device ID {deviceId} not found.");
+		}
+
+		/// <summary>
+		/// Checks to see if a device made by a specified vendor is registered
+		/// </summary>
+		/// <param name="vendorId">Vendor ID</param>
+		/// <param name="deviceId">Device ID</param>
+		/// <returns>True if registered; false otherwise.</returns>
+		public static bool IsDeviceRegistered(int vendorId, int deviceId)
+		{
+			var devices = ListDevices(vendorId);
+            if (devices.Length == 0)
+                return false;
+			foreach (var device in devices)
+                if (device.Id == deviceId)
+                    return true;
+			return false;
 		}
 
 		/// <summary>
@@ -105,6 +136,25 @@ namespace SpecProbe.Pci
 				if (device.VendorId == subVendorId && device.Id == subDeviceId)
 					return device;
 			throw new ArgumentException($"Device ID {deviceId} not found.");
+		}
+
+		/// <summary>
+		/// Checks to see if a sub-device made by a specified vendor is registered
+		/// </summary>
+		/// <param name="vendorId">Vendor ID</param>
+		/// <param name="deviceId">Device ID</param>
+		/// <param name="subVendorId">Sub-vendor ID</param>
+		/// <param name="subDeviceId">Sub-device ID</param>
+		/// <returns>True if registered; false otherwise.</returns>
+		public static bool IsSubDeviceRegistered(int vendorId, int deviceId, int subVendorId, int subDeviceId)
+		{
+			var devices = ListSubDevices(vendorId, deviceId);
+			if (devices.Length == 0)
+				return false;
+			foreach (var device in devices)
+				if (device.VendorId == subVendorId && device.Id == subDeviceId)
+					return true;
+			return false;
 		}
 
 		private static void SerializePciList()

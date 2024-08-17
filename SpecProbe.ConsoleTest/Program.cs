@@ -109,6 +109,10 @@ namespace SpecProbe.ConsoleTest
                 TextWriterColor.WriteColor($"{video.VendorId} [0x{video.VendorId:X4}]", true, 8);
                 TextWriterColor.WriteColor("- Video card model ID: ", false, 3);
                 TextWriterColor.WriteColor($"{video.ModelId} [0x{video.ModelId:X4}]", true, 8);
+                TextWriterColor.WriteColor("- Video card PCI name: ", false, 3);
+                TextWriterColor.WriteColor($"{video.VideoCardPciName}", true, 8);
+                TextWriterColor.WriteColor("- Video card vendor name: ", false, 3);
+                TextWriterColor.WriteColor($"{video.VendorName}", true, 8);
             }
             TextWriterRaw.Write();
             foreach (var exc in videoErrors)
