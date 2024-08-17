@@ -182,12 +182,18 @@ namespace SpecProbe.Probers
                     string blockRemovableMediaTag = "Removable Media:";
                     string blockIsWholeTag = "Whole:";
                     string blockDiskTag = "Part of Whole:";
+                    string partTypeTag = "Partition Type:";
+                    string partOffsetTag = "Partition Offset:";
+                    string blockSchemeTag = "Content (IOContent):";
 
                     // Some variables for the block
                     bool blockVirtual = false;
                     bool blockFixed = true;
                     bool blockIsDisk = true;
                     string reallyDiskId = "";
+                    string partType = "";
+                    string blockScheme = "";
+                    ulong partOffset = 0;
                     ulong actualSize = 0;
                     int diskNum = 1;
 
@@ -213,6 +219,32 @@ namespace SpecProbe.Probers
                         {
                             // Trim the tag to get the value.
                             blockIsDisk = trimmedLine.Substring(blockIsWholeTag.Length).Trim() == diskUtilTrue;
+                        }
+                        if (trimmedLine.StartsWith(blockSchemeTag))
+                        {
+                            // Trim the tag to get the value.
+                            blockScheme = trimmedLine.Substring(blockSchemeTag.Length).Trim();
+                        }
+                        if (trimmedLine.StartsWith(partTypeTag))
+                        {
+                            // Trim the tag to get the value.
+                            partType = trimmedLine.Substring(partTypeTag.Length).Trim();
+                        }
+                        if (trimmedLine.StartsWith(partOffsetTag))
+                        {
+                            // Trim the tag to get the value like:
+                            //    Partition Offset:          20480 Bytes (40 512-Byte-Device-Blocks)
+                            string sizes = trimmedLine.Substring(partOffsetTag.Length).Trim();
+
+                            // We don't want to make the same mistake as we've done in the past for Inxi.NET, so we need to
+                            // get the number of bytes from that.
+                            sizes = sizes.Substring(0, sizes.IndexOf(' '));
+                            partOffset = ulong.Parse(sizes);
+                        }
+                        if (trimmedLine.StartsWith(partTypeTag))
+                        {
+                            // Trim the tag to get the value.
+                            partType = trimmedLine.Substring(partTypeTag.Length).Trim();
                         }
                         if (trimmedLine.StartsWith(blockDiskTag))
                         {
@@ -272,6 +304,9 @@ namespace SpecProbe.Probers
                             HardDiskSize = actualSize,
                             HardDiskNumber = diskNum,
                             Partitions = [.. partitions],
+                            PartitionTableType =
+                                blockScheme == "GUID_partition_scheme" ? PartitionTableType.GPT :
+                                PartitionTableType.Unknown,
                         });
                     }
                     else
@@ -280,6 +315,11 @@ namespace SpecProbe.Probers
                         {
                             PartitionNumber = partNum,
                             PartitionSize = (long)actualSize,
+                            PartitionOffset = (long)partOffset,
+                            PartitionType =
+                                partType == "EFI" ? PartitionType.EFISystem :
+                                partType == "Apple_APFS" ? PartitionType.HFS :
+                                PartitionType.Unknown
                         });
                         diskParts[diskNum - 1].Partitions = [.. partitions];
                     }

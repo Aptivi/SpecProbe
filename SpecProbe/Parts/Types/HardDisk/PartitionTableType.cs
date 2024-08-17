@@ -33,7 +33,7 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// </summary>
         GPT,
         /// <summary>
-        /// Apple, usually HFS+
+        /// Apple partition table
         /// </summary>
         Apple,
         /// <summary>
