@@ -776,6 +776,17 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// Xenix Bad Block Table (BBT)
         /// </summary>
         XenixBBT = 0xFF,
+        GptBiosBoot = 0x10000000,
+        GptMbrScheme = 0x10000001,
+        GptHpUxData = 0x10000002,
+        GptHpUxService = 0x10000003,
+        GptLinuxDmCrypt = 0x10000004,
+        GptFreeBsdBoot = 0x10000005,
+        GptFreeBsdSwap = 0x10000006,
+        GptFreeBsdUfs = 0x10000007,
+        GptFreeBsdVinum = 0x10000008,
+        GptFreeBsdZfs = 0x10000009,
+        GptMacOSZfs = 0x1000000A,
         /// <summary>
         /// Unknown partition type
         /// </summary>
