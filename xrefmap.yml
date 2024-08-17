@@ -13,58 +13,71 @@ references:
   commentId: T:SpecProbe.HardwareProber
   fullName: SpecProbe.HardwareProber
   nameWithType: HardwareProber
-- uid: SpecProbe.HardwareProber.Errors
-  name: Errors
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Errors
-  commentId: P:SpecProbe.HardwareProber.Errors
-  fullName: SpecProbe.HardwareProber.Errors
-  nameWithType: HardwareProber.Errors
-- uid: SpecProbe.HardwareProber.Errors*
-  name: Errors
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Errors_
-  commentId: Overload:SpecProbe.HardwareProber.Errors
+- uid: SpecProbe.HardwareProber.GetHardDisks
+  name: GetHardDisks()
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetHardDisks
+  commentId: M:SpecProbe.HardwareProber.GetHardDisks
+  fullName: SpecProbe.HardwareProber.GetHardDisks()
+  nameWithType: HardwareProber.GetHardDisks()
+- uid: SpecProbe.HardwareProber.GetHardDisks*
+  name: GetHardDisks
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetHardDisks_
+  commentId: Overload:SpecProbe.HardwareProber.GetHardDisks
   isSpec: "True"
-  fullName: SpecProbe.HardwareProber.Errors
-  nameWithType: HardwareProber.Errors
-- uid: SpecProbe.HardwareProber.HardDisk
-  name: HardDisk
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_HardDisk
-  commentId: P:SpecProbe.HardwareProber.HardDisk
-  fullName: SpecProbe.HardwareProber.HardDisk
-  nameWithType: HardwareProber.HardDisk
-- uid: SpecProbe.HardwareProber.HardDisk*
-  name: HardDisk
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_HardDisk_
-  commentId: Overload:SpecProbe.HardwareProber.HardDisk
+  fullName: SpecProbe.HardwareProber.GetHardDisks
+  nameWithType: HardwareProber.GetHardDisks
+- uid: SpecProbe.HardwareProber.GetMemory
+  name: GetMemory()
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetMemory
+  commentId: M:SpecProbe.HardwareProber.GetMemory
+  fullName: SpecProbe.HardwareProber.GetMemory()
+  nameWithType: HardwareProber.GetMemory()
+- uid: SpecProbe.HardwareProber.GetMemory*
+  name: GetMemory
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetMemory_
+  commentId: Overload:SpecProbe.HardwareProber.GetMemory
   isSpec: "True"
-  fullName: SpecProbe.HardwareProber.HardDisk
-  nameWithType: HardwareProber.HardDisk
-- uid: SpecProbe.HardwareProber.Memory
-  name: Memory
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Memory
-  commentId: P:SpecProbe.HardwareProber.Memory
-  fullName: SpecProbe.HardwareProber.Memory
-  nameWithType: HardwareProber.Memory
-- uid: SpecProbe.HardwareProber.Memory*
-  name: Memory
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Memory_
-  commentId: Overload:SpecProbe.HardwareProber.Memory
+  fullName: SpecProbe.HardwareProber.GetMemory
+  nameWithType: HardwareProber.GetMemory
+- uid: SpecProbe.HardwareProber.GetParseExceptions(SpecProbe.Parts.HardwarePartType)
+  name: GetParseExceptions(HardwarePartType)
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetParseExceptions_SpecProbe_Parts_HardwarePartType_
+  commentId: M:SpecProbe.HardwareProber.GetParseExceptions(SpecProbe.Parts.HardwarePartType)
+  fullName: SpecProbe.HardwareProber.GetParseExceptions(SpecProbe.Parts.HardwarePartType)
+  nameWithType: HardwareProber.GetParseExceptions(HardwarePartType)
+- uid: SpecProbe.HardwareProber.GetParseExceptions*
+  name: GetParseExceptions
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetParseExceptions_
+  commentId: Overload:SpecProbe.HardwareProber.GetParseExceptions
   isSpec: "True"
-  fullName: SpecProbe.HardwareProber.Memory
-  nameWithType: HardwareProber.Memory
-- uid: SpecProbe.HardwareProber.Processors
-  name: Processors
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Processors
-  commentId: P:SpecProbe.HardwareProber.Processors
-  fullName: SpecProbe.HardwareProber.Processors
-  nameWithType: HardwareProber.Processors
-- uid: SpecProbe.HardwareProber.Processors*
-  name: Processors
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Processors_
-  commentId: Overload:SpecProbe.HardwareProber.Processors
+  fullName: SpecProbe.HardwareProber.GetParseExceptions
+  nameWithType: HardwareProber.GetParseExceptions
+- uid: SpecProbe.HardwareProber.GetProcessor
+  name: GetProcessor()
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetProcessor
+  commentId: M:SpecProbe.HardwareProber.GetProcessor
+  fullName: SpecProbe.HardwareProber.GetProcessor()
+  nameWithType: HardwareProber.GetProcessor()
+- uid: SpecProbe.HardwareProber.GetProcessor*
+  name: GetProcessor
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetProcessor_
+  commentId: Overload:SpecProbe.HardwareProber.GetProcessor
   isSpec: "True"
-  fullName: SpecProbe.HardwareProber.Processors
-  nameWithType: HardwareProber.Processors
+  fullName: SpecProbe.HardwareProber.GetProcessor
+  nameWithType: HardwareProber.GetProcessor
+- uid: SpecProbe.HardwareProber.GetVideos
+  name: GetVideos()
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetVideos
+  commentId: M:SpecProbe.HardwareProber.GetVideos
+  fullName: SpecProbe.HardwareProber.GetVideos()
+  nameWithType: HardwareProber.GetVideos()
+- uid: SpecProbe.HardwareProber.GetVideos*
+  name: GetVideos
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_GetVideos_
+  commentId: Overload:SpecProbe.HardwareProber.GetVideos
+  isSpec: "True"
+  fullName: SpecProbe.HardwareProber.GetVideos
+  nameWithType: HardwareProber.GetVideos
 - uid: SpecProbe.HardwareProber.SetNotarized(System.Boolean)
   name: SetNotarized(bool)
   href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_SetNotarized_System_Boolean_
@@ -81,19 +94,6 @@ references:
   isSpec: "True"
   fullName: SpecProbe.HardwareProber.SetNotarized
   nameWithType: HardwareProber.SetNotarized
-- uid: SpecProbe.HardwareProber.Video
-  name: Video
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Video
-  commentId: P:SpecProbe.HardwareProber.Video
-  fullName: SpecProbe.HardwareProber.Video
-  nameWithType: HardwareProber.Video
-- uid: SpecProbe.HardwareProber.Video*
-  name: Video
-  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_Video_
-  commentId: Overload:SpecProbe.HardwareProber.Video
-  isSpec: "True"
-  fullName: SpecProbe.HardwareProber.Video
-  nameWithType: HardwareProber.Video
 - uid: SpecProbe.Parts
   name: SpecProbe.Parts
   href: api/SpecProbe.Parts.html
