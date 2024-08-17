@@ -45,6 +45,8 @@ namespace SpecProbe.Parts.Types
     public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo
     {
         private string videoCardName;
+        private uint vendorId;
+        private uint modelId;
 
         /// <inheritdoc/>
         public override HardwarePartType Type =>
@@ -57,6 +59,24 @@ namespace SpecProbe.Parts.Types
         {
             get => videoCardName;
             internal set => videoCardName = value;
+        }
+
+        /// <summary>
+        /// Vendor ID for this video card
+        /// </summary>
+        public uint VendorId
+        {
+            get => vendorId;
+            internal set => vendorId = value;
+        }
+
+        /// <summary>
+        /// Model ID for this video card
+        /// </summary>
+        public uint ModelId
+        {
+            get => modelId;
+            internal set => modelId = value;
         }
     }
 }

@@ -24,6 +24,7 @@ using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -48,54 +49,38 @@ namespace SpecProbe.Probers
             // Some variables to install.
             List<Exception> exceptions = [];
             string videoCardName = "";
+            uint vendorId = 0;
+            uint modelId = 0;
 
             try
             {
-                // Check to see if we have a /proc/driver/nvidia folder for systems running NVIDIA graphics
-                string nvidiaGpuListDirectory = $"/proc/driver/nvidia/gpus";
-                if (Directory.Exists(nvidiaGpuListDirectory))
+                string glxinfoOutput = PlatformHelper.ExecuteProcessToString("/usr/bin/glxinfo", "-B");
+                string[] glxinfoOutputLines = glxinfoOutput.Replace("\r", "").Split('\n');
+                foreach (string glxinfoOutputLine in glxinfoOutputLines)
                 {
-                    // The system is running proprietary NVIDIA drivers. Use the interface for performance
-                    string[] nvidiaGpuFolders = Directory.GetDirectories(nvidiaGpuListDirectory).Where((dir) => !dir.EndsWith("power")).ToArray();
-                    List<VideoPart> videos = [];
-                    foreach (string nvidiaGpuFolder in nvidiaGpuFolders)
+                    string rendererTag = "OpenGL renderer string: ";
+                    string vendorTag = "    Vendor: ";
+                    string deviceTag = "    Device: ";
+                    if (glxinfoOutputLine.StartsWith(rendererTag))
                     {
-                        // Get information
-                        string nvidiaGpuStateFile = $"{nvidiaGpuFolder}/information";
-                        string[] nvidiaGpuStateStrs = File.ReadAllLines(nvidiaGpuStateFile);
-                        foreach (string gpuStateStr in nvidiaGpuStateStrs)
-                        {
-                            string modelTag = "Model:       ";
-                            if (gpuStateStr.StartsWith(modelTag))
-                            {
-                                // Trim the tag to get the GPU name, such as "GeForce GTX 680", "Tesla P100-PCIE-12GB", or "GeForce RTX 4090"
-                                videoCardName = gpuStateStr.Substring(modelTag.Length);
-                            }
-                        }
-
-                        // Add a GPU
-                        videos.Add(new VideoPart()
-                        {
-                            VideoCardName = videoCardName,
-                        });
+                        // Trim the tag to get the GPU name.
+                        videoCardName = glxinfoOutputLine.Substring(rendererTag.Length);
                     }
-                    errors = [.. exceptions];
-                    return videos.ToArray();
-                }
-                else
-                {
-                    // Either the system is not running NVIDIA graphics card, or the system is not using proprietary NVIDIA driver.
-                    // Roll back to glxinfo -B
-                    string glxinfoOutput = PlatformHelper.ExecuteProcessToString("/usr/bin/glxinfo", "-B");
-                    string[] glxinfoOutputLines = glxinfoOutput.Replace("\r", "").Split('\n');
-                    foreach (string glxinfoOutputLine in glxinfoOutputLines)
+                    if (glxinfoOutputLine.StartsWith(vendorTag))
                     {
-                        string rendererTag = "OpenGL renderer string: ";
-                        if (glxinfoOutputLine.StartsWith(rendererTag))
-                        {
-                            // Trim the tag to get the GPU name.
-                            videoCardName = glxinfoOutputLine.Substring(rendererTag.Length);
-                        }
+                        // Trim the tag to get the GPU vendor name to get the ID.
+                        string vendorName = glxinfoOutputLine.Substring(vendorTag.Length);
+                        vendorName = vendorName.Substring(vendorName.LastIndexOf('(') + 1);
+                        vendorName = vendorName.Substring(0, vendorName.IndexOf(')'));
+                        vendorId = uint.Parse(vendorName.Substring(2), NumberStyles.HexNumber);
+                    }
+                    if (glxinfoOutputLine.StartsWith(deviceTag))
+                    {
+                        // Trim the tag to get the GPU device name to get the ID.
+                        string deviceName = glxinfoOutputLine.Substring(deviceTag.Length);
+                        deviceName = deviceName.Substring(deviceName.LastIndexOf('(') + 1);
+                        deviceName = deviceName.Substring(0, deviceName.IndexOf(')'));
+                        modelId = uint.Parse(deviceName.Substring(2), NumberStyles.HexNumber);
                     }
                 }
             }
@@ -108,6 +93,8 @@ namespace SpecProbe.Probers
             VideoPart part = new()
             {
                 VideoCardName = videoCardName,
+                VendorId = vendorId,
+                ModelId = modelId,
             };
             errors = [.. exceptions];
             return new[] { part };
@@ -153,11 +140,15 @@ namespace SpecProbe.Probers
             {
                 exceptions.Add(ex);
             }
+            uint vendorId = uint.Parse(videoCardVendor.Substring(2), NumberStyles.HexNumber);
+            uint modelId = uint.Parse(videoCardDevName.Substring(2), NumberStyles.HexNumber);
 
             // Finally, return a single item array containing information
             videos.Add(new VideoPart
             {
-                VideoCardName = videoCardName
+                VideoCardName = videoCardName,
+                VendorId = vendorId,
+                ModelId = modelId,
             });
             errors = [.. exceptions];
             return videos.ToArray();
@@ -198,13 +189,17 @@ namespace SpecProbe.Probers
                 // Probe the model and the vendor number as the video card name
                 foreach (var screen in screens)
                 {
+                    uint vendorId = PlatformMacInterop.CGDisplayVendorNumber(screen);
+                    uint modelId = PlatformMacInterop.CGDisplayModelNumber(screen);
                     videoCardName =
-                        $"V: {PlatformMacInterop.CGDisplayVendorNumber(screen)} " +
-                        $"M: {PlatformMacInterop.CGDisplayModelNumber(screen)}";
+                        $"V: {vendorId} " +
+                        $"M: {modelId}";
 
                     VideoPart part = new()
                     {
                         VideoCardName = videoCardName,
+                        VendorId = vendorId,
+                        ModelId = modelId,
                     };
                     videos.Add(part);
                 }
@@ -253,7 +248,9 @@ namespace SpecProbe.Probers
                     // Install the part
                     parts.Add(new VideoPart()
                     {
-                        VideoCardName = builder.ToString()
+                        VideoCardName = builder.ToString(),
+                        VendorId = (uint)gpuPart.vendorId,
+                        ModelId = (uint)gpuPart.deviceId,
                     });
                 }
             }
