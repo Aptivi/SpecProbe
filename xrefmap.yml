@@ -750,6 +750,30 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptLinuxDmCrypt
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptLinuxDmCrypt
   nameWithType: PartitionType.GptLinuxDmCrypt
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSAppleTVRecovery
+  name: GptMacOSAppleTVRecovery
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptMacOSAppleTVRecovery
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSAppleTVRecovery
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSAppleTVRecovery
+  nameWithType: PartitionType.GptMacOSAppleTVRecovery
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSLabel
+  name: GptMacOSLabel
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptMacOSLabel
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSLabel
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSLabel
+  nameWithType: PartitionType.GptMacOSLabel
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOfflineRaid
+  name: GptMacOSOfflineRaid
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptMacOSOfflineRaid
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOfflineRaid
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOfflineRaid
+  nameWithType: PartitionType.GptMacOSOfflineRaid
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOnlineRaid
+  name: GptMacOSOnlineRaid
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptMacOSOnlineRaid
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOnlineRaid
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSOnlineRaid
+  nameWithType: PartitionType.GptMacOSOnlineRaid
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMacOSZfs
   name: GptMacOSZfs
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptMacOSZfs
@@ -762,6 +786,84 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptMbrScheme
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptMbrScheme
   nameWithType: PartitionType.GptMbrScheme
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDConcatenated
+  name: GptNetBSDConcatenated
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDConcatenated
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDConcatenated
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDConcatenated
+  nameWithType: PartitionType.GptNetBSDConcatenated
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDEncrypted
+  name: GptNetBSDEncrypted
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDEncrypted
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDEncrypted
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDEncrypted
+  nameWithType: PartitionType.GptNetBSDEncrypted
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDFFS
+  name: GptNetBSDFFS
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDFFS
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDFFS
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDFFS
+  nameWithType: PartitionType.GptNetBSDFFS
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDLFS
+  name: GptNetBSDLFS
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDLFS
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDLFS
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDLFS
+  nameWithType: PartitionType.GptNetBSDLFS
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDRAID
+  name: GptNetBSDRAID
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDRAID
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDRAID
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDRAID
+  nameWithType: PartitionType.GptNetBSDRAID
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDSwap
+  name: GptNetBSDSwap
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptNetBSDSwap
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDSwap
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptNetBSDSwap
+  nameWithType: PartitionType.GptNetBSDSwap
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisAltsctr
+  name: GptSolarisAltsctr
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisAltsctr
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisAltsctr
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisAltsctr
+  nameWithType: PartitionType.GptSolarisAltsctr
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisBackup
+  name: GptSolarisBackup
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisBackup
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisBackup
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisBackup
+  nameWithType: PartitionType.GptSolarisBackup
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved1
+  name: GptSolarisReserved1
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisReserved1
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved1
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved1
+  nameWithType: PartitionType.GptSolarisReserved1
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved2
+  name: GptSolarisReserved2
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisReserved2
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved2
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved2
+  nameWithType: PartitionType.GptSolarisReserved2
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved3
+  name: GptSolarisReserved3
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisReserved3
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved3
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved3
+  nameWithType: PartitionType.GptSolarisReserved3
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved4
+  name: GptSolarisReserved4
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisReserved4
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved4
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved4
+  nameWithType: PartitionType.GptSolarisReserved4
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved5
+  name: GptSolarisReserved5
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_GptSolarisReserved5
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved5
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.GptSolarisReserved5
+  nameWithType: PartitionType.GptSolarisReserved5
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.HFS
   name: HFS
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_HFS
@@ -924,6 +1026,12 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.MacOSX
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.MacOSX
   nameWithType: PartitionType.MacOSX
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.MacOSXBoot
+  name: MacOSXBoot
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_MacOSXBoot
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.MacOSXBoot
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.MacOSXBoot
+  nameWithType: PartitionType.MacOSXBoot
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.MultiBoot
   name: MultiBoot
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_MultiBoot
