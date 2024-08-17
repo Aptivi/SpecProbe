@@ -22,7 +22,7 @@
   "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html",
     "title": "Enum PartitionTableType | SpecProbe API - Aptivi",
-    "keywords": "Enum PartitionTableType Partition table type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionTableType Fields Name Description Apple Apple, usually HFS+ GPT GUID Partition Table MBR Master Boot Record Other Other partition tables, such as AIX, Amiga, Sun, ... Unknown Unknown partition table"
+    "keywords": "Enum PartitionTableType Partition table type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionTableType Fields Name Description Apple Apple partition table GPT GUID Partition Table MBR Master Boot Record Other Other partition tables, such as AIX, Amiga, Sun, ... Unknown Unknown partition table"
   },
   "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html",
