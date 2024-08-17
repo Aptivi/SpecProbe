@@ -32,7 +32,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Pci\List\pci.ids" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Textify.Offline" Version="1.10.0.1" />
   </ItemGroup>
 
 </Project>

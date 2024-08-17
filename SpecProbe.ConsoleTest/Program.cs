@@ -19,6 +19,7 @@
 
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
+using SpecProbe.Pci;
 using SpecProbe.Software.Platform;
 using System.Diagnostics;
 using Terminaux.Writer.ConsoleWriters;
@@ -184,6 +185,30 @@ namespace SpecProbe.ConsoleTest
             stopwatch.Stop();
             TextWriterColor.WriteColor("- WSL: ", false, 3);
             TextWriterColor.WriteColor($"{wsl}", true, 8);
+            TextWriterRaw.Write();
+            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+            TextWriterRaw.Write();
+            stopwatch.Reset();
+
+            // PCI ID parse
+            SeparatorWriterColor.WriteSeparator("PCI ID", true, 15);
+            stopwatch.Start();
+            var vendors = PciListParser.ListVendors();
+            var vendor = PciListParser.GetVendor(0x1000);
+            var devices = PciListParser.ListDevices(0x1000);
+            var device = PciListParser.GetDevice(0x1000, 0x0014);
+            var subDevices = PciListParser.ListSubDevices(0x1000, 0x0014);
+            var subDevice = PciListParser.GetSubDevice(0x1000, 0x0014, 0x1d49, 0x0602);
+            stopwatch.Stop();
+            TextWriterColor.WriteColor("- Vendor count: ", false, 3);
+            TextWriterColor.WriteColor($"{vendors.Length} vendors", true, 8);
+            TextWriterColor.WriteColor($"- Device count for {vendor.Name} [0x{vendor.Id:x4}]: ", false, 3);
+            TextWriterColor.WriteColor($"{devices.Length} devices", true, 8);
+            TextWriterColor.WriteColor($"- Sub-device count for {device.Name} [0x{device.Id:x4}]: ", false, 3);
+            TextWriterColor.WriteColor($"{subDevices.Length} devices", true, 8);
+            TextWriterColor.WriteColor($"- Sub-device of 0x{device.Id:x4}: ", false, 3);
+            TextWriterColor.WriteColor($"{subDevice.Name}", true, 8);
             TextWriterRaw.Write();
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
