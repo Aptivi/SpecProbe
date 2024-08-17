@@ -667,6 +667,126 @@ namespace SpecProbe.Probers
                 // macOS ZFS
                 return PartitionType.GptMacOSZfs;
             }
+            else if (partitionTypeGptGuid == Guid.Parse("52414944-0000-11AA-AA11-00306543ECAC"))
+            {
+                // macOS RAID (online)
+                return PartitionType.GptMacOSOnlineRaid;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("52414944-5F4F-11AA-AA11-00306543ECAC"))
+            {
+                // macOS RAID (offline)
+                return PartitionType.GptMacOSOfflineRaid;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("426F6F74-0000-11AA-AA11-00306543ECAC"))
+            {
+                // macOS Boot
+                return PartitionType.MacOSXBoot;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("4C616265-6C00-11AA-AA11-00306543ECAC"))
+            {
+                // macOS Label
+                return PartitionType.GptMacOSLabel;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("5265636F-7665-11AA-AA11-00306543ECAC"))
+            {
+                // macOS Apple TV Recovery
+                return PartitionType.GptMacOSAppleTVRecovery;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A82CB45-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris boot
+                return PartitionType.Solaris8Boot;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A85CF4D-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris root
+                return PartitionType.SolarisNew;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A87C46F-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris swap
+                return PartitionType.SwapOrSolaris;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A8B642B-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris backup
+                return PartitionType.GptSolarisBackup;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A898CC3-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris /usr
+                return PartitionType.SolarisNew;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A8EF2E9-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris /var
+                return PartitionType.SolarisNew;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A90BA39-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris /home
+                return PartitionType.SolarisNew;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A9283A5-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris EFI_ALTSCTR
+                return PartitionType.GptSolarisAltsctr;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A945A3B-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris Reserved
+                return PartitionType.GptSolarisReserved1;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A9630D1-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris Reserved
+                return PartitionType.GptSolarisReserved2;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A980767-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris Reserved
+                return PartitionType.GptSolarisReserved3;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A96237F-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris Reserved
+                return PartitionType.GptSolarisReserved4;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("6A8D2AC7-1DD2-11B2-99A6-080020736631"))
+            {
+                // Solaris Reserved
+                return PartitionType.GptSolarisReserved5;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("49F48D32-B10E-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD Swap
+                return PartitionType.GptNetBSDSwap;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("49F48D5A-B10E-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD FFS
+                return PartitionType.GptNetBSDFFS;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("49F48D82-B10E-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD LFS
+                return PartitionType.GptNetBSDLFS;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("49F48DAA-B10E-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD RAID
+                return PartitionType.GptNetBSDRAID;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("2DB519C4-B10F-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD Concatenated
+                return PartitionType.GptNetBSDConcatenated;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("2DB519EC-B10F-11DC-B99B-0019D1879648"))
+            {
+                // NetBSD Encrypted
+                return PartitionType.GptNetBSDEncrypted;
+            }
             return PartitionType.Unknown;
         }
     }

@@ -497,6 +497,10 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// </summary>
         Olivetti = 0xaa,
         /// <summary>
+        /// Boot partition for old versions of Mac OS X
+        /// </summary>
+        MacOSXBoot = 0xab,
+        /// <summary>
         /// ADFS File System for RISC OS
         /// </summary>
         ADFS = 0xad,
@@ -776,17 +780,118 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// Xenix Bad Block Table (BBT)
         /// </summary>
         XenixBBT = 0xFF,
+        /// <summary>
+        /// [GPT] BIOS boot partition
+        /// </summary>
         GptBiosBoot = 0x10000000,
+        /// <summary>
+        /// [GPT] MBR partition scheme
+        /// </summary>
         GptMbrScheme = 0x10000001,
+        /// <summary>
+        /// [GPT] HP/UX Data
+        /// </summary>
         GptHpUxData = 0x10000002,
+        /// <summary>
+        /// [GPT] HP/UX Service
+        /// </summary>
         GptHpUxService = 0x10000003,
+        /// <summary>
+        /// [GPT] Linux dm-crypt
+        /// </summary>
         GptLinuxDmCrypt = 0x10000004,
+        /// <summary>
+        /// [GPT] FreeBSD Boot
+        /// </summary>
         GptFreeBsdBoot = 0x10000005,
+        /// <summary>
+        /// [GPT] FreeBSD Swap
+        /// </summary>
         GptFreeBsdSwap = 0x10000006,
+        /// <summary>
+        /// [GPT] FreeBSD UFS
+        /// </summary>
         GptFreeBsdUfs = 0x10000007,
+        /// <summary>
+        /// [GPT] FreeBSD Vinum
+        /// </summary>
         GptFreeBsdVinum = 0x10000008,
+        /// <summary>
+        /// [GPT] FreeBSD ZFS
+        /// </summary>
         GptFreeBsdZfs = 0x10000009,
+        /// <summary>
+        /// [GPT] macOS ZFS
+        /// </summary>
         GptMacOSZfs = 0x1000000A,
+        /// <summary>
+        /// [GPT] macOS Online RAID
+        /// </summary>
+        GptMacOSOnlineRaid = 0x1000000B,
+        /// <summary>
+        /// [GPT] macOS Offline RAID
+        /// </summary>
+        GptMacOSOfflineRaid = 0x1000000C,
+        /// <summary>
+        /// [GPT] macOS Label
+        /// </summary>
+        GptMacOSLabel = 0x1000000D,
+        /// <summary>
+        /// [GPT] macOS Apple TV Recovery
+        /// </summary>
+        GptMacOSAppleTVRecovery = 0x1000000E,
+        /// <summary>
+        /// [GPT] Oracle Solaris Backup
+        /// </summary>
+        GptSolarisBackup = 0x1000000F,
+        /// <summary>
+        /// [GPT] Oracle Solaris EFI_ALTSCTR
+        /// </summary>
+        GptSolarisAltsctr = 0x10000010,
+        /// <summary>
+        /// [GPT] Oracle Solaris Reserved
+        /// </summary>
+        GptSolarisReserved1 = 0x10000011,
+        /// <summary>
+        /// [GPT] Oracle Solaris Reserved
+        /// </summary>
+        GptSolarisReserved2 = 0x10000012,
+        /// <summary>
+        /// [GPT] Oracle Solaris Reserved
+        /// </summary>
+        GptSolarisReserved3 = 0x10000013,
+        /// <summary>
+        /// [GPT] Oracle Solaris Reserved
+        /// </summary>
+        GptSolarisReserved4 = 0x10000014,
+        /// <summary>
+        /// [GPT] Oracle Solaris Reserved
+        /// </summary>
+        GptSolarisReserved5 = 0x10000015,
+        /// <summary>
+        /// [GPT] NetBSD Swap
+        /// </summary>
+        GptNetBSDSwap = 0x10000016,
+        /// <summary>
+        /// [GPT] NetBSD FFS
+        /// </summary>
+        GptNetBSDFFS = 0x10000017,
+        /// <summary>
+        /// [GPT] NetBSD LFS
+        /// </summary>
+        GptNetBSDLFS = 0x10000018,
+        /// <summary>
+        /// [GPT] NetBSD RAID
+        /// </summary>
+        GptNetBSDRAID = 0x10000019,
+        /// <summary>
+        /// [GPT] NetBSD Concatenated
+        /// </summary>
+        GptNetBSDConcatenated = 0x1000001A,
+        /// <summary>
+        /// [GPT] NetBSD Encrypted
+        /// </summary>
+        GptNetBSDEncrypted = 0x1000001B,
         /// <summary>
         /// Unknown partition type
         /// </summary>
