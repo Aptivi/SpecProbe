@@ -69,6 +69,31 @@
     "title": "Namespace SpecProbe.Parts | SpecProbe API - Aptivi",
     "keywords": "Namespace SpecProbe.Parts Classes BaseHardwarePartInfo Base hardware part information class Interfaces IHardwarePartInfo Hardware part info interface Enums HardwarePartType Hardware part type"
   },
+  "api/SpecProbe.Pci.Elements.PciDeviceInfo.html": {
+    "href": "api/SpecProbe.Pci.Elements.PciDeviceInfo.html",
+    "title": "Class PciDeviceInfo | SpecProbe API - Aptivi",
+    "keywords": "Class PciDeviceInfo PCI device information Inheritance object PciDeviceInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciDeviceInfo Properties | Edit this page View Source Id Device ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Device name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source SubDevices List of subdevices Declaration public PciDeviceInfo[] SubDevices { get; } Property Value Type Description PciDeviceInfo[] | Edit this page View Source VendorId Vendor ID Declaration public int VendorId { get; } Property Value Type Description int"
+  },
+  "api/SpecProbe.Pci.Elements.PciVendorInfo.html": {
+    "href": "api/SpecProbe.Pci.Elements.PciVendorInfo.html",
+    "title": "Class PciVendorInfo | SpecProbe API - Aptivi",
+    "keywords": "Class PciVendorInfo PCI vendor information Inheritance object PciVendorInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciVendorInfo Properties | Edit this page View Source Devices List of PCI device info that this vendor made Declaration public PciDeviceInfo[] Devices { get; } Property Value Type Description PciDeviceInfo[] | Edit this page View Source Id Vendor ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Vendor name Declaration public string Name { get; } Property Value Type Description string"
+  },
+  "api/SpecProbe.Pci.Elements.html": {
+    "href": "api/SpecProbe.Pci.Elements.html",
+    "title": "Namespace SpecProbe.Pci.Elements | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Pci.Elements Classes PciDeviceInfo PCI device information PciVendorInfo PCI vendor information"
+  },
+  "api/SpecProbe.Pci.PciListParser.html": {
+    "href": "api/SpecProbe.Pci.PciListParser.html",
+    "title": "Class PciListParser | SpecProbe API - Aptivi",
+    "keywords": "Class PciListParser PCI ID list parser Inheritance object PciListParser Namespace: SpecProbe.Pci Assembly: SpecProbe.dll Syntax public static class PciListParser Methods | Edit this page View Source GetDevice(int, int) Get a device made by a specified vendor Declaration public static PciDeviceInfo GetDevice(int vendorId, int deviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID Returns Type Description PciDeviceInfo Device information | Edit this page View Source GetSubDevice(int, int, int, int) Get a sub-device made by a specified vendor Declaration public static PciDeviceInfo GetSubDevice(int vendorId, int deviceId, int subVendorId, int subDeviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID int subVendorId Sub-vendor ID int subDeviceId Sub-device ID Returns Type Description PciDeviceInfo Sub-device information | Edit this page View Source GetVendor(int) Gets a vendor Declaration public static PciVendorInfo GetVendor(int vendorId) Parameters Type Name Description int vendorId Vendor ID Returns Type Description PciVendorInfo Vendor information | Edit this page View Source ListDevices(int) Lists all the devices that a vendor made Declaration public static PciDeviceInfo[] ListDevices(int vendorId) Parameters Type Name Description int vendorId Vendor ID Returns Type Description PciDeviceInfo[] List of devices | Edit this page View Source ListSubDevices(int, int) Lists all the sub-devices from a device that a vendor made Declaration public static PciDeviceInfo[] ListSubDevices(int vendorId, int deviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID Returns Type Description PciDeviceInfo[] List of sub-devices | Edit this page View Source ListVendors() Lists all the vendors Declaration public static PciVendorInfo[] ListVendors() Returns Type Description PciVendorInfo[] List of vendors"
+  },
+  "api/SpecProbe.Pci.html": {
+    "href": "api/SpecProbe.Pci.html",
+    "title": "Namespace SpecProbe.Pci | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Pci Classes PciListParser PCI ID list parser"
+  },
   "api/SpecProbe.html": {
     "href": "api/SpecProbe.html",
     "title": "Namespace SpecProbe | SpecProbe API - Aptivi",

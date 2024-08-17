@@ -1969,3 +1969,217 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.VideoPart.VideoCardName
   nameWithType: VideoPart.VideoCardName
+- uid: SpecProbe.Pci
+  name: SpecProbe.Pci
+  href: api/SpecProbe.Pci.html
+  commentId: N:SpecProbe.Pci
+  fullName: SpecProbe.Pci
+  nameWithType: SpecProbe.Pci
+- uid: SpecProbe.Pci.Elements
+  name: SpecProbe.Pci.Elements
+  href: api/SpecProbe.Pci.Elements.html
+  commentId: N:SpecProbe.Pci.Elements
+  fullName: SpecProbe.Pci.Elements
+  nameWithType: SpecProbe.Pci.Elements
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo
+  name: PciDeviceInfo
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html
+  commentId: T:SpecProbe.Pci.Elements.PciDeviceInfo
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo
+  nameWithType: PciDeviceInfo
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.Id
+  name: Id
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_Id
+  commentId: P:SpecProbe.Pci.Elements.PciDeviceInfo.Id
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.Id
+  nameWithType: PciDeviceInfo.Id
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.Id*
+  name: Id
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_Id_
+  commentId: Overload:SpecProbe.Pci.Elements.PciDeviceInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.Id
+  nameWithType: PciDeviceInfo.Id
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.Name
+  name: Name
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_Name
+  commentId: P:SpecProbe.Pci.Elements.PciDeviceInfo.Name
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.Name
+  nameWithType: PciDeviceInfo.Name
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.Name*
+  name: Name
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_Name_
+  commentId: Overload:SpecProbe.Pci.Elements.PciDeviceInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.Name
+  nameWithType: PciDeviceInfo.Name
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices
+  name: SubDevices
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_SubDevices
+  commentId: P:SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices
+  nameWithType: PciDeviceInfo.SubDevices
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices*
+  name: SubDevices
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_SubDevices_
+  commentId: Overload:SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.SubDevices
+  nameWithType: PciDeviceInfo.SubDevices
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.VendorId
+  name: VendorId
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_VendorId
+  commentId: P:SpecProbe.Pci.Elements.PciDeviceInfo.VendorId
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.VendorId
+  nameWithType: PciDeviceInfo.VendorId
+- uid: SpecProbe.Pci.Elements.PciDeviceInfo.VendorId*
+  name: VendorId
+  href: api/SpecProbe.Pci.Elements.PciDeviceInfo.html#SpecProbe_Pci_Elements_PciDeviceInfo_VendorId_
+  commentId: Overload:SpecProbe.Pci.Elements.PciDeviceInfo.VendorId
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciDeviceInfo.VendorId
+  nameWithType: PciDeviceInfo.VendorId
+- uid: SpecProbe.Pci.Elements.PciVendorInfo
+  name: PciVendorInfo
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html
+  commentId: T:SpecProbe.Pci.Elements.PciVendorInfo
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo
+  nameWithType: PciVendorInfo
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Devices
+  name: Devices
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Devices
+  commentId: P:SpecProbe.Pci.Elements.PciVendorInfo.Devices
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Devices
+  nameWithType: PciVendorInfo.Devices
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Devices*
+  name: Devices
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Devices_
+  commentId: Overload:SpecProbe.Pci.Elements.PciVendorInfo.Devices
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Devices
+  nameWithType: PciVendorInfo.Devices
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Id
+  name: Id
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Id
+  commentId: P:SpecProbe.Pci.Elements.PciVendorInfo.Id
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Id
+  nameWithType: PciVendorInfo.Id
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Id*
+  name: Id
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Id_
+  commentId: Overload:SpecProbe.Pci.Elements.PciVendorInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Id
+  nameWithType: PciVendorInfo.Id
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Name
+  name: Name
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Name
+  commentId: P:SpecProbe.Pci.Elements.PciVendorInfo.Name
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Name
+  nameWithType: PciVendorInfo.Name
+- uid: SpecProbe.Pci.Elements.PciVendorInfo.Name*
+  name: Name
+  href: api/SpecProbe.Pci.Elements.PciVendorInfo.html#SpecProbe_Pci_Elements_PciVendorInfo_Name_
+  commentId: Overload:SpecProbe.Pci.Elements.PciVendorInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Pci.Elements.PciVendorInfo.Name
+  nameWithType: PciVendorInfo.Name
+- uid: SpecProbe.Pci.PciListParser
+  name: PciListParser
+  href: api/SpecProbe.Pci.PciListParser.html
+  commentId: T:SpecProbe.Pci.PciListParser
+  fullName: SpecProbe.Pci.PciListParser
+  nameWithType: PciListParser
+- uid: SpecProbe.Pci.PciListParser.GetDevice(System.Int32,System.Int32)
+  name: GetDevice(int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetDevice_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetDevice(System.Int32,System.Int32)
+  name.vb: GetDevice(Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetDevice(int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetDevice(Integer, Integer)
+  nameWithType: PciListParser.GetDevice(int, int)
+  nameWithType.vb: PciListParser.GetDevice(Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.GetDevice*
+  name: GetDevice
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetDevice_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetDevice
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetDevice
+  nameWithType: PciListParser.GetDevice
+- uid: SpecProbe.Pci.PciListParser.GetSubDevice(System.Int32,System.Int32,System.Int32,System.Int32)
+  name: GetSubDevice(int, int, int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetSubDevice_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetSubDevice(System.Int32,System.Int32,System.Int32,System.Int32)
+  name.vb: GetSubDevice(Integer, Integer, Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetSubDevice(int, int, int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetSubDevice(Integer, Integer, Integer, Integer)
+  nameWithType: PciListParser.GetSubDevice(int, int, int, int)
+  nameWithType.vb: PciListParser.GetSubDevice(Integer, Integer, Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.GetSubDevice*
+  name: GetSubDevice
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetSubDevice_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetSubDevice
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetSubDevice
+  nameWithType: PciListParser.GetSubDevice
+- uid: SpecProbe.Pci.PciListParser.GetVendor(System.Int32)
+  name: GetVendor(int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetVendor_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetVendor(System.Int32)
+  name.vb: GetVendor(Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetVendor(int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetVendor(Integer)
+  nameWithType: PciListParser.GetVendor(int)
+  nameWithType.vb: PciListParser.GetVendor(Integer)
+- uid: SpecProbe.Pci.PciListParser.GetVendor*
+  name: GetVendor
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetVendor_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetVendor
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetVendor
+  nameWithType: PciListParser.GetVendor
+- uid: SpecProbe.Pci.PciListParser.ListDevices(System.Int32)
+  name: ListDevices(int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListDevices_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.ListDevices(System.Int32)
+  name.vb: ListDevices(Integer)
+  fullName: SpecProbe.Pci.PciListParser.ListDevices(int)
+  fullName.vb: SpecProbe.Pci.PciListParser.ListDevices(Integer)
+  nameWithType: PciListParser.ListDevices(int)
+  nameWithType.vb: PciListParser.ListDevices(Integer)
+- uid: SpecProbe.Pci.PciListParser.ListDevices*
+  name: ListDevices
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListDevices_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListDevices
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListDevices
+  nameWithType: PciListParser.ListDevices
+- uid: SpecProbe.Pci.PciListParser.ListSubDevices(System.Int32,System.Int32)
+  name: ListSubDevices(int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListSubDevices_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.ListSubDevices(System.Int32,System.Int32)
+  name.vb: ListSubDevices(Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.ListSubDevices(int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.ListSubDevices(Integer, Integer)
+  nameWithType: PciListParser.ListSubDevices(int, int)
+  nameWithType.vb: PciListParser.ListSubDevices(Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.ListSubDevices*
+  name: ListSubDevices
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListSubDevices_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListSubDevices
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListSubDevices
+  nameWithType: PciListParser.ListSubDevices
+- uid: SpecProbe.Pci.PciListParser.ListVendors
+  name: ListVendors()
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListVendors
+  commentId: M:SpecProbe.Pci.PciListParser.ListVendors
+  fullName: SpecProbe.Pci.PciListParser.ListVendors()
+  nameWithType: PciListParser.ListVendors()
+- uid: SpecProbe.Pci.PciListParser.ListVendors*
+  name: ListVendors
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListVendors_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListVendors
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListVendors
+  nameWithType: PciListParser.ListVendors

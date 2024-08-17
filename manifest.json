@@ -155,6 +155,56 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.PciVendorInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.PciVendorInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.PciListParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.PciListParser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.yml",
       "output": {
         ".html": {
