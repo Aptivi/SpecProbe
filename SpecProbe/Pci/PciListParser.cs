@@ -32,6 +32,7 @@ namespace SpecProbe.Pci
     public static class PciListParser
     {
         private static PciVendorInfo[] cachedVendors = [];
+        private static PciDeviceClassInfo[] cachedClasses = [];
 
         /// <summary>
         /// Lists all the vendors
@@ -247,6 +248,96 @@ namespace SpecProbe.Pci
             cachedVendors = [.. vendors];
 		}
 
+		private static void SerializeClassList()
+        {
+            // Get the PCI ID lines and parse all the classes
+            var lines = GetPciIdsLines();
+            List<PciDeviceClassInfo> classes = [];
+            List<PciDeviceSubclassInfo> subclasses = [];
+            List<PciDeviceInterfaceInfo> interfaces = [];
+            bool skipped = false;
+            foreach (string line in lines)
+            {
+                // Ignore comments and empty lines
+                if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                // Start parsing if we've reached the classes section
+                if (line.StartsWith("C 00") && !skipped)
+                    skipped = true;
+                else if (!skipped)
+                    continue;
+
+                // Count the number of tabs to indicate either a class, a subclass, or an interface
+                bool IsInterface = line[0] == '\t' && line[1] == '\t';
+                bool IsSubclass = line[0] == '\t' && !IsInterface;
+                bool IsClass = !IsSubclass && !IsInterface;
+                if (IsClass)
+                {
+                    // Save the changes if we have a class
+                    if (classes.Count > 0)
+                    {
+						classes[classes.Count - 1].subclasses = [.. subclasses];
+                        var finalSubclasses = classes[classes.Count - 1].subclasses;
+                        if (finalSubclasses.Length > 0 && interfaces.Count > 0)
+							finalSubclasses[finalSubclasses.Length - 1].interfaces = [.. interfaces];
+					}
+
+                    // Clear the subclasses and the interfaces since we have a new class
+                    subclasses.Clear();
+					interfaces.Clear();
+
+                    // Some variables
+                    string name = "";
+                    int classId = 0;
+
+                    // Now, parse a class line
+                    string classIdString = line.Substring(2, 2);
+                    name = line.Substring(6);
+                    classId = int.Parse(classIdString, NumberStyles.HexNumber);
+
+                    // Make a new class class (blanket)
+                    classes.Add(new(name, classId));
+                }
+                else if (IsSubclass)
+				{
+					// Save the changes if we have a subclass
+					if (subclasses.Count > 0 && interfaces.Count > 0)
+						subclasses[subclasses.Count - 1].interfaces = [.. interfaces];
+
+					// Clear the interfaces since we have a new subclass
+					interfaces.Clear();
+
+					// Some variables
+					string name = "";
+					int subclassId = 0;
+
+					// Now, parse a subclass line
+					string subclassIdString = line.Substring(1, 2);
+					name = line.Substring(5);
+					subclassId = int.Parse(subclassIdString, NumberStyles.HexNumber);
+
+					// Make a new class class (blanket)
+					subclasses.Add(new(name, subclassId));
+				}
+                else if (IsInterface)
+				{
+					// Some variables
+					string name = "";
+					int interfaceId = 0;
+
+					// Now, parse a interface line
+					string interfaceIdString = line.Substring(2, 4);
+					name = line.Substring(6);
+					interfaceId = int.Parse(interfaceIdString, NumberStyles.HexNumber);
+
+					// Make a new class class (blanket)
+					interfaces.Add(new(name, interfaceId));
+				}
+            }
+            cachedClasses = [.. classes];
+		}
+
         private static string[] GetPciIdsLines()
 		{
 			// Open the PCI ID list stream (source: https://pci-ids.ucw.cz/)
@@ -262,6 +353,8 @@ namespace SpecProbe.Pci
         {
             if (cachedVendors.Length == 0)
                 SerializePciList();
+            if (cachedClasses.Length == 0)
+                SerializeClassList();
         }
     }
 }
