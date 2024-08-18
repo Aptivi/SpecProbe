@@ -155,7 +155,7 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// <summary>
         /// Open source AtheOS File System partition with added security for Syllable OS
         /// </summary>
-        SyllableSecure = 0x2A,
+        SyllableSecure = 0x2B,
         /// <summary>
         /// Alien Internet Services' NOS, an operating system made in Melbourne, Australia
         /// </summary>
