@@ -26,12 +26,24 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace SpecProbe.Probers
 {
     internal static class ProcessorProber
     {
+        private static readonly string[] PossibleHypervisorCpuIdVendors =
+        [
+            "KVMKVMKVM\0\0\0",
+            "KVMKVMKVMKVM",
+            "Microsoft Hv",
+            "VMwareVMware",
+            "XenVMMXenVMM",
+            "prl hyperv  ",
+            "VBoxVBoxVBox",
+        ];
+
         public static ProcessorPart Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
@@ -55,6 +67,7 @@ namespace SpecProbe.Probers
             string name = "";
             string cpuidVendor = "";
             double clockSpeed = 0.0;
+            bool hypervisor = false;
 
             // Some constants
             const string physicalId = "physical id\t: ";
@@ -66,6 +79,7 @@ namespace SpecProbe.Probers
             const string processorNum = "processor\t: ";
             const string armProcessorName = "Processor\t: ";
             const string armVendorName = "CPU implementer\t: ";
+            const string flagsId = "flags\t\t: ";
 
             try
             {
@@ -133,6 +147,14 @@ namespace SpecProbe.Probers
                         {
                             string clockString = cpuInfoLine.Replace(cpuClockSpeed, "");
                             clockSpeed = double.Parse(clockString);
+                        }
+
+                        // Get the flags (initially used only for hypervisor, but will use it widely soon)
+                        if (cpuInfoLine.StartsWith(flagsId))
+                        {
+                            string flagsString = cpuInfoLine.Replace(flagsId, "");
+                            string[] flags = flagsString.Split(' ');
+                            hypervisor = flags.Contains("hypervisor");
                         }
 
                         // Get the name and the vendor
@@ -211,6 +233,7 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
+                Hypervisor = hypervisor,
             };
             errors = [.. exceptions];
             return processorPart;
@@ -288,6 +311,7 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
+                Hypervisor = PossibleHypervisorCpuIdVendors.Contains(cpuidVendor),
             };
             errors = [.. exceptions];
             return processorPart;
@@ -404,6 +428,7 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
+                Hypervisor = PossibleHypervisorCpuIdVendors.Contains(cpuidVendor),
             };
             errors = [.. exceptions];
             return processorPart;

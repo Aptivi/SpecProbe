@@ -52,7 +52,7 @@ namespace SpecProbe.ConsoleTest
             TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
             TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
             TextWriterColor.WriteColor("- Name: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.Name}", true, 8);
+            TextWriterColor.WriteColor($"{(processor.Hypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
             TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
             TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
             TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
