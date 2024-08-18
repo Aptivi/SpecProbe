@@ -1260,6 +1260,24 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.PaRiscBootloader
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.PaRiscBootloader
   nameWithType: PartitionType.PaRiscBootloader
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSBoot
+  name: ParelOSBoot
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_ParelOSBoot
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSBoot
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSBoot
+  nameWithType: PartitionType.ParelOSBoot
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSData
+  name: ParelOSData
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_ParelOSData
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSData
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSData
+  nameWithType: PartitionType.ParelOSData
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSSwap
+  name: ParelOSSwap
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_ParelOSSwap
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSSwap
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionType.ParelOSSwap
+  nameWithType: PartitionType.ParelOSSwap
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionType.PartitionMagicRecovery
   name: PartitionMagicRecovery
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionType.html#SpecProbe_Parts_Types_HardDisk_PartitionType_PartitionMagicRecovery
