@@ -2275,6 +2275,22 @@ references:
   commentId: T:SpecProbe.Pci.PciListParser
   fullName: SpecProbe.Pci.PciListParser
   nameWithType: PciListParser
+- uid: SpecProbe.Pci.PciListParser.GetClass(System.Int32)
+  name: GetClass(int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetClass_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetClass(System.Int32)
+  name.vb: GetClass(Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetClass(int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetClass(Integer)
+  nameWithType: PciListParser.GetClass(int)
+  nameWithType.vb: PciListParser.GetClass(Integer)
+- uid: SpecProbe.Pci.PciListParser.GetClass*
+  name: GetClass
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetClass_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetClass
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetClass
+  nameWithType: PciListParser.GetClass
 - uid: SpecProbe.Pci.PciListParser.GetDevice(System.Int32,System.Int32)
   name: GetDevice(int, int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetDevice_System_Int32_System_Int32_
@@ -2291,6 +2307,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.GetDevice
   nameWithType: PciListParser.GetDevice
+- uid: SpecProbe.Pci.PciListParser.GetInterface(System.Int32,System.Int32,System.Int32)
+  name: GetInterface(int, int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetInterface_System_Int32_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetInterface(System.Int32,System.Int32,System.Int32)
+  name.vb: GetInterface(Integer, Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetInterface(int, int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetInterface(Integer, Integer, Integer)
+  nameWithType: PciListParser.GetInterface(int, int, int)
+  nameWithType.vb: PciListParser.GetInterface(Integer, Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.GetInterface*
+  name: GetInterface
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetInterface_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetInterface
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetInterface
+  nameWithType: PciListParser.GetInterface
 - uid: SpecProbe.Pci.PciListParser.GetSubDevice(System.Int32,System.Int32,System.Int32,System.Int32)
   name: GetSubDevice(int, int, int, int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetSubDevice_System_Int32_System_Int32_System_Int32_System_Int32_
@@ -2307,6 +2339,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.GetSubDevice
   nameWithType: PciListParser.GetSubDevice
+- uid: SpecProbe.Pci.PciListParser.GetSubclass(System.Int32,System.Int32)
+  name: GetSubclass(int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetSubclass_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.GetSubclass(System.Int32,System.Int32)
+  name.vb: GetSubclass(Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.GetSubclass(int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.GetSubclass(Integer, Integer)
+  nameWithType: PciListParser.GetSubclass(int, int)
+  nameWithType.vb: PciListParser.GetSubclass(Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.GetSubclass*
+  name: GetSubclass
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetSubclass_
+  commentId: Overload:SpecProbe.Pci.PciListParser.GetSubclass
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.GetSubclass
+  nameWithType: PciListParser.GetSubclass
 - uid: SpecProbe.Pci.PciListParser.GetVendor(System.Int32)
   name: GetVendor(int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_GetVendor_System_Int32_
@@ -2323,6 +2371,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.GetVendor
   nameWithType: PciListParser.GetVendor
+- uid: SpecProbe.Pci.PciListParser.IsClassRegistered(System.Int32)
+  name: IsClassRegistered(int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsClassRegistered_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.IsClassRegistered(System.Int32)
+  name.vb: IsClassRegistered(Integer)
+  fullName: SpecProbe.Pci.PciListParser.IsClassRegistered(int)
+  fullName.vb: SpecProbe.Pci.PciListParser.IsClassRegistered(Integer)
+  nameWithType: PciListParser.IsClassRegistered(int)
+  nameWithType.vb: PciListParser.IsClassRegistered(Integer)
+- uid: SpecProbe.Pci.PciListParser.IsClassRegistered*
+  name: IsClassRegistered
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsClassRegistered_
+  commentId: Overload:SpecProbe.Pci.PciListParser.IsClassRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.IsClassRegistered
+  nameWithType: PciListParser.IsClassRegistered
 - uid: SpecProbe.Pci.PciListParser.IsDeviceRegistered(System.Int32,System.Int32)
   name: IsDeviceRegistered(int, int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsDeviceRegistered_System_Int32_System_Int32_
@@ -2339,6 +2403,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.IsDeviceRegistered
   nameWithType: PciListParser.IsDeviceRegistered
+- uid: SpecProbe.Pci.PciListParser.IsInterfaceRegistered(System.Int32,System.Int32,System.Int32)
+  name: IsInterfaceRegistered(int, int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsInterfaceRegistered_System_Int32_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.IsInterfaceRegistered(System.Int32,System.Int32,System.Int32)
+  name.vb: IsInterfaceRegistered(Integer, Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.IsInterfaceRegistered(int, int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.IsInterfaceRegistered(Integer, Integer, Integer)
+  nameWithType: PciListParser.IsInterfaceRegistered(int, int, int)
+  nameWithType.vb: PciListParser.IsInterfaceRegistered(Integer, Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.IsInterfaceRegistered*
+  name: IsInterfaceRegistered
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsInterfaceRegistered_
+  commentId: Overload:SpecProbe.Pci.PciListParser.IsInterfaceRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.IsInterfaceRegistered
+  nameWithType: PciListParser.IsInterfaceRegistered
 - uid: SpecProbe.Pci.PciListParser.IsSubDeviceRegistered(System.Int32,System.Int32,System.Int32,System.Int32)
   name: IsSubDeviceRegistered(int, int, int, int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsSubDeviceRegistered_System_Int32_System_Int32_System_Int32_System_Int32_
@@ -2355,6 +2435,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.IsSubDeviceRegistered
   nameWithType: PciListParser.IsSubDeviceRegistered
+- uid: SpecProbe.Pci.PciListParser.IsSubclassRegistered(System.Int32,System.Int32)
+  name: IsSubclassRegistered(int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsSubclassRegistered_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.IsSubclassRegistered(System.Int32,System.Int32)
+  name.vb: IsSubclassRegistered(Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.IsSubclassRegistered(int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.IsSubclassRegistered(Integer, Integer)
+  nameWithType: PciListParser.IsSubclassRegistered(int, int)
+  nameWithType.vb: PciListParser.IsSubclassRegistered(Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.IsSubclassRegistered*
+  name: IsSubclassRegistered
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsSubclassRegistered_
+  commentId: Overload:SpecProbe.Pci.PciListParser.IsSubclassRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.IsSubclassRegistered
+  nameWithType: PciListParser.IsSubclassRegistered
 - uid: SpecProbe.Pci.PciListParser.IsVendorRegistered(System.Int32)
   name: IsVendorRegistered(int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_IsVendorRegistered_System_Int32_
@@ -2371,6 +2467,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.IsVendorRegistered
   nameWithType: PciListParser.IsVendorRegistered
+- uid: SpecProbe.Pci.PciListParser.ListClasses
+  name: ListClasses()
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListClasses
+  commentId: M:SpecProbe.Pci.PciListParser.ListClasses
+  fullName: SpecProbe.Pci.PciListParser.ListClasses()
+  nameWithType: PciListParser.ListClasses()
+- uid: SpecProbe.Pci.PciListParser.ListClasses*
+  name: ListClasses
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListClasses_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListClasses
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListClasses
+  nameWithType: PciListParser.ListClasses
 - uid: SpecProbe.Pci.PciListParser.ListDevices(System.Int32)
   name: ListDevices(int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListDevices_System_Int32_
@@ -2387,6 +2496,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.ListDevices
   nameWithType: PciListParser.ListDevices
+- uid: SpecProbe.Pci.PciListParser.ListInterfaces(System.Int32,System.Int32)
+  name: ListInterfaces(int, int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListInterfaces_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.ListInterfaces(System.Int32,System.Int32)
+  name.vb: ListInterfaces(Integer, Integer)
+  fullName: SpecProbe.Pci.PciListParser.ListInterfaces(int, int)
+  fullName.vb: SpecProbe.Pci.PciListParser.ListInterfaces(Integer, Integer)
+  nameWithType: PciListParser.ListInterfaces(int, int)
+  nameWithType.vb: PciListParser.ListInterfaces(Integer, Integer)
+- uid: SpecProbe.Pci.PciListParser.ListInterfaces*
+  name: ListInterfaces
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListInterfaces_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListInterfaces
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListInterfaces
+  nameWithType: PciListParser.ListInterfaces
 - uid: SpecProbe.Pci.PciListParser.ListSubDevices(System.Int32,System.Int32)
   name: ListSubDevices(int, int)
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListSubDevices_System_Int32_System_Int32_
@@ -2403,6 +2528,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Pci.PciListParser.ListSubDevices
   nameWithType: PciListParser.ListSubDevices
+- uid: SpecProbe.Pci.PciListParser.ListSubclasses(System.Int32)
+  name: ListSubclasses(int)
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListSubclasses_System_Int32_
+  commentId: M:SpecProbe.Pci.PciListParser.ListSubclasses(System.Int32)
+  name.vb: ListSubclasses(Integer)
+  fullName: SpecProbe.Pci.PciListParser.ListSubclasses(int)
+  fullName.vb: SpecProbe.Pci.PciListParser.ListSubclasses(Integer)
+  nameWithType: PciListParser.ListSubclasses(int)
+  nameWithType.vb: PciListParser.ListSubclasses(Integer)
+- uid: SpecProbe.Pci.PciListParser.ListSubclasses*
+  name: ListSubclasses
+  href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListSubclasses_
+  commentId: Overload:SpecProbe.Pci.PciListParser.ListSubclasses
+  isSpec: "True"
+  fullName: SpecProbe.Pci.PciListParser.ListSubclasses
+  nameWithType: PciListParser.ListSubclasses
 - uid: SpecProbe.Pci.PciListParser.ListVendors
   name: ListVendors()
   href: api/SpecProbe.Pci.PciListParser.html#SpecProbe_Pci_PciListParser_ListVendors
