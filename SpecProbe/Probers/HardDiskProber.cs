@@ -787,6 +787,21 @@ namespace SpecProbe.Probers
                 // NetBSD Encrypted
                 return PartitionType.GptNetBSDEncrypted;
             }
+            else if (partitionTypeGptGuid == Guid.Parse("03fedbca-aaaa-aaaa-aaaa-3f19aa5c2bb1"))
+            {
+                // Aptivi ParelOS Boot
+                return PartitionType.ParelOSBoot;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("03fedbca-aaaa-aaaa-aaaa-2f19aa5c2bb2"))
+            {
+                // Aptivi ParelOS Data
+                return PartitionType.ParelOSData;
+            }
+            else if (partitionTypeGptGuid == Guid.Parse("03fedbca-aaaa-aaaa-aaaa-1f19aa5c2bb3"))
+            {
+                // Aptivi ParelOS Swap
+                return PartitionType.ParelOSSwap;
+            }
             return PartitionType.Unknown;
         }
     }

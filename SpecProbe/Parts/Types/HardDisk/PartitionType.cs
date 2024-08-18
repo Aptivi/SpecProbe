@@ -313,6 +313,18 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// </summary>
         Netware5 = 0x69,
         /// <summary>
+        /// Aptivi ParelOS Boot partition
+        /// </summary>
+        ParelOSBoot = 0x6A,
+        /// <summary>
+        /// Aptivi ParelOS Data partition
+        /// </summary>
+        ParelOSData = 0x6B,
+        /// <summary>
+        /// Aptivi ParelOS Swap partition
+        /// </summary>
+        ParelOSSwap = 0x6C,
+        /// <summary>
         /// DiskSecure MultiBoot partition
         /// </summary>
         MultiBoot = 0x70,
