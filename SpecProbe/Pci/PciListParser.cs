@@ -42,6 +42,13 @@ namespace SpecProbe.Pci
             cachedVendors;
 
         /// <summary>
+        /// Lists all the classes
+        /// </summary>
+        /// <returns>List of classes</returns>
+        public static PciDeviceClassInfo[] ListClasses() =>
+            cachedClasses;
+
+        /// <summary>
         /// Gets a vendor
         /// </summary>
         /// <param name="vendorId">Vendor ID</param>
@@ -155,6 +162,121 @@ namespace SpecProbe.Pci
 			foreach (var device in devices)
 				if (device.VendorId == subVendorId && device.Id == subDeviceId)
 					return true;
+			return false;
+		}
+
+        /// <summary>
+        /// Gets a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>Class information</returns>
+        public static PciDeviceClassInfo GetClass(int classId)
+        {
+            var classes = ListClasses();
+            foreach (var classType in classes)
+                if (classType.Id == classId)
+                    return classType;
+            throw new ArgumentException($"Class ID {classId} not found.");
+        }
+
+        /// <summary>
+        /// Checks to see if a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsClassRegistered(int classId)
+        {
+            var classes = ListClasses();
+            foreach (var classType in classes)
+                if (classType.Id == classId)
+                    return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Lists all the subclasses from a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>List of subclasses</returns>
+        public static PciDeviceSubclassInfo[] ListSubclasses(int classId) =>
+            GetClass(classId).Subclasses;
+
+        /// <summary>
+        /// Gets a subclass from a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>Subclass information</returns>
+        public static PciDeviceSubclassInfo GetSubclass(int classId, int subclassId)
+		{
+			var subclasses = ListSubclasses(classId);
+            if (subclasses.Length == 0)
+			    throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
+			foreach (var subclass in subclasses)
+                if (subclass.Id == subclassId)
+                    return subclass;
+			throw new ArgumentException($"Subclass ID {subclassId} not found.");
+		}
+
+		/// <summary>
+		/// Checks to see if a subclass from a class is registered
+		/// </summary>
+		/// <param name="classId">Class ID</param>
+		/// <param name="subclassId">Subclass ID</param>
+		/// <returns>True if registered; false otherwise.</returns>
+		public static bool IsSubclassRegistered(int classId, int subclassId)
+		{
+			var subclasses = ListSubclasses(classId);
+            if (subclasses.Length == 0)
+                return false;
+			foreach (var subclass in subclasses)
+                if (subclass.Id == subclassId)
+                    return true;
+			return false;
+		}
+
+        /// <summary>
+        /// Lists all the interfaces from a subclass of a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>List of interfaces</returns>
+        public static PciDeviceInterfaceInfo[] ListInterfaces(int classId, int subclassId) =>
+			GetSubclass(classId, subclassId).Interfaces;
+
+        /// <summary>
+        /// Get an interface from a subclass of a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <param name="interfaceId">Interface ID</param>
+        /// <returns>Interface information</returns>
+        public static PciDeviceInterfaceInfo GetInterface(int classId, int subclassId, int interfaceId)
+		{
+			var interfaces = ListInterfaces(classId, subclassId);
+			if (interfaces.Length == 0)
+				throw new ArgumentException($"Class ID {classId} doesn't have any interfaces that subclass ID {subclassId} uses.");
+			foreach (var interfaceInfo in interfaces)
+				if (interfaceInfo.Id == interfaceId)
+					return interfaceInfo;
+			throw new ArgumentException($"Interface ID {interfaceId} not found.");
+		}
+
+        /// <summary>
+        /// Checks to see if an interface from a subclass of a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <param name="interfaceId">Interface ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsInterfaceRegistered(int classId, int subclassId, int interfaceId)
+		{
+			var interfaces = ListInterfaces(classId, subclassId);
+			if (interfaces.Length == 0)
+				return false;
+			foreach (var interfaceInfo in interfaces)
+                if (interfaceInfo.Id == interfaceId)
+                    return true;
 			return false;
 		}
 

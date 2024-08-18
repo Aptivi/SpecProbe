@@ -196,7 +196,7 @@ namespace SpecProbe.ConsoleTest
             stopwatch.Reset();
 
             // PCI ID parse
-            SeparatorWriterColor.WriteSeparator("PCI ID", true, 15);
+            SeparatorWriterColor.WriteSeparator("PCI ID and Classes", true, 15);
             stopwatch.Start();
             var vendors = PciListParser.ListVendors();
             var vendor = PciListParser.GetVendor(0x1000);
@@ -204,15 +204,29 @@ namespace SpecProbe.ConsoleTest
             var device = PciListParser.GetDevice(0x1000, 0x0014);
             var subDevices = PciListParser.ListSubDevices(0x1000, 0x0014);
             var subDevice = PciListParser.GetSubDevice(0x1000, 0x0014, 0x1d49, 0x0602);
+            var classes = PciListParser.ListClasses();
+            var classInfo = PciListParser.GetClass(0x01);
+            var subclasses = PciListParser.ListSubclasses(0x01);
+            var subclass = PciListParser.GetSubclass(0x01, 0x01);
+            var interfaces = PciListParser.ListInterfaces(0x01, 0x01);
+            var interfaceInfo = PciListParser.GetInterface(0x01, 0x01, 0x0a);
             stopwatch.Stop();
             TextWriterColor.WriteColor("- Vendor count: ", false, 3);
             TextWriterColor.WriteColor($"{vendors.Length} vendors", true, 8);
             TextWriterColor.WriteColor($"- Device count for {vendor.Name} [0x{vendor.Id:x4}]: ", false, 3);
             TextWriterColor.WriteColor($"{devices.Length} devices", true, 8);
             TextWriterColor.WriteColor($"- Sub-device count for {device.Name} [0x{device.Id:x4}]: ", false, 3);
-            TextWriterColor.WriteColor($"{subDevices.Length} devices", true, 8);
+            TextWriterColor.WriteColor($"{subDevices.Length} sub-devices", true, 8);
             TextWriterColor.WriteColor($"- Sub-device of 0x{device.Id:x4}: ", false, 3);
             TextWriterColor.WriteColor($"{subDevice.Name}", true, 8);
+            TextWriterColor.WriteColor("- Class count: ", false, 3);
+            TextWriterColor.WriteColor($"{classes.Length} classes", true, 8);
+            TextWriterColor.WriteColor($"- Subclass count for {classInfo.Name} [0x{classInfo.Id:x2}]: ", false, 3);
+            TextWriterColor.WriteColor($"{subclasses.Length} subclasses", true, 8);
+            TextWriterColor.WriteColor($"- Interface count for {subclass.Name} [0x{subclass.Id:x2}]: ", false, 3);
+            TextWriterColor.WriteColor($"{interfaces.Length} interfaces", true, 8);
+            TextWriterColor.WriteColor($"- Interface of 0x{subclass.Id:x2}: ", false, 3);
+            TextWriterColor.WriteColor($"{interfaceInfo.Name}", true, 8);
             TextWriterRaw.Write();
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
