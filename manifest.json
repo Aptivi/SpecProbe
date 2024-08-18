@@ -165,10 +165,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.PciDeviceClassInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceClassInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInfo.yml",
       "output": {
         ".html": {
           "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.html"
         }
       },
       "version": ""

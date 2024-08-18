@@ -74,10 +74,25 @@
     "title": "Namespace SpecProbe.Parts | SpecProbe API - Aptivi",
     "keywords": "Namespace SpecProbe.Parts Classes BaseHardwarePartInfo Base hardware part information class Interfaces IHardwarePartInfo Hardware part info interface Enums HardwarePartType Hardware part type"
   },
+  "api/SpecProbe.Pci.Elements.PciDeviceClassInfo.html": {
+    "href": "api/SpecProbe.Pci.Elements.PciDeviceClassInfo.html",
+    "title": "Class PciDeviceClassInfo | SpecProbe API - Aptivi",
+    "keywords": "Class PciDeviceClassInfo PCI device class information Inheritance object PciDeviceClassInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciDeviceClassInfo Properties | Edit this page View Source Id Class ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Class name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source Subclasses List of subclasses that derive from this class Declaration public PciDeviceSubclassInfo[] Subclasses { get; } Property Value Type Description PciDeviceSubclassInfo[]"
+  },
   "api/SpecProbe.Pci.Elements.PciDeviceInfo.html": {
     "href": "api/SpecProbe.Pci.Elements.PciDeviceInfo.html",
     "title": "Class PciDeviceInfo | SpecProbe API - Aptivi",
     "keywords": "Class PciDeviceInfo PCI device information Inheritance object PciDeviceInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciDeviceInfo Properties | Edit this page View Source Id Device ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Device name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source SubDevices List of subdevices Declaration public PciDeviceInfo[] SubDevices { get; } Property Value Type Description PciDeviceInfo[] | Edit this page View Source VendorId Vendor ID Declaration public int VendorId { get; } Property Value Type Description int"
+  },
+  "api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.html": {
+    "href": "api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.html",
+    "title": "Class PciDeviceInterfaceInfo | SpecProbe API - Aptivi",
+    "keywords": "Class PciDeviceInterfaceInfo PCI device interface information Inheritance object PciDeviceInterfaceInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciDeviceInterfaceInfo Properties | Edit this page View Source Id Interface ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Interface name Declaration public string Name { get; } Property Value Type Description string"
+  },
+  "api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.html": {
+    "href": "api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.html",
+    "title": "Class PciDeviceSubclassInfo | SpecProbe API - Aptivi",
+    "keywords": "Class PciDeviceSubclassInfo PCI device subclass information Inheritance object PciDeviceSubclassInfo Namespace: SpecProbe.Pci.Elements Assembly: SpecProbe.dll Syntax public class PciDeviceSubclassInfo Properties | Edit this page View Source Id Subclass ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Interfaces List of programmable device interfaces that this subclass provides Declaration public PciDeviceInterfaceInfo[] Interfaces { get; } Property Value Type Description PciDeviceInterfaceInfo[] | Edit this page View Source Name Subclass name Declaration public string Name { get; } Property Value Type Description string"
   },
   "api/SpecProbe.Pci.Elements.PciVendorInfo.html": {
     "href": "api/SpecProbe.Pci.Elements.PciVendorInfo.html",
@@ -87,7 +102,7 @@
   "api/SpecProbe.Pci.Elements.html": {
     "href": "api/SpecProbe.Pci.Elements.html",
     "title": "Namespace SpecProbe.Pci.Elements | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Pci.Elements Classes PciDeviceInfo PCI device information PciVendorInfo PCI vendor information"
+    "keywords": "Namespace SpecProbe.Pci.Elements Classes PciDeviceClassInfo PCI device class information PciDeviceInfo PCI device information PciDeviceInterfaceInfo PCI device interface information PciDeviceSubclassInfo PCI device subclass information PciVendorInfo PCI vendor information"
   },
   "api/SpecProbe.Pci.PciListParser.html": {
     "href": "api/SpecProbe.Pci.PciListParser.html",
