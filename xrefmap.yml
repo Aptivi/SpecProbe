@@ -1831,6 +1831,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   nameWithType: ProcessorPart.CpuidVendor
+- uid: SpecProbe.Parts.Types.ProcessorPart.Hypervisor
+  name: Hypervisor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Hypervisor
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Hypervisor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Hypervisor
+  nameWithType: ProcessorPart.Hypervisor
+- uid: SpecProbe.Parts.Types.ProcessorPart.Hypervisor*
+  name: Hypervisor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Hypervisor_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Hypervisor
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Hypervisor
+  nameWithType: ProcessorPart.Hypervisor
 - uid: SpecProbe.Parts.Types.ProcessorPart.L1CacheSize
   name: L1CacheSize
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_L1CacheSize
