@@ -186,6 +186,25 @@ references:
   commentId: N:SpecProbe.Parts.Types.HardDisk
   fullName: SpecProbe.Parts.Types.HardDisk
   nameWithType: SpecProbe.Parts.Types.HardDisk
+- uid: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools
+  name: GptPartitionTypeTools
+  href: api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html
+  commentId: T:SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools
+  fullName: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools
+  nameWithType: GptPartitionTypeTools
+- uid: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt(System.Guid)
+  name: TranslateFromGpt(Guid)
+  href: api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html#SpecProbe_Parts_Types_HardDisk_GptPartitionTypeTools_TranslateFromGpt_System_Guid_
+  commentId: M:SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt(System.Guid)
+  fullName: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt(System.Guid)
+  nameWithType: GptPartitionTypeTools.TranslateFromGpt(Guid)
+- uid: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt*
+  name: TranslateFromGpt
+  href: api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html#SpecProbe_Parts_Types_HardDisk_GptPartitionTypeTools_TranslateFromGpt_
+  commentId: Overload:SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.TranslateFromGpt
+  nameWithType: GptPartitionTypeTools.TranslateFromGpt
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType
   name: PartitionTableType
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html

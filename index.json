@@ -19,6 +19,11 @@
     "title": "Interface IHardwarePartInfo | SpecProbe API - Aptivi",
     "keywords": "Interface IHardwarePartInfo Hardware part info interface Namespace: SpecProbe.Parts Assembly: SpecProbe.dll Syntax public interface IHardwarePartInfo Properties | Edit this page View Source Type Hardware part type Declaration HardwarePartType Type { get; } Property Value Type Description HardwarePartType"
   },
+  "api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html": {
+    "href": "api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html",
+    "title": "Class GptPartitionTypeTools | SpecProbe API - Aptivi",
+    "keywords": "Class GptPartitionTypeTools GPT partition type tools Inheritance object GptPartitionTypeTools Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public static class GptPartitionTypeTools Methods | Edit this page View Source TranslateFromGpt(Guid) Translates the partition type GUID to MBR partition type Declaration public static PartitionType TranslateFromGpt(Guid partitionTypeGptGuid) Parameters Type Name Description Guid partitionTypeGptGuid GPT GUID that describes a partition type Returns Type Description PartitionType MBR partition type"
+  },
   "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html",
     "title": "Enum PartitionTableType | SpecProbe API - Aptivi",
@@ -32,7 +37,7 @@
   "api/SpecProbe.Parts.Types.HardDisk.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.html",
     "title": "Namespace SpecProbe.Parts.Types.HardDisk | SpecProbe API - Aptivi",
-    "keywords": "Namespace SpecProbe.Parts.Types.HardDisk Enums PartitionTableType Partition table type PartitionType Partition type"
+    "keywords": "Namespace SpecProbe.Parts.Types.HardDisk Classes GptPartitionTypeTools GPT partition type tools Enums PartitionTableType Partition table type PartitionType Partition type"
   },
   "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html": {
     "href": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html",
