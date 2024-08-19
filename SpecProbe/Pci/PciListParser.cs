@@ -84,86 +84,86 @@ namespace SpecProbe.Pci
         public static PciDeviceInfo[] ListDevices(int vendorId) =>
             GetVendor(vendorId).Devices;
 
-		/// <summary>
-		/// Get a device made by a specified vendor
-		/// </summary>
-		/// <param name="vendorId">Vendor ID</param>
-		/// <param name="deviceId">Device ID</param>
-		/// <returns>Device information</returns>
-		public static PciDeviceInfo GetDevice(int vendorId, int deviceId)
-		{
-			var devices = ListDevices(vendorId);
+        /// <summary>
+        /// Get a device made by a specified vendor
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <returns>Device information</returns>
+        public static PciDeviceInfo GetDevice(int vendorId, int deviceId)
+        {
+            var devices = ListDevices(vendorId);
             if (devices.Length == 0)
-			    throw new ArgumentException($"Vendor ID {vendorId} doesn't have any devices.");
-			foreach (var device in devices)
+                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any devices.");
+            foreach (var device in devices)
                 if (device.Id == deviceId)
                     return device;
-			throw new ArgumentException($"Device ID {deviceId} not found.");
-		}
+            throw new ArgumentException($"Device ID {deviceId} not found.");
+        }
 
-		/// <summary>
-		/// Checks to see if a device made by a specified vendor is registered
-		/// </summary>
-		/// <param name="vendorId">Vendor ID</param>
-		/// <param name="deviceId">Device ID</param>
-		/// <returns>True if registered; false otherwise.</returns>
-		public static bool IsDeviceRegistered(int vendorId, int deviceId)
-		{
-			var devices = ListDevices(vendorId);
+        /// <summary>
+        /// Checks to see if a device made by a specified vendor is registered
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsDeviceRegistered(int vendorId, int deviceId)
+        {
+            var devices = ListDevices(vendorId);
             if (devices.Length == 0)
                 return false;
-			foreach (var device in devices)
+            foreach (var device in devices)
                 if (device.Id == deviceId)
                     return true;
-			return false;
-		}
+            return false;
+        }
 
-		/// <summary>
-		/// Lists all the sub-devices from a device that a vendor made
-		/// </summary>
-		/// <param name="vendorId">Vendor ID</param>
-		/// <param name="deviceId">Device ID</param>
-		/// <returns>List of sub-devices</returns>
-		public static PciDeviceInfo[] ListSubDevices(int vendorId, int deviceId) =>
-			GetDevice(vendorId, deviceId).SubDevices;
+        /// <summary>
+        /// Lists all the sub-devices from a device that a vendor made
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <returns>List of sub-devices</returns>
+        public static PciDeviceInfo[] ListSubDevices(int vendorId, int deviceId) =>
+            GetDevice(vendorId, deviceId).SubDevices;
 
-		/// <summary>
-		/// Get a sub-device made by a specified vendor
-		/// </summary>
-		/// <param name="vendorId">Vendor ID</param>
-		/// <param name="deviceId">Device ID</param>
-		/// <param name="subVendorId">Sub-vendor ID</param>
-		/// <param name="subDeviceId">Sub-device ID</param>
-		/// <returns>Sub-device information</returns>
-		public static PciDeviceInfo GetSubDevice(int vendorId, int deviceId, int subVendorId, int subDeviceId)
-		{
-			var devices = ListSubDevices(vendorId, deviceId);
-			if (devices.Length == 0)
-				throw new ArgumentException($"Vendor ID {vendorId} doesn't have any sub-devices that device ID {deviceId} uses.");
-			foreach (var device in devices)
-				if (device.VendorId == subVendorId && device.Id == subDeviceId)
-					return device;
-			throw new ArgumentException($"Device ID {deviceId} not found.");
-		}
+        /// <summary>
+        /// Get a sub-device made by a specified vendor
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <param name="subVendorId">Sub-vendor ID</param>
+        /// <param name="subDeviceId">Sub-device ID</param>
+        /// <returns>Sub-device information</returns>
+        public static PciDeviceInfo GetSubDevice(int vendorId, int deviceId, int subVendorId, int subDeviceId)
+        {
+            var devices = ListSubDevices(vendorId, deviceId);
+            if (devices.Length == 0)
+                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any sub-devices that device ID {deviceId} uses.");
+            foreach (var device in devices)
+                if (device.VendorId == subVendorId && device.Id == subDeviceId)
+                    return device;
+            throw new ArgumentException($"Device ID {deviceId} not found.");
+        }
 
-		/// <summary>
-		/// Checks to see if a sub-device made by a specified vendor is registered
-		/// </summary>
-		/// <param name="vendorId">Vendor ID</param>
-		/// <param name="deviceId">Device ID</param>
-		/// <param name="subVendorId">Sub-vendor ID</param>
-		/// <param name="subDeviceId">Sub-device ID</param>
-		/// <returns>True if registered; false otherwise.</returns>
-		public static bool IsSubDeviceRegistered(int vendorId, int deviceId, int subVendorId, int subDeviceId)
-		{
-			var devices = ListSubDevices(vendorId, deviceId);
-			if (devices.Length == 0)
-				return false;
-			foreach (var device in devices)
-				if (device.VendorId == subVendorId && device.Id == subDeviceId)
-					return true;
-			return false;
-		}
+        /// <summary>
+        /// Checks to see if a sub-device made by a specified vendor is registered
+        /// </summary>
+        /// <param name="vendorId">Vendor ID</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <param name="subVendorId">Sub-vendor ID</param>
+        /// <param name="subDeviceId">Sub-device ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsSubDeviceRegistered(int vendorId, int deviceId, int subVendorId, int subDeviceId)
+        {
+            var devices = ListSubDevices(vendorId, deviceId);
+            if (devices.Length == 0)
+                return false;
+            foreach (var device in devices)
+                if (device.VendorId == subVendorId && device.Id == subDeviceId)
+                    return true;
+            return false;
+        }
 
         /// <summary>
         /// Gets a class
@@ -208,32 +208,32 @@ namespace SpecProbe.Pci
         /// <param name="subclassId">Subclass ID</param>
         /// <returns>Subclass information</returns>
         public static PciDeviceSubclassInfo GetSubclass(int classId, int subclassId)
-		{
-			var subclasses = ListSubclasses(classId);
+        {
+            var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
-			    throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
-			foreach (var subclass in subclasses)
+                throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
+            foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return subclass;
-			throw new ArgumentException($"Subclass ID {subclassId} not found.");
-		}
+            throw new ArgumentException($"Subclass ID {subclassId} not found.");
+        }
 
-		/// <summary>
-		/// Checks to see if a subclass from a class is registered
-		/// </summary>
-		/// <param name="classId">Class ID</param>
-		/// <param name="subclassId">Subclass ID</param>
-		/// <returns>True if registered; false otherwise.</returns>
-		public static bool IsSubclassRegistered(int classId, int subclassId)
-		{
-			var subclasses = ListSubclasses(classId);
+        /// <summary>
+        /// Checks to see if a subclass from a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsSubclassRegistered(int classId, int subclassId)
+        {
+            var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
                 return false;
-			foreach (var subclass in subclasses)
+            foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return true;
-			return false;
-		}
+            return false;
+        }
 
         /// <summary>
         /// Lists all the interfaces from a subclass of a class
@@ -242,7 +242,7 @@ namespace SpecProbe.Pci
         /// <param name="subclassId">Subclass ID</param>
         /// <returns>List of interfaces</returns>
         public static PciDeviceInterfaceInfo[] ListInterfaces(int classId, int subclassId) =>
-			GetSubclass(classId, subclassId).Interfaces;
+            GetSubclass(classId, subclassId).Interfaces;
 
         /// <summary>
         /// Get an interface from a subclass of a class
@@ -252,15 +252,15 @@ namespace SpecProbe.Pci
         /// <param name="interfaceId">Interface ID</param>
         /// <returns>Interface information</returns>
         public static PciDeviceInterfaceInfo GetInterface(int classId, int subclassId, int interfaceId)
-		{
-			var interfaces = ListInterfaces(classId, subclassId);
-			if (interfaces.Length == 0)
-				throw new ArgumentException($"Class ID {classId} doesn't have any interfaces that subclass ID {subclassId} uses.");
-			foreach (var interfaceInfo in interfaces)
-				if (interfaceInfo.Id == interfaceId)
-					return interfaceInfo;
-			throw new ArgumentException($"Interface ID {interfaceId} not found.");
-		}
+        {
+            var interfaces = ListInterfaces(classId, subclassId);
+            if (interfaces.Length == 0)
+                throw new ArgumentException($"Class ID {classId} doesn't have any interfaces that subclass ID {subclassId} uses.");
+            foreach (var interfaceInfo in interfaces)
+                if (interfaceInfo.Id == interfaceId)
+                    return interfaceInfo;
+            throw new ArgumentException($"Interface ID {interfaceId} not found.");
+        }
 
         /// <summary>
         /// Checks to see if an interface from a subclass of a class is registered
@@ -270,17 +270,17 @@ namespace SpecProbe.Pci
         /// <param name="interfaceId">Interface ID</param>
         /// <returns>True if registered; false otherwise.</returns>
         public static bool IsInterfaceRegistered(int classId, int subclassId, int interfaceId)
-		{
-			var interfaces = ListInterfaces(classId, subclassId);
-			if (interfaces.Length == 0)
-				return false;
-			foreach (var interfaceInfo in interfaces)
+        {
+            var interfaces = ListInterfaces(classId, subclassId);
+            if (interfaces.Length == 0)
+                return false;
+            foreach (var interfaceInfo in interfaces)
                 if (interfaceInfo.Id == interfaceId)
                     return true;
-			return false;
-		}
+            return false;
+        }
 
-		private static void SerializePciList()
+        private static void SerializePciList()
         {
             // Get the PCI ID lines and parse all the vendors
             var lines = GetPciIdsLines();
@@ -306,15 +306,15 @@ namespace SpecProbe.Pci
                     // Save the changes if we have a vendor
                     if (vendors.Count > 0)
                     {
-						vendors[vendors.Count - 1].devices = [.. devices];
+                        vendors[vendors.Count - 1].devices = [.. devices];
                         var finalDevices = vendors[vendors.Count - 1].devices;
                         if (finalDevices.Length > 0 && subDevices.Count > 0)
-							finalDevices[finalDevices.Length - 1].subDevices = [.. subDevices];
-					}
+                            finalDevices[finalDevices.Length - 1].subDevices = [.. subDevices];
+                    }
 
                     // Clear the devices and the subdevices since we have a new vendor
                     devices.Clear();
-					subDevices.Clear();
+                    subDevices.Clear();
 
                     // Some variables
                     string name = "";
@@ -329,48 +329,48 @@ namespace SpecProbe.Pci
                     vendors.Add(new(name, id));
                 }
                 else if (IsDevice)
-				{
-					// Save the changes if we have a device
-					if (devices.Count > 0 && subDevices.Count > 0)
-						devices[devices.Count - 1].subDevices = [.. subDevices];
+                {
+                    // Save the changes if we have a device
+                    if (devices.Count > 0 && subDevices.Count > 0)
+                        devices[devices.Count - 1].subDevices = [.. subDevices];
 
-					// Clear the subdevices since we have a new device
-					subDevices.Clear();
+                    // Clear the subdevices since we have a new device
+                    subDevices.Clear();
 
-					// Some variables
-					string name = "";
-					int id = 0;
+                    // Some variables
+                    string name = "";
+                    int id = 0;
 
-					// Now, parse a device line
-					string idString = line.Substring(1, 4);
-					name = line.Substring(7);
-					id = int.Parse(idString, NumberStyles.HexNumber);
+                    // Now, parse a device line
+                    string idString = line.Substring(1, 4);
+                    name = line.Substring(7);
+                    id = int.Parse(idString, NumberStyles.HexNumber);
 
-					// Make a new vendor class (blanket)
-					devices.Add(new(name, id, vendors[vendors.Count - 1].Id));
-				}
+                    // Make a new vendor class (blanket)
+                    devices.Add(new(name, id, vendors[vendors.Count - 1].Id));
+                }
                 else if (IsSubDevice)
-				{
-					// Some variables
-					string name = "";
-					int id = 0;
-					int subVendorid = 0;
+                {
+                    // Some variables
+                    string name = "";
+                    int id = 0;
+                    int subVendorid = 0;
 
-					// Now, parse a subdevice line
-					string subVendorIdString = line.Substring(2, 4);
-					string idString = line.Substring(7, 4);
-					name = line.Substring(13);
-					subVendorid = int.Parse(subVendorIdString, NumberStyles.HexNumber);
-					id = int.Parse(idString, NumberStyles.HexNumber);
+                    // Now, parse a subdevice line
+                    string subVendorIdString = line.Substring(2, 4);
+                    string idString = line.Substring(7, 4);
+                    name = line.Substring(13);
+                    subVendorid = int.Parse(subVendorIdString, NumberStyles.HexNumber);
+                    id = int.Parse(idString, NumberStyles.HexNumber);
 
-					// Make a new vendor class (blanket)
-					subDevices.Add(new(name, id, subVendorid));
-				}
+                    // Make a new vendor class (blanket)
+                    subDevices.Add(new(name, id, subVendorid));
+                }
             }
             cachedVendors = [.. vendors];
-		}
+        }
 
-		private static void SerializeClassList()
+        private static void SerializeClassList()
         {
             // Get the PCI ID lines and parse all the classes
             var lines = GetPciIdsLines();
@@ -399,15 +399,15 @@ namespace SpecProbe.Pci
                     // Save the changes if we have a class
                     if (classes.Count > 0)
                     {
-						classes[classes.Count - 1].subclasses = [.. subclasses];
+                        classes[classes.Count - 1].subclasses = [.. subclasses];
                         var finalSubclasses = classes[classes.Count - 1].subclasses;
                         if (finalSubclasses.Length > 0 && interfaces.Count > 0)
-							finalSubclasses[finalSubclasses.Length - 1].interfaces = [.. interfaces];
-					}
+                            finalSubclasses[finalSubclasses.Length - 1].interfaces = [.. interfaces];
+                    }
 
                     // Clear the subclasses and the interfaces since we have a new class
                     subclasses.Clear();
-					interfaces.Clear();
+                    interfaces.Clear();
 
                     // Some variables
                     string name = "";
@@ -422,54 +422,54 @@ namespace SpecProbe.Pci
                     classes.Add(new(name, classId));
                 }
                 else if (IsSubclass)
-				{
-					// Save the changes if we have a subclass
-					if (subclasses.Count > 0 && interfaces.Count > 0)
-						subclasses[subclasses.Count - 1].interfaces = [.. interfaces];
+                {
+                    // Save the changes if we have a subclass
+                    if (subclasses.Count > 0 && interfaces.Count > 0)
+                        subclasses[subclasses.Count - 1].interfaces = [.. interfaces];
 
-					// Clear the interfaces since we have a new subclass
-					interfaces.Clear();
+                    // Clear the interfaces since we have a new subclass
+                    interfaces.Clear();
 
-					// Some variables
-					string name = "";
-					int subclassId = 0;
+                    // Some variables
+                    string name = "";
+                    int subclassId = 0;
 
-					// Now, parse a subclass line
-					string subclassIdString = line.Substring(1, 2);
-					name = line.Substring(5);
-					subclassId = int.Parse(subclassIdString, NumberStyles.HexNumber);
+                    // Now, parse a subclass line
+                    string subclassIdString = line.Substring(1, 2);
+                    name = line.Substring(5);
+                    subclassId = int.Parse(subclassIdString, NumberStyles.HexNumber);
 
-					// Make a new class class (blanket)
-					subclasses.Add(new(name, subclassId));
-				}
+                    // Make a new class class (blanket)
+                    subclasses.Add(new(name, subclassId));
+                }
                 else if (IsInterface)
-				{
-					// Some variables
-					string name = "";
-					int interfaceId = 0;
+                {
+                    // Some variables
+                    string name = "";
+                    int interfaceId = 0;
 
-					// Now, parse a interface line
-					string interfaceIdString = line.Substring(2, 4);
-					name = line.Substring(6);
-					interfaceId = int.Parse(interfaceIdString, NumberStyles.HexNumber);
+                    // Now, parse a interface line
+                    string interfaceIdString = line.Substring(2, 4);
+                    name = line.Substring(6);
+                    interfaceId = int.Parse(interfaceIdString, NumberStyles.HexNumber);
 
-					// Make a new class class (blanket)
-					interfaces.Add(new(name, interfaceId));
-				}
+                    // Make a new class class (blanket)
+                    interfaces.Add(new(name, interfaceId));
+                }
             }
             cachedClasses = [.. classes];
-		}
+        }
 
         private static string[] GetPciIdsLines()
-		{
-			// Open the PCI ID list stream (source: https://pci-ids.ucw.cz/)
-			var stream = typeof(PciListParser).Assembly.GetManifestResourceStream("SpecProbe.Pci.List.pci.ids");
-			var reader = new StreamReader(stream);
+        {
+            // Open the PCI ID list stream (source: https://pci-ids.ucw.cz/)
+            var stream = typeof(PciListParser).Assembly.GetManifestResourceStream("SpecProbe.Pci.List.pci.ids");
+            var reader = new StreamReader(stream);
 
-			// Get the lines
-			string[] lines = reader.ReadToEnd().SplitNewLines();
+            // Get the lines
+            string[] lines = reader.ReadToEnd().SplitNewLines();
             return lines;
-		}
+        }
 
         static PciListParser()
         {

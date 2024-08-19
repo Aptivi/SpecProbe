@@ -59,10 +59,10 @@ namespace SpecProbe.Parts.Types
             PciListParser.GetVendor((int)vendorId).Name :
             "Unknown Vendor";
 
-		/// <summary>
-		/// Vendor ID for this video card
-		/// </summary>
-		public uint VendorId
+        /// <summary>
+        /// Vendor ID for this video card
+        /// </summary>
+        public uint VendorId
         {
             get => vendorId;
             internal set => vendorId = value;

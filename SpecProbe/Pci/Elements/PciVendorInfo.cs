@@ -25,8 +25,8 @@ namespace SpecProbe.Pci.Elements
     public class PciVendorInfo
     {
         internal string vendorName;
-		internal int vendorId;
-		internal PciDeviceInfo[] devices = [];
+        internal int vendorId;
+        internal PciDeviceInfo[] devices = [];
 
         /// <summary>
         /// Vendor name
@@ -34,10 +34,10 @@ namespace SpecProbe.Pci.Elements
         public string Name =>
             vendorName;
 
-		/// <summary>
-		/// Vendor ID
-		/// </summary>
-		public int Id =>
+        /// <summary>
+        /// Vendor ID
+        /// </summary>
+        public int Id =>
             vendorId;
 
         /// <summary>

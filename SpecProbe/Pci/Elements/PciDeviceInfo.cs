@@ -23,41 +23,41 @@ namespace SpecProbe.Pci.Elements
     /// PCI device information
     /// </summary>
     public class PciDeviceInfo
-	{
-		internal string deviceName;
-		internal int deviceId;
-		internal int vendorId;
-		internal PciDeviceInfo[] subDevices = [];
+    {
+        internal string deviceName;
+        internal int deviceId;
+        internal int vendorId;
+        internal PciDeviceInfo[] subDevices = [];
 
-		/// <summary>
-		/// Device name
-		/// </summary>
-		public string Name =>
-			deviceName;
+        /// <summary>
+        /// Device name
+        /// </summary>
+        public string Name =>
+            deviceName;
 
-		/// <summary>
-		/// Device ID
-		/// </summary>
-		public int Id =>
-			deviceId;
+        /// <summary>
+        /// Device ID
+        /// </summary>
+        public int Id =>
+            deviceId;
 
-		/// <summary>
-		/// Vendor ID
-		/// </summary>
-		public int VendorId =>
-			vendorId;
+        /// <summary>
+        /// Vendor ID
+        /// </summary>
+        public int VendorId =>
+            vendorId;
 
-		/// <summary>
-		/// List of subdevices
-		/// </summary>
-		public PciDeviceInfo[] SubDevices =>
-			subDevices;
+        /// <summary>
+        /// List of subdevices
+        /// </summary>
+        public PciDeviceInfo[] SubDevices =>
+            subDevices;
 
-		internal PciDeviceInfo(string deviceName, int deviceId, int vendorId)
-		{
-			this.deviceName = deviceName;
-			this.deviceId = deviceId;
-			this.vendorId = vendorId;
-		}
-	}
+        internal PciDeviceInfo(string deviceName, int deviceId, int vendorId)
+        {
+            this.deviceName = deviceName;
+            this.deviceId = deviceId;
+            this.vendorId = vendorId;
+        }
+    }
 }

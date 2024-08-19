@@ -25,8 +25,8 @@ namespace SpecProbe.Pci.Elements
     public class PciDeviceSubclassInfo
     {
         internal string subclassName;
-		internal int subclassId;
-		internal PciDeviceInterfaceInfo[] interfaces = [];
+        internal int subclassId;
+        internal PciDeviceInterfaceInfo[] interfaces = [];
 
         /// <summary>
         /// Subclass name
@@ -34,10 +34,10 @@ namespace SpecProbe.Pci.Elements
         public string Name =>
             subclassName;
 
-		/// <summary>
-		/// Subclass ID
-		/// </summary>
-		public int Id =>
+        /// <summary>
+        /// Subclass ID
+        /// </summary>
+        public int Id =>
             subclassId;
 
         /// <summary>

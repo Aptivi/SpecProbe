@@ -25,7 +25,7 @@ namespace SpecProbe.Pci.Elements
     public class PciDeviceInterfaceInfo
     {
         internal string interfaceName;
-		internal int interfaceId;
+        internal int interfaceId;
 
         /// <summary>
         /// Interface name
@@ -33,10 +33,10 @@ namespace SpecProbe.Pci.Elements
         public string Name =>
             interfaceName;
 
-		/// <summary>
-		/// Interface ID
-		/// </summary>
-		public int Id =>
+        /// <summary>
+        /// Interface ID
+        /// </summary>
+        public int Id =>
             interfaceId;
 
         internal PciDeviceInterfaceInfo(string interfaceName, int interfaceId)
