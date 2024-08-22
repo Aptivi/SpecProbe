@@ -32,7 +32,7 @@ fi
 
 # Download packages
 echo Downloading packages...
-"$dotnetpath" restore "../SpecProbe.sln" --configuration $releaseconf
+"$dotnetpath" restore "../SpecProbe.sln" -p:Configuration=$releaseconf
 if [ ! $? == 0 ]; then
 	echo Download failed.
 	exit 1
@@ -40,7 +40,7 @@ fi
 
 # Build SpecProbe
 echo Building SpecProbe...
-"$dotnetpath" build "../SpecProbe.sln" --configuration $releaseconf
+"$dotnetpath" build "../SpecProbe.sln" -p:Configuration=$releaseconf
 if [ ! $? == 0 ]; then
 	echo Build failed.
 	exit 1
