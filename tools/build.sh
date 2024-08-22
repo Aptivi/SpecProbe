@@ -32,15 +32,15 @@ fi
 
 # Download packages
 echo Downloading packages...
-"$dotnetpath" msbuild "../SpecProbe.sln" -t:restore -p:Configuration=$releaseconf
+"$dotnetpath" restore "../SpecProbe.sln" --configuration $releaseconf
 if [ ! $? == 0 ]; then
 	echo Download failed.
 	exit 1
 fi
 
-# Build KS
-echo Building KS...
-"$dotnetpath" msbuild "../SpecProbe.sln" -p:Configuration=$releaseconf
+# Build SpecProbe
+echo Building SpecProbe...
+"$dotnetpath" build "../SpecProbe.sln" --configuration $releaseconf
 if [ ! $? == 0 ]; then
 	echo Build failed.
 	exit 1

@@ -23,14 +23,14 @@ if "%releaseconfig%" == "" set releaseconfig=Release
 
 :download
 echo Downloading packages...
-"%ProgramFiles%\dotnet\dotnet.exe" msbuild "..\SpecProbe.sln" -t:restore -p:Configuration=%releaseconfig%
+"%ProgramFiles%\dotnet\dotnet.exe" restore "..\SpecProbe.sln" --configuration %releaseconfig%
 if %errorlevel% == 0 goto :build
 echo There was an error trying to download packages (%errorlevel%).
 goto :finished
 
 :build
-echo Building Nitrocid KS...
-"%ProgramFiles%\dotnet\dotnet.exe" msbuild "..\SpecProbe.sln" -p:Configuration=%releaseconfig%
+echo Building SpecProbe...
+"%ProgramFiles%\dotnet\dotnet.exe" build "..\SpecProbe.sln" --configuration %releaseconfig%
 if %errorlevel% == 0 goto :success
 echo There was an error trying to build (%errorlevel%).
 goto :finished
