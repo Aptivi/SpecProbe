@@ -13,7 +13,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Software", "SpecP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Loader", "SpecProbe.Loader\SpecProbe.Loader.csproj", "{25486EF1-7202-4137-A47B-17A283DF82D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecProbe.Tests", "SpecProbe.Tests\SpecProbe.Tests.csproj", "{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Tests", "SpecProbe.Tests\SpecProbe.Tests.csproj", "{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public", "Public", "{C0245C90-A2E6-49A7-9C58-E689332B7BDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Private", "Private", "{C0134E76-04CE-494F-A788-B7C5DDCD7E1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{02AC7A2F-BDD6-4639-8BAD-1D6AD62DCDBE}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGES = CHANGES
+		CHANGES.TITLE = CHANGES.TITLE
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
