@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -44,19 +45,31 @@ namespace SpecProbe.Software.Platform
         {
             // Sync with this source: https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json
             string graphJson = GetRidGraphJson();
-            var graphInstance = JsonNode.Parse(graphJson)["runtimes"];
+            var fullGraph = JsonNode.Parse(graphJson) ??
+                throw new Exception("Unable to fetch the graph");
+            var graphInstance = fullGraph["runtimes"] ??
+                throw new Exception("Unable to fetch the runtimes list");
             List<string> finalGraph = [];
             foreach (var ridGraph in graphInstance.AsObject())
             {
                 if (ridGraph.Key == rid)
                 {
                     finalGraph.Add(ridGraph.Key);
-                    var currentGraph = ridGraph.Value;
-                    while (((JsonArray)currentGraph["#import"]).Count > 0)
+                    var currentGraph = ridGraph.Value ??
+                        throw new Exception($"Unable to fetch the current graph for {ridGraph.Key}");
+                    var graphImport = (JsonArray?)currentGraph["#import"] ??
+                        throw new Exception($"Unable to fetch the current graph imports for {ridGraph.Key}");
+                    while (graphImport.Count > 0)
                     {
-                        foreach (var element in (JsonArray)currentGraph["#import"])
-                            finalGraph.Add(element.GetValue<string>());
-                        currentGraph = graphInstance[finalGraph[finalGraph.Count - 1]];
+                        foreach (var element in graphImport)
+                        {
+                            if (element is not null)
+                                finalGraph.Add(element.GetValue<string>());
+                        }
+                        currentGraph = graphInstance[finalGraph[finalGraph.Count - 1]] ??
+                            throw new Exception($"Unable to fetch the current graph for {ridGraph.Key}");
+                        graphImport = (JsonArray?)currentGraph["#import"] ??
+                            throw new Exception($"Unable to fetch the current graph imports for {ridGraph.Key}");
                     }
                 }
             }

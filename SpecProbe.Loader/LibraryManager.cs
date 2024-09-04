@@ -60,10 +60,10 @@ namespace SpecProbe.Loader
         /// <typeparam name="T">Target type</typeparam>
         /// <param name="methodName">Native method name</param>
         /// <returns></returns>
-        public T GetNativeMethodDelegate<T>(string methodName)
+        public T? GetNativeMethodDelegate<T>(string methodName)
             where T : class
         {
-            T nativeDelegate = null;
+            T? nativeDelegate = null;
             foreach (var libraryFile in _files)
             {
                 if (libraryFile.NativeMethodExists(methodName, out IntPtr ptr))

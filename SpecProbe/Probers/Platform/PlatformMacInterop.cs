@@ -33,7 +33,7 @@ namespace SpecProbe.Probers.Platform
         /// CGError CGGetOnlineDisplayList(uint32_t maxDisplays, CGDirectDisplayID *onlineDisplays, uint32_t *displayCount);
         /// </summary>
         [DllImport(cgFrameworkPath)]
-        public static extern CGError CGGetOnlineDisplayList(uint maxDisplays, uint[] onlineDisplays, out uint displayCount);
+        public static extern CGError CGGetOnlineDisplayList(uint maxDisplays, uint[]? onlineDisplays, out uint displayCount);
 
         /// <summary>
         /// CGError CGGetOnlineDisplayList(uint32_t maxDisplays, CGDirectDisplayID *onlineDisplays, uint32_t *displayCount);

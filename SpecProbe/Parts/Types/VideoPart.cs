@@ -26,7 +26,7 @@ namespace SpecProbe.Parts.Types
     /// </summary>
     public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo
     {
-        private string videoCardName;
+        private string videoCardName = "Unknown";
         private uint vendorId;
         private uint modelId;
 

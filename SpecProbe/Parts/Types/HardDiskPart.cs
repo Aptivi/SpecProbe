@@ -87,7 +87,7 @@ namespace SpecProbe.Parts.Types
         private ulong hardDiskSize;
         private int hardDiskNum;
         private PartitionTableType partTableType = PartitionTableType.Unknown;
-        private PartitionPart[] parts;
+        private PartitionPart[] parts = [];
 
         /// <inheritdoc/>
         public override HardwarePartType Type =>

@@ -123,7 +123,7 @@ namespace SpecProbe.Loader
             return ptr != IntPtr.Zero;
         }
 
-        internal T GetNativeMethodDelegate<T>(IntPtr ptr)
+        internal T? GetNativeMethodDelegate<T>(IntPtr ptr)
             where T : class =>
             Marshal.GetDelegateForFunctionPointer(ptr, typeof(T)) as T;
 

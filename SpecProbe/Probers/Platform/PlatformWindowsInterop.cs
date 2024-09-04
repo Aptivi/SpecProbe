@@ -622,7 +622,7 @@ namespace SpecProbe.Probers.Platform
         public static extern bool DeviceIoControl(
             IntPtr hDevice,
             EIOControlCode IoControlCode,
-            byte[] InBuffer,
+            byte[]? InBuffer,
             int nInBufferSize,
             out DISK_GEOMETRY OutBuffer,
             int nOutBufferSize,
@@ -634,7 +634,7 @@ namespace SpecProbe.Probers.Platform
         public static extern bool DeviceIoControl(
             IntPtr hDevice,
             EIOControlCode IoControlCode,
-            byte[] InBuffer,
+            byte[]? InBuffer,
             int nInBufferSize,
             out STORAGE_DEVICE_NUMBER OutBuffer,
             int nOutBufferSize,

@@ -37,7 +37,7 @@ namespace SpecProbe
         /// <summary>
         /// Gets processor information
         /// </summary>
-        public static ProcessorPart GetProcessor()
+        public static ProcessorPart? GetProcessor()
         {
             if (cachedParts.Keys.Contains(HardwarePartType.Processor) && cachedParts[HardwarePartType.Processor].parts.Length > 0)
                 return cachedParts[HardwarePartType.Processor].parts[0] as ProcessorPart;
@@ -49,7 +49,7 @@ namespace SpecProbe
         /// <summary>
         /// Gets memory information
         /// </summary>
-        public static MemoryPart GetMemory()
+        public static MemoryPart? GetMemory()
         {
             if (cachedParts.Keys.Contains(HardwarePartType.Memory) && cachedParts[HardwarePartType.Memory].parts.Length > 0)
                 return cachedParts[HardwarePartType.Memory].parts[0] as MemoryPart;
@@ -61,7 +61,7 @@ namespace SpecProbe
         /// <summary>
         /// Gets the list of video cards
         /// </summary>
-        public static VideoPart[] GetVideos()
+        public static VideoPart[]? GetVideos()
         {
             if (cachedParts.Keys.Contains(HardwarePartType.Video) && cachedParts[HardwarePartType.Video].parts.Length > 0)
                 return cachedParts[HardwarePartType.Video].parts as VideoPart[];
@@ -73,7 +73,7 @@ namespace SpecProbe
         /// <summary>
         /// Gets the list of hard disks
         /// </summary>
-        public static HardDiskPart[] GetHardDisks()
+        public static HardDiskPart[]? GetHardDisks()
         {
             if (cachedParts.Keys.Contains(HardwarePartType.HardDisk) && cachedParts[HardwarePartType.HardDisk].parts.Length > 0)
                 return cachedParts[HardwarePartType.HardDisk].parts as HardDiskPart[];

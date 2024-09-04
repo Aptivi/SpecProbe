@@ -30,8 +30,8 @@ namespace SpecProbe.Parts.Types
         private uint cacheL1;
         private uint cacheL2;
         private uint cacheL3;
-        private string name;
-        private string cpuidVendor;
+        private string name = "Unknown";
+        private string cpuidVendor = "Unknown";
         private double speed;
         private bool hypervisor;
 

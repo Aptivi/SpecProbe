@@ -22,6 +22,7 @@ using SpecProbe.Parts.Types;
 using SpecProbe.Pci;
 using SpecProbe.Software.Platform;
 using System.Diagnostics;
+using Terminaux.Colors.Data;
 using Terminaux.Writer.ConsoleWriters;
 using Terminaux.Writer.FancyWriters;
 
@@ -43,22 +44,27 @@ namespace SpecProbe.ConsoleTest
             var processor = HardwareProber.GetProcessor();
             var processorErrors = HardwareProber.GetParseExceptions(HardwarePartType.Processor);
             stopwatch.Stop();
-            TextWriterColor.WriteColor("- Processor cores: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
-            TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
-            TextWriterColor.WriteColor("- Logical cores: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
-            TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
-            TextWriterColor.WriteColor("- Name: ", false, 3);
-            TextWriterColor.WriteColor($"{(processor.Hypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
-            TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
-            TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
-            TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
-            TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
-            TextWriterColor.WriteColor("- Clock speed: ", false, 3);
-            TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+            if (processor is not null)
+            {
+                TextWriterColor.WriteColor("- Processor cores: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
+                TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
+                TextWriterColor.WriteColor("- Logical cores: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
+                TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
+                TextWriterColor.WriteColor("- Name: ", false, 3);
+                TextWriterColor.WriteColor($"{(processor.Hypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
+                TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
+                TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
+                TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
+                TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
+                TextWriterColor.WriteColor("- Clock speed: ", false, 3);
+                TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+            }
+            else
+                TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
             TextWriterRaw.Write();
             foreach (var exc in processorErrors)
             {
@@ -77,12 +83,17 @@ namespace SpecProbe.ConsoleTest
             var memory = HardwareProber.GetMemory();
             var memoryErrors = HardwareProber.GetParseExceptions(HardwarePartType.Memory);
             stopwatch.Stop();
-            TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
-            TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
-            TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
-            TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
-            TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
-            TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+            if (memory is not null)
+            {
+                TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
+                TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
+                TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
+                TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
+                TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
+                TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+            }
+            else
+                TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
             TextWriterRaw.Write();
             foreach (var exc in memoryErrors)
             {
@@ -98,7 +109,7 @@ namespace SpecProbe.ConsoleTest
             // Video
             SeparatorWriterColor.WriteSeparator("Video information", true, 15);
             stopwatch.Start();
-            var videoParts = HardwareProber.GetVideos();
+            var videoParts = HardwareProber.GetVideos() ?? [];
             var videoErrors = HardwareProber.GetParseExceptions(HardwarePartType.Video);
             stopwatch.Stop();
             foreach (var video in videoParts)
@@ -129,7 +140,7 @@ namespace SpecProbe.ConsoleTest
             // Hard drive
             SeparatorWriterColor.WriteSeparator("Hard drive information", true, 15);
             stopwatch.Start();
-            var hardDiskParts = HardwareProber.GetHardDisks();
+            var hardDiskParts = HardwareProber.GetHardDisks() ?? [];
             var hardDiskErrors = HardwareProber.GetParseExceptions(HardwarePartType.HardDisk);
             stopwatch.Stop();
             foreach (var hardDisk in hardDiskParts)
