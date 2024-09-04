@@ -1,14 +1,10 @@
-We've sent out the third major version of SpecProbe to bring with you a substantial number of improvements and features.
+SpecProbe is now fully null aware!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added PCI ID parser
-- `[+]` Added more partition info, including partition types
-- `[+]` Added hypervisor check
-- `[*]` Updated the RID graph
-- `[*]` General improvements and bug fixes
+- `[+]` Added nullability support
 
 Review the commit history if you want to get a deep insight about the changes.
 
