@@ -1,0 +1,30 @@
+name: Build libspecprober library (macOS - AMD64)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    
+jobs:
+  build:
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+          ref: ${{ github.ref }}
+      - name: Setting up environment
+        run: |
+          brew install automake
+      - name: libspecprober compilation
+        run: |
+          cd interop/libspecprober ; cmake . ; make
+      - name: libspecprober artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: "libspecprober library"
+          path: interop/libspecprober/libspecprober.dylib
