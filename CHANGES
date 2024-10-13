@@ -1,10 +1,10 @@
-SpecProbe is now fully null aware!
+SpecProbe has been updated to address a security vulnerability!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added nullability support
+- `[*]` Fixed a security issue
 
 Review the commit history if you want to get a deep insight about the changes.
 
