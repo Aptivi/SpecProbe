@@ -1922,6 +1922,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.ProcessorPart.Name
   nameWithType: ProcessorPart.Name
+- uid: SpecProbe.Parts.Types.ProcessorPart.OnHypervisor
+  name: OnHypervisor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_OnHypervisor
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.OnHypervisor
+  fullName: SpecProbe.Parts.Types.ProcessorPart.OnHypervisor
+  nameWithType: ProcessorPart.OnHypervisor
+- uid: SpecProbe.Parts.Types.ProcessorPart.OnHypervisor*
+  name: OnHypervisor
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_OnHypervisor_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.OnHypervisor
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.ProcessorPart.OnHypervisor
+  nameWithType: ProcessorPart.OnHypervisor
 - uid: SpecProbe.Parts.Types.ProcessorPart.ProcessorCores
   name: ProcessorCores
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_ProcessorCores
