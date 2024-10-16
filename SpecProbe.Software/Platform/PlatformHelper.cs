@@ -190,11 +190,11 @@ namespace SpecProbe.Software.Platform
         /// <exception cref="PlatformNotSupportedException"></exception>
         public static Platform GetPlatform()
         {
-            if (PlatformHelper.IsOnWindows())
+            if (IsOnWindows())
                 return Platform.Windows;
-            else if (PlatformHelper.IsOnMacOS())
+            else if (IsOnMacOS())
                 return Platform.MacOS;
-            else if (PlatformHelper.IsOnUnix())
+            else if (IsOnUnix())
                 return Platform.Linux;
             else
                 throw new PlatformNotSupportedException("This operating system is not supported.");
