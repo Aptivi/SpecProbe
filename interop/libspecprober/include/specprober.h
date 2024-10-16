@@ -23,10 +23,16 @@ unsigned int
     (
     );
 
+unsigned int
+    specprobe_get_max_ext
+    (
+    );
+
 unsigned int*
 specprobe_get_values
 (
-    unsigned int leaf
+    unsigned int eax,
+    unsigned int ecx
 );
 
 char*

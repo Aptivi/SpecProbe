@@ -51,17 +51,38 @@ unsigned int
     return __get_cpuid_max(0x0, NULL);
 }
 
+unsigned int
+    specprobe_get_max_ext
+    (
+    )
+/*
+ * -----------------------------------------------------------------------
+ * Name        : specprobe_get_max_ext
+ * Description : Gets the maximum CPUID index for extended
+ * -----------------------------------------------------------------------
+ * Arguments   : Nothing
+ * Returning   : An integer that returns the maximum index from extended
+ * -----------------------------------------------------------------------
+ * Exposure    : Exposed to the SpecProbe managed world
+ * -----------------------------------------------------------------------
+ */
+{
+    return __get_cpuid_max(0x80000000, NULL);
+}
+
 unsigned int*
     specprobe_get_values
     (
-        unsigned int leaf
+        unsigned int eax,
+        unsigned int ecx
     )
 /*
  * -----------------------------------------------------------------------
  * Name        : specprobe_get_values
  * Description : Gets the values from a specified leaf
  * -----------------------------------------------------------------------
- * Arguments   : leaf: A CPUID leaf supported by the CPU
+ * Arguments   : eax: EAX value
+ *               ecx: ECX value
  * Returning   : An integer array of values
  * -----------------------------------------------------------------------
  * Exposure    : Exposed to the SpecProbe managed world
@@ -69,10 +90,17 @@ unsigned int*
  */
 {
     unsigned int* values = malloc(4);
+    unsigned int ebx = 0, edx = 0;
 
     // Execute the CPUID using a specified leaf
-    unsigned int eax, ebx, ecx, edx;
-    __get_cpuid(leaf, &eax, &ebx, &ecx, &edx);
+#if defined(__i386__) && defined(__PIC__)
+    __asm__("movl %%ebx, %%edi;"
+            "cpuid;"
+            "xchgl %%ebx, %%edi;"
+            : "=D"(ebx), "+a"(eax), "+c"(ecx), "=d"(edx));
+#else
+    __asm__("cpuid;" : "+b"(ebx), "+a"(eax), "+c"(ecx), "=d"(edx));
+#endif
 
     values[0] = eax;
     values[1] = ebx;
