@@ -340,7 +340,6 @@ namespace SpecProbe.Probers
         {
             List<Exception> exceptions = [];
             List<HardDiskPart> diskParts = [];
-            List<HardDiskPart.PartitionPart> partitions = [];
 
             try
             {
@@ -423,48 +422,7 @@ namespace SpecProbe.Probers
                                                 type = GptPartitionTypeTools.TranslateFromGpt(typeGuid);
                                             }
                                             else
-                                            {
-                                                switch (partInfo.Mbr.PartitionType)
-                                                {
-                                                    // Values from https://learn.microsoft.com/en-us/windows/win32/fileio/disk-partition-types
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_ENTRY_UNUSED:
-                                                        // Unused entry
-                                                        type = PartitionType.Unallocated;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_EXTENDED:
-                                                        // Extended
-                                                        type = PartitionType.Extended;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT_12:
-                                                        // FAT12
-                                                        type = PartitionType.FAT12;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT_16:
-                                                        // FAT16
-                                                        type = PartitionType.FAT16;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_FAT32:
-                                                        // FAT32
-                                                        type = PartitionType.FAT32;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_IFS:
-                                                        // IFS
-                                                        type = PartitionType.NTFS;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_LDM:
-                                                        // LDM
-                                                        type = PartitionType.SFS;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_NTFT:
-                                                        // NTFT
-                                                        type = PartitionType.OldMinix;
-                                                        break;
-                                                    case PlatformWindowsInterop.PARTITION_INFORMATION_MBR.PARTITION_VALID_NTFT:
-                                                        // Valid NTFT
-                                                        type = PartitionType.NTFT;
-                                                        break;
-                                                }
-                                            }
+                                                type = (PartitionType)partInfo.Mbr.PartitionType;
                                         }
 
                                         // Add this partition
