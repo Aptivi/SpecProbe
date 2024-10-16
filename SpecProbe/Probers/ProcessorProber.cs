@@ -112,6 +112,33 @@ namespace SpecProbe.Probers
             "psfd", "ipred_ctrl", "rrsba_ctrl", "ddpd_u", "bhi_ctrl", "mcdt_no", "uc_lock_no", "monitor_mitg_no"
         ];
 
+        private static readonly string[] knownHypervisorBrands =
+        [
+            "Microsoft Hv",
+            "KVMKVMKVM\0\0\0",
+            " KVMKVMKVM  ",
+            "Linux KVM Hv",
+            "BHyVE BHyVE ",
+            "bhyve bhyve ",
+            "XenVMMXenVMM",
+            "TCGTCGTCGTCG",
+            " lrpepyh  vr",
+            " prl hyperv ",
+            " lrpepyh vr ",
+            " QNXQVMBSQG ",
+            "VMwareVMware",
+            "ACRNACRNACRN",
+            "VBoxVBoxVBox",
+            "QXNQSBMV",
+            "___ NVMM ___",
+            "OpenBSDVMM58",
+            "Jailhouse\0\0\0",
+            "HAXMHAXMHAXM",
+            "EVMMEVMMEVMM",
+            "UnisysSpar64",
+            "SRESRESRESRE",
+        ];
+
         public static ProcessorPart Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
@@ -297,6 +324,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
+                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -381,6 +409,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
+                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -504,6 +533,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
+                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
                 Flags = features,
             };
             errors = [.. exceptions];

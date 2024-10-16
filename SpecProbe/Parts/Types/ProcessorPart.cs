@@ -34,6 +34,7 @@ namespace SpecProbe.Parts.Types
         private string cpuidVendor = "Unknown";
         private double speed;
         private bool hypervisor;
+        private bool onHypervisor;
         private string[] flags = [];
 
         /// <inheritdoc/>
@@ -134,6 +135,14 @@ namespace SpecProbe.Parts.Types
         {
             get => hypervisor;
             internal set => hypervisor = value;
+        }
+        /// <summary>
+        /// Whether this program is run on a hypervisor
+        /// </summary>
+        public bool OnHypervisor
+        {
+            get => onHypervisor;
+            internal set => onHypervisor = value;
         }
         /// <summary>
         /// List of processor flags
