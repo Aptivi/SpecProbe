@@ -1831,6 +1831,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Parts.Types.ProcessorPart.CpuidVendor
   nameWithType: ProcessorPart.CpuidVendor
+- uid: SpecProbe.Parts.Types.ProcessorPart.Flags
+  name: Flags
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Flags
+  commentId: P:SpecProbe.Parts.Types.ProcessorPart.Flags
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Flags
+  nameWithType: ProcessorPart.Flags
+- uid: SpecProbe.Parts.Types.ProcessorPart.Flags*
+  name: Flags
+  href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Flags_
+  commentId: Overload:SpecProbe.Parts.Types.ProcessorPart.Flags
+  isSpec: "True"
+  fullName: SpecProbe.Parts.Types.ProcessorPart.Flags
+  nameWithType: ProcessorPart.Flags
 - uid: SpecProbe.Parts.Types.ProcessorPart.Hypervisor
   name: Hypervisor
   href: api/SpecProbe.Parts.Types.ProcessorPart.html#SpecProbe_Parts_Types_ProcessorPart_Hypervisor
