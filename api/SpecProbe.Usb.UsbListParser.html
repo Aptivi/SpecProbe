@@ -99,10 +99,60 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetClass_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetClass(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L173">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_GetClass_" data-uid="SpecProbe.Usb.UsbListParser.GetClass*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_GetClass_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetClass(System.Int32)">GetClass(int)</h4>
+  <div class="markdown level1 summary"><p>Gets a class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceClassInfo GetClass(int classId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceClassInfo.html">UsbDeviceClassInfo</a></td>
+        <td><p>Class information</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetDevice_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetDevice(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L85">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L93">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_GetDevice_" data-uid="SpecProbe.Usb.UsbListParser.GetDevice*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_GetDevice_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetDevice(System.Int32,System.Int32)">GetDevice(int, int)</h4>
@@ -155,10 +205,72 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetProtocol_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetProtocol(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L254">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_GetProtocol_" data-uid="SpecProbe.Usb.UsbListParser.GetProtocol*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_GetProtocol_System_Int32_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetProtocol(System.Int32,System.Int32,System.Int32)">GetProtocol(int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Get an protocol from a subclass of a class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceProtocolInfo GetProtocol(int classId, int subclassId, int protocolId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subclassId</span></td>
+        <td><p>Subclass ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">protocolId</span></td>
+        <td><p>Protocol ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.html">UsbDeviceProtocolInfo</a></td>
+        <td><p>Protocol information</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetSubDevice_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetSubDevice(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L130">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L138">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_GetSubDevice_" data-uid="SpecProbe.Usb.UsbListParser.GetSubDevice*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_GetSubDevice_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetSubDevice(System.Int32,System.Int32,System.Int32,System.Int32)">GetSubDevice(int, int, int, int)</h4>
@@ -223,10 +335,66 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetSubclass_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetSubclass(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L210">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_GetSubclass_" data-uid="SpecProbe.Usb.UsbListParser.GetSubclass*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_GetSubclass_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetSubclass(System.Int32,System.Int32)">GetSubclass(int, int)</h4>
+  <div class="markdown level1 summary"><p>Gets a subclass from a class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceSubclassInfo GetSubclass(int classId, int subclassId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subclassId</span></td>
+        <td><p>Subclass ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.html">UsbDeviceSubclassInfo</a></td>
+        <td><p>Subclass information</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_GetVendor_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.GetVendor(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L48">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L56">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_GetVendor_" data-uid="SpecProbe.Usb.UsbListParser.GetVendor*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_GetVendor_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.GetVendor(System.Int32)">GetVendor(int)</h4>
@@ -273,10 +441,60 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsClassRegistered_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsClassRegistered(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L187">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_IsClassRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsClassRegistered*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_IsClassRegistered_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsClassRegistered(System.Int32)">IsClassRegistered(int)</h4>
+  <div class="markdown level1 summary"><p>Checks to see if a class is registered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsClassRegistered(int classId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if registered; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsDeviceRegistered_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsDeviceRegistered(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L102">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L110">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_IsDeviceRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsDeviceRegistered*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_IsDeviceRegistered_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsDeviceRegistered(System.Int32,System.Int32)">IsDeviceRegistered(int, int)</h4>
@@ -329,10 +547,72 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsProtocolRegistered_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsProtocolRegistered(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L272">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_IsProtocolRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsProtocolRegistered*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_IsProtocolRegistered_System_Int32_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsProtocolRegistered(System.Int32,System.Int32,System.Int32)">IsProtocolRegistered(int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Checks to see if an protocol from a subclass of a class is registered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsProtocolRegistered(int classId, int subclassId, int protocolId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subclassId</span></td>
+        <td><p>Subclass ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">protocolId</span></td>
+        <td><p>Protocol ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if registered; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsSubDeviceRegistered_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsSubDeviceRegistered(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L149">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L157">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_IsSubDeviceRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsSubDeviceRegistered*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_IsSubDeviceRegistered_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsSubDeviceRegistered(System.Int32,System.Int32,System.Int32,System.Int32)">IsSubDeviceRegistered(int, int, int, int)</h4>
@@ -397,10 +677,66 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsSubclassRegistered_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsSubclassRegistered(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L227">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_IsSubclassRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsSubclassRegistered*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_IsSubclassRegistered_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsSubclassRegistered(System.Int32,System.Int32)">IsSubclassRegistered(int, int)</h4>
+  <div class="markdown level1 summary"><p>Checks to see if a subclass from a class is registered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSubclassRegistered(int classId, int subclassId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subclassId</span></td>
+        <td><p>Subclass ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if registered; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_IsVendorRegistered_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.IsVendorRegistered(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L62">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L70">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_IsVendorRegistered_" data-uid="SpecProbe.Usb.UsbListParser.IsVendorRegistered*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_IsVendorRegistered_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.IsVendorRegistered(System.Int32)">IsVendorRegistered(int)</h4>
@@ -447,10 +783,42 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListClasses.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListClasses%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L48">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_ListClasses_" data-uid="SpecProbe.Usb.UsbListParser.ListClasses*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_ListClasses" data-uid="SpecProbe.Usb.UsbListParser.ListClasses">ListClasses()</h4>
+  <div class="markdown level1 summary"><p>Lists all the classes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceClassInfo[] ListClasses()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceClassInfo.html">UsbDeviceClassInfo</a>[]</td>
+        <td><p>List of classes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListDevices_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListDevices(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L76">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L84">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_ListDevices_" data-uid="SpecProbe.Usb.UsbListParser.ListDevices*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_ListDevices_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.ListDevices(System.Int32)">ListDevices(int)</h4>
@@ -497,10 +865,66 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListProtocols_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListProtocols(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L244">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_ListProtocols_" data-uid="SpecProbe.Usb.UsbListParser.ListProtocols*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_ListProtocols_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.ListProtocols(System.Int32,System.Int32)">ListProtocols(int, int)</h4>
+  <div class="markdown level1 summary"><p>Lists all the protocols from a subclass of a class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceProtocolInfo[] ListProtocols(int classId, int subclassId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subclassId</span></td>
+        <td><p>Subclass ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.html">UsbDeviceProtocolInfo</a>[]</td>
+        <td><p>List of protocols</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListSubDevices_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListSubDevices(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L119">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L127">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_ListSubDevices_" data-uid="SpecProbe.Usb.UsbListParser.ListSubDevices*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_ListSubDevices_System_Int32_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.ListSubDevices(System.Int32,System.Int32)">ListSubDevices(int, int)</h4>
@@ -553,10 +977,60 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListSubclasses_System_Int32_.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListSubclasses(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L201">View Source</a>
+  </span>
+  <a id="SpecProbe_Usb_UsbListParser_ListSubclasses_" data-uid="SpecProbe.Usb.UsbListParser.ListSubclasses*"></a>
+  <h4 id="SpecProbe_Usb_UsbListParser_ListSubclasses_System_Int32_" data-uid="SpecProbe.Usb.UsbListParser.ListSubclasses(System.Int32)">ListSubclasses(int)</h4>
+  <div class="markdown level1 summary"><p>Lists all the subclasses from a class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UsbDeviceSubclassInfo[] ListSubclasses(int classId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">classId</span></td>
+        <td><p>Class ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.html">UsbDeviceSubclassInfo</a>[]</td>
+        <td><p>List of subclasses</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Aptivi/SpecProbe/new/main/apiSpec/new?filename=SpecProbe_Usb_UsbListParser_ListVendors.md&amp;value=---%0Auid%3A%20SpecProbe.Usb.UsbListParser.ListVendors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L40">View Source</a>
+    <a href="https://github.com/Aptivi/SpecProbe/blob/main/SpecProbe/Usb/UsbListParser.cs/#L41">View Source</a>
   </span>
   <a id="SpecProbe_Usb_UsbListParser_ListVendors_" data-uid="SpecProbe.Usb.UsbListParser.ListVendors*"></a>
   <h4 id="SpecProbe_Usb_UsbListParser_ListVendors" data-uid="SpecProbe.Usb.UsbListParser.ListVendors">ListVendors()</h4>

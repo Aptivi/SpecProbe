@@ -245,6 +245,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInfo.yml",
       "output": {
         ".html": {
@@ -255,10 +265,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.yml",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.html"
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.html"
         }
       },
       "version": ""
