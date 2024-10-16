@@ -64,7 +64,7 @@ namespace SpecProbe.ConsoleTest
                 TextWriterColor.WriteColor("- Clock speed: ", false, 3);
                 TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
                 TextWriterColor.WriteColor("- Virtualization: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Hypervisor}", true, 8);
+                TextWriterColor.WriteColor($"{processor.Hypervisor} [{processor.HypervisorVendor}]", true, 8);
                 TextWriterColor.WriteColor("- Features: ", false, 3);
                 TextWriterColor.WriteColor($"{string.Join(", ", processor.Flags)}", true, 8);
             }

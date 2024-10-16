@@ -17,6 +17,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Probers;
+using System.Linq;
+
 namespace SpecProbe.Parts.Types
 {
     /// <summary>
@@ -32,9 +35,9 @@ namespace SpecProbe.Parts.Types
         private uint cacheL3;
         private string name = "Unknown";
         private string cpuidVendor = "Unknown";
+        private string hypervisorVendor = "";
         private double speed;
         private bool hypervisor;
-        private bool onHypervisor;
         private string[] flags = [];
 
         /// <inheritdoc/>
@@ -106,6 +109,14 @@ namespace SpecProbe.Parts.Types
             internal set => cpuidVendor = value;
         }
         /// <summary>
+        /// Processor vendor from CPUID's hypervisor feature
+        /// </summary>
+        public string HypervisorVendor
+        {
+            get => hypervisorVendor;
+            internal set => hypervisorVendor = value;
+        }
+        /// <summary>
         /// Processor vendor (real)
         /// </summary>
         public string Vendor
@@ -129,7 +140,7 @@ namespace SpecProbe.Parts.Types
             internal set => speed = value;
         }
         /// <summary>
-        /// Whether this computer has a hypervisor installed
+        /// Whether this computer is running on a hypervisor (not 100% accurate)
         /// </summary>
         public bool Hypervisor
         {
@@ -139,11 +150,8 @@ namespace SpecProbe.Parts.Types
         /// <summary>
         /// Whether this program is run on a hypervisor
         /// </summary>
-        public bool OnHypervisor
-        {
-            get => onHypervisor;
-            internal set => onHypervisor = value;
-        }
+        public bool OnHypervisor =>
+            ProcessorProber.knownHypervisorBrands.Contains(hypervisorVendor);
         /// <summary>
         /// List of processor flags
         /// </summary>

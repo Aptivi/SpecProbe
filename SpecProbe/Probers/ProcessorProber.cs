@@ -28,6 +28,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace SpecProbe.Probers
 {
@@ -112,7 +113,7 @@ namespace SpecProbe.Probers
             "psfd", "ipred_ctrl", "rrsba_ctrl", "ddpd_u", "bhi_ctrl", "mcdt_no", "uc_lock_no", "monitor_mitg_no"
         ];
 
-        private static readonly string[] knownHypervisorBrands =
+        internal static readonly string[] knownHypervisorBrands =
         [
             "Microsoft Hv",
             "KVMKVMKVM\0\0\0",
@@ -161,6 +162,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "";
             string cpuidVendor = "";
+            string hypervisorVendor = "";
             double clockSpeed = 0.0;
             string[] features = [];
 
@@ -179,7 +181,11 @@ namespace SpecProbe.Probers
             {
                 // Get the features
                 if (!PlatformHelper.IsOnArmOrArm64())
+                {
                     features = PopulateFeatures();
+                    if (features.Contains("hypervisor"))
+                        hypervisorVendor = DetectHypervisor();
+                }
 
                 // Open the cpuinfo file
                 string cpuInfoFile = "/proc/cpuinfo";
@@ -323,8 +329,8 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
+                HypervisorVendor = knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Hypervisor = features.Contains("hypervisor"),
-                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -343,6 +349,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "";
             string cpuidVendor = "";
+            string hypervisorVendor = "";
             double clockSpeed = 0.0;
 
             // Some constants
@@ -368,7 +375,11 @@ namespace SpecProbe.Probers
 
                 // Then, the features
                 if (!PlatformHelper.IsOnArmOrArm64())
+                {
                     features = PopulateFeatures();
+                    if (features.Contains("hypervisor"))
+                        hypervisorVendor = DetectHypervisor();
+                }
 
                 // Then, fill the rest
                 string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string machdep.cpu.features machdep.cpu.leaf7_features machdep.cpu.extfeatures hw.l1icachesize hw.l2cachesize");
@@ -409,7 +420,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
-                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
+                HypervisorVendor = knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -429,6 +440,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "";
             string cpuidVendor = "";
+            string hypervisorVendor = "";
             double clockSpeed = 0.0;
 
             try
@@ -509,7 +521,11 @@ namespace SpecProbe.Probers
 
                 // Then, the features
                 if (!PlatformHelper.IsOnArmOrArm64())
+                {
                     features = PopulateFeatures();
+                    if (features.Contains("hypervisor"))
+                        hypervisorVendor = DetectHypervisor();
+                }
 
                 // Finally, get the actual logical processor count
                 PlatformWindowsInterop.GetSystemInfo(out PlatformWindowsInterop.SYSTEM_INFO system);
@@ -533,7 +549,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
-                OnHypervisor = knownHypervisorBrands.Contains(cpuidVendor),
+                HypervisorVendor = knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -549,37 +565,6 @@ namespace SpecProbe.Probers
             uint max = cpuMaxDelegate.Invoke();
             uint maxExt = cpuMaxExtendedDelegate.Invoke();
             List<string> features = [];
-
-            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValues(uint eax, uint ecx)
-            {
-                if (eax < 1 || eax > max)
-                    return (false, 0, 0, 0, 0);
-                return GetValuesUnchecked(eax, ecx);
-            }
-
-            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesExt(uint eax, uint ecx)
-            {
-                if (eax < 1 || eax > maxExt)
-                    return (false, 0, 0, 0, 0);
-                return GetValuesUnchecked(eax, ecx);
-            }
-
-            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesUnchecked(uint eax, uint ecx)
-            {
-                // Get the value in a specified leaf
-                var values = cpuValuesDelegate.Invoke(eax, ecx);
-
-                // Extract the values from the native array
-                uint[] parsedValues = new uint[4];
-                for (int step = 0; step < parsedValues.Length; step++)
-                {
-                    var nativeValue = values + sizeof(uint) * step;
-                    parsedValues[step] = (uint)Marshal.ReadInt32(nativeValue);
-                }
-
-                // Return the result
-                return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
-            }
 
             // Look for index 1 and build a feature map using EDX and ECX
             var idx1 = GetValues(1, 0);
@@ -610,6 +595,68 @@ namespace SpecProbe.Probers
 
             // Return as array
             return [.. features];
+        }
+
+        private static string DetectHypervisor()
+        {
+            var (_, _, ebx, ecx, edx) = GetValuesUnchecked(0x40000000, 0);
+
+            // Get the individual characters from EBX, ECX, and EDX
+            char[] chars =
+            [
+                (char)((ebx >> 0) & 255),
+                (char)((ebx >> 8) & 255),
+                (char)((ebx >> 16) & 255),
+                (char)((ebx >> 24) & 255),
+                (char)((ecx >> 0) & 255),
+                (char)((ecx >> 8) & 255),
+                (char)((ecx >> 16) & 255),
+                (char)((ecx >> 24) & 255),
+                (char)((edx >> 0) & 255),
+                (char)((edx >> 8) & 255),
+                (char)((edx >> 16) & 255),
+                (char)((edx >> 24) & 255),
+            ];
+
+            // Build the hypervisor string
+            return new(chars);
+        }
+
+        private static (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValues(uint eax, uint ecx)
+        {
+            var cpuMaxDelegate = ProcessorHelper.GetMaxDelegate();
+            uint max = cpuMaxDelegate.Invoke();
+            if (eax < 1 || eax > max)
+                return (false, 0, 0, 0, 0);
+            return GetValuesUnchecked(eax, ecx);
+        }
+
+        private static (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesExt(uint eax, uint ecx)
+        {
+            var cpuMaxExtendedDelegate = ProcessorHelper.GetMaxExtendedDelegate();
+            uint maxExt = cpuMaxExtendedDelegate.Invoke();
+            if (eax < 1 || eax > maxExt)
+                return (false, 0, 0, 0, 0);
+            return GetValuesUnchecked(eax, ecx);
+        }
+
+        private static (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesUnchecked(uint eax, uint ecx)
+        {
+            var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
+
+            // Get the value in a specified leaf
+            var values = cpuValuesDelegate.Invoke(eax, ecx);
+
+            // Extract the values from the native array
+            uint[] parsedValues = new uint[4];
+            for (int step = 0; step < parsedValues.Length; step++)
+            {
+                var nativeValue = values + sizeof(uint) * step;
+                parsedValues[step] = (uint)Marshal.ReadInt32(nativeValue);
+            }
+
+            // Return the result
+            return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
         }
 
         private static string[] BuildFeatureList((bool exists, uint eax, uint ebx, uint ecx, uint edx) values, int valueNum, string[] featureNames)
