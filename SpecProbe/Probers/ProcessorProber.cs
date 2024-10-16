@@ -33,17 +33,6 @@ namespace SpecProbe.Probers
 {
     internal static class ProcessorProber
     {
-        private static readonly string[] PossibleHypervisorCpuIdVendors =
-        [
-            "KVMKVMKVM\0\0\0",
-            "KVMKVMKVMKVM",
-            "Microsoft Hv",
-            "VMwareVMware",
-            "XenVMMXenVMM",
-            "prl hyperv  ",
-            "VBoxVBoxVBox",
-        ];
-
         private static readonly string[] eax1EdxFeatures =
         [
             "fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "mtrr_reserved", "sep", "mtrr",
@@ -146,8 +135,7 @@ namespace SpecProbe.Probers
             string name = "";
             string cpuidVendor = "";
             double clockSpeed = 0.0;
-            bool hypervisor = false;
-            string[] flags = [];
+            string[] features = [];
 
             // Some constants
             const string physicalId = "physical id\t: ";
@@ -159,10 +147,13 @@ namespace SpecProbe.Probers
             const string processorNum = "processor\t: ";
             const string armProcessorName = "Processor\t: ";
             const string armVendorName = "CPU implementer\t: ";
-            const string flagsId = "flags\t\t: ";
 
             try
             {
+                // Get the features
+                if (!PlatformHelper.IsOnArmOrArm64())
+                    features = PopulateFeatures();
+
                 // Open the cpuinfo file
                 string cpuInfoFile = "/proc/cpuinfo";
                 string[] cpuInfoContents = File.ReadAllLines(cpuInfoFile);
@@ -227,14 +218,6 @@ namespace SpecProbe.Probers
                         {
                             string clockString = cpuInfoLine.Replace(cpuClockSpeed, "");
                             clockSpeed = double.Parse(clockString);
-                        }
-
-                        // Get the flags (initially used only for hypervisor, but will use it widely soon)
-                        if (cpuInfoLine.StartsWith(flagsId))
-                        {
-                            string flagsString = cpuInfoLine.Replace(flagsId, "").ToLower();
-                            flags = flagsString.Split(' ');
-                            hypervisor = flags.Contains("hypervisor");
                         }
 
                         // Get the name and the vendor
@@ -313,8 +296,8 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
-                Hypervisor = hypervisor,
-                Flags = flags,
+                Hypervisor = features.Contains("hypervisor"),
+                Flags = features,
             };
             errors = [.. exceptions];
             return processorPart;
@@ -324,7 +307,7 @@ namespace SpecProbe.Probers
         {
             // Some variables to install.
             List<Exception> exceptions = [];
-            List<string> flags = [];
+            string[] features = [];
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
             uint cacheL1 = 0;
@@ -340,9 +323,6 @@ namespace SpecProbe.Probers
             const string cpuClockSpeed = "hw.cpufrequency: ";
             const string vendorId = "machdep.cpu.vendor: ";
             const string modelId = "machdep.cpu.brand_string: ";
-            const string features = "machdep.cpu.features: ";
-            const string leaf7Features = "machdep.cpu.leaf7_features: ";
-            const string extFeatures = "machdep.cpu.extfeatures: ";
             const string l1Name = "hw.l1icachesize: ";
             const string l2Name = "hw.l2cachesize: ";
 
@@ -357,6 +337,10 @@ namespace SpecProbe.Probers
                     cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
                     name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
                 }
+
+                // Then, the features
+                if (!PlatformHelper.IsOnArmOrArm64())
+                    features = PopulateFeatures();
 
                 // Then, fill the rest
                 string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string machdep.cpu.features machdep.cpu.leaf7_features machdep.cpu.extfeatures hw.l1icachesize hw.l2cachesize");
@@ -373,12 +357,6 @@ namespace SpecProbe.Probers
                         cpuidVendor = sysctlOutputLine.Substring(vendorId.Length);
                     if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
                         name = sysctlOutputLine.Substring(modelId.Length);
-                    if (sysctlOutputLine.StartsWith(features))
-                        flags.AddRange(sysctlOutputLine.Substring(features.Length).ToLower().Split(' '));
-                    if (sysctlOutputLine.StartsWith(leaf7Features))
-                        flags.AddRange(sysctlOutputLine.Substring(leaf7Features.Length).ToLower().Split(' '));
-                    if (sysctlOutputLine.StartsWith(extFeatures))
-                        flags.AddRange(sysctlOutputLine.Substring(extFeatures.Length).ToLower().Split(' '));
                     if (sysctlOutputLine.StartsWith(l1Name))
                         cacheL1 = uint.Parse(sysctlOutputLine.Substring(l1Name.Length));
                     if (sysctlOutputLine.StartsWith(l2Name))
@@ -402,8 +380,8 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
-                Hypervisor = PossibleHypervisorCpuIdVendors.Contains(cpuidVendor),
-                Flags = [.. flags],
+                Hypervisor = features.Contains("hypervisor"),
+                Flags = features,
             };
             errors = [.. exceptions];
             return processorPart;
@@ -413,7 +391,7 @@ namespace SpecProbe.Probers
         {
             // Some variables to install.
             List<Exception> exceptions = [];
-            List<string> features = [];
+            string[] features = [];
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
             int numberOfLogicalCores = 0;
@@ -502,72 +480,7 @@ namespace SpecProbe.Probers
 
                 // Then, the features
                 if (!PlatformHelper.IsOnArmOrArm64())
-                {
-                    Initializer.InitializeNative();
-                    var cpuMaxDelegate = ProcessorHelper.GetMaxDelegate();
-                    var cpuMaxExtendedDelegate = ProcessorHelper.GetMaxExtendedDelegate();
-                    var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
-                    uint max = cpuMaxDelegate.Invoke();
-                    uint maxExt = cpuMaxExtendedDelegate.Invoke();
-
-                    (bool exists, int eax, int ebx, int ecx, int edx) GetValues(uint eax, uint ecx)
-                    {
-                        if (eax < 1 || eax > max)
-                            return (false, 0, 0, 0, 0);
-                        return GetValuesUnchecked(eax, ecx);
-                    }
-
-                    (bool exists, int eax, int ebx, int ecx, int edx) GetValuesExt(uint eax, uint ecx)
-                    {
-                        if (eax < 1 || eax > maxExt)
-                            return (false, 0, 0, 0, 0);
-                        return GetValuesUnchecked(eax, ecx);
-                    }
-
-                    (bool exists, int eax, int ebx, int ecx, int edx) GetValuesUnchecked(uint eax, uint ecx)
-                    {
-                        // Get the value in a specified leaf
-                        var values = cpuValuesDelegate.Invoke(eax, ecx);
-
-                        // Extract the values from the native array
-                        int[] parsedValues = new int[4];
-                        for (int step = 0; step < parsedValues.Length; step++)
-                        {
-                            var nativeValue = values + sizeof(uint) * step;
-                            parsedValues[step] = Marshal.ReadInt32(nativeValue);
-                        }
-
-                        // Return the result
-                        return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
-                    }
-
-                    // Look for index 1 and build a feature map using EDX and ECX
-                    var idx1 = GetValues(1, 0);
-                    features.AddRange(BuildFeatureList(idx1, 3, eax1EdxFeatures));
-                    features.AddRange(BuildFeatureList(idx1, 2, eax1EcxFeatures));
-
-                    // Look for index 80000001h and build a feature map using EDX and ECX
-                    var idxAmd = GetValuesExt(0x80000001, 0);
-                    features.AddRange(BuildFeatureList(idxAmd, 3, eax1EdxAmdFeatures));
-                    features.AddRange(BuildFeatureList(idxAmd, 2, eax1EcxAmdFeatures));
-
-                    // Look for index 7, ECX 0, and build a feature map using EBX, ECX, and EDX
-                    var idx7Ecx0 = GetValues(7, 0);
-                    features.AddRange(BuildFeatureList(idx7Ecx0, 1, eax7Ecx0EbxFeatures));
-                    features.AddRange(BuildFeatureList(idx7Ecx0, 2, eax7Ecx0EcxFeatures));
-                    features.AddRange(BuildFeatureList(idx7Ecx0, 3, eax7Ecx0EdxFeatures));
-
-                    // Look for index 7, ECX 1, and build a feature map using EAX, EBX, ECX, and EDX
-                    var idx7Ecx1 = GetValues(7, 1);
-                    features.AddRange(BuildFeatureList(idx7Ecx1, 0, eax7Ecx1EaxFeatures));
-                    features.AddRange(BuildFeatureList(idx7Ecx1, 1, eax7Ecx1EbxFeatures));
-                    features.AddRange(BuildFeatureList(idx7Ecx1, 2, eax7Ecx1EcxFeatures));
-                    features.AddRange(BuildFeatureList(idx7Ecx1, 3, eax7Ecx1EdxFeatures));
-
-                    // Look for index 7, ECX 2, and build a feature map using EDX
-                    var idx7Ecx2 = GetValues(7, 2);
-                    features.AddRange(BuildFeatureList(idx7Ecx2, 3, eax7Ecx2EdxFeatures));
-                }
+                    features = PopulateFeatures();
 
                 // Finally, get the actual logical processor count
                 PlatformWindowsInterop.GetSystemInfo(out PlatformWindowsInterop.SYSTEM_INFO system);
@@ -590,11 +503,83 @@ namespace SpecProbe.Probers
                 Name = name,
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
-                Hypervisor = PossibleHypervisorCpuIdVendors.Contains(cpuidVendor),
-                Flags = [.. features],
+                Hypervisor = features.Contains("hypervisor"),
+                Flags = features,
             };
             errors = [.. exceptions];
             return processorPart;
+        }
+
+        private static string[] PopulateFeatures()
+        {
+            Initializer.InitializeNative();
+            var cpuMaxDelegate = ProcessorHelper.GetMaxDelegate();
+            var cpuMaxExtendedDelegate = ProcessorHelper.GetMaxExtendedDelegate();
+            var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
+            uint max = cpuMaxDelegate.Invoke();
+            uint maxExt = cpuMaxExtendedDelegate.Invoke();
+            List<string> features = [];
+
+            (bool exists, int eax, int ebx, int ecx, int edx) GetValues(uint eax, uint ecx)
+            {
+                if (eax < 1 || eax > max)
+                    return (false, 0, 0, 0, 0);
+                return GetValuesUnchecked(eax, ecx);
+            }
+
+            (bool exists, int eax, int ebx, int ecx, int edx) GetValuesExt(uint eax, uint ecx)
+            {
+                if (eax < 1 || eax > maxExt)
+                    return (false, 0, 0, 0, 0);
+                return GetValuesUnchecked(eax, ecx);
+            }
+
+            (bool exists, int eax, int ebx, int ecx, int edx) GetValuesUnchecked(uint eax, uint ecx)
+            {
+                // Get the value in a specified leaf
+                var values = cpuValuesDelegate.Invoke(eax, ecx);
+
+                // Extract the values from the native array
+                int[] parsedValues = new int[4];
+                for (int step = 0; step < parsedValues.Length; step++)
+                {
+                    var nativeValue = values + sizeof(uint) * step;
+                    parsedValues[step] = Marshal.ReadInt32(nativeValue);
+                }
+
+                // Return the result
+                return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
+            }
+
+            // Look for index 1 and build a feature map using EDX and ECX
+            var idx1 = GetValues(1, 0);
+            features.AddRange(BuildFeatureList(idx1, 3, eax1EdxFeatures));
+            features.AddRange(BuildFeatureList(idx1, 2, eax1EcxFeatures));
+
+            // Look for index 80000001h and build a feature map using EDX and ECX
+            var idxAmd = GetValuesExt(0x80000001, 0);
+            features.AddRange(BuildFeatureList(idxAmd, 3, eax1EdxAmdFeatures));
+            features.AddRange(BuildFeatureList(idxAmd, 2, eax1EcxAmdFeatures));
+
+            // Look for index 7, ECX 0, and build a feature map using EBX, ECX, and EDX
+            var idx7Ecx0 = GetValues(7, 0);
+            features.AddRange(BuildFeatureList(idx7Ecx0, 1, eax7Ecx0EbxFeatures));
+            features.AddRange(BuildFeatureList(idx7Ecx0, 2, eax7Ecx0EcxFeatures));
+            features.AddRange(BuildFeatureList(idx7Ecx0, 3, eax7Ecx0EdxFeatures));
+
+            // Look for index 7, ECX 1, and build a feature map using EAX, EBX, ECX, and EDX
+            var idx7Ecx1 = GetValues(7, 1);
+            features.AddRange(BuildFeatureList(idx7Ecx1, 0, eax7Ecx1EaxFeatures));
+            features.AddRange(BuildFeatureList(idx7Ecx1, 1, eax7Ecx1EbxFeatures));
+            features.AddRange(BuildFeatureList(idx7Ecx1, 2, eax7Ecx1EcxFeatures));
+            features.AddRange(BuildFeatureList(idx7Ecx1, 3, eax7Ecx1EdxFeatures));
+
+            // Look for index 7, ECX 2, and build a feature map using EDX
+            var idx7Ecx2 = GetValues(7, 2);
+            features.AddRange(BuildFeatureList(idx7Ecx2, 3, eax7Ecx2EdxFeatures));
+
+            // Return as array
+            return [.. features];
         }
 
         private static string[] BuildFeatureList((bool exists, int eax, int ebx, int ecx, int edx) values, int valueNum, string[] featureNames)
