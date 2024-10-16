@@ -150,25 +150,25 @@ namespace SpecProbe.Software.Platform
             Environment.GetEnvironmentVariable("TERM") ?? "";
 
         /// <summary>
-        /// Is Terminaux running from GRILO?
+        /// Is this application running from GRILO?
         /// </summary>
         public static bool IsRunningFromGrilo() =>
             (Assembly.GetEntryAssembly()?.GetName()?.Name?.StartsWith("GRILO")) ?? false;
 
         /// <summary>
-        /// Is Terminaux running from TMUX?
+        /// Is this application running from TMUX?
         /// </summary>
         public static bool IsRunningFromTmux() =>
             Environment.GetEnvironmentVariable("TMUX") is not null;
 
         /// <summary>
-        /// Is Terminaux running from GNU Screen?
+        /// Is this application running from GNU Screen?
         /// </summary>
         public static bool IsRunningFromScreen() =>
             Environment.GetEnvironmentVariable("STY") is not null;
 
         /// <summary>
-        /// Is Terminaux running from Mono?
+        /// Is this application running from Mono?
         /// </summary>
         public static bool IsRunningFromMono() =>
             Type.GetType("Mono.Runtime") is not null;
