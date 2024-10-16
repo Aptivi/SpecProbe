@@ -20,29 +20,36 @@
 namespace SpecProbe.Usb.Elements
 {
     /// <summary>
-    /// USB device interface information
+    /// USB device class information
     /// </summary>
-    public class UsbDeviceInterfaceInfo
+    public class UsbDeviceClassInfo
     {
-        internal string interfaceName;
-        internal int interfaceId;
+        internal string className;
+        internal int classId;
+        internal UsbDeviceSubclassInfo[] subclasses = [];
 
         /// <summary>
-        /// Interface name
+        /// Class name
         /// </summary>
         public string Name =>
-            interfaceName;
+            className;
 
         /// <summary>
-        /// Interface ID
+        /// Class ID
         /// </summary>
         public int Id =>
-            interfaceId;
+            classId;
 
-        internal UsbDeviceInterfaceInfo(string interfaceName, int interfaceId)
+        /// <summary>
+        /// List of subclasses that derive from this class
+        /// </summary>
+        public UsbDeviceSubclassInfo[] Subclasses =>
+            subclasses;
+
+        internal UsbDeviceClassInfo(string className, int classId)
         {
-            this.interfaceName = interfaceName;
-            this.interfaceId = interfaceId;
+            this.className = className;
+            this.classId = classId;
         }
     }
 }

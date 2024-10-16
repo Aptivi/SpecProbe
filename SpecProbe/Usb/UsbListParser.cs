@@ -32,6 +32,7 @@ namespace SpecProbe.Usb
     public static class UsbListParser
     {
         private static UsbVendorInfo[] cachedVendors = [];
+        private static UsbDeviceClassInfo[] cachedClasses = [];
 
         /// <summary>
         /// Lists all the vendors
@@ -39,6 +40,13 @@ namespace SpecProbe.Usb
         /// <returns>List of vendors</returns>
         public static UsbVendorInfo[] ListVendors() =>
             cachedVendors;
+
+        /// <summary>
+        /// Lists all the classes
+        /// </summary>
+        /// <returns>List of classes</returns>
+        public static UsbDeviceClassInfo[] ListClasses() =>
+            cachedClasses;
 
         /// <summary>
         /// Gets a vendor
@@ -157,6 +165,121 @@ namespace SpecProbe.Usb
             return false;
         }
 
+        /// <summary>
+        /// Gets a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>Class information</returns>
+        public static UsbDeviceClassInfo GetClass(int classId)
+        {
+            var classes = ListClasses();
+            foreach (var classType in classes)
+                if (classType.Id == classId)
+                    return classType;
+            throw new ArgumentException($"Class ID {classId} not found.");
+        }
+
+        /// <summary>
+        /// Checks to see if a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsClassRegistered(int classId)
+        {
+            var classes = ListClasses();
+            foreach (var classType in classes)
+                if (classType.Id == classId)
+                    return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Lists all the subclasses from a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <returns>List of subclasses</returns>
+        public static UsbDeviceSubclassInfo[] ListSubclasses(int classId) =>
+            GetClass(classId).Subclasses;
+
+        /// <summary>
+        /// Gets a subclass from a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>Subclass information</returns>
+        public static UsbDeviceSubclassInfo GetSubclass(int classId, int subclassId)
+        {
+            var subclasses = ListSubclasses(classId);
+            if (subclasses.Length == 0)
+                throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
+            foreach (var subclass in subclasses)
+                if (subclass.Id == subclassId)
+                    return subclass;
+            throw new ArgumentException($"Subclass ID {subclassId} not found.");
+        }
+
+        /// <summary>
+        /// Checks to see if a subclass from a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsSubclassRegistered(int classId, int subclassId)
+        {
+            var subclasses = ListSubclasses(classId);
+            if (subclasses.Length == 0)
+                return false;
+            foreach (var subclass in subclasses)
+                if (subclass.Id == subclassId)
+                    return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Lists all the protocols from a subclass of a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <returns>List of protocols</returns>
+        public static UsbDeviceProtocolInfo[] ListProtocols(int classId, int subclassId) =>
+            GetSubclass(classId, subclassId).Protocols;
+
+        /// <summary>
+        /// Get an protocol from a subclass of a class
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <param name="protocolId">Protocol ID</param>
+        /// <returns>Protocol information</returns>
+        public static UsbDeviceProtocolInfo GetProtocol(int classId, int subclassId, int protocolId)
+        {
+            var protocols = ListProtocols(classId, subclassId);
+            if (protocols.Length == 0)
+                throw new ArgumentException($"Class ID {classId} doesn't have any protocols that subclass ID {subclassId} uses.");
+            foreach (var protocolInfo in protocols)
+                if (protocolInfo.Id == protocolId)
+                    return protocolInfo;
+            throw new ArgumentException($"Protocol ID {protocolId} not found.");
+        }
+
+        /// <summary>
+        /// Checks to see if an protocol from a subclass of a class is registered
+        /// </summary>
+        /// <param name="classId">Class ID</param>
+        /// <param name="subclassId">Subclass ID</param>
+        /// <param name="protocolId">Protocol ID</param>
+        /// <returns>True if registered; false otherwise.</returns>
+        public static bool IsProtocolRegistered(int classId, int subclassId, int protocolId)
+        {
+            var protocols = ListProtocols(classId, subclassId);
+            if (protocols.Length == 0)
+                return false;
+            foreach (var protocolInfo in protocols)
+                if (protocolInfo.Id == protocolId)
+                    return true;
+            return false;
+        }
+
         private static void SerializeUsbList()
         {
             // Get the USB ID lines and parse all the vendors
@@ -247,6 +370,100 @@ namespace SpecProbe.Usb
             cachedVendors = [.. vendors];
         }
 
+        private static void SerializeClassList()
+        {
+            // Get the USB ID lines and parse all the classes
+            var lines = GetUsbIdsLines();
+            List<UsbDeviceClassInfo> classes = [];
+            List<UsbDeviceSubclassInfo> subclasses = [];
+            List<UsbDeviceProtocolInfo> protocols = [];
+            bool skipped = false;
+            foreach (string line in lines)
+            {
+                // Ignore comments and empty lines
+                if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                // Break if we've reached audio class terminal types
+                if (line.StartsWith("AT 0100"))
+                    break;
+
+                // Start parsing if we've reached the classes section
+                if (line.StartsWith("C 00") && !skipped)
+                    skipped = true;
+                else if (!skipped)
+                    continue;
+
+                // Count the number of tabs to indicate either a class, a subclass, or an protocol
+                bool IsProtocol = line[0] == '\t' && line[1] == '\t';
+                bool IsSubclass = line[0] == '\t' && !IsProtocol;
+                bool IsClass = !IsSubclass && !IsProtocol;
+                if (IsClass)
+                {
+                    // Save the changes if we have a class
+                    if (classes.Count > 0)
+                    {
+                        classes[classes.Count - 1].subclasses = [.. subclasses];
+                        var finalSubclasses = classes[classes.Count - 1].subclasses;
+                        if (finalSubclasses.Length > 0 && protocols.Count > 0)
+                            finalSubclasses[finalSubclasses.Length - 1].protocols = [.. protocols];
+                    }
+
+                    // Clear the subclasses and the protocols since we have a new class
+                    subclasses.Clear();
+                    protocols.Clear();
+
+                    // Some variables
+                    string name = "";
+                    int classId = 0;
+
+                    // Now, parse a class line
+                    string classIdString = line.Substring(2, 2);
+                    name = line.Substring(6);
+                    classId = int.Parse(classIdString, NumberStyles.HexNumber);
+
+                    // Make a new class class (blanket)
+                    classes.Add(new(name, classId));
+                }
+                else if (IsSubclass)
+                {
+                    // Save the changes if we have a subclass
+                    if (subclasses.Count > 0 && protocols.Count > 0)
+                        subclasses[subclasses.Count - 1].protocols = [.. protocols];
+
+                    // Clear the protocols since we have a new subclass
+                    protocols.Clear();
+
+                    // Some variables
+                    string name = "";
+                    int subclassId = 0;
+
+                    // Now, parse a subclass line
+                    string subclassIdString = line.Substring(1, 2);
+                    name = line.Substring(5);
+                    subclassId = int.Parse(subclassIdString, NumberStyles.HexNumber);
+
+                    // Make a new class class (blanket)
+                    subclasses.Add(new(name, subclassId));
+                }
+                else if (IsProtocol)
+                {
+                    // Some variables
+                    string name = "";
+                    int protocolId = 0;
+
+                    // Now, parse a protocol line
+                    string protocolIdString = line.Substring(2, 4);
+                    name = line.Substring(6);
+                    protocolId = int.Parse(protocolIdString, NumberStyles.HexNumber);
+
+                    // Make a new class class (blanket)
+                    protocols.Add(new(name, protocolId));
+                }
+            }
+            cachedClasses = [.. classes];
+        }
+
         private static string[] GetUsbIdsLines()
         {
             // Open the USB ID list stream (source: http://www.linux-usb.org/usb-ids.html)
@@ -262,6 +479,8 @@ namespace SpecProbe.Usb
         {
             if (cachedVendors.Length == 0)
                 SerializeUsbList();
+            if (cachedClasses.Length == 0)
+                SerializeClassList();
         }
     }
 }
