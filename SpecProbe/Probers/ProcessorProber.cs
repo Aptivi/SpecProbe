@@ -520,31 +520,31 @@ namespace SpecProbe.Probers
             uint maxExt = cpuMaxExtendedDelegate.Invoke();
             List<string> features = [];
 
-            (bool exists, int eax, int ebx, int ecx, int edx) GetValues(uint eax, uint ecx)
+            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValues(uint eax, uint ecx)
             {
                 if (eax < 1 || eax > max)
                     return (false, 0, 0, 0, 0);
                 return GetValuesUnchecked(eax, ecx);
             }
 
-            (bool exists, int eax, int ebx, int ecx, int edx) GetValuesExt(uint eax, uint ecx)
+            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesExt(uint eax, uint ecx)
             {
                 if (eax < 1 || eax > maxExt)
                     return (false, 0, 0, 0, 0);
                 return GetValuesUnchecked(eax, ecx);
             }
 
-            (bool exists, int eax, int ebx, int ecx, int edx) GetValuesUnchecked(uint eax, uint ecx)
+            (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesUnchecked(uint eax, uint ecx)
             {
                 // Get the value in a specified leaf
                 var values = cpuValuesDelegate.Invoke(eax, ecx);
 
                 // Extract the values from the native array
-                int[] parsedValues = new int[4];
+                uint[] parsedValues = new uint[4];
                 for (int step = 0; step < parsedValues.Length; step++)
                 {
                     var nativeValue = values + sizeof(uint) * step;
-                    parsedValues[step] = Marshal.ReadInt32(nativeValue);
+                    parsedValues[step] = (uint)Marshal.ReadInt32(nativeValue);
                 }
 
                 // Return the result
@@ -582,10 +582,10 @@ namespace SpecProbe.Probers
             return [.. features];
         }
 
-        private static string[] BuildFeatureList((bool exists, int eax, int ebx, int ecx, int edx) values, int valueNum, string[] featureNames)
+        private static string[] BuildFeatureList((bool exists, uint eax, uint ebx, uint ecx, uint edx) values, int valueNum, string[] featureNames)
         {
             List<string> features = [];
-            int value =
+            uint value =
                 valueNum == 0 ? values.eax :
                 valueNum == 1 ? values.ebx :
                 valueNum == 2 ? values.ecx :
@@ -598,12 +598,12 @@ namespace SpecProbe.Probers
                 {
                     if (name == "mawau")
                     {
-                        int mawau1 = value & (1 << i);
-                        int mawau2 = value & (1 << i + 1);
-                        int mawau3 = value & (1 << i + 2);
-                        int mawau4 = value & (1 << i + 3);
-                        int mawau5 = value & (1 << i + 4);
-                        int result = mawau5 << 4 | mawau4 << 3 | mawau3 << 2 | mawau2 << 1 | mawau1;
+                        uint mawau1 = (uint)(value & (1 << i));
+                        uint mawau2 = (uint)(value & (1 << i + 1));
+                        uint mawau3 = (uint)(value & (1 << i + 2));
+                        uint mawau4 = (uint)(value & (1 << i + 3));
+                        uint mawau5 = (uint)(value & (1 << i + 4));
+                        uint result = mawau5 << 4 | mawau4 << 3 | mawau3 << 2 | mawau2 << 1 | mawau1;
                         if (result > 0)
                             features.Add(name);
                         i += 4;
