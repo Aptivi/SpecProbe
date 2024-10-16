@@ -245,6 +245,66 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbVendorInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbVendorInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.UsbListParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.UsbListParser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.yml",
       "output": {
         ".html": {

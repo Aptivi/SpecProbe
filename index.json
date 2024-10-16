@@ -114,6 +114,36 @@
     "title": "Namespace SpecProbe.Pci | SpecProbe API - Aptivi",
     "keywords": "Namespace SpecProbe.Pci Classes PciListParser PCI ID list parser"
   },
+  "api/SpecProbe.Usb.Elements.UsbDeviceInfo.html": {
+    "href": "api/SpecProbe.Usb.Elements.UsbDeviceInfo.html",
+    "title": "Class UsbDeviceInfo | SpecProbe API - Aptivi",
+    "keywords": "Class UsbDeviceInfo USB device information Inheritance object UsbDeviceInfo Namespace: SpecProbe.Usb.Elements Assembly: SpecProbe.dll Syntax public class UsbDeviceInfo Properties | Edit this page View Source Id Device ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Device name Declaration public string Name { get; } Property Value Type Description string | Edit this page View Source SubDevices List of subdevices Declaration public UsbDeviceInfo[] SubDevices { get; } Property Value Type Description UsbDeviceInfo[] | Edit this page View Source VendorId Vendor ID Declaration public int VendorId { get; } Property Value Type Description int"
+  },
+  "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.html": {
+    "href": "api/SpecProbe.Usb.Elements.UsbDeviceInterfaceInfo.html",
+    "title": "Class UsbDeviceInterfaceInfo | SpecProbe API - Aptivi",
+    "keywords": "Class UsbDeviceInterfaceInfo USB device interface information Inheritance object UsbDeviceInterfaceInfo Namespace: SpecProbe.Usb.Elements Assembly: SpecProbe.dll Syntax public class UsbDeviceInterfaceInfo Properties | Edit this page View Source Id Interface ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Interface name Declaration public string Name { get; } Property Value Type Description string"
+  },
+  "api/SpecProbe.Usb.Elements.UsbVendorInfo.html": {
+    "href": "api/SpecProbe.Usb.Elements.UsbVendorInfo.html",
+    "title": "Class UsbVendorInfo | SpecProbe API - Aptivi",
+    "keywords": "Class UsbVendorInfo USB vendor information Inheritance object UsbVendorInfo Namespace: SpecProbe.Usb.Elements Assembly: SpecProbe.dll Syntax public class UsbVendorInfo Properties | Edit this page View Source Devices List of USB device info that this vendor made Declaration public UsbDeviceInfo[] Devices { get; } Property Value Type Description UsbDeviceInfo[] | Edit this page View Source Id Vendor ID Declaration public int Id { get; } Property Value Type Description int | Edit this page View Source Name Vendor name Declaration public string Name { get; } Property Value Type Description string"
+  },
+  "api/SpecProbe.Usb.Elements.html": {
+    "href": "api/SpecProbe.Usb.Elements.html",
+    "title": "Namespace SpecProbe.Usb.Elements | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Usb.Elements Classes UsbDeviceInfo USB device information UsbDeviceInterfaceInfo USB device interface information UsbVendorInfo USB vendor information"
+  },
+  "api/SpecProbe.Usb.UsbListParser.html": {
+    "href": "api/SpecProbe.Usb.UsbListParser.html",
+    "title": "Class UsbListParser | SpecProbe API - Aptivi",
+    "keywords": "Class UsbListParser USB ID list parser Inheritance object UsbListParser Namespace: SpecProbe.Usb Assembly: SpecProbe.dll Syntax public static class UsbListParser Methods | Edit this page View Source GetDevice(int, int) Get a device made by a specified vendor Declaration public static UsbDeviceInfo GetDevice(int vendorId, int deviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID Returns Type Description UsbDeviceInfo Device information | Edit this page View Source GetSubDevice(int, int, int, int) Get a sub-device made by a specified vendor Declaration public static UsbDeviceInfo GetSubDevice(int vendorId, int deviceId, int subVendorId, int subDeviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID int subVendorId Sub-vendor ID int subDeviceId Sub-device ID Returns Type Description UsbDeviceInfo Sub-device information | Edit this page View Source GetVendor(int) Gets a vendor Declaration public static UsbVendorInfo GetVendor(int vendorId) Parameters Type Name Description int vendorId Vendor ID Returns Type Description UsbVendorInfo Vendor information | Edit this page View Source IsDeviceRegistered(int, int) Checks to see if a device made by a specified vendor is registered Declaration public static bool IsDeviceRegistered(int vendorId, int deviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID Returns Type Description bool True if registered; false otherwise. | Edit this page View Source IsSubDeviceRegistered(int, int, int, int) Checks to see if a sub-device made by a specified vendor is registered Declaration public static bool IsSubDeviceRegistered(int vendorId, int deviceId, int subVendorId, int subDeviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID int subVendorId Sub-vendor ID int subDeviceId Sub-device ID Returns Type Description bool True if registered; false otherwise. | Edit this page View Source IsVendorRegistered(int) Checks to see if a vendor is registered Declaration public static bool IsVendorRegistered(int vendorId) Parameters Type Name Description int vendorId Vendor ID Returns Type Description bool True if registered; false otherwise. | Edit this page View Source ListDevices(int) Lists all the devices that a vendor made Declaration public static UsbDeviceInfo[] ListDevices(int vendorId) Parameters Type Name Description int vendorId Vendor ID Returns Type Description UsbDeviceInfo[] List of devices | Edit this page View Source ListSubDevices(int, int) Lists all the sub-devices from a device that a vendor made Declaration public static UsbDeviceInfo[] ListSubDevices(int vendorId, int deviceId) Parameters Type Name Description int vendorId Vendor ID int deviceId Device ID Returns Type Description UsbDeviceInfo[] List of sub-devices | Edit this page View Source ListVendors() Lists all the vendors Declaration public static UsbVendorInfo[] ListVendors() Returns Type Description UsbVendorInfo[] List of vendors"
+  },
+  "api/SpecProbe.Usb.html": {
+    "href": "api/SpecProbe.Usb.html",
+    "title": "Namespace SpecProbe.Usb | SpecProbe API - Aptivi",
+    "keywords": "Namespace SpecProbe.Usb Classes UsbListParser USB ID list parser"
+  },
   "api/SpecProbe.html": {
     "href": "api/SpecProbe.html",
     "title": "Namespace SpecProbe | SpecProbe API - Aptivi",
