@@ -34,6 +34,7 @@ namespace SpecProbe.Parts.Types
         private string cpuidVendor = "Unknown";
         private double speed;
         private bool hypervisor;
+        private string[] flags = [];
 
         /// <inheritdoc/>
         public override HardwarePartType Type =>
@@ -133,6 +134,14 @@ namespace SpecProbe.Parts.Types
         {
             get => hypervisor;
             internal set => hypervisor = value;
+        }
+        /// <summary>
+        /// List of processor flags
+        /// </summary>
+        public string[] Flags
+        {
+            get => flags;
+            internal set => flags = value;
         }
     }
 }

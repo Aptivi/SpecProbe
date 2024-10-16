@@ -68,6 +68,7 @@ namespace SpecProbe.Probers
             string cpuidVendor = "";
             double clockSpeed = 0.0;
             bool hypervisor = false;
+            string[] flags = [];
 
             // Some constants
             const string physicalId = "physical id\t: ";
@@ -152,8 +153,8 @@ namespace SpecProbe.Probers
                         // Get the flags (initially used only for hypervisor, but will use it widely soon)
                         if (cpuInfoLine.StartsWith(flagsId))
                         {
-                            string flagsString = cpuInfoLine.Replace(flagsId, "");
-                            string[] flags = flagsString.Split(' ');
+                            string flagsString = cpuInfoLine.Replace(flagsId, "").ToLower();
+                            flags = flagsString.Split(' ');
                             hypervisor = flags.Contains("hypervisor");
                         }
 
@@ -234,6 +235,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = hypervisor,
+                Flags = flags,
             };
             errors = [.. exceptions];
             return processorPart;
@@ -243,6 +245,7 @@ namespace SpecProbe.Probers
         {
             // Some variables to install.
             List<Exception> exceptions = [];
+            List<string> flags = [];
             int numberOfCores = 0;
             int numberOfCoresForEachCore = 1;
             uint cacheL1 = 0;
@@ -258,6 +261,9 @@ namespace SpecProbe.Probers
             const string cpuClockSpeed = "hw.cpufrequency: ";
             const string vendorId = "machdep.cpu.vendor: ";
             const string modelId = "machdep.cpu.brand_string: ";
+            const string features = "machdep.cpu.features: ";
+            const string leaf7Features = "machdep.cpu.leaf7_features: ";
+            const string extFeatures = "machdep.cpu.extfeatures: ";
             const string l1Name = "hw.l1icachesize: ";
             const string l2Name = "hw.l2cachesize: ";
 
@@ -274,7 +280,7 @@ namespace SpecProbe.Probers
                 }
 
                 // Then, fill the rest
-                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string hw.l1icachesize hw.l2cachesize");
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string machdep.cpu.features machdep.cpu.leaf7_features machdep.cpu.extfeatures hw.l1icachesize hw.l2cachesize");
                 string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
                 foreach (string sysctlOutputLine in sysctlOutputLines)
                 {
@@ -288,6 +294,12 @@ namespace SpecProbe.Probers
                         cpuidVendor = sysctlOutputLine.Substring(vendorId.Length);
                     if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
                         name = sysctlOutputLine.Substring(modelId.Length);
+                    if (sysctlOutputLine.StartsWith(features))
+                        flags.AddRange(sysctlOutputLine.Substring(features.Length).ToLower().Split(' '));
+                    if (sysctlOutputLine.StartsWith(leaf7Features))
+                        flags.AddRange(sysctlOutputLine.Substring(leaf7Features.Length).ToLower().Split(' '));
+                    if (sysctlOutputLine.StartsWith(extFeatures))
+                        flags.AddRange(sysctlOutputLine.Substring(extFeatures.Length).ToLower().Split(' '));
                     if (sysctlOutputLine.StartsWith(l1Name))
                         cacheL1 = uint.Parse(sysctlOutputLine.Substring(l1Name.Length));
                     if (sysctlOutputLine.StartsWith(l2Name))
@@ -312,6 +324,7 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Speed = clockSpeed,
                 Hypervisor = PossibleHypervisorCpuIdVendors.Contains(cpuidVendor),
+                Flags = [.. flags],
             };
             errors = [.. exceptions];
             return processorPart;

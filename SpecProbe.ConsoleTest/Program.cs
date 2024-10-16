@@ -62,6 +62,8 @@ namespace SpecProbe.ConsoleTest
                 TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
                 TextWriterColor.WriteColor("- Clock speed: ", false, 3);
                 TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+                TextWriterColor.WriteColor("- Features: ", false, 3);
+                TextWriterColor.WriteColor($"{string.Join(", ", processor.Flags)}", true, 8);
             }
             else
                 TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
