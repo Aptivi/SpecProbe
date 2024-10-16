@@ -128,7 +128,7 @@ namespace SpecProbe.Parts.Types
             internal set => speed = value;
         }
         /// <summary>
-        /// Whether this program is being run on a hypervisor
+        /// Whether this computer has a hypervisor installed
         /// </summary>
         public bool Hypervisor
         {
