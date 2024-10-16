@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Pci\List\pci.ids" />
+    <EmbeddedResource Include="Usb\List\usb.ids" />
   </ItemGroup>
 
   <ItemGroup>
