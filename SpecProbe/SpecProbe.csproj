@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Textify.Offline" Version="1.10.0.1" />
+    <PackageReference Include="Textify.Offline" Version="2.5.0" />
   </ItemGroup>
 
 </Project>
