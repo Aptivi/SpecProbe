@@ -156,6 +156,12 @@ namespace SpecProbe.Software.Platform
             (Assembly.GetEntryAssembly()?.GetName()?.Name?.StartsWith("GRILO")) ?? false;
 
         /// <summary>
+        /// Is this application running from Nitrocid KS bootloader?
+        /// </summary>
+        public static bool IsRunningFromNitrocid() =>
+            (Assembly.GetEntryAssembly()?.GetName()?.Name?.StartsWith("Nitrocid")) ?? false;
+
+        /// <summary>
         /// Is this application running from TMUX?
         /// </summary>
         public static bool IsRunningFromTmux() =>
