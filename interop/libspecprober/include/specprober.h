@@ -18,6 +18,17 @@
 
 /* -------------------------------------------------------------------- */
 
+unsigned int
+    specprobe_get_max
+    (
+    );
+
+unsigned int*
+specprobe_get_values
+(
+    unsigned int leaf
+);
+
 char*
     specprobe_get_vendor
     (

@@ -32,6 +32,55 @@
 
 /* -------------------------------------------------------------------- */
 
+unsigned int
+    specprobe_get_max
+    (
+    )
+/*
+ * -----------------------------------------------------------------------
+ * Name        : specprobe_get_max
+ * Description : Gets the maximum CPUID index for base
+ * -----------------------------------------------------------------------
+ * Arguments   : Nothing
+ * Returning   : An integer that returns the maximum index from base
+ * -----------------------------------------------------------------------
+ * Exposure    : Exposed to the SpecProbe managed world
+ * -----------------------------------------------------------------------
+ */
+{
+    return __get_cpuid_max(0x0, NULL);
+}
+
+unsigned int*
+    specprobe_get_values
+    (
+        unsigned int leaf
+    )
+/*
+ * -----------------------------------------------------------------------
+ * Name        : specprobe_get_values
+ * Description : Gets the values from a specified leaf
+ * -----------------------------------------------------------------------
+ * Arguments   : leaf: A CPUID leaf supported by the CPU
+ * Returning   : An integer array of values
+ * -----------------------------------------------------------------------
+ * Exposure    : Exposed to the SpecProbe managed world
+ * -----------------------------------------------------------------------
+ */
+{
+    unsigned int* values = malloc(4);
+
+    // Execute the CPUID using a specified leaf
+    unsigned int eax, ebx, ecx, edx;
+    __get_cpuid(leaf, &eax, &ebx, &ecx, &edx);
+
+    values[0] = eax;
+    values[1] = ebx;
+    values[2] = ecx;
+    values[3] = edx;
+    return values;
+}
+
 char*
     specprobe_get_vendor
     (

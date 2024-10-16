@@ -420,6 +420,34 @@ namespace SpecProbe.Probers
                         clockSpeed = procInfo[0].MaxMhz;
                 }
 
+                // Then, the features
+                if (!PlatformHelper.IsOnArmOrArm64())
+                {
+                    Initializer.InitializeNative();
+                    var cpuMaxDelegate = ProcessorHelper.GetMaxDelegate();
+                    var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
+                    uint max = cpuMaxDelegate.Invoke();
+                    List<string> features = [];
+
+                    (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValues(uint leaf)
+                    {
+                        if (leaf < 1 || leaf > max)
+                            return (false, 0, 0, 0, 0);
+
+                        // Get the value in a specified leaf
+                        var values = cpuValuesDelegate.Invoke(leaf);
+
+                        // Extract the values from the native array
+                        for (int step = 1; step <= 4; step++)
+                        {
+
+                        }
+                    }
+
+                    // Look for index 1 and index 7
+
+                }
+
                 // Finally, get the actual logical processor count
                 PlatformWindowsInterop.GetSystemInfo(out PlatformWindowsInterop.SYSTEM_INFO system);
                 numberOfLogicalCores = (int)system.dwNumberOfProcessors;
