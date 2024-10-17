@@ -37,6 +37,7 @@ namespace SpecProbe.Parts.Types
         private string name = "Unknown";
         private string cpuidVendor = "Unknown";
         private string vendor = "Unknown";
+        private string cpuidHypervisorVendor = "";
         private string hypervisorVendor = "";
         private double speed;
         private bool hypervisor;
@@ -113,6 +114,14 @@ namespace SpecProbe.Parts.Types
         /// <summary>
         /// Processor vendor from CPUID's hypervisor feature
         /// </summary>
+        public string CpuidHypervisorVendor
+        {
+            get => cpuidHypervisorVendor;
+            internal set => cpuidHypervisorVendor = value;
+        }
+        /// <summary>
+        /// Hypervisor vendor (real)
+        /// </summary>
         public string HypervisorVendor
         {
             get => hypervisorVendor;
@@ -147,7 +156,7 @@ namespace SpecProbe.Parts.Types
         /// Whether this program is run on a hypervisor (only true if <see cref="Hypervisor"/> is true and the <see cref="HypervisorVendor"/> is in a list of known hypervisors)
         /// </summary>
         public bool OnHypervisor =>
-            ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor);
+            ProcessorVariables.hypervisorMappings.ContainsKey(CpuidHypervisorVendor);
         /// <summary>
         /// List of processor flags
         /// </summary>

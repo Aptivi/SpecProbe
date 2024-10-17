@@ -104,37 +104,38 @@ namespace SpecProbe.Probers.Platform
             "psfd", "ipred_ctrl", "rrsba_ctrl", "ddpd_u", "bhi_ctrl", "mcdt_no", "uc_lock_no", "monitor_mitg_no"
         ];
 
-        internal static readonly string[] knownHypervisorBrands =
-        [
-            "Microsoft Hv",
-            "KVMKVMKVM\0\0\0",
-            " KVMKVMKVM  ",
-            "Linux KVM Hv",
-            "BHyVE BHyVE ",
-            "bhyve bhyve ",
-            "XenVMMXenVMM",
-            "TCGTCGTCGTCG",
-            " lrpepyh  vr",
-            " prl hyperv ",
-            " lrpepyh vr ",
-            " QNXQVMBSQG ",
-            "VMwareVMware",
-            "ACRNACRNACRN",
-            "VBoxVBoxVBox",
-            "QXNQSBMV",
-            "___ NVMM ___",
-            "OpenBSDVMM58",
-            "Jailhouse\0\0\0",
-            "HAXMHAXMHAXM",
-            "EVMMEVMMEVMM",
-            "UnisysSpar64",
-            "SRESRESRESRE",
-        ];
+        internal static readonly Dictionary<string, string> hypervisorMappings = new()
+        {
+            { "Microsoft Hv", "Microsoft Hyper-V" },
+            { "KVMKVMKVM\0\0\0", "KVM" },
+            { " KVMKVMKVM  ", "KVM" },
+            { "Linux KVM Hv", "KVM" },
+            { "BHyVE BHyVE ", "Bhyve" },
+            { "bhyve bhyve ", "Bhyve" },
+            { "XenVMMXenVMM", "Xen" },
+            { "TCGTCGTCGTCG", "QEMU" },
+            { " lrpepyh  vr", "Parallels" },
+            { " prl hyperv ", "Parallels" },
+            { " lrpepyh vr ", "Parallels" },
+            { " QNXQVMBSQG ", "QNX" },
+            { "QXNQSBMV", "QNX" },
+            { "VMwareVMware", "VMware" },
+            { "ACRNACRNACRN", "ACRN" },
+            { "VBoxVBoxVBox", "VirtualBox" },
+            { "___ NVMM ___", "NVMM" },
+            { "OpenBSDVMM58", "OpenBSD VMM" },
+            { "Jailhouse\0\0\0", "Jailhouse" },
+            { "HAXMHAXMHAXM", "Intel HAXM" },
+            { "EVMMEVMMEVMM", "Intel KGT" },
+            { "UnisysSpar64", "Unisys s-Par" },
+            { "SRESRESRESRE", "Lockheed Martin LMHS" },
+        };
 
         internal static readonly Dictionary<string, string> vendorMappings = new()
         {
             { "AuthenticAMD", "AMD" },
             { "AMD ISBETTER", "AMD" },
+            { "AMDisbetter!", "AMD" },
             { "GenuineIntel", "Intel" },
             { "GenuineIotel", "Intel" },
             { "CentaurHauls", "IDT WinChip / Centaur" },
@@ -154,6 +155,7 @@ namespace SpecProbe.Probers.Platform
             { "MiSTer AO486", "AO486" },
             { "MicrosoftXTA", "Microsoft" },
             { "VirtualApple", "Apple Rosetta 2" },
+            { "RiseRiseRise", "Rise" },
         };
     }
 }

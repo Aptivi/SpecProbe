@@ -240,6 +240,9 @@ namespace SpecProbe.Probers
             {
                 exceptions.Add(ex);
             }
+            
+            // Get the real hypervisor vendor
+            string realHvVendor = MapRealHvVendorFromCpuid(hypervisorVendor);
 
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
@@ -254,7 +257,8 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Vendor = vendor,
                 Speed = clockSpeed,
-                HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
+                CpuidHypervisorVendor = hypervisorVendor,
+                HypervisorVendor = realHvVendor,
                 Hypervisor = features.Contains("hypervisor"),
                 Flags = features,
             };
@@ -334,6 +338,9 @@ namespace SpecProbe.Probers
                 exceptions.Add(ex);
             }
 
+            // Get the real hypervisor vendor
+            string realHvVendor = MapRealHvVendorFromCpuid(hypervisorVendor);
+
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
             {
@@ -347,8 +354,9 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Vendor = vendor,
                 Speed = clockSpeed,
+                CpuidHypervisorVendor = hypervisorVendor,
+                HypervisorVendor = realHvVendor,
                 Hypervisor = features.Contains("hypervisor"),
-                HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -466,6 +474,9 @@ namespace SpecProbe.Probers
                 exceptions.Add(ex);
             }
 
+            // Get the real hypervisor vendor
+            string realHvVendor = MapRealHvVendorFromCpuid(hypervisorVendor);
+
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
             {
@@ -479,8 +490,9 @@ namespace SpecProbe.Probers
                 CpuidVendor = cpuidVendor,
                 Vendor = vendor,
                 Speed = clockSpeed,
+                CpuidHypervisorVendor = hypervisorVendor,
+                HypervisorVendor = realHvVendor,
                 Hypervisor = features.Contains("hypervisor"),
-                HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Flags = features,
             };
             errors = [.. exceptions];
@@ -492,6 +504,13 @@ namespace SpecProbe.Probers
             if (!ProcessorVariables.vendorMappings.ContainsKey(cpuidVendor))
                 return cpuidVendor;
             return ProcessorVariables.vendorMappings[cpuidVendor];
+        }
+
+        private static string MapRealHvVendorFromCpuid(string cpuidVendor)
+        {
+            if (!ProcessorVariables.hypervisorMappings.ContainsKey(cpuidVendor))
+                return cpuidVendor;
+            return ProcessorVariables.hypervisorMappings[cpuidVendor];
         }
 
         private static string[] PopulateFeatures()
