@@ -140,7 +140,8 @@ namespace SpecProbe.Parts.Types
             internal set => speed = value;
         }
         /// <summary>
-        /// Whether this computer is running on a hypervisor (not 100% accurate)
+        /// Whether this computer is running on a hypervisor (not 100% accurate as this returns true on Windows systems that have
+        /// Hyper-V/WSL installed even if the application calling this property is a host OS)
         /// </summary>
         public bool Hypervisor
         {
@@ -148,7 +149,7 @@ namespace SpecProbe.Parts.Types
             internal set => hypervisor = value;
         }
         /// <summary>
-        /// Whether this program is run on a hypervisor
+        /// Whether this program is run on a hypervisor (only true if <see cref="Hypervisor"/> is true and the <see cref="HypervisorVendor"/> is in a list of known hypervisors)
         /// </summary>
         public bool OnHypervisor =>
             ProcessorProber.knownHypervisorBrands.Contains(hypervisorVendor);
