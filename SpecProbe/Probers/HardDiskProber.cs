@@ -119,8 +119,25 @@ namespace SpecProbe.Probers
                             ptType = outputPt switch
                             {
                                 "dos" => PartitionTableType.MBR,
+                                "msdos" => PartitionTableType.MBR,
                                 "gpt" => PartitionTableType.GPT,
+
+                                // Rare partition tables
+                                "aix" => PartitionTableType.AIX,
+                                "amiga" => PartitionTableType.Amiga,
+                                "atari" => PartitionTableType.Atari,
+                                "bsd" => PartitionTableType.BSD,
+                                "dasd" => PartitionTableType.DASD,
+                                "dvh" => PartitionTableType.DVH,
                                 "mac" => PartitionTableType.Apple,
+                                "pc98" => PartitionTableType.PC98,
+                                "rdb" => PartitionTableType.RDB,
+                                "sun" => PartitionTableType.Sun,
+
+                                // Loopback
+                                "loop" => PartitionTableType.Loop,
+
+                                // Nonexistent tables
                                 "" =>    PartitionTableType.Unknown,
                                 _ =>     PartitionTableType.Other,
                             };

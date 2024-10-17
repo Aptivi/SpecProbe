@@ -37,12 +37,52 @@ namespace SpecProbe.Parts.Types.HardDisk
         /// </summary>
         Apple,
         /// <summary>
+        /// AIX partition table
+        /// </summary>
+        AIX,
+        /// <summary>
+        /// Amiga RDB partition table
+        /// </summary>
+        Amiga,
+        /// <summary>
+        /// Atari partition table
+        /// </summary>
+        Atari,
+        /// <summary>
+        /// BSD partition table
+        /// </summary>
+        BSD,
+        /// <summary>
+        /// DASD partition table
+        /// </summary>
+        DASD,
+        /// <summary>
+        /// SGI DVH partition table
+        /// </summary>
+        DVH,
+        /// <summary>
+        /// PC-98 partition table
+        /// </summary>
+        PC98,
+        /// <summary>
+        /// RDB partition table
+        /// </summary>
+        RDB,
+        /// <summary>
+        /// Sun partition table
+        /// </summary>
+        Sun,
+        /// <summary>
+        /// Loop partition table
+        /// </summary>
+        Loop,
+        /// <summary>
         /// Other partition tables, such as AIX, Amiga, Sun, ...
         /// </summary>
-        Other,
+        Other = int.MaxValue - 1,
         /// <summary>
         /// Unknown partition table
         /// </summary>
-        Unknown,
+        Unknown = int.MaxValue,
     }
 }
