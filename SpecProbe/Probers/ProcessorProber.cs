@@ -160,11 +160,15 @@ namespace SpecProbe.Probers
             uint cacheL1 = 0;
             uint cacheL2 = 0;
             uint cacheL3 = 0;
-            string name = "";
+            string name = "ARM Processor";
             string cpuidVendor = "";
             string hypervisorVendor = "";
             double clockSpeed = 0.0;
             string[] features = [];
+
+            // ARM-specific variables
+            string armVendorId = "";
+            string armPartId = "";
 
             // Some constants
             const string physicalId = "physical id\t: ";
@@ -176,6 +180,7 @@ namespace SpecProbe.Probers
             const string processorNum = "processor\t: ";
             const string armProcessorName = "Processor\t: ";
             const string armVendorName = "CPU implementer\t: ";
+            const string armPartName = "CPU part\t: ";
 
             try
             {
@@ -208,18 +213,11 @@ namespace SpecProbe.Probers
 
                         // Get the processor vendor
                         if (cpuInfoLine.StartsWith(armVendorName))
-                        {
-                            string armVendorId = cpuInfoLine.Replace(armVendorName, "");
-                            armVendorId = armVendorId.Substring(2);
-                            int armVendorIdInt = int.Parse(armVendorId, NumberStyles.AllowHexSpecifier);
-                            cpuidVendor = armVendorIdInt switch
-                            {
-                                0x41 => "ARM",
-                                _ => "",
-                            };
-                            if (string.IsNullOrEmpty(name))
-                                name = "ARM Processor";
-                        }
+                            armVendorId = cpuInfoLine.Replace(armVendorName, "").Substring(2);
+
+                        // Get the processor part
+                        if (cpuInfoLine.StartsWith(armPartName))
+                            armPartId = cpuInfoLine.Replace(armPartName, "").Substring(2);
                     }
                     else
                     {
@@ -309,6 +307,31 @@ namespace SpecProbe.Probers
 
                         // Convert this size to bytes
                         cacheL3 = uint.Parse(cacheKilobytes) * 1024;
+                    }
+                }
+
+                // If running on ARM, get the CPU implementer and part names
+                if (PlatformHelper.IsOnArmOrArm64() && !string.IsNullOrEmpty(armVendorId) && !string.IsNullOrEmpty(armPartId))
+                {
+                    int armVendorIdInt = int.Parse(armVendorId, NumberStyles.AllowHexSpecifier);
+                    int armPartIdInt = int.Parse(armPartId, NumberStyles.AllowHexSpecifier);
+                    cpuidVendor = "";
+                    name = $"ARM Processor [V: {armVendorIdInt:X2}, P: {armPartIdInt:X3}]";
+
+                    // Get the implementer and the part
+                    foreach (var implementer in ArmImplementers.implementers)
+                    {
+                        if (implementer == null)
+                            continue;
+                        if (implementer.id == armVendorIdInt)
+                        {
+                            cpuidVendor = implementer.name;
+                            foreach (var part in implementer.parts)
+                            {
+                                if (part.id == armPartIdInt)
+                                    name = part.name;
+                            }
+                        }
                     }
                 }
             }
