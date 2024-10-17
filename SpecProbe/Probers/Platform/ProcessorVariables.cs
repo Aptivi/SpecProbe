@@ -130,5 +130,11 @@ namespace SpecProbe.Probers.Platform
             "UnisysSpar64",
             "SRESRESRESRE",
         ];
+
+        internal static readonly Dictionary<string, string> vendorMappings = new()
+        {
+            { "AuthenticAMD", "AMD" },
+            { "GenuineIntel", "Intel" },
+        };
     }
 }

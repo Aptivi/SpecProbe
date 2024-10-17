@@ -56,6 +56,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "ARM Processor";
             string cpuidVendor = "";
+            string vendor = "";
             string hypervisorVendor = "";
             double clockSpeed = 0.0;
             string[] features = [];
@@ -153,6 +154,7 @@ namespace SpecProbe.Probers
                             cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
                             if (string.IsNullOrEmpty(cpuidVendor))
                                 cpuidVendor = cpuInfoLine.Replace(vendorId, "");
+                            vendor = MapRealVendorFromCpuid(cpuidVendor);
                         }
                         if (cpuInfoLine.StartsWith(modelId))
                         {
@@ -230,7 +232,7 @@ namespace SpecProbe.Probers
                     }
 
                     // Form the CPUID vendor and the name
-                    cpuidVendor = string.Join(", ", implementerList);
+                    cpuidVendor = vendor = string.Join(", ", implementerList);
                     name = string.Join(", ", partList);
                 }
             }
@@ -250,6 +252,7 @@ namespace SpecProbe.Probers
                 L3CacheSize = cacheL3,
                 Name = name,
                 CpuidVendor = cpuidVendor,
+                Vendor = vendor,
                 Speed = clockSpeed,
                 HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
                 Hypervisor = features.Contains("hypervisor"),
@@ -271,6 +274,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "";
             string cpuidVendor = "";
+            string vendor = "";
             string hypervisorVendor = "";
             double clockSpeed = 0.0;
 
@@ -293,6 +297,7 @@ namespace SpecProbe.Probers
                     var vendorDelegate = ProcessorHelper.GetVendorDelegate();
                     cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
                     name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
+                    vendor = MapRealVendorFromCpuid(cpuidVendor);
                 }
 
                 // Then, the features
@@ -340,6 +345,7 @@ namespace SpecProbe.Probers
                 L3CacheSize = cacheL3,
                 Name = name,
                 CpuidVendor = cpuidVendor,
+                Vendor = vendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
                 HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
@@ -362,6 +368,7 @@ namespace SpecProbe.Probers
             uint cacheL3 = 0;
             string name = "";
             string cpuidVendor = "";
+            string vendor = "";
             string hypervisorVendor = "";
             double clockSpeed = 0.0;
 
@@ -434,6 +441,7 @@ namespace SpecProbe.Probers
                     var vendorDelegate = ProcessorHelper.GetVendorDelegate();
                     cpuidVendor = Marshal.PtrToStringAnsi(vendorDelegate.Invoke());
                     name = Marshal.PtrToStringAnsi(cpuNameDelegate.Invoke());
+                    vendor = MapRealVendorFromCpuid(cpuidVendor);
                     PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION[] procInfo = new PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION[numberOfCores * numberOfCoresForEachCore];
                     uint powerBufferSize = (uint)(procInfo.Length * Marshal.SizeOf(typeof(PlatformWindowsInterop.PROCESSOR_POWER_INFORMATION)));
                     uint status = PlatformWindowsInterop.CallNtPowerInformation(11, IntPtr.Zero, 0, procInfo, powerBufferSize);
@@ -469,6 +477,7 @@ namespace SpecProbe.Probers
                 L3CacheSize = cacheL3,
                 Name = name,
                 CpuidVendor = cpuidVendor,
+                Vendor = vendor,
                 Speed = clockSpeed,
                 Hypervisor = features.Contains("hypervisor"),
                 HypervisorVendor = ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor) ? hypervisorVendor : "",
@@ -476,6 +485,13 @@ namespace SpecProbe.Probers
             };
             errors = [.. exceptions];
             return processorPart;
+        }
+
+        private static string MapRealVendorFromCpuid(string cpuidVendor)
+        {
+            if (!ProcessorVariables.vendorMappings.ContainsKey(cpuidVendor))
+                return cpuidVendor;
+            return ProcessorVariables.vendorMappings[cpuidVendor];
         }
 
         private static string[] PopulateFeatures()

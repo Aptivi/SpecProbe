@@ -36,6 +36,7 @@ namespace SpecProbe.Parts.Types
         private uint cacheL3;
         private string name = "Unknown";
         private string cpuidVendor = "Unknown";
+        private string vendor = "Unknown";
         private string hypervisorVendor = "";
         private double speed;
         private bool hypervisor;
@@ -122,15 +123,8 @@ namespace SpecProbe.Parts.Types
         /// </summary>
         public string Vendor
         {
-            get
-            {
-                return CpuidVendor switch
-                {
-                    "AuthenticAMD" => "AMD",
-                    "GenuineIntel" => "Intel",
-                    _ => Name.Contains(" ") ? Name.Split(' ')[0] : "Unknown",
-                };
-            }
+            get => vendor;
+            internal set => vendor = value;
         }
         /// <summary>
         /// Processor in Mhz
