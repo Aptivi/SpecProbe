@@ -134,7 +134,26 @@ namespace SpecProbe.Probers.Platform
         internal static readonly Dictionary<string, string> vendorMappings = new()
         {
             { "AuthenticAMD", "AMD" },
+            { "AMD ISBETTER", "AMD" },
             { "GenuineIntel", "Intel" },
+            { "GenuineIotel", "Intel" },
+            { "CentaurHauls", "IDT WinChip / Centaur" },
+            { "CyrixInstead", "Cyrix" },
+            { "TransmetaCPU", "Transmeta" },
+            { "GenuineTMx86", "Transmeta" },
+            { "Geode by NSC", "National Semiconductor" },
+            { "NexGenDriven", "NexGen" },
+            { "SiS SiS SiS ", "SiS" },
+            { "UMC UMC UMC ", "UMC" },
+            { "Vortex86 SoC", "DM&P" },
+            { "  Shanghai  ", "Zhaoxin" },
+            { "HygonGenuine", "Hygon" },
+            { "E2K MACHINE", "MCST Elbrus" },
+            { "VIA VIA VIA ", "VIA" },
+            { "GenuineAO486", "AO486" },
+            { "MiSTer AO486", "AO486" },
+            { "MicrosoftXTA", "Microsoft" },
+            { "VirtualApple", "Apple Rosetta 2" },
         };
     }
 }
