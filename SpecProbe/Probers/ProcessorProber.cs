@@ -481,11 +481,6 @@ namespace SpecProbe.Probers
         private static string[] PopulateFeatures()
         {
             Initializer.InitializeNative();
-            var cpuMaxDelegate = ProcessorHelper.GetMaxDelegate();
-            var cpuMaxExtendedDelegate = ProcessorHelper.GetMaxExtendedDelegate();
-            var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
-            uint max = cpuMaxDelegate.Invoke();
-            uint maxExt = cpuMaxExtendedDelegate.Invoke();
             List<string> features = [];
 
             // Look for index 1 and build a feature map using EDX and ECX

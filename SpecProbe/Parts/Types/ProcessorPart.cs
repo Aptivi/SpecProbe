@@ -18,6 +18,7 @@
 //
 
 using SpecProbe.Probers;
+using SpecProbe.Probers.Platform;
 using System.Linq;
 
 namespace SpecProbe.Parts.Types
@@ -152,7 +153,7 @@ namespace SpecProbe.Parts.Types
         /// Whether this program is run on a hypervisor (only true if <see cref="Hypervisor"/> is true and the <see cref="HypervisorVendor"/> is in a list of known hypervisors)
         /// </summary>
         public bool OnHypervisor =>
-            ProcessorProber.knownHypervisorBrands.Contains(hypervisorVendor);
+            ProcessorVariables.knownHypervisorBrands.Contains(hypervisorVendor);
         /// <summary>
         /// List of processor flags
         /// </summary>
