@@ -167,8 +167,8 @@ namespace SpecProbe.Probers
             string[] features = [];
 
             // ARM-specific variables
-            string armVendorId = "";
-            string armPartId = "";
+            List<string> armVendorIds = [];
+            List<string> armPartIds = [];
 
             // Some constants
             const string physicalId = "physical id\t: ";
@@ -213,11 +213,11 @@ namespace SpecProbe.Probers
 
                         // Get the processor vendor
                         if (cpuInfoLine.StartsWith(armVendorName))
-                            armVendorId = cpuInfoLine.Replace(armVendorName, "").Substring(2);
+                            armVendorIds.Add(cpuInfoLine.Replace(armVendorName, "").Substring(2));
 
                         // Get the processor part
                         if (cpuInfoLine.StartsWith(armPartName))
-                            armPartId = cpuInfoLine.Replace(armPartName, "").Substring(2);
+                            armPartIds.Add(cpuInfoLine.Replace(armPartName, "").Substring(2));
                     }
                     else
                     {
@@ -311,28 +311,33 @@ namespace SpecProbe.Probers
                 }
 
                 // If running on ARM, get the CPU implementer and part names
-                if (PlatformHelper.IsOnArmOrArm64() && !string.IsNullOrEmpty(armVendorId) && !string.IsNullOrEmpty(armPartId))
+                if (PlatformHelper.IsOnArmOrArm64())
                 {
-                    int armVendorIdInt = int.Parse(armVendorId, NumberStyles.AllowHexSpecifier);
-                    int armPartIdInt = int.Parse(armPartId, NumberStyles.AllowHexSpecifier);
-                    cpuidVendor = "";
-                    name = $"ARM Processor [V: {armVendorIdInt:X2}, P: {armPartIdInt:X3}]";
-
                     // Get the implementer and the part
+                    List<string> implementerList = [];
+                    List<string> partList = [];
                     foreach (var implementer in ArmImplementers.implementers)
                     {
                         if (implementer == null)
                             continue;
-                        if (implementer.id == armVendorIdInt)
+                        if (armVendorIds.Contains($"{implementer.id:x2}"))
                         {
-                            cpuidVendor = implementer.name;
+                            if (!implementerList.Contains(implementer.name))
+                                implementerList.Add(implementer.name);
                             foreach (var part in implementer.parts)
                             {
-                                if (part.id == armPartIdInt)
-                                    name = part.name;
+                                if (armPartIds.Contains($"{part.id:x2}"))
+                                {
+                                    if (!partList.Contains(part.name))
+                                        partList.Add(part.name);
+                                }
                             }
                         }
                     }
+
+                    // Form the CPUID vendor and the name
+                    cpuidVendor = string.Join(", ", implementerList);
+                    name = string.Join(", ", partList);
                 }
             }
             catch (Exception ex)
