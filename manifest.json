@@ -245,6 +245,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.yml",
       "output": {
         ".html": {
@@ -285,10 +305,100 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbHidInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbHidInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbHidItemInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbHidItemInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Usb.Elements.UsbVendorInfo.yml",
       "output": {
         ".html": {
           "relative_path": "api/SpecProbe.Usb.Elements.UsbVendorInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html"
         }
       },
       "version": ""

@@ -2621,6 +2621,70 @@ references:
   commentId: N:SpecProbe.Usb.Elements
   fullName: SpecProbe.Usb.Elements
   nameWithType: SpecProbe.Usb.Elements
+- uid: SpecProbe.Usb.Elements.UsbAudioTerminalInfo
+  name: UsbAudioTerminalInfo
+  href: api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbAudioTerminalInfo
+  fullName: SpecProbe.Usb.Elements.UsbAudioTerminalInfo
+  nameWithType: UsbAudioTerminalInfo
+- uid: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html#SpecProbe_Usb_Elements_UsbAudioTerminalInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id
+  nameWithType: UsbAudioTerminalInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html#SpecProbe_Usb_Elements_UsbAudioTerminalInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Id
+  nameWithType: UsbAudioTerminalInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html#SpecProbe_Usb_Elements_UsbAudioTerminalInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name
+  nameWithType: UsbAudioTerminalInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html#SpecProbe_Usb_Elements_UsbAudioTerminalInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbAudioTerminalInfo.Name
+  nameWithType: UsbAudioTerminalInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbCountryCodeInfo
+  name: UsbCountryCodeInfo
+  href: api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbCountryCodeInfo
+  fullName: SpecProbe.Usb.Elements.UsbCountryCodeInfo
+  nameWithType: UsbCountryCodeInfo
+- uid: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html#SpecProbe_Usb_Elements_UsbCountryCodeInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id
+  nameWithType: UsbCountryCodeInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html#SpecProbe_Usb_Elements_UsbCountryCodeInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Id
+  nameWithType: UsbCountryCodeInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html#SpecProbe_Usb_Elements_UsbCountryCodeInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name
+  nameWithType: UsbCountryCodeInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html#SpecProbe_Usb_Elements_UsbCountryCodeInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbCountryCodeInfo.Name
+  nameWithType: UsbCountryCodeInfo.Name
 - uid: SpecProbe.Usb.Elements.UsbDeviceClassInfo
   name: UsbDeviceClassInfo
   href: api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.html
@@ -2801,6 +2865,288 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.Protocols
   nameWithType: UsbDeviceSubclassInfo.Protocols
+- uid: SpecProbe.Usb.Elements.UsbHidInfo
+  name: UsbHidInfo
+  href: api/SpecProbe.Usb.Elements.UsbHidInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbHidInfo
+  fullName: SpecProbe.Usb.Elements.UsbHidInfo
+  nameWithType: UsbHidInfo
+- uid: SpecProbe.Usb.Elements.UsbHidInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidInfo.html#SpecProbe_Usb_Elements_UsbHidInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbHidInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbHidInfo.Id
+  nameWithType: UsbHidInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidInfo.html#SpecProbe_Usb_Elements_UsbHidInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidInfo.Id
+  nameWithType: UsbHidInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidInfo.html#SpecProbe_Usb_Elements_UsbHidInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbHidInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbHidInfo.Name
+  nameWithType: UsbHidInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidInfo.html#SpecProbe_Usb_Elements_UsbHidInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidInfo.Name
+  nameWithType: UsbHidInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidItemInfo
+  name: UsbHidItemInfo
+  href: api/SpecProbe.Usb.Elements.UsbHidItemInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbHidItemInfo
+  fullName: SpecProbe.Usb.Elements.UsbHidItemInfo
+  nameWithType: UsbHidItemInfo
+- uid: SpecProbe.Usb.Elements.UsbHidItemInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidItemInfo.html#SpecProbe_Usb_Elements_UsbHidItemInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbHidItemInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbHidItemInfo.Id
+  nameWithType: UsbHidItemInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidItemInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidItemInfo.html#SpecProbe_Usb_Elements_UsbHidItemInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidItemInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidItemInfo.Id
+  nameWithType: UsbHidItemInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidItemInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidItemInfo.html#SpecProbe_Usb_Elements_UsbHidItemInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbHidItemInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbHidItemInfo.Name
+  nameWithType: UsbHidItemInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidItemInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidItemInfo.html#SpecProbe_Usb_Elements_UsbHidItemInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidItemInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidItemInfo.Name
+  nameWithType: UsbHidItemInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidUsageInfo
+  name: UsbHidUsageInfo
+  href: api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbHidUsageInfo
+  fullName: SpecProbe.Usb.Elements.UsbHidUsageInfo
+  nameWithType: UsbHidUsageInfo
+- uid: SpecProbe.Usb.Elements.UsbHidUsageInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html#SpecProbe_Usb_Elements_UsbHidUsageInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbHidUsageInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbHidUsageInfo.Id
+  nameWithType: UsbHidUsageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidUsageInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html#SpecProbe_Usb_Elements_UsbHidUsageInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidUsageInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidUsageInfo.Id
+  nameWithType: UsbHidUsageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidUsageInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html#SpecProbe_Usb_Elements_UsbHidUsageInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbHidUsageInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbHidUsageInfo.Name
+  nameWithType: UsbHidUsageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidUsageInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html#SpecProbe_Usb_Elements_UsbHidUsageInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidUsageInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidUsageInfo.Name
+  nameWithType: UsbHidUsageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo
+  name: UsbHidUsagePageInfo
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbHidUsagePageInfo
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo
+  nameWithType: UsbHidUsagePageInfo
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id
+  nameWithType: UsbHidUsagePageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Id
+  nameWithType: UsbHidUsagePageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name
+  nameWithType: UsbHidUsagePageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Name
+  nameWithType: UsbHidUsagePageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages
+  name: Usages
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Usages
+  commentId: P:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages
+  nameWithType: UsbHidUsagePageInfo.Usages
+- uid: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages*
+  name: Usages
+  href: api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html#SpecProbe_Usb_Elements_UsbHidUsagePageInfo_Usages_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbHidUsagePageInfo.Usages
+  nameWithType: UsbHidUsagePageInfo.Usages
+- uid: SpecProbe.Usb.Elements.UsbLanguageDialectInfo
+  name: UsbLanguageDialectInfo
+  href: api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbLanguageDialectInfo
+  fullName: SpecProbe.Usb.Elements.UsbLanguageDialectInfo
+  nameWithType: UsbLanguageDialectInfo
+- uid: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html#SpecProbe_Usb_Elements_UsbLanguageDialectInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id
+  nameWithType: UsbLanguageDialectInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html#SpecProbe_Usb_Elements_UsbLanguageDialectInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Id
+  nameWithType: UsbLanguageDialectInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html#SpecProbe_Usb_Elements_UsbLanguageDialectInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name
+  nameWithType: UsbLanguageDialectInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html#SpecProbe_Usb_Elements_UsbLanguageDialectInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbLanguageDialectInfo.Name
+  nameWithType: UsbLanguageDialectInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo
+  name: UsbLanguageInfo
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbLanguageInfo
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo
+  nameWithType: UsbLanguageInfo
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects
+  name: Dialects
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Dialects
+  commentId: P:SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects
+  nameWithType: UsbLanguageInfo.Dialects
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects*
+  name: Dialects
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Dialects_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Dialects
+  nameWithType: UsbLanguageInfo.Dialects
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbLanguageInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Id
+  nameWithType: UsbLanguageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbLanguageInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Id
+  nameWithType: UsbLanguageInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbLanguageInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Name
+  nameWithType: UsbLanguageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbLanguageInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbLanguageInfo.html#SpecProbe_Usb_Elements_UsbLanguageInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbLanguageInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbLanguageInfo.Name
+  nameWithType: UsbLanguageInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo
+  name: UsbPhysicalBiasInfo
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbPhysicalBiasInfo
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo
+  nameWithType: UsbPhysicalBiasInfo
+- uid: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html#SpecProbe_Usb_Elements_UsbPhysicalBiasInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id
+  nameWithType: UsbPhysicalBiasInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html#SpecProbe_Usb_Elements_UsbPhysicalBiasInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Id
+  nameWithType: UsbPhysicalBiasInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html#SpecProbe_Usb_Elements_UsbPhysicalBiasInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name
+  nameWithType: UsbPhysicalBiasInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html#SpecProbe_Usb_Elements_UsbPhysicalBiasInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.Name
+  nameWithType: UsbPhysicalBiasInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo
+  name: UsbPhysicalDescriptorInfo
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo
+  nameWithType: UsbPhysicalDescriptorInfo
+- uid: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html#SpecProbe_Usb_Elements_UsbPhysicalDescriptorInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id
+  nameWithType: UsbPhysicalDescriptorInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html#SpecProbe_Usb_Elements_UsbPhysicalDescriptorInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Id
+  nameWithType: UsbPhysicalDescriptorInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html#SpecProbe_Usb_Elements_UsbPhysicalDescriptorInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name
+  nameWithType: UsbPhysicalDescriptorInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html#SpecProbe_Usb_Elements_UsbPhysicalDescriptorInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.Name
+  nameWithType: UsbPhysicalDescriptorInfo.Name
 - uid: SpecProbe.Usb.Elements.UsbVendorInfo
   name: UsbVendorInfo
   href: api/SpecProbe.Usb.Elements.UsbVendorInfo.html
@@ -2846,12 +3192,60 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.Elements.UsbVendorInfo.Name
   nameWithType: UsbVendorInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbVideoTerminalInfo
+  name: UsbVideoTerminalInfo
+  href: api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html
+  commentId: T:SpecProbe.Usb.Elements.UsbVideoTerminalInfo
+  fullName: SpecProbe.Usb.Elements.UsbVideoTerminalInfo
+  nameWithType: UsbVideoTerminalInfo
+- uid: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html#SpecProbe_Usb_Elements_UsbVideoTerminalInfo_Id
+  commentId: P:SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id
+  fullName: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id
+  nameWithType: UsbVideoTerminalInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id*
+  name: Id
+  href: api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html#SpecProbe_Usb_Elements_UsbVideoTerminalInfo_Id_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Id
+  nameWithType: UsbVideoTerminalInfo.Id
+- uid: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html#SpecProbe_Usb_Elements_UsbVideoTerminalInfo_Name
+  commentId: P:SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name
+  fullName: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name
+  nameWithType: UsbVideoTerminalInfo.Name
+- uid: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name*
+  name: Name
+  href: api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html#SpecProbe_Usb_Elements_UsbVideoTerminalInfo_Name_
+  commentId: Overload:SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name
+  isSpec: "True"
+  fullName: SpecProbe.Usb.Elements.UsbVideoTerminalInfo.Name
+  nameWithType: UsbVideoTerminalInfo.Name
 - uid: SpecProbe.Usb.UsbListParser
   name: UsbListParser
   href: api/SpecProbe.Usb.UsbListParser.html
   commentId: T:SpecProbe.Usb.UsbListParser
   fullName: SpecProbe.Usb.UsbListParser
   nameWithType: UsbListParser
+- uid: SpecProbe.Usb.UsbListParser.GetAudioTerminal(System.Int32)
+  name: GetAudioTerminal(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetAudioTerminal_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetAudioTerminal(System.Int32)
+  name.vb: GetAudioTerminal(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetAudioTerminal(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetAudioTerminal(Integer)
+  nameWithType: UsbListParser.GetAudioTerminal(int)
+  nameWithType.vb: UsbListParser.GetAudioTerminal(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetAudioTerminal*
+  name: GetAudioTerminal
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetAudioTerminal_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetAudioTerminal
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetAudioTerminal
+  nameWithType: UsbListParser.GetAudioTerminal
 - uid: SpecProbe.Usb.UsbListParser.GetClass(System.Int32)
   name: GetClass(int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetClass_System_Int32_
@@ -2868,6 +3262,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.GetClass
   nameWithType: UsbListParser.GetClass
+- uid: SpecProbe.Usb.UsbListParser.GetCountryCode(System.Int32)
+  name: GetCountryCode(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetCountryCode_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetCountryCode(System.Int32)
+  name.vb: GetCountryCode(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetCountryCode(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetCountryCode(Integer)
+  nameWithType: UsbListParser.GetCountryCode(int)
+  nameWithType.vb: UsbListParser.GetCountryCode(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetCountryCode*
+  name: GetCountryCode
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetCountryCode_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetCountryCode
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetCountryCode
+  nameWithType: UsbListParser.GetCountryCode
 - uid: SpecProbe.Usb.UsbListParser.GetDevice(System.Int32,System.Int32)
   name: GetDevice(int, int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetDevice_System_Int32_System_Int32_
@@ -2884,6 +3294,134 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.GetDevice
   nameWithType: UsbListParser.GetDevice
+- uid: SpecProbe.Usb.UsbListParser.GetDialect(System.Int32,System.Int32)
+  name: GetDialect(int, int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetDialect_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetDialect(System.Int32,System.Int32)
+  name.vb: GetDialect(Integer, Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetDialect(int, int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetDialect(Integer, Integer)
+  nameWithType: UsbListParser.GetDialect(int, int)
+  nameWithType.vb: UsbListParser.GetDialect(Integer, Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetDialect*
+  name: GetDialect
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetDialect_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetDialect
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetDialect
+  nameWithType: UsbListParser.GetDialect
+- uid: SpecProbe.Usb.UsbListParser.GetHid(System.Int32)
+  name: GetHid(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHid_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetHid(System.Int32)
+  name.vb: GetHid(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetHid(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetHid(Integer)
+  nameWithType: UsbListParser.GetHid(int)
+  nameWithType.vb: UsbListParser.GetHid(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetHid*
+  name: GetHid
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHid_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetHid
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetHid
+  nameWithType: UsbListParser.GetHid
+- uid: SpecProbe.Usb.UsbListParser.GetHidItem(System.Int32)
+  name: GetHidItem(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidItem_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetHidItem(System.Int32)
+  name.vb: GetHidItem(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetHidItem(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetHidItem(Integer)
+  nameWithType: UsbListParser.GetHidItem(int)
+  nameWithType.vb: UsbListParser.GetHidItem(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetHidItem*
+  name: GetHidItem
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidItem_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetHidItem
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetHidItem
+  nameWithType: UsbListParser.GetHidItem
+- uid: SpecProbe.Usb.UsbListParser.GetHidUsage(System.Int32,System.Int32)
+  name: GetHidUsage(int, int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidUsage_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetHidUsage(System.Int32,System.Int32)
+  name.vb: GetHidUsage(Integer, Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetHidUsage(int, int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetHidUsage(Integer, Integer)
+  nameWithType: UsbListParser.GetHidUsage(int, int)
+  nameWithType.vb: UsbListParser.GetHidUsage(Integer, Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetHidUsage*
+  name: GetHidUsage
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidUsage_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetHidUsage
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetHidUsage
+  nameWithType: UsbListParser.GetHidUsage
+- uid: SpecProbe.Usb.UsbListParser.GetHidUsagePage(System.Int32)
+  name: GetHidUsagePage(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidUsagePage_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetHidUsagePage(System.Int32)
+  name.vb: GetHidUsagePage(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetHidUsagePage(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetHidUsagePage(Integer)
+  nameWithType: UsbListParser.GetHidUsagePage(int)
+  nameWithType.vb: UsbListParser.GetHidUsagePage(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetHidUsagePage*
+  name: GetHidUsagePage
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetHidUsagePage_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetHidUsagePage
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetHidUsagePage
+  nameWithType: UsbListParser.GetHidUsagePage
+- uid: SpecProbe.Usb.UsbListParser.GetLanguage(System.Int32)
+  name: GetLanguage(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetLanguage_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetLanguage(System.Int32)
+  name.vb: GetLanguage(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetLanguage(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetLanguage(Integer)
+  nameWithType: UsbListParser.GetLanguage(int)
+  nameWithType.vb: UsbListParser.GetLanguage(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetLanguage*
+  name: GetLanguage
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetLanguage_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetLanguage
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetLanguage
+  nameWithType: UsbListParser.GetLanguage
+- uid: SpecProbe.Usb.UsbListParser.GetPhysicalBias(System.Int32)
+  name: GetPhysicalBias(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetPhysicalBias_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetPhysicalBias(System.Int32)
+  name.vb: GetPhysicalBias(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetPhysicalBias(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetPhysicalBias(Integer)
+  nameWithType: UsbListParser.GetPhysicalBias(int)
+  nameWithType.vb: UsbListParser.GetPhysicalBias(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetPhysicalBias*
+  name: GetPhysicalBias
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetPhysicalBias_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetPhysicalBias
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetPhysicalBias
+  nameWithType: UsbListParser.GetPhysicalBias
+- uid: SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor(System.Int32)
+  name: GetPhysicalDescriptor(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetPhysicalDescriptor_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor(System.Int32)
+  name.vb: GetPhysicalDescriptor(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor(Integer)
+  nameWithType: UsbListParser.GetPhysicalDescriptor(int)
+  nameWithType.vb: UsbListParser.GetPhysicalDescriptor(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor*
+  name: GetPhysicalDescriptor
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetPhysicalDescriptor_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetPhysicalDescriptor
+  nameWithType: UsbListParser.GetPhysicalDescriptor
 - uid: SpecProbe.Usb.UsbListParser.GetProtocol(System.Int32,System.Int32,System.Int32)
   name: GetProtocol(int, int, int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetProtocol_System_Int32_System_Int32_System_Int32_
@@ -2948,6 +3486,38 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.GetVendor
   nameWithType: UsbListParser.GetVendor
+- uid: SpecProbe.Usb.UsbListParser.GetVideoTerminal(System.Int32)
+  name: GetVideoTerminal(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetVideoTerminal_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.GetVideoTerminal(System.Int32)
+  name.vb: GetVideoTerminal(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.GetVideoTerminal(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.GetVideoTerminal(Integer)
+  nameWithType: UsbListParser.GetVideoTerminal(int)
+  nameWithType.vb: UsbListParser.GetVideoTerminal(Integer)
+- uid: SpecProbe.Usb.UsbListParser.GetVideoTerminal*
+  name: GetVideoTerminal
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_GetVideoTerminal_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.GetVideoTerminal
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.GetVideoTerminal
+  nameWithType: UsbListParser.GetVideoTerminal
+- uid: SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered(System.Int32)
+  name: IsAudioTerminalRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsAudioTerminalRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered(System.Int32)
+  name.vb: IsAudioTerminalRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered(Integer)
+  nameWithType: UsbListParser.IsAudioTerminalRegistered(int)
+  nameWithType.vb: UsbListParser.IsAudioTerminalRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered*
+  name: IsAudioTerminalRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsAudioTerminalRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsAudioTerminalRegistered
+  nameWithType: UsbListParser.IsAudioTerminalRegistered
 - uid: SpecProbe.Usb.UsbListParser.IsClassRegistered(System.Int32)
   name: IsClassRegistered(int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsClassRegistered_System_Int32_
@@ -2964,6 +3534,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.IsClassRegistered
   nameWithType: UsbListParser.IsClassRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered(System.Int32)
+  name: IsCountryCodeRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsCountryCodeRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered(System.Int32)
+  name.vb: IsCountryCodeRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered(Integer)
+  nameWithType: UsbListParser.IsCountryCodeRegistered(int)
+  nameWithType.vb: UsbListParser.IsCountryCodeRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered*
+  name: IsCountryCodeRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsCountryCodeRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsCountryCodeRegistered
+  nameWithType: UsbListParser.IsCountryCodeRegistered
 - uid: SpecProbe.Usb.UsbListParser.IsDeviceRegistered(System.Int32,System.Int32)
   name: IsDeviceRegistered(int, int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsDeviceRegistered_System_Int32_System_Int32_
@@ -2980,6 +3566,118 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.IsDeviceRegistered
   nameWithType: UsbListParser.IsDeviceRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsDialectRegistered(System.Int32,System.Int32)
+  name: IsDialectRegistered(int, int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsDialectRegistered_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsDialectRegistered(System.Int32,System.Int32)
+  name.vb: IsDialectRegistered(Integer, Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsDialectRegistered(int, int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsDialectRegistered(Integer, Integer)
+  nameWithType: UsbListParser.IsDialectRegistered(int, int)
+  nameWithType.vb: UsbListParser.IsDialectRegistered(Integer, Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsDialectRegistered*
+  name: IsDialectRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsDialectRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsDialectRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsDialectRegistered
+  nameWithType: UsbListParser.IsDialectRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsHidItemRegistered(System.Int32)
+  name: IsHidItemRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidItemRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsHidItemRegistered(System.Int32)
+  name.vb: IsHidItemRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsHidItemRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsHidItemRegistered(Integer)
+  nameWithType: UsbListParser.IsHidItemRegistered(int)
+  nameWithType.vb: UsbListParser.IsHidItemRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsHidItemRegistered*
+  name: IsHidItemRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidItemRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsHidItemRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsHidItemRegistered
+  nameWithType: UsbListParser.IsHidItemRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsHidRegistered(System.Int32)
+  name: IsHidRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsHidRegistered(System.Int32)
+  name.vb: IsHidRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsHidRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsHidRegistered(Integer)
+  nameWithType: UsbListParser.IsHidRegistered(int)
+  nameWithType.vb: UsbListParser.IsHidRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsHidRegistered*
+  name: IsHidRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsHidRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsHidRegistered
+  nameWithType: UsbListParser.IsHidRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered(System.Int32)
+  name: IsHidUsagePageRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidUsagePageRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered(System.Int32)
+  name.vb: IsHidUsagePageRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered(Integer)
+  nameWithType: UsbListParser.IsHidUsagePageRegistered(int)
+  nameWithType.vb: UsbListParser.IsHidUsagePageRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered*
+  name: IsHidUsagePageRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsHidUsagePageRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsHidUsagePageRegistered
+  nameWithType: UsbListParser.IsHidUsagePageRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsLanguageRegistered(System.Int32)
+  name: IsLanguageRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsLanguageRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsLanguageRegistered(System.Int32)
+  name.vb: IsLanguageRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsLanguageRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsLanguageRegistered(Integer)
+  nameWithType: UsbListParser.IsLanguageRegistered(int)
+  nameWithType.vb: UsbListParser.IsLanguageRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsLanguageRegistered*
+  name: IsLanguageRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsLanguageRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsLanguageRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsLanguageRegistered
+  nameWithType: UsbListParser.IsLanguageRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered(System.Int32)
+  name: IsPhysicalBiasRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsPhysicalBiasRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered(System.Int32)
+  name.vb: IsPhysicalBiasRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered(Integer)
+  nameWithType: UsbListParser.IsPhysicalBiasRegistered(int)
+  nameWithType.vb: UsbListParser.IsPhysicalBiasRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered*
+  name: IsPhysicalBiasRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsPhysicalBiasRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsPhysicalBiasRegistered
+  nameWithType: UsbListParser.IsPhysicalBiasRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered(System.Int32)
+  name: IsPhysicalDescriptorRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsPhysicalDescriptorRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered(System.Int32)
+  name.vb: IsPhysicalDescriptorRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered(Integer)
+  nameWithType: UsbListParser.IsPhysicalDescriptorRegistered(int)
+  nameWithType.vb: UsbListParser.IsPhysicalDescriptorRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered*
+  name: IsPhysicalDescriptorRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsPhysicalDescriptorRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsPhysicalDescriptorRegistered
+  nameWithType: UsbListParser.IsPhysicalDescriptorRegistered
 - uid: SpecProbe.Usb.UsbListParser.IsProtocolRegistered(System.Int32,System.Int32,System.Int32)
   name: IsProtocolRegistered(int, int, int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsProtocolRegistered_System_Int32_System_Int32_System_Int32_
@@ -3044,6 +3742,51 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.IsVendorRegistered
   nameWithType: UsbListParser.IsVendorRegistered
+- uid: SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered(System.Int32)
+  name: IsVideoTerminalRegistered(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsVideoTerminalRegistered_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered(System.Int32)
+  name.vb: IsVideoTerminalRegistered(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered(Integer)
+  nameWithType: UsbListParser.IsVideoTerminalRegistered(int)
+  nameWithType.vb: UsbListParser.IsVideoTerminalRegistered(Integer)
+- uid: SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered*
+  name: IsVideoTerminalRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IsVideoTerminalRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IsVideoTerminalRegistered
+  nameWithType: UsbListParser.IsVideoTerminalRegistered
+- uid: SpecProbe.Usb.UsbListParser.IshidUsageRegistered(System.Int32,System.Int32)
+  name: IshidUsageRegistered(int, int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IshidUsageRegistered_System_Int32_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.IshidUsageRegistered(System.Int32,System.Int32)
+  name.vb: IshidUsageRegistered(Integer, Integer)
+  fullName: SpecProbe.Usb.UsbListParser.IshidUsageRegistered(int, int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.IshidUsageRegistered(Integer, Integer)
+  nameWithType: UsbListParser.IshidUsageRegistered(int, int)
+  nameWithType.vb: UsbListParser.IshidUsageRegistered(Integer, Integer)
+- uid: SpecProbe.Usb.UsbListParser.IshidUsageRegistered*
+  name: IshidUsageRegistered
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_IshidUsageRegistered_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.IshidUsageRegistered
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.IshidUsageRegistered
+  nameWithType: UsbListParser.IshidUsageRegistered
+- uid: SpecProbe.Usb.UsbListParser.ListAudioTerminals
+  name: ListAudioTerminals()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListAudioTerminals
+  commentId: M:SpecProbe.Usb.UsbListParser.ListAudioTerminals
+  fullName: SpecProbe.Usb.UsbListParser.ListAudioTerminals()
+  nameWithType: UsbListParser.ListAudioTerminals()
+- uid: SpecProbe.Usb.UsbListParser.ListAudioTerminals*
+  name: ListAudioTerminals
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListAudioTerminals_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListAudioTerminals
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListAudioTerminals
+  nameWithType: UsbListParser.ListAudioTerminals
 - uid: SpecProbe.Usb.UsbListParser.ListClasses
   name: ListClasses()
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListClasses
@@ -3057,6 +3800,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.ListClasses
   nameWithType: UsbListParser.ListClasses
+- uid: SpecProbe.Usb.UsbListParser.ListCountryCodes
+  name: ListCountryCodes()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListCountryCodes
+  commentId: M:SpecProbe.Usb.UsbListParser.ListCountryCodes
+  fullName: SpecProbe.Usb.UsbListParser.ListCountryCodes()
+  nameWithType: UsbListParser.ListCountryCodes()
+- uid: SpecProbe.Usb.UsbListParser.ListCountryCodes*
+  name: ListCountryCodes
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListCountryCodes_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListCountryCodes
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListCountryCodes
+  nameWithType: UsbListParser.ListCountryCodes
 - uid: SpecProbe.Usb.UsbListParser.ListDevices(System.Int32)
   name: ListDevices(int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListDevices_System_Int32_
@@ -3073,6 +3829,116 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.ListDevices
   nameWithType: UsbListParser.ListDevices
+- uid: SpecProbe.Usb.UsbListParser.ListDialects(System.Int32)
+  name: ListDialects(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListDialects_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.ListDialects(System.Int32)
+  name.vb: ListDialects(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.ListDialects(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.ListDialects(Integer)
+  nameWithType: UsbListParser.ListDialects(int)
+  nameWithType.vb: UsbListParser.ListDialects(Integer)
+- uid: SpecProbe.Usb.UsbListParser.ListDialects*
+  name: ListDialects
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListDialects_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListDialects
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListDialects
+  nameWithType: UsbListParser.ListDialects
+- uid: SpecProbe.Usb.UsbListParser.ListHidItems
+  name: ListHidItems()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidItems
+  commentId: M:SpecProbe.Usb.UsbListParser.ListHidItems
+  fullName: SpecProbe.Usb.UsbListParser.ListHidItems()
+  nameWithType: UsbListParser.ListHidItems()
+- uid: SpecProbe.Usb.UsbListParser.ListHidItems*
+  name: ListHidItems
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidItems_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListHidItems
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListHidItems
+  nameWithType: UsbListParser.ListHidItems
+- uid: SpecProbe.Usb.UsbListParser.ListHidUsagePages
+  name: ListHidUsagePages()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidUsagePages
+  commentId: M:SpecProbe.Usb.UsbListParser.ListHidUsagePages
+  fullName: SpecProbe.Usb.UsbListParser.ListHidUsagePages()
+  nameWithType: UsbListParser.ListHidUsagePages()
+- uid: SpecProbe.Usb.UsbListParser.ListHidUsagePages*
+  name: ListHidUsagePages
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidUsagePages_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListHidUsagePages
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListHidUsagePages
+  nameWithType: UsbListParser.ListHidUsagePages
+- uid: SpecProbe.Usb.UsbListParser.ListHidUsages(System.Int32)
+  name: ListHidUsages(int)
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidUsages_System_Int32_
+  commentId: M:SpecProbe.Usb.UsbListParser.ListHidUsages(System.Int32)
+  name.vb: ListHidUsages(Integer)
+  fullName: SpecProbe.Usb.UsbListParser.ListHidUsages(int)
+  fullName.vb: SpecProbe.Usb.UsbListParser.ListHidUsages(Integer)
+  nameWithType: UsbListParser.ListHidUsages(int)
+  nameWithType.vb: UsbListParser.ListHidUsages(Integer)
+- uid: SpecProbe.Usb.UsbListParser.ListHidUsages*
+  name: ListHidUsages
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHidUsages_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListHidUsages
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListHidUsages
+  nameWithType: UsbListParser.ListHidUsages
+- uid: SpecProbe.Usb.UsbListParser.ListHids
+  name: ListHids()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHids
+  commentId: M:SpecProbe.Usb.UsbListParser.ListHids
+  fullName: SpecProbe.Usb.UsbListParser.ListHids()
+  nameWithType: UsbListParser.ListHids()
+- uid: SpecProbe.Usb.UsbListParser.ListHids*
+  name: ListHids
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListHids_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListHids
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListHids
+  nameWithType: UsbListParser.ListHids
+- uid: SpecProbe.Usb.UsbListParser.ListLanguages
+  name: ListLanguages()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListLanguages
+  commentId: M:SpecProbe.Usb.UsbListParser.ListLanguages
+  fullName: SpecProbe.Usb.UsbListParser.ListLanguages()
+  nameWithType: UsbListParser.ListLanguages()
+- uid: SpecProbe.Usb.UsbListParser.ListLanguages*
+  name: ListLanguages
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListLanguages_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListLanguages
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListLanguages
+  nameWithType: UsbListParser.ListLanguages
+- uid: SpecProbe.Usb.UsbListParser.ListPhysicalBiases
+  name: ListPhysicalBiases()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListPhysicalBiases
+  commentId: M:SpecProbe.Usb.UsbListParser.ListPhysicalBiases
+  fullName: SpecProbe.Usb.UsbListParser.ListPhysicalBiases()
+  nameWithType: UsbListParser.ListPhysicalBiases()
+- uid: SpecProbe.Usb.UsbListParser.ListPhysicalBiases*
+  name: ListPhysicalBiases
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListPhysicalBiases_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListPhysicalBiases
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListPhysicalBiases
+  nameWithType: UsbListParser.ListPhysicalBiases
+- uid: SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors
+  name: ListPhysicalDescriptors()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListPhysicalDescriptors
+  commentId: M:SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors
+  fullName: SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors()
+  nameWithType: UsbListParser.ListPhysicalDescriptors()
+- uid: SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors*
+  name: ListPhysicalDescriptors
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListPhysicalDescriptors_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListPhysicalDescriptors
+  nameWithType: UsbListParser.ListPhysicalDescriptors
 - uid: SpecProbe.Usb.UsbListParser.ListProtocols(System.Int32,System.Int32)
   name: ListProtocols(int, int)
   href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListProtocols_System_Int32_System_Int32_
@@ -3134,3 +4000,16 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Usb.UsbListParser.ListVendors
   nameWithType: UsbListParser.ListVendors
+- uid: SpecProbe.Usb.UsbListParser.ListVideoTerminals
+  name: ListVideoTerminals()
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListVideoTerminals
+  commentId: M:SpecProbe.Usb.UsbListParser.ListVideoTerminals
+  fullName: SpecProbe.Usb.UsbListParser.ListVideoTerminals()
+  nameWithType: UsbListParser.ListVideoTerminals()
+- uid: SpecProbe.Usb.UsbListParser.ListVideoTerminals*
+  name: ListVideoTerminals
+  href: api/SpecProbe.Usb.UsbListParser.html#SpecProbe_Usb_UsbListParser_ListVideoTerminals_
+  commentId: Overload:SpecProbe.Usb.UsbListParser.ListVideoTerminals
+  isSpec: "True"
+  fullName: SpecProbe.Usb.UsbListParser.ListVideoTerminals
+  nameWithType: UsbListParser.ListVideoTerminals
