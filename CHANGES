@@ -1,10 +1,15 @@
-SpecProbe has been updated to address a security vulnerability!
+This version of SpecProbe adds more exciting features, such as USB IDs and environment variable management!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[*]` Fixed a security issue
+- `[+]` Added CPU flag support
+- `[+]` Added USB ID list
+- `[+]` Added environment variable management
+- `[*]` Updated pci.ids
+- `[*]` Improved support for ARM processors (names)
+- `[*]` General improvements and bug fixes
 
 Review the commit history if you want to get a deep insight about the changes.
 
