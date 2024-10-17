@@ -211,18 +211,60 @@ references:
   commentId: T:SpecProbe.Parts.Types.HardDisk.PartitionTableType
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType
   nameWithType: PartitionTableType
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.AIX
+  name: AIX
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_AIX
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.AIX
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.AIX
+  nameWithType: PartitionTableType.AIX
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Amiga
+  name: Amiga
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Amiga
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Amiga
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Amiga
+  nameWithType: PartitionTableType.Amiga
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Apple
   name: Apple
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Apple
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Apple
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Apple
   nameWithType: PartitionTableType.Apple
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Atari
+  name: Atari
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Atari
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Atari
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Atari
+  nameWithType: PartitionTableType.Atari
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.BSD
+  name: BSD
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_BSD
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.BSD
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.BSD
+  nameWithType: PartitionTableType.BSD
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.DASD
+  name: DASD
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_DASD
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.DASD
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.DASD
+  nameWithType: PartitionTableType.DASD
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.DVH
+  name: DVH
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_DVH
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.DVH
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.DVH
+  nameWithType: PartitionTableType.DVH
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.GPT
   name: GPT
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_GPT
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.GPT
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.GPT
   nameWithType: PartitionTableType.GPT
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Loop
+  name: Loop
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Loop
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Loop
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Loop
+  nameWithType: PartitionTableType.Loop
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.MBR
   name: MBR
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_MBR
@@ -235,6 +277,24 @@ references:
   commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Other
   fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Other
   nameWithType: PartitionTableType.Other
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.PC98
+  name: PC98
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_PC98
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.PC98
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.PC98
+  nameWithType: PartitionTableType.PC98
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.RDB
+  name: RDB
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_RDB
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.RDB
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.RDB
+  nameWithType: PartitionTableType.RDB
+- uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Sun
+  name: Sun
+  href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Sun
+  commentId: F:SpecProbe.Parts.Types.HardDisk.PartitionTableType.Sun
+  fullName: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Sun
+  nameWithType: PartitionTableType.Sun
 - uid: SpecProbe.Parts.Types.HardDisk.PartitionTableType.Unknown
   name: Unknown
   href: api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html#SpecProbe_Parts_Types_HardDisk_PartitionTableType_Unknown

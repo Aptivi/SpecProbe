@@ -27,7 +27,7 @@
   "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html",
     "title": "Enum PartitionTableType | SpecProbe API - Aptivi",
-    "keywords": "Enum PartitionTableType Partition table type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionTableType Fields Name Description Apple Apple partition table GPT GUID Partition Table MBR Master Boot Record Other Other partition tables, such as AIX, Amiga, Sun, ... Unknown Unknown partition table"
+    "keywords": "Enum PartitionTableType Partition table type Namespace: SpecProbe.Parts.Types.HardDisk Assembly: SpecProbe.dll Syntax public enum PartitionTableType Fields Name Description AIX AIX partition table Amiga Amiga RDB partition table Apple Apple partition table Atari Atari partition table BSD BSD partition table DASD DASD partition table DVH SGI DVH partition table GPT GUID Partition Table Loop Loop partition table MBR Master Boot Record Other Other partition tables, such as AIX, Amiga, Sun, ... PC98 PC-98 partition table RDB RDB partition table Sun Sun partition table Unknown Unknown partition table"
   },
   "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html": {
     "href": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html",
