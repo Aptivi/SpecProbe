@@ -100,5 +100,11 @@ namespace SpecProbe
         /// <param name="notarized">If your application is using hardened macOS runtime, set this to true.</param>
         public static void SetNotarized(bool notarized) =>
             HardwareProber.notarized = notarized;
+
+        /// <summary>
+        /// Invalidates the cache of parsed hardware
+        /// </summary>
+        public static void InvalidateCache() =>
+            cachedParts.Clear();
     }
 }
