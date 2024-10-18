@@ -78,6 +78,19 @@ references:
   isSpec: "True"
   fullName: SpecProbe.HardwareProber.GetVideos
   nameWithType: HardwareProber.GetVideos
+- uid: SpecProbe.HardwareProber.InvalidateCache
+  name: InvalidateCache()
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_InvalidateCache
+  commentId: M:SpecProbe.HardwareProber.InvalidateCache
+  fullName: SpecProbe.HardwareProber.InvalidateCache()
+  nameWithType: HardwareProber.InvalidateCache()
+- uid: SpecProbe.HardwareProber.InvalidateCache*
+  name: InvalidateCache
+  href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_InvalidateCache_
+  commentId: Overload:SpecProbe.HardwareProber.InvalidateCache
+  isSpec: "True"
+  fullName: SpecProbe.HardwareProber.InvalidateCache
+  nameWithType: HardwareProber.InvalidateCache
 - uid: SpecProbe.HardwareProber.SetNotarized(System.Boolean)
   name: SetNotarized(bool)
   href: api/SpecProbe.HardwareProber.html#SpecProbe_HardwareProber_SetNotarized_System_Boolean_
