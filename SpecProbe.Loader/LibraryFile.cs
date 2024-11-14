@@ -50,7 +50,7 @@ namespace SpecProbe.Loader
             else
                 throw new PlatformNotSupportedException("Unsupported platform.");
             if (handle == IntPtr.Zero)
-                throw new InvalidOperationException("This library or one of its dependencies failed to load: " + FilePath);
+                throw new InvalidOperationException($"This library or one of its dependencies failed to load: [0x{Marshal.GetLastWin32Error():X8}] " + FilePath);
         }
 
         internal IntPtr LoadSymbol(string symbolName)
@@ -160,37 +160,37 @@ namespace SpecProbe.Loader
 
         private static class Windows
         {
-            [DllImport("kernel32.dll")]
+            [DllImport("kernel32.dll", SetLastError = true)]
             internal static extern IntPtr LoadLibrary(string filename);
-            [DllImport("kernel32.dll")]
+            [DllImport("kernel32.dll", SetLastError = true)]
             internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
         }
 
         private static class Linux
         {
-            [DllImport("libdl.so")]
+            [DllImport("libdl.so", SetLastError = true)]
             internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("libdl.so")]
+            [DllImport("libdl.so", SetLastError = true)]
             internal static extern IntPtr dlsym(IntPtr handle, string symbol);
-            [DllImport("libdl.so.2", EntryPoint = "dlopen")]
+            [DllImport("libdl.so.2", EntryPoint = "dlopen", SetLastError = true)]
             internal static extern IntPtr dlopen_new(string filename, int flags);
-            [DllImport("libdl.so.2", EntryPoint = "dlsym")]
+            [DllImport("libdl.so.2", EntryPoint = "dlsym", SetLastError = true)]
             internal static extern IntPtr dlsym_new(IntPtr handle, string symbol);
         }
 
         private static class MacOSX
         {
-            [DllImport("libSystem.dylib")]
+            [DllImport("libSystem.dylib", SetLastError = true)]
             internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("libSystem.dylib")]
+            [DllImport("libSystem.dylib", SetLastError = true)]
             internal static extern IntPtr dlsym(IntPtr handle, string symbol);
         }
 
         private static class Mono
         {
-            [DllImport("__Internal")]
+            [DllImport("__Internal", SetLastError = true)]
             internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("__Internal")]
+            [DllImport("__Internal", SetLastError = true)]
             internal static extern IntPtr dlsym(IntPtr handle, string symbol);
         }
 
