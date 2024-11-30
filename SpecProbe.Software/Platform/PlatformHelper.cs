@@ -31,12 +31,24 @@ namespace SpecProbe.Software.Platform
     /// </summary>
     public static class PlatformHelper
     {
+        private static Platform platform = Platform.Unknown;
+        private static bool firstTimeMuslDetection = true;
+        private static bool isMuslLinux = false;
+        private static bool firstTimeAndroidDetection = true;
+        private static bool isAndroid = false;
+        private static bool firstTimeWslDetection = true;
+        private static bool isWsl = false;
+
         /// <summary>
         /// Is this system a Windows system?
         /// </summary>
         /// <returns>True if running on Windows (Windows 10, Windows 11, etc.). Otherwise, false.</returns>
-        public static bool IsOnWindows() =>
-            Environment.OSVersion.Platform == PlatformID.Win32NT;
+        public static bool IsOnWindows()
+        {
+            if (platform == Platform.Windows)
+                return true;
+            return Environment.OSVersion.Platform == PlatformID.Win32NT;
+        }
 
         /// <summary>
         /// Is this system a Windows system or a WSL system?
@@ -49,8 +61,12 @@ namespace SpecProbe.Software.Platform
         /// Is this system a Unix system? True for macOS, too!
         /// </summary>
         /// <returns>True if running on Unix (Linux, *nix, etc.). Otherwise, false.</returns>
-        public static bool IsOnUnix() =>
-            Environment.OSVersion.Platform == PlatformID.Unix;
+        public static bool IsOnUnix()
+        {
+            if (platform == Platform.Linux)
+                return true;
+            return Environment.OSVersion.Platform == PlatformID.Unix;
+        }
 
         /// <summary>
         /// Is this system a macOS system?
@@ -58,6 +74,8 @@ namespace SpecProbe.Software.Platform
         /// <returns>True if running on macOS (MacBook, iMac, etc.). Otherwise, false.</returns>
         public static bool IsOnMacOS()
         {
+            if (platform == Platform.MacOS)
+                return true;
             if (IsOnUnix())
             {
                 string System = UnameManager.GetUname(UnameTypes.KernelName);
@@ -73,10 +91,10 @@ namespace SpecProbe.Software.Platform
         /// <returns>True if running on Android phones using Termux. Otherwise, false.</returns>
         public static bool IsOnAndroid()
         {
-            if (IsOnUnix() && !IsOnMacOS())
-                return File.Exists("/system/build.prop");
-            else
-                return false;
+            if (IsOnUnix() && !IsOnMacOS() && firstTimeAndroidDetection)
+                isAndroid = File.Exists("/system/build.prop");
+            firstTimeAndroidDetection = false;
+            return isAndroid;
         }
 
         /// <summary>
@@ -107,17 +125,22 @@ namespace SpecProbe.Software.Platform
         /// <returns>True if running on Unix systems that use musl libc. Otherwise, false.</returns>
         public static bool IsOnUnixMusl()
         {
+            if (!firstTimeMuslDetection)
+                return isMuslLinux;
             try
             {
                 if (!IsOnUnix() || IsOnMacOS() || IsOnWindows())
                     return false;
                 var gnuRel = gnuGetLibcVersion();
-                return false;
+                isMuslLinux = false;
             }
             catch
             {
-                return true;
+                // Android uses Bionic instead of GNU and MUSL.
+                isMuslLinux = !IsOnAndroid();
             }
+            firstTimeMuslDetection = false;
+            return isMuslLinux;
         }
 
         /// <summary>
@@ -126,15 +149,23 @@ namespace SpecProbe.Software.Platform
         /// <returns>True if running on WSL. Otherwise, false.</returns>
         public static bool IsOnUnixWsl()
         {
-            // Now, get a path that allows us to detect WSL using WSLInterop.
+            if (!firstTimeWslDetection)
+                return isWsl;
+
+            // Get a path that allows us to detect WSL using WSLInterop.
             string wslInteropPath = "/proc/sys/fs/binfmt_misc/WSLInterop";
             string wslInteropMagic = "4d5a";
 
             // Check to see if we have this file
-            if (!File.Exists(wslInteropPath))
-                return false;
-            string stream = File.ReadAllText(wslInteropPath);
-            return stream.Contains(wslInteropMagic);
+            if (File.Exists(wslInteropPath))
+            {
+                string stream = File.ReadAllText(wslInteropPath);
+                isWsl = stream.Contains(wslInteropMagic);
+            }
+            else
+                isWsl = false;
+            firstTimeWslDetection = false;
+            return isWsl;
         }
 
         /// <summary>
@@ -196,14 +227,18 @@ namespace SpecProbe.Software.Platform
         /// <exception cref="PlatformNotSupportedException"></exception>
         public static Platform GetPlatform()
         {
-            if (IsOnWindows())
-                return Platform.Windows;
-            else if (IsOnMacOS())
-                return Platform.MacOS;
-            else if (IsOnUnix())
-                return Platform.Linux;
-            else
-                throw new PlatformNotSupportedException("This operating system is not supported.");
+            if (platform == Platform.Unknown)
+            {
+                if (IsOnWindows())
+                    platform = Platform.Windows;
+                else if (IsOnMacOS())
+                    platform = Platform.MacOS;
+                else if (IsOnUnix())
+                    platform = Platform.Linux;
+                else
+                    throw new PlatformNotSupportedException("This operating system is not supported.");
+            }
+            return platform;
         }
 
         /// <summary>
@@ -268,6 +303,11 @@ namespace SpecProbe.Software.Platform
             CommandProcess.Start();
             CommandProcess.WaitForExit();
             return CommandProcess.StandardOutput.ReadToEnd();
+        }
+
+        static PlatformHelper()
+        {
+            GetPlatform();
         }
 
         #region Interop
