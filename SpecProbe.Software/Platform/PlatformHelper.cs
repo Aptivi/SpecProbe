@@ -225,6 +225,24 @@ namespace SpecProbe.Software.Platform
             RuntimeInformation.FrameworkDescription.Contains("Framework");
 
         /// <summary>
+        /// Is this application running on X11?
+        /// </summary>
+        public static bool IsOnX11() =>
+            IsOnUnix() && !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("DISPLAY"));
+
+        /// <summary>
+        /// Is this application running on Wayland?
+        /// </summary>
+        public static bool IsOnWayland() =>
+            IsOnUnix() && !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("WAYLAND_DISPLAY"));
+
+        /// <summary>
+        /// Is this application running in the GUI?
+        /// </summary>
+        public static bool IsOnGui() =>
+            !IsOnUnix() || IsOnX11() || IsOnWayland();
+
+        /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
         /// </summary>
         /// <param name="File">Full path to file</param>
