@@ -19,6 +19,7 @@
 
 using SpecProbe.Software.Kernel;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -276,6 +277,36 @@ namespace SpecProbe.Software.Platform
         /// </summary>
         public static bool IsOnGui() =>
             !IsOnUnix() || IsOnX11() || IsOnWayland();
+
+        /// <summary>
+        /// Gets a list of PATH directories
+        /// </summary>
+        /// <returns>A list of directories specified by the PATH environment variable</returns>
+        public static string[] GetPaths()
+        {
+            char separator = IsOnWindows() ? ';' : ':';
+            return (Environment.GetEnvironmentVariable("PATH") ?? "").Split([separator], StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        /// <summary>
+        /// Gets the possible paths that this file is found on
+        /// </summary>
+        /// <param name="file">Target file name with extension</param>
+        /// <returns>Possible list of paths</returns>
+        public static string[] GetPossiblePaths(string file)
+        {
+            if (Path.IsPathRooted(file))
+                file = Path.GetFileName(file);
+            var paths = GetPaths();
+            List<string> finalPaths = [];
+            foreach (string path in paths)
+            {
+                string finalPath = Path.Combine(path, file);
+                if (File.Exists(finalPath))
+                    finalPaths.Add(finalPath);
+            }
+            return [.. finalPaths];
+        }
 
         /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
