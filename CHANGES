@@ -1,10 +1,11 @@
-This version of SpecProbe adds a crucial feature for diagnostics!
+This a-PATH-etic version of SpecProbe adds PATH tools!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added system error codes to exception messages
+- `[+]` Added PATH tools
+- `[+]` Added GUI detection helpers
 
 Review the commit history if you want to get a deep insight about the changes.
 
