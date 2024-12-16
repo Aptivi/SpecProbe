@@ -40,8 +40,8 @@
     <None Include="SpecProbe.Native.targets" Pack="True" PackagePath="/" />
 
     <!-- For packaging -->
-    <None Include="../SpecProbe/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="../../assets/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecProbe\SpecProbe.csproj" />
+    <ProjectReference Include="..\..\public\SpecProbe\SpecProbe.csproj" />
   </ItemGroup>
 
 </Project>

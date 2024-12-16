@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe", "SpecProbe\SpecProbe.csproj", "{A16FF845-C5EF-02F4-2713-69E0DC5B8E02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe", "public\SpecProbe\SpecProbe.csproj", "{A16FF845-C5EF-02F4-2713-69E0DC5B8E02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.ConsoleTest", "SpecProbe.ConsoleTest\SpecProbe.ConsoleTest.csproj", "{FE956F83-FFBE-0AD9-0FDC-EA7BE6F48162}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.ConsoleTest", "private\SpecProbe.ConsoleTest\SpecProbe.ConsoleTest.csproj", "{FE956F83-FFBE-0AD9-0FDC-EA7BE6F48162}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Native", "SpecProbe.Native\SpecProbe.Native.csproj", "{FEC21251-FA7A-4CE5-BF44-3D23916CFABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Native", "public\SpecProbe.Native\SpecProbe.Native.csproj", "{FEC21251-FA7A-4CE5-BF44-3D23916CFABE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Software", "SpecProbe.Software\SpecProbe.Software.csproj", "{3FE338BD-8ED3-4687-BE8E-4D7C8B512FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Software", "public\SpecProbe.Software\SpecProbe.Software.csproj", "{3FE338BD-8ED3-4687-BE8E-4D7C8B512FD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Loader", "SpecProbe.Loader\SpecProbe.Loader.csproj", "{25486EF1-7202-4137-A47B-17A283DF82D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Loader", "public\SpecProbe.Loader\SpecProbe.Loader.csproj", "{25486EF1-7202-4137-A47B-17A283DF82D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Tests", "SpecProbe.Tests\SpecProbe.Tests.csproj", "{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecProbe.Tests", "private\SpecProbe.Tests\SpecProbe.Tests.csproj", "{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public", "Public", "{C0245C90-A2E6-49A7-9C58-E689332B7BDE}"
 EndProject

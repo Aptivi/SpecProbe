@@ -5,7 +5,7 @@
 <br>
     
 <img
-  src = 'https://cdn.jsdelivr.net/gh/Aptivi/SpecProbe@master/SpecProbe/OfficialAppIcon-SpecProbe-512.png'
+  src = 'https://cdn.jsdelivr.net/gh/Aptivi/SpecProbe@main/assets/OfficialAppIcon-SpecProbe-512.png'
   width = 256
   align = center
 />

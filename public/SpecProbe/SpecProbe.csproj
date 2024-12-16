@@ -1,16 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Description>
-      SpecProbe is the reboot of the Linux, macOS, and Windows hardware information frontend.
-      This is a software prober part of SpecProbe, which is made to be completely independent of the hardware parser.
-    </Description>
+    <Description>SpecProbe is the reboot of the Linux, macOS, and Windows hardware information frontend.</Description>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Aptivi/SpecProbe</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -23,22 +20,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../SpecProbe/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+    <ProjectReference Include="..\SpecProbe.Native\SpecProbe.Native.csproj" />
+    <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+    <EmbeddedResource Include="Pci\List\pci.ids" />
+    <EmbeddedResource Include="Usb\List\usb.ids" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources/ridgraph.json" />
+    <None Include="../../assets/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Textify.Offline" Version="2.6.0" />
   </ItemGroup>
 
 </Project>
