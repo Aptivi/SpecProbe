@@ -25,6 +25,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Loader.EnvironmentTools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Loader.EnvironmentTools.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Loader.LibraryFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Loader.LibraryFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Loader.LibraryManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Loader.LibraryManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Loader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Loader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SpecProbe.Parts.BaseHardwarePartInfo.yml",
       "output": {
         ".html": {
@@ -239,6 +279,76 @@
       "output": {
         ".html": {
           "relative_path": "api/SpecProbe.Pci.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Kernel.UnameManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Kernel.UnameManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Kernel.UnameTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Kernel.UnameTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Kernel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Kernel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Platform.Platform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Platform.Platform.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Platform.PlatformHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Platform.PlatformHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Platform.RidGraphReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Platform.RidGraphReader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SpecProbe.Software.Platform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SpecProbe.Software.Platform.html"
         }
       },
       "version": ""
