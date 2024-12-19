@@ -3119,6 +3119,22 @@ references:
   commentId: T:SpecProbe.Software.Platform.PlatformHelper
   fullName: SpecProbe.Software.Platform.PlatformHelper
   nameWithType: PlatformHelper
+- uid: SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString(System.String,System.String)
+  name: ExecuteProcessToString(string, string)
+  href: api/SpecProbe.Software.Platform.PlatformHelper.html#SpecProbe_Software_Platform_PlatformHelper_ExecuteProcessToString_System_String_System_String_
+  commentId: M:SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString(System.String,System.String)
+  name.vb: ExecuteProcessToString(String, String)
+  fullName: SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString(string, string)
+  fullName.vb: SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString(String, String)
+  nameWithType: PlatformHelper.ExecuteProcessToString(string, string)
+  nameWithType.vb: PlatformHelper.ExecuteProcessToString(String, String)
+- uid: SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString*
+  name: ExecuteProcessToString
+  href: api/SpecProbe.Software.Platform.PlatformHelper.html#SpecProbe_Software_Platform_PlatformHelper_ExecuteProcessToString_
+  commentId: Overload:SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString
+  isSpec: "True"
+  fullName: SpecProbe.Software.Platform.PlatformHelper.ExecuteProcessToString
+  nameWithType: PlatformHelper.ExecuteProcessToString
 - uid: SpecProbe.Software.Platform.PlatformHelper.GetArchitecture
   name: GetArchitecture()
   href: api/SpecProbe.Software.Platform.PlatformHelper.html#SpecProbe_Software_Platform_PlatformHelper_GetArchitecture
@@ -3463,6 +3479,22 @@ references:
   isSpec: "True"
   fullName: SpecProbe.Software.Platform.PlatformHelper.IsRunningFromTmux
   nameWithType: PlatformHelper.IsRunningFromTmux
+- uid: SpecProbe.Software.Platform.PlatformHelper.PlatformOpen(System.String)
+  name: PlatformOpen(string)
+  href: api/SpecProbe.Software.Platform.PlatformHelper.html#SpecProbe_Software_Platform_PlatformHelper_PlatformOpen_System_String_
+  commentId: M:SpecProbe.Software.Platform.PlatformHelper.PlatformOpen(System.String)
+  name.vb: PlatformOpen(String)
+  fullName: SpecProbe.Software.Platform.PlatformHelper.PlatformOpen(string)
+  fullName.vb: SpecProbe.Software.Platform.PlatformHelper.PlatformOpen(String)
+  nameWithType: PlatformHelper.PlatformOpen(string)
+  nameWithType.vb: PlatformHelper.PlatformOpen(String)
+- uid: SpecProbe.Software.Platform.PlatformHelper.PlatformOpen*
+  name: PlatformOpen
+  href: api/SpecProbe.Software.Platform.PlatformHelper.html#SpecProbe_Software_Platform_PlatformHelper_PlatformOpen_
+  commentId: Overload:SpecProbe.Software.Platform.PlatformHelper.PlatformOpen
+  isSpec: "True"
+  fullName: SpecProbe.Software.Platform.PlatformHelper.PlatformOpen
+  nameWithType: PlatformHelper.PlatformOpen
 - uid: SpecProbe.Software.Platform.RidGraphReader
   name: RidGraphReader
   href: api/SpecProbe.Software.Platform.RidGraphReader.html
