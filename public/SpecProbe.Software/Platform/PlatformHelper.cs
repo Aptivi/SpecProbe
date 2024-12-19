@@ -309,12 +309,26 @@ namespace SpecProbe.Software.Platform
         }
 
         /// <summary>
+        /// Opens a URL or a file using xdg-open in Linux or its equivalent in other operating systems
+        /// </summary>
+        /// <param name="path">Path to open using the OS</param>
+        public static void PlatformOpen(string path)
+        {
+            if (IsOnWindows())
+                ExecuteProcessToString("cmd.exe", $"/c \"start {path}\"");
+            else if (IsOnMacOS())
+                ExecuteProcessToString("open", path);
+            else
+                ExecuteProcessToString("xdg-open", path);
+        }
+
+        /// <summary>
         /// Executes a file with specified arguments and puts the output to the string
         /// </summary>
-        /// <param name="File">Full path to file</param>
-        /// <param name="Args">Arguments, if any</param>
+        /// <param name="file">Full path to file</param>
+        /// <param name="args">Arguments, if any</param>
         /// <returns>Output of a command from stdout</returns>
-        internal static string ExecuteProcessToString(string File, string Args)
+        public static string ExecuteProcessToString(string file, string args)
         {
             var CommandProcess = new Process();
             var CommandProcessStart = new ProcessStartInfo()
@@ -322,8 +336,8 @@ namespace SpecProbe.Software.Platform
                 RedirectStandardInput = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
-                FileName = File,
-                Arguments = Args,
+                FileName = file,
+                Arguments = args,
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false,
