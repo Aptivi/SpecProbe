@@ -1,11 +1,10 @@
-This a-PATH-etic version of SpecProbe adds PATH tools!
+This version of SpecProbe adds a wrapper to xdg-open in a platform-agnostic way.
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added PATH tools
-- `[+]` Added GUI detection helpers
+- `[+]` Added the xdg-open wrapper
 
 Review the commit history if you want to get a deep insight about the changes.
 
