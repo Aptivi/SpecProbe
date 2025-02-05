@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{02AC7A
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildTargets", "private\BuildTargets\BuildTargets.csproj", "{47E5D3E7-9693-4717-8AD2-D9B552CD6B46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEC27E1F-5A38-4CF6-87D5-101FC0373B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E5D3E7-9693-4717-8AD2-D9B552CD6B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E5D3E7-9693-4717-8AD2-D9B552CD6B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E5D3E7-9693-4717-8AD2-D9B552CD6B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E5D3E7-9693-4717-8AD2-D9B552CD6B46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{3FE338BD-8ED3-4687-BE8E-4D7C8B512FD5} = {C0245C90-A2E6-49A7-9C58-E689332B7BDE}
 		{25486EF1-7202-4137-A47B-17A283DF82D6} = {C0245C90-A2E6-49A7-9C58-E689332B7BDE}
 		{BEC27E1F-5A38-4CF6-87D5-101FC0373B91} = {C0134E76-04CE-494F-A788-B7C5DDCD7E1B}
+		{47E5D3E7-9693-4717-8AD2-D9B552CD6B46} = {C0134E76-04CE-494F-A788-B7C5DDCD7E1B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {432B461A-E720-46BD-83B1-BF438FA35B0C}
