@@ -21,7 +21,11 @@
           "relative_path": "api/SpecProbe.HardwareProber.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.HardwareProber",
+      "Summary": "<p sourcefile=\"api/SpecProbe.HardwareProber.yml\" sourcestartlinenumber=\"1\">Hardware probing class</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -31,7 +35,11 @@
           "relative_path": "api/SpecProbe.Loader.EnvironmentTools.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Loader.EnvironmentTools",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Loader.EnvironmentTools.yml\" sourcestartlinenumber=\"1\">Environment tools for native libraries</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -41,7 +49,11 @@
           "relative_path": "api/SpecProbe.Loader.LibraryFile.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Loader.LibraryFile",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Loader.LibraryFile.yml\" sourcestartlinenumber=\"1\">A class to store information about a native library file or a stream.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -51,7 +63,11 @@
           "relative_path": "api/SpecProbe.Loader.LibraryManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Loader.LibraryManager",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Loader.LibraryManager.yml\" sourcestartlinenumber=\"1\">Library managment class</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -61,7 +77,11 @@
           "relative_path": "api/SpecProbe.Loader.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Loader",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -71,7 +91,11 @@
           "relative_path": "api/SpecProbe.Parts.BaseHardwarePartInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.BaseHardwarePartInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.BaseHardwarePartInfo.yml\" sourcestartlinenumber=\"1\">Base hardware part information class</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -81,7 +105,11 @@
           "relative_path": "api/SpecProbe.Parts.HardwarePartType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.HardwarePartType",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.HardwarePartType.yml\" sourcestartlinenumber=\"1\">Hardware part type</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -91,7 +119,11 @@
           "relative_path": "api/SpecProbe.Parts.IHardwarePartInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.IHardwarePartInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.IHardwarePartInfo.yml\" sourcestartlinenumber=\"1\">Hardware part info interface</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -101,7 +133,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.HardDisk.GptPartitionTypeTools.yml\" sourcestartlinenumber=\"1\">GPT partition type tools</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -111,7 +147,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDisk.PartitionTableType",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.HardDisk.PartitionTableType.yml\" sourcestartlinenumber=\"1\">Partition table type</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -121,7 +161,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDisk.PartitionType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDisk.PartitionType",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.HardDisk.PartitionType.yml\" sourcestartlinenumber=\"1\">Partition type</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -131,7 +175,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDisk.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDisk",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -141,7 +189,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDiskPart.PartitionPart",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.HardDiskPart.PartitionPart.yml\" sourcestartlinenumber=\"1\">Partition class for the hard drive</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -151,7 +203,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.HardDiskPart.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.HardDiskPart",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.HardDiskPart.yml\" sourcestartlinenumber=\"1\">Hard disk part</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -161,7 +217,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.MemoryPart.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.MemoryPart",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.MemoryPart.yml\" sourcestartlinenumber=\"1\">Memory part</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -171,7 +231,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.ProcessorPart.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.ProcessorPart",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.ProcessorPart.yml\" sourcestartlinenumber=\"1\">Processor part</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -181,7 +245,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.VideoPart.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types.VideoPart",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Parts.Types.VideoPart.yml\" sourcestartlinenumber=\"1\">Video card part</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -191,7 +259,11 @@
           "relative_path": "api/SpecProbe.Parts.Types.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts.Types",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -201,7 +273,11 @@
           "relative_path": "api/SpecProbe.Parts.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Parts",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -211,7 +287,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceClassInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements.PciDeviceClassInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.Elements.PciDeviceClassInfo.yml\" sourcestartlinenumber=\"1\">PCI device class information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -221,7 +301,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements.PciDeviceInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.Elements.PciDeviceInfo.yml\" sourcestartlinenumber=\"1\">PCI device information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -231,7 +315,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements.PciDeviceInterfaceInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.Elements.PciDeviceInterfaceInfo.yml\" sourcestartlinenumber=\"1\">PCI device interface information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -241,7 +329,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements.PciDeviceSubclassInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.Elements.PciDeviceSubclassInfo.yml\" sourcestartlinenumber=\"1\">PCI device subclass information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -251,7 +343,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.PciVendorInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements.PciVendorInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.Elements.PciVendorInfo.yml\" sourcestartlinenumber=\"1\">PCI vendor information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -261,7 +357,11 @@
           "relative_path": "api/SpecProbe.Pci.Elements.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.Elements",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -271,7 +371,11 @@
           "relative_path": "api/SpecProbe.Pci.PciListParser.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci.PciListParser",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Pci.PciListParser.yml\" sourcestartlinenumber=\"1\">PCI ID list parser</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -281,7 +385,11 @@
           "relative_path": "api/SpecProbe.Pci.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Pci",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -291,7 +399,11 @@
           "relative_path": "api/SpecProbe.Software.Kernel.UnameManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Kernel.UnameManager",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Software.Kernel.UnameManager.yml\" sourcestartlinenumber=\"1\">Kernel information probing manager</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -301,7 +413,11 @@
           "relative_path": "api/SpecProbe.Software.Kernel.UnameTypes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Kernel.UnameTypes",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Software.Kernel.UnameTypes.yml\" sourcestartlinenumber=\"1\">The uname types</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -311,7 +427,11 @@
           "relative_path": "api/SpecProbe.Software.Kernel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Kernel",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -321,7 +441,11 @@
           "relative_path": "api/SpecProbe.Software.Platform.Platform.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Platform.Platform",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Software.Platform.Platform.yml\" sourcestartlinenumber=\"1\">Platform (operating system).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -331,7 +455,11 @@
           "relative_path": "api/SpecProbe.Software.Platform.PlatformHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Platform.PlatformHelper",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Software.Platform.PlatformHelper.yml\" sourcestartlinenumber=\"1\">Platform helper</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -341,7 +469,11 @@
           "relative_path": "api/SpecProbe.Software.Platform.RidGraphReader.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Platform.RidGraphReader",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Software.Platform.RidGraphReader.yml\" sourcestartlinenumber=\"1\">Tools for reading the RID graph</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -351,7 +483,11 @@
           "relative_path": "api/SpecProbe.Software.Platform.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Software.Platform",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -361,7 +497,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbAudioTerminalInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbAudioTerminalInfo.yml\" sourcestartlinenumber=\"1\">USB audio terminal information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -371,7 +511,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbCountryCodeInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbCountryCodeInfo.yml\" sourcestartlinenumber=\"1\">USB country code information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -381,7 +525,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbDeviceClassInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbDeviceClassInfo.yml\" sourcestartlinenumber=\"1\">USB device class information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -391,7 +539,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbDeviceInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbDeviceInfo.yml\" sourcestartlinenumber=\"1\">USB device information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -401,7 +553,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbDeviceProtocolInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbDeviceProtocolInfo.yml\" sourcestartlinenumber=\"1\">USB device protocol information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -411,7 +567,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbDeviceSubclassInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbDeviceSubclassInfo.yml\" sourcestartlinenumber=\"1\">USB device subclass information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -421,7 +581,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbHidInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbHidInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbHidInfo.yml\" sourcestartlinenumber=\"1\">USB human interface device information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -431,7 +595,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbHidItemInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbHidItemInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbHidItemInfo.yml\" sourcestartlinenumber=\"1\">USB human interface device information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -441,7 +609,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsageInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbHidUsageInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbHidUsageInfo.yml\" sourcestartlinenumber=\"1\">USB HID usage information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -451,7 +623,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbHidUsagePageInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbHidUsagePageInfo.yml\" sourcestartlinenumber=\"1\">USB HID usage page information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -461,7 +637,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbLanguageDialectInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbLanguageDialectInfo.yml\" sourcestartlinenumber=\"1\">USB language dialect information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -471,7 +651,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbLanguageInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbLanguageInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbLanguageInfo.yml\" sourcestartlinenumber=\"1\">USB language information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -481,7 +665,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbPhysicalBiasInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbPhysicalBiasInfo.yml\" sourcestartlinenumber=\"1\">USB physical bias information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -491,7 +679,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbPhysicalDescriptorInfo.yml\" sourcestartlinenumber=\"1\">USB physical descriptor information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -501,7 +693,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbVendorInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbVendorInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbVendorInfo.yml\" sourcestartlinenumber=\"1\">USB vendor information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -511,7 +707,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements.UsbVideoTerminalInfo",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.Elements.UsbVideoTerminalInfo.yml\" sourcestartlinenumber=\"1\">USB video terminal information</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -521,7 +721,11 @@
           "relative_path": "api/SpecProbe.Usb.Elements.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.Elements",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -531,7 +735,11 @@
           "relative_path": "api/SpecProbe.Usb.UsbListParser.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb.UsbListParser",
+      "Summary": "<p sourcefile=\"api/SpecProbe.Usb.UsbListParser.yml\" sourcestartlinenumber=\"1\">USB ID list parser</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -541,7 +749,11 @@
           "relative_path": "api/SpecProbe.Usb.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe.Usb",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -551,7 +763,11 @@
           "relative_path": "api/SpecProbe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SpecProbe",
+      "Summary": null
     },
     {
       "type": "Toc",
