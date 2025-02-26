@@ -19,6 +19,8 @@
 
 using SpecProbe.Software.Platform;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace SpecProbe.Loader
@@ -34,23 +36,42 @@ namespace SpecProbe.Loader
         internal IntPtr handle = IntPtr.Zero;
 
         /// <summary>
-        /// Path to the native library file.
+        /// Paths or file names of the native library.
         /// </summary>
-        public string FilePath { get; }
+        public string[] FilePaths { get; } = [];
 
         internal void LoadItem()
         {
-            // Load a library
-            if (PlatformHelper.IsOnWindows())
-                handle = LoadWindowsLibrary(FilePath);
-            else if (PlatformHelper.IsOnMacOS())
-                handle = LoadMacOSLibrary(FilePath);
-            else if (PlatformHelper.IsOnUnix())
-                handle = LoadLinuxLibrary(FilePath);
-            else
-                throw new PlatformNotSupportedException("Unsupported platform.");
-            if (handle == IntPtr.Zero)
-                throw new InvalidOperationException($"This library or one of its dependencies failed to load: [0x{Marshal.GetLastWin32Error():X8}] " + FilePath);
+            // Populate exceptions
+            List<(string, Exception)> exceptions = [];
+
+            // Load a library from all specified paths
+            foreach (var path in FilePaths)
+            {
+                try
+                {
+                    if (PlatformHelper.IsOnWindows())
+                        handle = LoadWindowsLibrary(path);
+                    else if (PlatformHelper.IsOnMacOS())
+                        handle = LoadMacOSLibrary(path);
+                    else if (PlatformHelper.IsOnUnix())
+                        handle = LoadLinuxLibrary(path);
+                    else
+                        throw new PlatformNotSupportedException("Unsupported platform.");
+                    if (handle == IntPtr.Zero)
+                        throw new InvalidOperationException($"This library or one of its dependencies failed to load: [0x{Marshal.GetLastWin32Error():X8}]");
+                }
+                catch (Exception ex)
+                {
+                    exceptions.Add((path, ex));
+                }
+                if (handle != IntPtr.Zero)
+                    return;
+            }
+
+            // Throw an exception if nothing is loaded
+            string[] renderedExceptions = exceptions.Select((tuple) => $"{tuple.Item1}: {tuple.Item2}").ToArray();
+            throw new InvalidOperationException($"The libraries failed to load\n\n{string.Join("\n", exceptions)}");
         }
 
         internal IntPtr LoadSymbol(string symbolName)
@@ -60,7 +81,7 @@ namespace SpecProbe.Loader
 
             // Check handle
             if (handle == IntPtr.Zero)
-                throw new InvalidOperationException($"Library {FilePath} must be loaded with exported symbol {symbolName}.");
+                throw new InvalidOperationException($"Library must be loaded with exported symbol {symbolName}.");
 
             // Try to find a symbol
             if (PlatformHelper.IsOnWindows())
@@ -197,12 +218,12 @@ namespace SpecProbe.Loader
         /// <summary>
         /// Initializes the library file class instance
         /// </summary>
-        /// <param name="filePath">Path to the native library file.</param>
-        public LibraryFile(string filePath)
+        /// <param name="filePaths">Path to the native library file.</param>
+        public LibraryFile(params string[] filePaths)
         {
-            if (string.IsNullOrEmpty(filePath))
-                throw new ArgumentNullException(nameof(filePath), "Path to the native library file is not specified");
-            FilePath = filePath;
+            if (filePaths.Length < 1)
+                throw new ArgumentNullException(nameof(filePaths), "Path to the native library file is not specified");
+            FilePaths = filePaths;
         }
     }
 }

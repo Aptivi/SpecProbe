@@ -80,9 +80,12 @@ namespace SpecProbe.Loader
             List<string> processed = [];
             foreach (var item in files)
             {
-                if (processed.Contains(item.FilePath))
-                    throw new Exception($"Duplicate library files found. [{item.FilePath}]");
-                processed.Add(item.FilePath);
+                foreach (var path in item.FilePaths)
+                {
+                    if (processed.Contains(path))
+                        throw new Exception($"Duplicate library files found. [{path}]");
+                    processed.Add(path);
+                }
             }
             _files = files;
         }
