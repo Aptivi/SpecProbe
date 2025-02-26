@@ -1,10 +1,10 @@
-This version of SpecProbe adds a wrapper to xdg-open in a platform-agnostic way.
+This version of SpecProbe adds a way to allow you to specify multiple paths per library file class.
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added the xdg-open wrapper
+- `[+]` Added specifying multiple paths per library file class
 
 Review the commit history if you want to get a deep insight about the changes.
 
