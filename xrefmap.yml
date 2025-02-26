@@ -330,15 +330,15 @@ references:
   commentId: T:SpecProbe.Loader.LibraryFile
   fullName: SpecProbe.Loader.LibraryFile
   nameWithType: LibraryFile
-- uid: SpecProbe.Loader.LibraryFile.#ctor(System.String)
-  name: LibraryFile(string)
-  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile__ctor_System_String_
-  commentId: M:SpecProbe.Loader.LibraryFile.#ctor(System.String)
-  name.vb: New(String)
-  fullName: SpecProbe.Loader.LibraryFile.LibraryFile(string)
-  fullName.vb: SpecProbe.Loader.LibraryFile.New(String)
-  nameWithType: LibraryFile.LibraryFile(string)
-  nameWithType.vb: LibraryFile.New(String)
+- uid: SpecProbe.Loader.LibraryFile.#ctor(System.String[])
+  name: LibraryFile(params string[])
+  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile__ctor_System_String___
+  commentId: M:SpecProbe.Loader.LibraryFile.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: SpecProbe.Loader.LibraryFile.LibraryFile(params string[])
+  fullName.vb: SpecProbe.Loader.LibraryFile.New(ParamArray String())
+  nameWithType: LibraryFile.LibraryFile(params string[])
+  nameWithType.vb: LibraryFile.New(ParamArray String())
 - uid: SpecProbe.Loader.LibraryFile.#ctor*
   name: LibraryFile
   href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile__ctor_
@@ -349,19 +349,19 @@ references:
   fullName.vb: SpecProbe.Loader.LibraryFile.New
   nameWithType: LibraryFile.LibraryFile
   nameWithType.vb: LibraryFile.New
-- uid: SpecProbe.Loader.LibraryFile.FilePath
-  name: FilePath
-  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile_FilePath
-  commentId: P:SpecProbe.Loader.LibraryFile.FilePath
-  fullName: SpecProbe.Loader.LibraryFile.FilePath
-  nameWithType: LibraryFile.FilePath
-- uid: SpecProbe.Loader.LibraryFile.FilePath*
-  name: FilePath
-  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile_FilePath_
-  commentId: Overload:SpecProbe.Loader.LibraryFile.FilePath
+- uid: SpecProbe.Loader.LibraryFile.FilePaths
+  name: FilePaths
+  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile_FilePaths
+  commentId: P:SpecProbe.Loader.LibraryFile.FilePaths
+  fullName: SpecProbe.Loader.LibraryFile.FilePaths
+  nameWithType: LibraryFile.FilePaths
+- uid: SpecProbe.Loader.LibraryFile.FilePaths*
+  name: FilePaths
+  href: api/SpecProbe.Loader.LibraryFile.html#SpecProbe_Loader_LibraryFile_FilePaths_
+  commentId: Overload:SpecProbe.Loader.LibraryFile.FilePaths
   isSpec: "True"
-  fullName: SpecProbe.Loader.LibraryFile.FilePath
-  nameWithType: LibraryFile.FilePath
+  fullName: SpecProbe.Loader.LibraryFile.FilePaths
+  nameWithType: LibraryFile.FilePaths
 - uid: SpecProbe.Loader.LibraryManager
   name: LibraryManager
   href: api/SpecProbe.Loader.LibraryManager.html

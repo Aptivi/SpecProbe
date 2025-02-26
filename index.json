@@ -12,7 +12,7 @@
   "api/SpecProbe.Loader.LibraryFile.html": {
     "href": "api/SpecProbe.Loader.LibraryFile.html",
     "title": "Class LibraryFile | SpecProbe API - Aptivi",
-    "summary": "Class LibraryFile A class to store information about a native library file or a stream. Inheritance object LibraryFile Namespace: SpecProbe.Loader Assembly: SpecProbe.Loader.dll Syntax public class LibraryFile Constructors | Edit this page View Source LibraryFile(string) Initializes the library file class instance Declaration public LibraryFile(string filePath) Parameters Type Name Description string filePath Path to the native library file. Properties | Edit this page View Source FilePath Path to the native library file. Declaration public string FilePath { get; } Property Value Type Description string"
+    "summary": "Class LibraryFile A class to store information about a native library file or a stream. Inheritance object LibraryFile Namespace: SpecProbe.Loader Assembly: SpecProbe.Loader.dll Syntax public class LibraryFile Constructors | Edit this page View Source LibraryFile(params string[]) Initializes the library file class instance Declaration public LibraryFile(params string[] filePaths) Parameters Type Name Description string[] filePaths Path to the native library file. Properties | Edit this page View Source FilePaths Paths or file names of the native library. Declaration public string[] FilePaths { get; } Property Value Type Description string[]"
   },
   "api/SpecProbe.Loader.LibraryManager.html": {
     "href": "api/SpecProbe.Loader.LibraryManager.html",
