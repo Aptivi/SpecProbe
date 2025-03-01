@@ -49,6 +49,7 @@ jobs:
             tools/*.zip
       - name: Notify build
         uses: tsickert/discord-webhook@v6.0.0
+        continue-on-error: true
         with:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
           content: "<:specprobe:1268904933697261670> ${{ steps.release-asset.outputs.SUBJECT }} <:specprobe:1268904933697261670>\n\n${{ steps.release-asset.outputs.BODY }}"
