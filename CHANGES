@@ -1,10 +1,10 @@
-This version of SpecProbe adds a way to allow you to specify multiple paths per library file class.
+This version of SpecProbe improves the symbol loader and the library loader to allow you to load symbols more quickly.
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added specifying multiple paths per library file class
+- `[*]` General improvements
 
 Review the commit history if you want to get a deep insight about the changes.
 
