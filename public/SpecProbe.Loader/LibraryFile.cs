@@ -34,6 +34,8 @@ namespace SpecProbe.Loader
         const int RTLD_GLOBAL = 8;
 
         internal IntPtr handle = IntPtr.Zero;
+        private bool usesNewLibdl = false;
+        private bool dlChecked = false;
 
         /// <summary>
         /// Paths or file names of the native library.
@@ -117,16 +119,7 @@ namespace SpecProbe.Loader
                 if (PlatformHelper.IsRunningFromMono())
                     result = Mono.dlsym(handle, symbolName);
                 else
-                {
-                    try
-                    {
-                        result = Linux.dlsym(handle, symbolName);
-                    }
-                    catch
-                    {
-                        result = Linux.dlsym_new(handle, symbolName);
-                    }
-                }
+                    result = LoadLinuxLibrarySymbolDl(symbolName);
                 found = result != IntPtr.Zero;
             }
             else
@@ -154,16 +147,7 @@ namespace SpecProbe.Loader
             if (PlatformHelper.IsRunningFromMono())
                 result = Mono.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
             else
-            {
-                try
-                {
-                    result = Linux.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
-                }
-                catch
-                {
-                    result = Linux.dlopen_new(path, RTLD_LAZY | RTLD_GLOBAL);
-                }
-            }
+                result = LoadLinuxLibraryDl(path);
             return result;
         }
 
@@ -177,6 +161,64 @@ namespace SpecProbe.Loader
         {
             var result = MacOSX.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
             return result;
+        }
+
+        private IntPtr LoadLinuxLibraryDl(string path)
+        {
+            if (dlChecked)
+            {
+                // We've already checked for libdl. Use appropriate path.
+                if (usesNewLibdl)
+                    return Linux.dlopen_new(path, RTLD_LAZY | RTLD_GLOBAL);
+                else
+                    return Linux.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+            }
+            else
+            {
+                // Now, we need to check for libdl.
+                IntPtr libPtr;
+                try
+                {
+                    libPtr = Linux.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+                    dlChecked = true;
+                }
+                catch
+                {
+                    usesNewLibdl = true;
+                    libPtr = Linux.dlopen_new(path, RTLD_LAZY | RTLD_GLOBAL);
+                    dlChecked = true;
+                }
+                return libPtr;
+            }
+        }
+
+        private IntPtr LoadLinuxLibrarySymbolDl(string symbolName)
+        {
+            if (dlChecked)
+            {
+                // We've already checked for libdl. Use appropriate path.
+                if (usesNewLibdl)
+                    return Linux.dlsym_new(handle, symbolName);
+                else
+                    return Linux.dlsym(handle, symbolName);
+            }
+            else
+            {
+                // Now, we need to check for libdl.
+                IntPtr libPtr;
+                try
+                {
+                    libPtr = Linux.dlsym(handle, symbolName);
+                    dlChecked = true;
+                }
+                catch
+                {
+                    usesNewLibdl = true;
+                    libPtr = Linux.dlsym_new(handle, symbolName);
+                    dlChecked = true;
+                }
+                return libPtr;
+            }
         }
 
         private static class Windows
