@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
+using Textify.General;
 
 namespace SpecProbe.Probers
 {
@@ -171,8 +172,8 @@ namespace SpecProbe.Probers
                 var status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, null, out uint displays);
                 if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
                     throw new Exception(
-                        $"CGGetOnlineDisplayList() probing part from Quartz failed: {status}\n" +
-                        $"Check out https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()} for more info."
+                        "CGGetOnlineDisplayList() probing part from Quartz failed:" + $" {status}" + "\n" +
+                        "Check out {0} for more info.".FormatString($"https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()}")
                     );
 
                 // Probe the screens
@@ -180,8 +181,8 @@ namespace SpecProbe.Probers
                 status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, ref screens, out displays);
                 if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
                     throw new Exception(
-                        $"CGGetOnlineDisplayList() screen listing part from Quartz failed: {status}\n" +
-                        $"Check out https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()} for more info."
+                        "CGGetOnlineDisplayList() screen listing part from Quartz failed:" + $" {status}" + "\n" +
+                        "Check out {0} for more info.".FormatString($"https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()}")
                     );
 
                 // Probe the model and the vendor number as the video card name

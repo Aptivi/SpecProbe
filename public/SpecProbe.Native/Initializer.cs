@@ -51,7 +51,7 @@ namespace SpecProbe.Native
                         Architecture.Arm64 =>
                             new LibraryManager(new LibraryFile(libDxPath)),
                         _ =>
-                            throw new PlatformNotSupportedException("32-bit systems are no longer supported. See https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/ for more info."),
+                            throw new PlatformNotSupportedException(string.Format("32-bit systems are no longer supported. See {0} for more info.", "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/")),
                     };
                     break;
                 case Platform.Linux:
@@ -64,7 +64,7 @@ namespace SpecProbe.Native
                             break;
                         case Architecture.Arm:
                         case Architecture.X86:
-                            throw new PlatformNotSupportedException("32-bit systems are no longer supported. See https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/ for more info.");
+                            throw new PlatformNotSupportedException(string.Format("32-bit systems are no longer supported. See {0} for more info.", "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/"));
                     }
                     break;
             }

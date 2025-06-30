@@ -55,9 +55,9 @@ namespace SpecProbe.Software.Platform
                 {
                     finalGraph.Add(ridGraph.Key);
                     var currentGraph = ridGraph.Value ??
-                        throw new Exception($"Unable to fetch the current graph for {ridGraph.Key}");
+                        throw new Exception(string.Format("Unable to fetch the current graph for {0}", ridGraph.Key));
                     var graphImport = (JsonArray?)currentGraph["#import"] ??
-                        throw new Exception($"Unable to fetch the current graph imports for {ridGraph.Key}");
+                        throw new Exception(string.Format("Unable to fetch the current graph imports for {0}", ridGraph.Key));
                     while (graphImport.Count > 0)
                     {
                         foreach (var element in graphImport)
@@ -66,9 +66,9 @@ namespace SpecProbe.Software.Platform
                                 finalGraph.Add(element.GetValue<string>());
                         }
                         currentGraph = graphInstance[finalGraph[finalGraph.Count - 1]] ??
-                            throw new Exception($"Unable to fetch the current graph for {ridGraph.Key}");
+                            throw new Exception(string.Format("Unable to fetch the current graph for {0}", ridGraph.Key));
                         graphImport = (JsonArray?)currentGraph["#import"] ??
-                            throw new Exception($"Unable to fetch the current graph imports for {ridGraph.Key}");
+                            throw new Exception(string.Format("Unable to fetch the current graph imports for {0}", ridGraph.Key));
                     }
                 }
             }

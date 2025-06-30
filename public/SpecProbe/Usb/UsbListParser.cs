@@ -131,7 +131,7 @@ namespace SpecProbe.Usb
             foreach (var vendor in vendors)
                 if (vendor.Id == vendorId)
                     return vendor;
-            throw new ArgumentException($"Vendor ID {vendorId} not found.");
+            throw new ArgumentException("Vendor ID {0} not found.".FormatString(vendorId));
         }
 
         /// <summary>
@@ -166,11 +166,11 @@ namespace SpecProbe.Usb
         {
             var devices = ListDevices(vendorId);
             if (devices.Length == 0)
-                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any devices.");
+                throw new ArgumentException("Vendor ID {0} doesn't have any devices.".FormatString(vendorId));
             foreach (var device in devices)
                 if (device.Id == deviceId)
                     return device;
-            throw new ArgumentException($"Device ID {deviceId} not found.");
+            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
         }
 
         /// <summary>
@@ -211,11 +211,11 @@ namespace SpecProbe.Usb
         {
             var devices = ListSubDevices(vendorId, deviceId);
             if (devices.Length == 0)
-                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any sub-devices that device ID {deviceId} uses.");
+                throw new ArgumentException("Vendor ID {0} doesn't have any sub-devices that device ID {1} uses.".FormatString(vendorId, deviceId));
             foreach (var device in devices)
                 if (device.VendorId == subVendorId && device.Id == subDeviceId)
                     return device;
-            throw new ArgumentException($"Device ID {deviceId} not found.");
+            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
         }
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace SpecProbe.Usb
             foreach (var classType in classes)
                 if (classType.Id == classId)
                     return classType;
-            throw new ArgumentException($"Class ID {classId} not found.");
+            throw new ArgumentException("Class ID {0} not found.".FormatString(classId));
         }
 
         /// <summary>
@@ -283,11 +283,11 @@ namespace SpecProbe.Usb
         {
             var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
-                throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
+                throw new ArgumentException("Class ID {0} doesn't have any subclasses.".FormatString(classId));
             foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return subclass;
-            throw new ArgumentException($"Subclass ID {subclassId} not found.");
+            throw new ArgumentException("Subclass ID {0} not found.".FormatString(subclassId));
         }
 
         /// <summary>
@@ -327,11 +327,11 @@ namespace SpecProbe.Usb
         {
             var protocols = ListProtocols(classId, subclassId);
             if (protocols.Length == 0)
-                throw new ArgumentException($"Class ID {classId} doesn't have any protocols that subclass ID {subclassId} uses.");
+                throw new ArgumentException("Class ID {0} doesn't have any protocols that subclass ID {1} uses.".FormatString(classId, subclassId));
             foreach (var protocolInfo in protocols)
                 if (protocolInfo.Id == protocolId)
                     return protocolInfo;
-            throw new ArgumentException($"Protocol ID {protocolId} not found.");
+            throw new ArgumentException("Protocol ID {0} not found.".FormatString(protocolId));
         }
 
         /// <summary>
@@ -363,7 +363,7 @@ namespace SpecProbe.Usb
             foreach (var audioTerminalType in audioTerminals)
                 if (audioTerminalType.Id == audioTerminalId)
                     return audioTerminalType;
-            throw new ArgumentException($"Audio terminal ID {audioTerminalId} not found.");
+            throw new ArgumentException("Audio terminal ID {0} not found.".FormatString(audioTerminalId));
         }
 
         /// <summary>
@@ -391,7 +391,7 @@ namespace SpecProbe.Usb
             foreach (var hidType in hids)
                 if (hidType.Id == hidId)
                     return hidType;
-            throw new ArgumentException($"HID ID {hidId} not found.");
+            throw new ArgumentException("HID ID {0} not found.".FormatString(hidId));
         }
 
         /// <summary>
@@ -419,7 +419,7 @@ namespace SpecProbe.Usb
             foreach (var hidItemType in hidItems)
                 if (hidItemType.Id == hidItemId)
                     return hidItemType;
-            throw new ArgumentException($"HID ID {hidItemId} not found.");
+            throw new ArgumentException("HID item ID {0} not found.".FormatString(hidItemId));
         }
 
         /// <summary>
@@ -447,7 +447,7 @@ namespace SpecProbe.Usb
             foreach (var physicalBiasType in physicalBiass)
                 if (physicalBiasType.Id == physicalBiasId)
                     return physicalBiasType;
-            throw new ArgumentException($"HID physical bias ID {physicalBiasId} not found.");
+            throw new ArgumentException("HID physical bias ID {0} not found.".FormatString(physicalBiasId));
         }
 
         /// <summary>
@@ -475,7 +475,7 @@ namespace SpecProbe.Usb
             foreach (var physicalDescriptorType in physicalDescriptors)
                 if (physicalDescriptorType.Id == physicalDescriptorId)
                     return physicalDescriptorType;
-            throw new ArgumentException($"HID physical descriptor ID {physicalDescriptorId} not found.");
+            throw new ArgumentException("HID physical descriptor ID {0} not found.".FormatString(physicalDescriptorId));
         }
 
         /// <summary>
@@ -503,7 +503,7 @@ namespace SpecProbe.Usb
             foreach (var hidUsagePage in hidUsagePages)
                 if (hidUsagePage.Id == hidUsagePageId)
                     return hidUsagePage;
-            throw new ArgumentException($"HID usage page ID {hidUsagePageId} not found.");
+            throw new ArgumentException("HID usage page ID {0} not found.".FormatString(hidUsagePageId));
         }
 
         /// <summary>
@@ -538,11 +538,11 @@ namespace SpecProbe.Usb
         {
             var hidUsages = ListHidUsages(hidUsagePageId);
             if (hidUsages.Length == 0)
-                throw new ArgumentException($"HID usage page ID {hidUsagePageId} doesn't have any HID Usage.");
+                throw new ArgumentException("HID usage page ID {0} doesn't have any HID Usage.".FormatString(hidUsagePageId));
             foreach (var hidUsage in hidUsages)
                 if (hidUsage.Id == hidUsageId)
                     return hidUsage;
-            throw new ArgumentException($"HID usage ID {hidUsageId} not found.");
+            throw new ArgumentException("HID usage ID {0} not found.".FormatString(hidUsageId));
         }
 
         /// <summary>
@@ -573,7 +573,7 @@ namespace SpecProbe.Usb
             foreach (var language in languages)
                 if (language.Id == languageId)
                     return language;
-            throw new ArgumentException($"Language ID {languageId} not found.");
+            throw new ArgumentException("Language ID {0} not found.".FormatString(languageId));
         }
 
         /// <summary>
@@ -608,11 +608,11 @@ namespace SpecProbe.Usb
         {
             var dialects = ListDialects(languageId);
             if (dialects.Length == 0)
-                throw new ArgumentException($"Language ID {languageId} doesn't have any dialects.");
+                throw new ArgumentException("Language ID {0} doesn't have any dialects.".FormatString(languageId));
             foreach (var dialect in dialects)
                 if (dialect.Id == dialectId)
                     return dialect;
-            throw new ArgumentException($"Language ID {dialectId} not found.");
+            throw new ArgumentException("Dialect ID {0} not found.".FormatString(dialectId));
         }
 
         /// <summary>
@@ -643,7 +643,7 @@ namespace SpecProbe.Usb
             foreach (var countryCodeType in countryCodes)
                 if (countryCodeType.Id == countryCodeId)
                     return countryCodeType;
-            throw new ArgumentException($"Country code ID {countryCodeId} not found.");
+            throw new ArgumentException("Country code ID {0} not found.".FormatString(countryCodeId));
         }
 
         /// <summary>
@@ -671,7 +671,7 @@ namespace SpecProbe.Usb
             foreach (var videoTerminalType in videoTerminals)
                 if (videoTerminalType.Id == videoTerminalId)
                     return videoTerminalType;
-            throw new ArgumentException($"Video terminal ID {videoTerminalId} not found.");
+            throw new ArgumentException("Video terminal ID {0} not found.".FormatString(videoTerminalId));
         }
 
         /// <summary>

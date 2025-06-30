@@ -59,7 +59,7 @@ namespace SpecProbe.Pci
             foreach (var vendor in vendors)
                 if (vendor.Id == vendorId)
                     return vendor;
-            throw new ArgumentException($"Vendor ID {vendorId} not found.");
+            throw new ArgumentException("Vendor ID {0} not found.".FormatString(vendorId));
         }
 
         /// <summary>
@@ -94,11 +94,11 @@ namespace SpecProbe.Pci
         {
             var devices = ListDevices(vendorId);
             if (devices.Length == 0)
-                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any devices.");
+                throw new ArgumentException("Vendor ID {0} doesn't have any devices.".FormatString(vendorId));
             foreach (var device in devices)
                 if (device.Id == deviceId)
                     return device;
-            throw new ArgumentException($"Device ID {deviceId} not found.");
+            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
         }
 
         /// <summary>
@@ -139,11 +139,11 @@ namespace SpecProbe.Pci
         {
             var devices = ListSubDevices(vendorId, deviceId);
             if (devices.Length == 0)
-                throw new ArgumentException($"Vendor ID {vendorId} doesn't have any sub-devices that device ID {deviceId} uses.");
+                throw new ArgumentException("Vendor ID {0} doesn't have any sub-devices that device ID {1} uses.".FormatString(vendorId, deviceId));
             foreach (var device in devices)
                 if (device.VendorId == subVendorId && device.Id == subDeviceId)
                     return device;
-            throw new ArgumentException($"Device ID {deviceId} not found.");
+            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace SpecProbe.Pci
             foreach (var classType in classes)
                 if (classType.Id == classId)
                     return classType;
-            throw new ArgumentException($"Class ID {classId} not found.");
+            throw new ArgumentException("Class ID {0} not found.".FormatString(classId));
         }
 
         /// <summary>
@@ -211,11 +211,11 @@ namespace SpecProbe.Pci
         {
             var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
-                throw new ArgumentException($"Class ID {classId} doesn't have any subclasses.");
+                throw new ArgumentException("Class ID {0} doesn't have any subclasses.".FormatString(classId));
             foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return subclass;
-            throw new ArgumentException($"Subclass ID {subclassId} not found.");
+            throw new ArgumentException("Subclass ID {0} not found.".FormatString(subclassId));
         }
 
         /// <summary>
@@ -255,11 +255,11 @@ namespace SpecProbe.Pci
         {
             var interfaces = ListInterfaces(classId, subclassId);
             if (interfaces.Length == 0)
-                throw new ArgumentException($"Class ID {classId} doesn't have any interfaces that subclass ID {subclassId} uses.");
+                throw new ArgumentException("Class ID {0} doesn't have any interfaces that subclass ID {1} uses.".FormatString(classId, subclassId));
             foreach (var interfaceInfo in interfaces)
                 if (interfaceInfo.Id == interfaceId)
                     return interfaceInfo;
-            throw new ArgumentException($"Interface ID {interfaceId} not found.");
+            throw new ArgumentException("Interface ID {0} not found.".FormatString(interfaceId));
         }
 
         /// <summary>

@@ -83,7 +83,7 @@ namespace SpecProbe.Loader
                 foreach (var path in item.FilePaths)
                 {
                     if (processed.Contains(path))
-                        throw new Exception($"Duplicate library files found. [{path}]");
+                        throw new Exception("Duplicate library files found." + $" [{path}]");
                     processed.Add(path);
                 }
             }

@@ -61,7 +61,7 @@ namespace SpecProbe.Loader
                     else
                         throw new PlatformNotSupportedException("Unsupported platform.");
                     if (handle == IntPtr.Zero)
-                        throw new InvalidOperationException($"This library or one of its dependencies failed to load: [0x{Marshal.GetLastWin32Error():X8}]");
+                        throw new InvalidOperationException("This library or one of its dependencies failed to load:" + $" [0x{Marshal.GetLastWin32Error():X8}]");
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +73,7 @@ namespace SpecProbe.Loader
 
             // Throw an exception if nothing is loaded
             string[] renderedExceptions = exceptions.Select((tuple) => $"{tuple.Item1}: {tuple.Item2}").ToArray();
-            throw new InvalidOperationException($"The libraries failed to load\n\n{string.Join("\n", exceptions)}");
+            throw new InvalidOperationException("The libraries failed to load" + $"\n\n{string.Join("\n", exceptions)}");
         }
 
         internal IntPtr LoadSymbol(string symbolName)
@@ -83,7 +83,7 @@ namespace SpecProbe.Loader
 
             // Check handle
             if (handle == IntPtr.Zero)
-                throw new InvalidOperationException($"Library must be loaded with exported symbol {symbolName}.");
+                throw new InvalidOperationException(string.Format("Library must be loaded with exported symbol {0}.", symbolName));
 
             // Try to find a symbol
             if (PlatformHelper.IsOnWindows())

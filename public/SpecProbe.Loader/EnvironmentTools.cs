@@ -65,7 +65,7 @@ namespace SpecProbe.Loader
             IntPtr varNamePtr = Marshal.StringToHGlobalAnsi(variable);
             int result = getenv_s(ref size, IntPtr.Zero, 0, varNamePtr);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be get. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be get.", variable) + $" [0x{Marshal.GetLastWin32Error():X8}]");
 
             // Check the size
             if (size == 0)
@@ -75,7 +75,7 @@ namespace SpecProbe.Loader
             IntPtr buffer = Marshal.AllocHGlobal(size * sizeof(char));
             result = getenv_s(ref size, buffer, size, varNamePtr);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be get with buffer size {size}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be get with buffer size {1}.", variable, size) + $" [0x{Marshal.GetLastWin32Error():X8}]");
 
             // Convert the value to a string
             string value = Marshal.PtrToStringAnsi(buffer);
@@ -136,7 +136,7 @@ namespace SpecProbe.Loader
         {
             int result = _putenv_s(variable, value);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace SpecProbe.Loader
             string oldValue = GetEnvironmentVariableUcrt(variable);
             int result = _putenv_s(variable, oldValue + value);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace SpecProbe.Loader
             {
                 int result = _putenv_s(variable, value);
                 if (result != 0)
-                    throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                    throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
             }
         }
 
@@ -177,7 +177,7 @@ namespace SpecProbe.Loader
         {
             int result = setenv(variable, value, 1);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace SpecProbe.Loader
             string oldValue = GetEnvironmentVariableLibc(variable);
             int result = setenv(variable, oldValue + value, 1);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace SpecProbe.Loader
             string oldValue = GetEnvironmentVariableLibc(variable);
             int result = setenv(variable, value, 0);
             if (result != 0)
-                throw new Exception($"Environment {variable} can't be set to {value}. [0x{Marshal.GetLastWin32Error():X8}]");
+                throw new Exception(string.Format("Environment {0} can't be set to {1}.", variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
 
         #region Interop
