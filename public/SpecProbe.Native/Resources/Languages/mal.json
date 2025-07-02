@@ -1,0 +1,17 @@
+{
+  "lang": "mal",
+  "name": "Malay",
+  "cultures": [
+    "ms",
+    "ms-BN",
+    "ms-ID",
+    "ms-MY",
+    "ms-SG"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Sistem 32-bit tidak lagi disokong. Lihat {0} untuk mendapatkan maklumat lanjut."
+    }
+  ]
+}

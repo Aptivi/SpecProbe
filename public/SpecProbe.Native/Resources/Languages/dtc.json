@@ -1,0 +1,20 @@
+{
+  "lang": "dtc",
+  "name": "Dutch",
+  "cultures": [
+    "nl",
+    "nl-AW",
+    "nl-BE",
+    "nl-BQ",
+    "nl-CW",
+    "nl-NL",
+    "nl-SR",
+    "nl-SX"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-bits systemen worden niet langer ondersteund. Zie {0} voor meer informatie."
+    }
+  ]
+}

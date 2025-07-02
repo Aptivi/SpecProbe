@@ -1,0 +1,135 @@
+{
+  "lang": "rmn",
+  "name": "Romanian",
+  "cultures": [
+    "ro",
+    "ro-MD",
+    "ro-RO"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWN",
+      "text": "Necunoscut"
+    },
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWNVENDOR",
+      "text": "Furnizor necunoscut"
+    },
+    {
+      "loc": "SPECPROBE_PARTS_UNKNOWNGPU",
+      "text": "Placă grafică necunoscută"
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND",
+      "text": "ID-ul furnizorului {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES",
+      "text": "ID-ul furnizorului {0} nu are niciun dispozitiv."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND",
+      "text": "ID-ul dispozitivului {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES",
+      "text": "ID-ul furnizorului {0} nu are niciun subdispozitiv utilizat de ID-ul dispozitivului {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND",
+      "text": "ID-ul clasei {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES",
+      "text": "ID-ul clasei {0} nu are nicio subclasă."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND",
+      "text": "ID-ul subclasei {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES",
+      "text": "ID-ul clasei {0} nu are nicio interfață utilizată de ID-ul subclasei {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND",
+      "text": "ID-ul interfeței {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS",
+      "text": "Nu se poate obține starea memoriei"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED",
+      "text": "Probarea componentei de la Quartz prin CGGetOnlineDisplayList() a eșuat:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED",
+      "text": "Probarea componentei de la Quartz prin listarea ecranului CGGetOnlineDisplayList() a eșuat:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS",
+      "text": "Nu se pot analiza plăcile video."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS",
+      "text": "ID-ul clasei {0} nu are niciun protocol utilizat de ID-ul subclasei {1}."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND",
+      "text": "ID-ul protocolului {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND",
+      "text": "ID-ul terminalului audio {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND",
+      "text": "ID-ul HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND",
+      "text": "ID-ul elementului HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND",
+      "text": "ID-ul de polarizare fizică HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND",
+      "text": "ID-ul descriptorului fizic HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND",
+      "text": "ID-ul paginii de utilizare HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES",
+      "text": "ID-ul paginii de utilizare HID {0} nu are nicio utilizare HID."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND",
+      "text": "ID-ul de utilizare HID {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND",
+      "text": "ID-ul limbii {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS",
+      "text": "ID-ul limbii {0} nu are niciun dialect."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND",
+      "text": "ID-ul dialectului {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND",
+      "text": "ID-ul codului de țară {0} nu a fost găsit."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND",
+      "text": "ID-ul terminalului video {0} nu a fost găsit."
+    }
+  ]
+}

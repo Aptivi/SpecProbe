@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -22,6 +22,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using SpecProbe.Loader;
+using SpecProbe.Native.Languages;
 using SpecProbe.Software.Platform;
 
 namespace SpecProbe.Native
@@ -51,7 +52,7 @@ namespace SpecProbe.Native
                         Architecture.Arm64 =>
                             new LibraryManager(new LibraryFile(libDxPath)),
                         _ =>
-                            throw new PlatformNotSupportedException(string.Format("32-bit systems are no longer supported. See {0} for more info.", "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/")),
+                            throw new PlatformNotSupportedException(string.Format(LanguageTools.GetLocalized("SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED"), "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/")),
                     };
                     break;
                 case Platform.Linux:
@@ -64,7 +65,7 @@ namespace SpecProbe.Native
                             break;
                         case Architecture.Arm:
                         case Architecture.X86:
-                            throw new PlatformNotSupportedException(string.Format("32-bit systems are no longer supported. See {0} for more info.", "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/"));
+                            throw new PlatformNotSupportedException(string.Format(LanguageTools.GetLocalized("SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED"), "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/"));
                     }
                     break;
             }

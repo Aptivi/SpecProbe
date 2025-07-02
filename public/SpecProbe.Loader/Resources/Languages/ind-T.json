@@ -1,0 +1,46 @@
+{
+  "lang": "ind-T",
+  "name": "Hindi",
+  "cultures": [
+    "hi",
+    "hi-IN"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "पर्यावरण {0} प्राप्त नहीं किया जा सकता।"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "पर्यावरण {0} बफर आकार {1} के साथ प्राप्त नहीं किया जा सकता।"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "पर्यावरण {0} को {1} पर सेट नहीं किया जा सकता।"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "असमर्थित प्लेटफ़ॉर्म।"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "यह लाइब्रेरी या इसकी कोई निर्भरता लोड होने में विफल रही:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "लाइब्रेरी लोड होने में विफल रही"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "लाइब्रेरी को निर्यात किए गए प्रतीक {0} के साथ लोड किया जाना चाहिए।"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "मूल लाइब्रेरी फ़ाइल का पथ निर्दिष्ट नहीं है"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "डुप्लिकेट लाइब्रेरी फ़ाइलें पाई गईं।"
+    }
+  ]
+}

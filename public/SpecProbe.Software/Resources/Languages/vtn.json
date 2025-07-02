@@ -1,0 +1,34 @@
+{
+  "lang": "vtn",
+  "name": "Vietnamese",
+  "cultures": [
+    "vi",
+    "vi-VN"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "Chức năng này chỉ được hỗ trợ trên Unix."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "Hệ điều hành này không được hỗ trợ."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "Không thể lấy biểu đồ"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "Không thể lấy danh sách thời gian chạy"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "Không thể lấy biểu đồ hiện tại cho {0}"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "Không thể lấy các bản nhập biểu đồ hiện tại cho {0}"
+    }
+  ]
+}

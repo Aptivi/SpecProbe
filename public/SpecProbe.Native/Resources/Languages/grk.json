@@ -1,0 +1,15 @@
+{
+  "lang": "grk",
+  "name": "Greek",
+  "cultures": [
+    "el",
+    "el-CY",
+    "el-GR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Τα συστήματα 32-bit δεν υποστηρίζονται πλέον. Δείτε {0} για περισσότερες πληροφορίες."
+    }
+  ]
+}

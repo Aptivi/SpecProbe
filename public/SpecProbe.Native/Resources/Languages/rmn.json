@@ -1,0 +1,15 @@
+{
+  "lang": "rmn",
+  "name": "Romanian",
+  "cultures": [
+    "ro",
+    "ro-MD",
+    "ro-RO"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Sistemele pe 32 de biți nu mai sunt acceptate. Consultați {0} pentru mai multe informații."
+    }
+  ]
+}

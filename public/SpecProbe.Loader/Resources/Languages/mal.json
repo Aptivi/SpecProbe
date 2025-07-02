@@ -1,0 +1,49 @@
+{
+  "lang": "mal",
+  "name": "Malay",
+  "cultures": [
+    "ms",
+    "ms-BN",
+    "ms-ID",
+    "ms-MY",
+    "ms-SG"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "Persekitaran {0} tidak boleh diperolehi."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "Persekitaran {0} tidak boleh diperoleh dengan saiz penimbal {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "Persekitaran {0} tidak boleh ditetapkan kepada {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "Platform tidak disokong."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "Pustaka ini atau salah satu kebergantungannya gagal dimuatkan:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "Perpustakaan gagal dimuatkan"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "Pustaka mesti dimuatkan dengan simbol yang dieksport {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "Laluan ke fail perpustakaan asli tidak ditentukan"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "Fail perpustakaan pendua ditemui."
+    }
+  ]
+}

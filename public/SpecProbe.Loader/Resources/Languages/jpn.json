@@ -1,0 +1,46 @@
+{
+  "lang": "jpn",
+  "name": "Japanese",
+  "cultures": [
+    "ja",
+    "ja-JP"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "環境 {0} を取得できません。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "環境 {0} はバッファサイズ {1} では取得できません。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "環境 {0} を {1} に設定できません。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "サポートされていないプラットフォームです。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "このライブラリまたはその依存関係の 1 つを読み込めませんでした:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "ライブラリの読み込みに失敗しました"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "ライブラリはエクスポートされたシンボル {0} を使用して読み込む必要があります。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "ネイティブ ライブラリ ファイルへのパスが指定されていません"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "重複したライブラリ ファイルが見つかりました。"
+    }
+  ]
+}

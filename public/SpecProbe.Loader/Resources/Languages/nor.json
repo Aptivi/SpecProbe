@@ -1,0 +1,50 @@
+{
+  "lang": "nor",
+  "name": "Norwegian",
+  "cultures": [
+    "nb",
+    "nb-NO",
+    "nb-SJ",
+    "nn",
+    "nn-NO",
+    "no"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "Miljø {0} kan ikke hentes."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "Miljø {0} kan ikke hentes med bufferstørrelse {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "Miljø {0} kan ikke settes til {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "Plattformen støttes ikke."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "Dette biblioteket eller en av dets avhengigheter kunne ikke lastes inn:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "Bibliotekene kunne ikke lastes inn."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "Biblioteket må lastes inn med eksportsymbolet {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "Banen til den opprinnelige bibliotekfilen er ikke angitt."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "Duplikate bibliotekfiler funnet."
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
@@ -158,12 +159,12 @@ namespace SpecProbe.Probers
                     dwLength = (uint)Marshal.SizeOf(typeof(PlatformWindowsInterop.MEMORYSTATUSEX)),
                 };
                 if (!PlatformWindowsInterop.GlobalMemoryStatusEx(ref status))
-                    throw new Exception("Can't get memory status");
+                    throw new Exception(LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS"));
                 totalMemory = (long)status.ullTotalPhys;
 
                 // Get physically installed memory to all the RAM slots
                 if (!PlatformWindowsInterop.GetPhysicallyInstalledSystemMemory(ref totalPhysicalMemory))
-                    throw new Exception("Can't get memory status");
+                    throw new Exception(LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS"));
                 totalPhysicalMemory *= 1024;
             }
             catch (Exception ex)

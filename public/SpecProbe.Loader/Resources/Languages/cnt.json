@@ -1,0 +1,49 @@
+{
+  "lang": "cnt",
+  "name": "Chinese (Traditional)",
+  "cultures": [
+    "zh",
+    "zh-Hant",
+    "zh-Hant-HK",
+    "zh-Hant-MO",
+    "zh-Hant-TW"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "Wúfǎ qǔdé huánjìng {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "Wúfǎ qǔdé huǎnchōng qū dàxiǎo wèi {1} de huánjìng {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "Wúfǎ jiāng huánjìng {0} shèdìng wèi {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "Píngtái bù shòu zhīyuán."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "Cǐ kù huò qí yīlài xiàng zhī yī zài rù shībài:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "Kù jiā zǎi shībài"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "bìxū shǐyòng huì chū fúhào {0} zài rù kù."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "Wèi zhǐdìng běn jī kù dǎng'àn de lùjìng"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "fāxiàn chóngfù de kù wénjiàn."
+    }
+  ]
+}

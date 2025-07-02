@@ -1,0 +1,24 @@
+{
+  "lang": "ptg",
+  "name": "Portuguese",
+  "cultures": [
+    "pt",
+    "pt-AO",
+    "pt-CH",
+    "pt-CV",
+    "pt-GQ",
+    "pt-GW",
+    "pt-LU",
+    "pt-MO",
+    "pt-MZ",
+    "pt-PT",
+    "pt-ST",
+    "pt-TL"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Os sistemas de 32 bits já não são suportados. Consulte {0} para mais informações."
+    }
+  ]
+}

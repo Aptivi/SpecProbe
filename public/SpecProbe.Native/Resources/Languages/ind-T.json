@@ -1,0 +1,14 @@
+{
+  "lang": "ind-T",
+  "name": "Hindi",
+  "cultures": [
+    "hi",
+    "hi-IN"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-बिट सिस्टम अब समर्थित नहीं हैं। अधिक जानकारी के लिए {0} देखें।"
+    }
+  ]
+}

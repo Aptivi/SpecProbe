@@ -1,0 +1,33 @@
+{
+  "lang": "brz",
+  "name": "Portuguese (Brazil)",
+  "cultures": [
+    "pt-BR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "Esta função é suportada apenas no Unix."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "Este sistema operacional não é suportado."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "Não é possível buscar o gráfico"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "Não é possível buscar a lista de tempos de execução"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "Não é possível buscar o gráfico atual para {0}"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "Não é possível buscar as importações de gráficos atuais para {0}"
+    }
+  ]
+}

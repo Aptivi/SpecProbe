@@ -1,0 +1,42 @@
+{
+  "lang": "chi-T",
+  "name": "Chinese (Simplified)",
+  "cultures": [
+    "zh",
+    "zh-CN",
+    "zh-HK",
+    "zh-MO",
+    "zh-SG",
+    "zh-Hans",
+    "zh-Hans-CN",
+    "zh-Hans-HK",
+    "zh-Hans-MO",
+    "zh-Hans-SG"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "此功能仅在 Unix 上受支持。"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "此操作系统不受支持。"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "无法获取图表"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "无法获取运行时列表"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "无法获取 {0} 的当前图表"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "无法获取 {0} 的当前图表导入"
+    }
+  ]
+}

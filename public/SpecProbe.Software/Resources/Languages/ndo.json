@@ -1,0 +1,34 @@
+{
+  "lang": "ndo",
+  "name": "Indonesian",
+  "cultures": [
+    "id",
+    "id-ID"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "Fungsi ini hanya didukung pada Unix."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "Sistem operasi ini tidak didukung."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "Tidak dapat mengambil grafik"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "Tidak dapat mengambil daftar runtime"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "Tidak dapat mengambil grafik saat ini untuk {0}"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "Tidak dapat mengambil impor grafik saat ini untuk {0}"
+    }
+  ]
+}

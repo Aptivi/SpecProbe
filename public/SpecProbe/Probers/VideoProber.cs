@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Native.Helpers;
 using SpecProbe.Native.Structs;
 using SpecProbe.Parts.Types;
@@ -172,7 +173,7 @@ namespace SpecProbe.Probers
                 var status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, null, out uint displays);
                 if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
                     throw new Exception(
-                        "CGGetOnlineDisplayList() probing part from Quartz failed:" + $" {status}" + "\n" +
+                        LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED") + $" {status}" + "\n" +
                         "Check out {0} for more info.".FormatString($"https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()}")
                     );
 
@@ -181,7 +182,7 @@ namespace SpecProbe.Probers
                 status = PlatformMacInterop.CGGetOnlineDisplayList(uint.MaxValue, ref screens, out displays);
                 if (status != PlatformMacInterop.CGError.kCGErrorSuccess)
                     throw new Exception(
-                        "CGGetOnlineDisplayList() screen listing part from Quartz failed:" + $" {status}" + "\n" +
+                        LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED") + $" {status}" + "\n" +
                         "Check out {0} for more info.".FormatString($"https://developer.apple.com/documentation/coregraphics/cgerror/{status.ToString().ToLower()}")
                     );
 
@@ -223,7 +224,7 @@ namespace SpecProbe.Probers
                 // Employ libdxhelper to get info about GPUs
                 bool result = VideoHelper.GetGpus().Invoke(out IntPtr gpus, out int length);
                 if (!result)
-                    throw new Exception("Can't parse video cards.");
+                    throw new Exception(LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS"));
 
                 // Enumerate parsed GPUs
                 for (int i = 0; i < length - 1; i++)

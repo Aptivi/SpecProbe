@@ -1,0 +1,47 @@
+{
+  "lang": "grk",
+  "name": "Greek",
+  "cultures": [
+    "el",
+    "el-CY",
+    "el-GR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "Δεν είναι δυνατή η λήψη του περιβάλλοντος {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "Δεν είναι δυνατή η λήψη του περιβάλλοντος {0} με μέγεθος buffer {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "Το περιβάλλον {0} δεν μπορεί να οριστεί σε {1}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "Μη υποστηριζόμενη πλατφόρμα."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "Αυτή η βιβλιοθήκη ή μία από τις εξαρτήσεις της απέτυχε να φορτωθεί:"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "Οι βιβλιοθήκες απέτυχαν να φορτωθούν"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "Η βιβλιοθήκη πρέπει να φορτωθεί με το εξαγόμενο σύμβολο {0}."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "Δεν έχει καθοριστεί η διαδρομή προς το εγγενές αρχείο βιβλιοθήκης"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "Βρέθηκαν διπλότυπα αρχεία βιβλιοθήκης."
+    }
+  ]
+}

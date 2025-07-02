@@ -1,0 +1,180 @@
+{
+  "lang": "fre",
+  "name": "French",
+  "cultures": [
+    "fr",
+    "fr-029",
+    "fr-BE",
+    "fr-BF",
+    "fr-BI",
+    "fr-BJ",
+    "fr-BL",
+    "fr-CA",
+    "fr-CD",
+    "fr-CF",
+    "fr-CG",
+    "fr-CH",
+    "fr-CI",
+    "fr-CM",
+    "fr-DJ",
+    "fr-DZ",
+    "fr-FR",
+    "fr-GA",
+    "fr-GF",
+    "fr-GN",
+    "fr-GP",
+    "fr-GQ",
+    "fr-HT",
+    "fr-KM",
+    "fr-LU",
+    "fr-MA",
+    "fr-MC",
+    "fr-MF",
+    "fr-MG",
+    "fr-ML",
+    "fr-MQ",
+    "fr-MR",
+    "fr-MU",
+    "fr-NC",
+    "fr-NE",
+    "fr-PF",
+    "fr-PM",
+    "fr-RE",
+    "fr-RW",
+    "fr-SC",
+    "fr-SN",
+    "fr-SY",
+    "fr-TD",
+    "fr-TG",
+    "fr-TN",
+    "fr-VU",
+    "fr-WF",
+    "fr-YT"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWN",
+      "text": "Inconnu"
+    },
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWNVENDOR",
+      "text": "Fournisseur inconnu"
+    },
+    {
+      "loc": "SPECPROBE_PARTS_UNKNOWNGPU",
+      "text": "Carte graphique inconnue"
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND",
+      "text": "ID fournisseur {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES",
+      "text": "L'ID fournisseur {0} ne possède aucun périphérique."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND",
+      "text": "ID périphérique {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES",
+      "text": "L'ID fournisseur {0} ne possède aucun sous-périphérique utilisé par l'ID périphérique {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND",
+      "text": "ID de classe {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES",
+      "text": "L'ID de classe {0} ne possède aucune sous-classe."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND",
+      "text": "ID de sous-classe {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES",
+      "text": "L'ID de classe {0} ne possède aucune interface utilisée par l'ID de sous-classe {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND",
+      "text": "ID d'interface {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS",
+      "text": "Impossible d'obtenir l'état de la mémoire"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED",
+      "text": "Échec de la partie de sondage CGGetOnlineDisplayList() depuis Quartz :"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED",
+      "text": "Échec de la partie de liste d'écran CGGetOnlineDisplayList() depuis Quartz :"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS",
+      "text": "Impossible d'analyser les cartes vidéo."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS",
+      "text": "L'ID de classe {0} ne possède aucun protocole utilisé par l'ID de sous-classe {1}."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND",
+      "text": "ID de protocole {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND",
+      "text": "ID de terminal audio {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND",
+      "text": "ID HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND",
+      "text": "ID d'élément HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND",
+      "text": "ID de biais physique HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND",
+      "text": "ID de descripteur physique HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND",
+      "text": "ID de page d'utilisation HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES",
+      "text": "ID de page d'utilisation HID {0} n'a aucune utilisation HID."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND",
+      "text": "ID d'utilisation HID {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND",
+      "text": "ID de langue {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS",
+      "text": "ID de langue {0} n'a aucun dialecte."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND",
+      "text": "ID de dialecte {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND",
+      "text": "ID de code pays {0} introuvable."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND",
+      "text": "ID de terminal vidéo {0} introuvable."
+    }
+  ]
+}

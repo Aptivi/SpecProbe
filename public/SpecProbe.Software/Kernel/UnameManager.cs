@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Software.Languages;
 using SpecProbe.Software.Platform;
 using System;
 using System.Diagnostics;
@@ -39,7 +40,7 @@ namespace SpecProbe.Software.Kernel
         {
             // Check the platform
             if (!PlatformHelper.IsOnUnix())
-                throw new PlatformNotSupportedException("This function is only supported on Unix.");
+                throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX"));
 
             // Check the uname executable paths
             string UnameExecutable = File.Exists("/usr/bin/uname") ? "/usr/bin/uname" : "/bin/uname";

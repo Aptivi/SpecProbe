@@ -1,0 +1,43 @@
+{
+  "lang": "ger",
+  "name": "German",
+  "cultures": [
+    "de",
+    "de-AT",
+    "de-BE",
+    "de-CH",
+    "de-DE",
+    "de-IT",
+    "de-LI",
+    "de-LU",
+    "nds",
+    "nds-DE",
+    "nds-NL"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "Diese Funktion wird nur unter Unix unterstützt."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "Dieses Betriebssystem wird nicht unterstützt."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "Der Graph konnte nicht abgerufen werden."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "Die Laufzeitliste konnte nicht abgerufen werden."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "Der aktuelle Graph für {0} konnte nicht abgerufen werden."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "Die aktuellen Graphimporte für {0} konnten nicht abgerufen werden."
+    }
+  ]
+}

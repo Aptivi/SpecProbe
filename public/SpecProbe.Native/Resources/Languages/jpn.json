@@ -1,0 +1,14 @@
+{
+  "lang": "jpn",
+  "name": "Japanese",
+  "cultures": [
+    "ja",
+    "ja-JP"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32ビットシステムはサポートされなくなりました。詳細については{0}を参照してください。"
+    }
+  ]
+}

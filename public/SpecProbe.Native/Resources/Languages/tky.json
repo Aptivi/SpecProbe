@@ -1,0 +1,15 @@
+{
+  "lang": "tky",
+  "name": "Turkish",
+  "cultures": [
+    "tr",
+    "tr-CY",
+    "tr-TR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32 bit sistemler artık desteklenmiyor. Daha fazla bilgi için {0}'a bakın."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "lang": "ltn",
+  "name": "Latin",
+  "cultures": [
+    "la",
+    "la-VA"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Systema 32-bit iam non sustinentur. Vide {0} pro pluribus informationibus."
+    }
+  ]
+}

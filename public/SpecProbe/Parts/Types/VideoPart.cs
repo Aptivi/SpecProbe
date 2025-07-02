@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Pci;
 
 namespace SpecProbe.Parts.Types
@@ -26,7 +27,7 @@ namespace SpecProbe.Parts.Types
     /// </summary>
     public class VideoPart : BaseHardwarePartInfo, IHardwarePartInfo
     {
-        private string videoCardName = "Unknown";
+        private string videoCardName = LanguageTools.GetLocalized("SPECPROBE_COMMON_UNKNOWN");
         private uint vendorId;
         private uint modelId;
 
@@ -49,7 +50,7 @@ namespace SpecProbe.Parts.Types
         public string VideoCardPciName =>
             PciListParser.IsDeviceRegistered((int)vendorId, (int)modelId) ?
             PciListParser.GetDevice((int)vendorId, (int)modelId).Name :
-            "Unknown Graphics Card";
+            LanguageTools.GetLocalized("SPECPROBE_PARTS_UNKNOWNGPU");
 
         /// <summary>
         /// Video card PCI name from the PCI ID database
@@ -57,7 +58,7 @@ namespace SpecProbe.Parts.Types
         public string VendorName =>
             PciListParser.IsVendorRegistered((int)vendorId) ?
             PciListParser.GetVendor((int)vendorId).Name :
-            "Unknown Vendor";
+            LanguageTools.GetLocalized("SPECPROBE_COMMON_UNKNOWNVENDOR");
 
         /// <summary>
         /// Vendor ID for this video card

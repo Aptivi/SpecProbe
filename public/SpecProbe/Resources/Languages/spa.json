@@ -1,0 +1,159 @@
+{
+  "lang": "spa",
+  "name": "Spanish",
+  "cultures": [
+    "es",
+    "es-419",
+    "es-AR",
+    "es-BO",
+    "es-BR",
+    "es-BZ",
+    "es-CL",
+    "es-CO",
+    "es-CR",
+    "es-CU",
+    "es-DO",
+    "es-EC",
+    "es-ES",
+    "es-GQ",
+    "es-GT",
+    "es-HN",
+    "es-MX",
+    "es-NI",
+    "es-PA",
+    "es-PE",
+    "es-PH",
+    "es-PR",
+    "es-PY",
+    "es-SV",
+    "es-US",
+    "es-UY",
+    "es-VE"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWN",
+      "text": "Desconocido"
+    },
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWNVENDOR",
+      "text": "Proveedor desconocido"
+    },
+    {
+      "loc": "SPECPROBE_PARTS_UNKNOWNGPU",
+      "text": "Tarjeta gráfica desconocida"
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND",
+      "text": "ID de proveedor {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES",
+      "text": "El ID de proveedor {0} no tiene ningún dispositivo."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND",
+      "text": "ID de dispositivo {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES",
+      "text": "El ID de proveedor {0} no tiene ningún subdispositivo que utilice el ID de dispositivo {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND",
+      "text": "ID de clase {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES",
+      "text": "ID de clase {0} no tiene ninguna subclase."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND",
+      "text": "ID de subclase {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES",
+      "text": "El ID de clase {0} no tiene ninguna interfaz que utilice el ID de subclase {1}."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND",
+      "text": "ID de interfaz {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS",
+      "text": "No se puede obtener el estado de la memoria."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED",
+      "text": "CGGetOnlineDisplayList() al sondear parte de Quartz:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED",
+      "text": "CGGetOnlineDisplayList() al listar parte de Quartz:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS",
+      "text": "No se pueden analizar las tarjetas de vídeo."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS",
+      "text": "El ID de clase {0} no tiene ningún protocolo que utilice el ID de subclase {1}."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND",
+      "text": "ID de protocolo {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND",
+      "text": "ID de terminal de audio {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND",
+      "text": "ID de HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND",
+      "text": "ID de elemento HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND",
+      "text": "ID de sesgo físico HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND",
+      "text": "ID de descriptor físico HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND",
+      "text": "ID de página de uso HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES",
+      "text": "ID de página de uso HID {0} no tiene ningún uso HID."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND",
+      "text": "ID de uso HID {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND",
+      "text": "ID de idioma {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS",
+      "text": "ID de idioma {0} no tiene ningún dialecto."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND",
+      "text": "ID de dialecto {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND",
+      "text": "ID de código de país {0} no encontrado."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND",
+      "text": "ID de terminal de vídeo {0} no encontrado."
+    }
+  ]
+}

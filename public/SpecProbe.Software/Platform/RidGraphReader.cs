@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Software.Languages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,9 +46,9 @@ namespace SpecProbe.Software.Platform
             // Sync with this source: https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json
             string graphJson = GetRidGraphJson();
             var fullGraph = JsonNode.Parse(graphJson) ??
-                throw new Exception("Unable to fetch the graph");
+                throw new Exception(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH"));
             var graphInstance = fullGraph["runtimes"] ??
-                throw new Exception("Unable to fetch the runtimes list");
+                throw new Exception(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST"));
             List<string> finalGraph = [];
             foreach (var ridGraph in graphInstance.AsObject())
             {
@@ -55,9 +56,9 @@ namespace SpecProbe.Software.Platform
                 {
                     finalGraph.Add(ridGraph.Key);
                     var currentGraph = ridGraph.Value ??
-                        throw new Exception(string.Format("Unable to fetch the current graph for {0}", ridGraph.Key));
+                        throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH"), ridGraph.Key));
                     var graphImport = (JsonArray?)currentGraph["#import"] ??
-                        throw new Exception(string.Format("Unable to fetch the current graph imports for {0}", ridGraph.Key));
+                        throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT"), ridGraph.Key));
                     while (graphImport.Count > 0)
                     {
                         foreach (var element in graphImport)
@@ -66,9 +67,9 @@ namespace SpecProbe.Software.Platform
                                 finalGraph.Add(element.GetValue<string>());
                         }
                         currentGraph = graphInstance[finalGraph[finalGraph.Count - 1]] ??
-                            throw new Exception(string.Format("Unable to fetch the current graph for {0}", ridGraph.Key));
+                            throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH"), ridGraph.Key));
                         graphImport = (JsonArray?)currentGraph["#import"] ??
-                            throw new Exception(string.Format("Unable to fetch the current graph imports for {0}", ridGraph.Key));
+                            throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT"), ridGraph.Key));
                     }
                 }
             }

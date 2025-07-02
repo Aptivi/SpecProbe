@@ -1,0 +1,134 @@
+{
+  "lang": "ltn",
+  "name": "Latin",
+  "cultures": [
+    "la",
+    "la-VA"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWN",
+      "text": "Ignotus"
+    },
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWNVENDOR",
+      "text": "Venditor Ignotus"
+    },
+    {
+      "loc": "SPECPROBE_PARTS_UNKNOWNGPU",
+      "text": "Scheda Graphica Ignota"
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND",
+      "text": "Identificatio Venditoris {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES",
+      "text": "Identificatio Venditoris {0} nullas machinas habet."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND",
+      "text": "Identificatio Machinae {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES",
+      "text": "Identificatio Venditoris {0} nullas sub-machinas habet quas Identificatio Machinae {1} utitur."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND",
+      "text": "Identificatio Classis {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES",
+      "text": "Identificatio Classis {0} nullas subclasses habet."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND",
+      "text": "Identificatio Subclassis {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES",
+      "text": "Identificatio Classis {0} nullas interfacies habet quas Identificatio Subclassis {1} utitur."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND",
+      "text": "Identificatio Interfaciei {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS",
+      "text": "Status Memoriae accipere non potest."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED",
+      "text": "CGGetOnlineDisplayList() partem ex Quartz explorans defecit:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED",
+      "text": "CGGetOnlineDisplayList() partem ex Quartz enumerans defecit:"
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS",
+      "text": "Schedas graphicas interpretari non potest."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS",
+      "text": "Identificatio Classis {0} nulla protocolla habet quae Identificatio Subclassis {1} utitur."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND",
+      "text": "Identificatio Protocoli {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND",
+      "text": "Identificatio Terminalis Audio {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND",
+      "text": "Identificatio HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND",
+      "text": "Identificatio rei HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND",
+      "text": "Identificatio inclinationis physicae HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND",
+      "text": "Identificatio descriptoris physici HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND",
+      "text": "Identificatio paginae usus HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES",
+      "text": "Identificatio paginae usus HID {0} nullum usum HID habet."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND",
+      "text": "Identificatio usus HID {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND",
+      "text": "Identificatio linguae {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS",
+      "text": "Identificatio linguae {0} nullos dialectos habet."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND",
+      "text": "Identificatio dialecti {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND",
+      "text": "Identificatio praefixi patriae {0} non inventa."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND",
+      "text": "Identificatio terminalis video {0} non inventa."
+    }
+  ]
+}

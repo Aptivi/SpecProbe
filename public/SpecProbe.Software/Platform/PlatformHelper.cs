@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -18,6 +18,7 @@
 //
 
 using SpecProbe.Software.Kernel;
+using SpecProbe.Software.Languages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -237,7 +238,7 @@ namespace SpecProbe.Software.Platform
                 else if (IsOnUnix())
                     platform = Platform.Linux;
                 else
-                    throw new PlatformNotSupportedException("This operating system is not supported.");
+                    throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED"));
             }
             return platform;
         }

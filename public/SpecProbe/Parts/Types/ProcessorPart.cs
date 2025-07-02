@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Probers;
 using SpecProbe.Probers.Platform;
 using System.Linq;
@@ -34,9 +35,9 @@ namespace SpecProbe.Parts.Types
         private uint cacheL1;
         private uint cacheL2;
         private uint cacheL3;
-        private string name = "Unknown";
-        private string cpuidVendor = "Unknown";
-        private string vendor = "Unknown";
+        private string name = LanguageTools.GetLocalized("SPECPROBE_COMMON_UNKNOWN");
+        private string cpuidVendor = LanguageTools.GetLocalized("SPECPROBE_COMMON_UNKNOWN");
+        private string vendor = LanguageTools.GetLocalized("SPECPROBE_COMMON_UNKNOWN");
         private string cpuidHypervisorVendor = "";
         private string hypervisorVendor = "";
         private double speed;

@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Loader.Languages;
 using System;
 using System.Collections.Generic;
 
@@ -83,7 +84,7 @@ namespace SpecProbe.Loader
                 foreach (var path in item.FilePaths)
                 {
                     if (processed.Contains(path))
-                        throw new Exception("Duplicate library files found." + $" [{path}]");
+                        throw new Exception(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES") + $" [{path}]");
                     processed.Add(path);
                 }
             }

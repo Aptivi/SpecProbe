@@ -1,0 +1,15 @@
+{
+  "lang": "iri",
+  "name": "Irish",
+  "cultures": [
+    "ga",
+    "ga-GB",
+    "ga-IE"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Ní thacaítear le córais 32-giotán a thuilleadh. Féach {0} le haghaidh tuilleadh eolais."
+    }
+  ]
+}

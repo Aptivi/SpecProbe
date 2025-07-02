@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Pci.Elements;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace SpecProbe.Pci
             foreach (var vendor in vendors)
                 if (vendor.Id == vendorId)
                     return vendor;
-            throw new ArgumentException("Vendor ID {0} not found.".FormatString(vendorId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND").FormatString(vendorId));
         }
 
         /// <summary>
@@ -94,11 +95,11 @@ namespace SpecProbe.Pci
         {
             var devices = ListDevices(vendorId);
             if (devices.Length == 0)
-                throw new ArgumentException("Vendor ID {0} doesn't have any devices.".FormatString(vendorId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES").FormatString(vendorId));
             foreach (var device in devices)
                 if (device.Id == deviceId)
                     return device;
-            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND").FormatString(deviceId));
         }
 
         /// <summary>
@@ -139,11 +140,11 @@ namespace SpecProbe.Pci
         {
             var devices = ListSubDevices(vendorId, deviceId);
             if (devices.Length == 0)
-                throw new ArgumentException("Vendor ID {0} doesn't have any sub-devices that device ID {1} uses.".FormatString(vendorId, deviceId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES").FormatString(vendorId, deviceId));
             foreach (var device in devices)
                 if (device.VendorId == subVendorId && device.Id == subDeviceId)
                     return device;
-            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND").FormatString(deviceId));
         }
 
         /// <summary>
@@ -176,7 +177,7 @@ namespace SpecProbe.Pci
             foreach (var classType in classes)
                 if (classType.Id == classId)
                     return classType;
-            throw new ArgumentException("Class ID {0} not found.".FormatString(classId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND").FormatString(classId));
         }
 
         /// <summary>
@@ -211,11 +212,11 @@ namespace SpecProbe.Pci
         {
             var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
-                throw new ArgumentException("Class ID {0} doesn't have any subclasses.".FormatString(classId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES").FormatString(classId));
             foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return subclass;
-            throw new ArgumentException("Subclass ID {0} not found.".FormatString(subclassId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND").FormatString(subclassId));
         }
 
         /// <summary>
@@ -255,11 +256,11 @@ namespace SpecProbe.Pci
         {
             var interfaces = ListInterfaces(classId, subclassId);
             if (interfaces.Length == 0)
-                throw new ArgumentException("Class ID {0} doesn't have any interfaces that subclass ID {1} uses.".FormatString(classId, subclassId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES").FormatString(classId, subclassId));
             foreach (var interfaceInfo in interfaces)
                 if (interfaceInfo.Id == interfaceId)
                     return interfaceInfo;
-            throw new ArgumentException("Interface ID {0} not found.".FormatString(interfaceId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND").FormatString(interfaceId));
         }
 
         /// <summary>

@@ -1,0 +1,14 @@
+{
+  "lang": "ukr",
+  "name": "Ukrainian",
+  "cultures": [
+    "uk",
+    "uk-UA"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-розрядні системи більше не підтримуються. Див. {0} для отримання додаткової інформації."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "lang": "kor-T",
+  "name": "Korean",
+  "cultures": [
+    "ko",
+    "ko-KP",
+    "ko-KR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWN",
+      "text": "알 수 없음"
+    },
+    {
+      "loc": "SPECPROBE_COMMON_UNKNOWNVENDOR",
+      "text": "알 수 없는 공급업체"
+    },
+    {
+      "loc": "SPECPROBE_PARTS_UNKNOWNGPU",
+      "text": "알 수 없는 그래픽 카드"
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND",
+      "text": "공급업체 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES",
+      "text": "공급업체 ID {0}에 장치가 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND",
+      "text": "장치 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES",
+      "text": "공급업체 ID {0}에 장치 ID {1}이(가) 사용하는 하위 장치가 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND",
+      "text": "클래스 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES",
+      "text": "클래스 ID {0}에 하위 클래스가 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND",
+      "text": "하위 클래스 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES",
+      "text": "클래스 ID {0}에 하위 클래스 ID {1}이(가) 사용하는 인터페이스가 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND",
+      "text": "인터페이스 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS",
+      "text": "메모리 상태를 가져올 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED",
+      "text": "Quartz에서 부분을 프로브하는 CGGetOnlineDisplayList()가 실패했습니다."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED",
+      "text": "Quartz에서 부분을 나열하는 CGGetOnlineDisplayList()가 실패했습니다."
+    },
+    {
+      "loc": "SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS",
+      "text": "비디오 카드를 구문 분석할 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS",
+      "text": "클래스 ID {0}에 하위 클래스 ID {1}이(가) 사용하는 프로토콜이 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND",
+      "text": "프로토콜 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND",
+      "text": "오디오 터미널 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND",
+      "text": "HID ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND",
+      "text": "HID 항목 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND",
+      "text": "HID 물리적 바이어스 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND",
+      "text": "HID 물리적 설명자 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND",
+      "text": "HID 사용 페이지 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES",
+      "text": "HID 사용 페이지 ID {0}에 HID 사용이 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND",
+      "text": "HID 사용 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND",
+      "text": "언어 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS",
+      "text": "언어 ID {0}에 방언이 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND",
+      "text": "방언 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND",
+      "text": "국가 코드 ID {0}을(를) 찾을 수 없습니다."
+    },
+    {
+      "loc": "SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND",
+      "text": "비디오 단말기 ID {0}을(를) 찾을 수 없습니다."
+    }
+  ]
+}

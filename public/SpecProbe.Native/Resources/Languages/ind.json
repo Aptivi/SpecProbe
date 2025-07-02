@@ -1,0 +1,14 @@
+{
+  "lang": "ind",
+  "name": "Hindi",
+  "cultures": [
+    "hi-Latn",
+    "hi-Latn-IN"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-bit sistam ab samarthit nahin hain. adhik jaanakaaree ke lie {0} dekhe"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "lang": "cnt",
+  "name": "Chinese (Traditional)",
+  "cultures": [
+    "zh",
+    "zh-Hant",
+    "zh-Hant-HK",
+    "zh-Hant-MO",
+    "zh-Hant-TW"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Bù zài zhīyuán 32 wèi yuán xìtǒng. Qǐng cānyuè {0} yǐ liǎojiě gèng duō zīxùn."
+    }
+  ]
+}

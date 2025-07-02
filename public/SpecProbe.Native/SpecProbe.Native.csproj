@@ -17,6 +17,9 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Aptivi/SpecProbe.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    
+    <!-- For cross platform and .NET 8.0+ support -->
+    <AptLocDisableInvalidCultureWarnings>true</AptLocDisableInvalidCultureWarnings>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,6 +45,15 @@
     <!-- For packaging -->
     <None Include="../../assets/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LocaleStation" Version="1.3.2" />
+    <PackageReference Include="LocaleStation.Tools" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Resources\Languages\*.json" AptLocIsLanguagePath="true" />
   </ItemGroup>
 
 </Project>

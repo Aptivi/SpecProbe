@@ -1,0 +1,35 @@
+{
+  "lang": "grk",
+  "name": "Greek",
+  "cultures": [
+    "el",
+    "el-CY",
+    "el-GR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_SOFTWARE_KERNEL_EXCEPTION_NEEDSUNIX",
+      "text": "Αυτή η συνάρτηση υποστηρίζεται μόνο σε Unix."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_OSUNSUPPORTED",
+      "text": "Αυτό το λειτουργικό σύστημα δεν υποστηρίζεται."
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDGRAPHFETCH",
+      "text": "Δεν είναι δυνατή η ανάκτηση του γραφήματος"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_RIDRUNTIMELIST",
+      "text": "Δεν είναι δυνατή η ανάκτηση της λίστας runtimes"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPH",
+      "text": "Δεν είναι δυνατή η ανάκτηση του τρέχοντος γραφήματος για το {0}"
+    },
+    {
+      "loc": "SPECPROBE_SOFTWARE_PLATFORM_EXCEPTION_CURRENTGRAPHIMPORT",
+      "text": "Δεν είναι δυνατή η ανάκτηση των τρεχουσών εισαγωγών γραφημάτων για το {0}"
+    }
+  ]
+}

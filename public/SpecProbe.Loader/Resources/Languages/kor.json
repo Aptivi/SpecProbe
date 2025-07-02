@@ -1,0 +1,47 @@
+{
+  "lang": "kor",
+  "name": "Korean",
+  "cultures": [
+    "ko",
+    "ko-KP",
+    "ko-KR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR",
+      "text": "hwangyeong {0}eul(leul) gajyeool su eobs-seubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE",
+      "text": "beopeo keugi {1}eseoneun hwangyeong {0}eul(leul) gajyeool su eobs-seubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR",
+      "text": "hwangyeong {0}eul(leul) {1}(eu)lo seoljeonghal su eobs-seubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM",
+      "text": "jiwondoeji anhneun peullaespom-ibnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED",
+      "text": "i laibeuleoli ttoneun haedang jongsogseong jung hanaga lodeudoeji anh-assseubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED",
+      "text": "laibeuleolileul lodeuhaji moshaessseubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED",
+      "text": "laibeuleolineun naebonaen simbol {0}gwa(wa) hamkke lodeuhaeya habnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED",
+      "text": "neitibeu laibeuleoli pail gyeongloga jijeongdoeji anh-assseubnida."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
+      "text": "jungbogdoen laibeuleoli pail-i balgyeondoeeossseubnida."
+    }
+  ]
+}

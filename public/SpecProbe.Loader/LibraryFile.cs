@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Loader.Languages;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
@@ -59,9 +60,9 @@ namespace SpecProbe.Loader
                     else if (PlatformHelper.IsOnUnix())
                         handle = LoadLinuxLibrary(path);
                     else
-                        throw new PlatformNotSupportedException("Unsupported platform.");
+                        throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM"));
                     if (handle == IntPtr.Zero)
-                        throw new InvalidOperationException("This library or one of its dependencies failed to load:" + $" [0x{Marshal.GetLastWin32Error():X8}]");
+                        throw new InvalidOperationException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED") + $" [0x{Marshal.GetLastWin32Error():X8}]");
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +74,7 @@ namespace SpecProbe.Loader
 
             // Throw an exception if nothing is loaded
             string[] renderedExceptions = exceptions.Select((tuple) => $"{tuple.Item1}: {tuple.Item2}").ToArray();
-            throw new InvalidOperationException("The libraries failed to load" + $"\n\n{string.Join("\n", exceptions)}");
+            throw new InvalidOperationException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_LIBSLOADFAILED") + $"\n\n{string.Join("\n", exceptions)}");
         }
 
         internal IntPtr LoadSymbol(string symbolName)
@@ -83,7 +84,7 @@ namespace SpecProbe.Loader
 
             // Check handle
             if (handle == IntPtr.Zero)
-                throw new InvalidOperationException(string.Format("Library must be loaded with exported symbol {0}.", symbolName));
+                throw new InvalidOperationException(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_SYMBOLLIBLOADREQUIRED"), symbolName));
 
             // Try to find a symbol
             if (PlatformHelper.IsOnWindows())
@@ -123,7 +124,7 @@ namespace SpecProbe.Loader
                 found = result != IntPtr.Zero;
             }
             else
-                throw new PlatformNotSupportedException("Unsupported platform.");
+                throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM"));
 
             // If we found a symbol, bail
             if (found)
@@ -264,7 +265,7 @@ namespace SpecProbe.Loader
         public LibraryFile(params string[] filePaths)
         {
             if (filePaths.Length < 1)
-                throw new ArgumentNullException(nameof(filePaths), "Path to the native library file is not specified");
+                throw new ArgumentNullException(nameof(filePaths), LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_LIBPATHNEEDED"));
             FilePaths = filePaths;
         }
     }

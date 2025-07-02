@@ -1,0 +1,14 @@
+{
+  "lang": "ndo",
+  "name": "Indonesian",
+  "cultures": [
+    "id",
+    "id-ID"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Sistem 32-bit tidak lagi didukung. Lihat {0} untuk informasi lebih lanjut."
+    }
+  ]
+}

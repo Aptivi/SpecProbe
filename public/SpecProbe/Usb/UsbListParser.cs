@@ -1,4 +1,4 @@
-﻿//
+//
 // SpecProbe  Copyright (C) 2023-2024  Aptivi
 //
 // This file is part of SpecProbe
@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Languages;
 using SpecProbe.Usb.Elements;
 using System;
 using System.Collections.Generic;
@@ -131,7 +132,7 @@ namespace SpecProbe.Usb
             foreach (var vendor in vendors)
                 if (vendor.Id == vendorId)
                     return vendor;
-            throw new ArgumentException("Vendor ID {0} not found.".FormatString(vendorId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND").FormatString(vendorId));
         }
 
         /// <summary>
@@ -166,11 +167,11 @@ namespace SpecProbe.Usb
         {
             var devices = ListDevices(vendorId);
             if (devices.Length == 0)
-                throw new ArgumentException("Vendor ID {0} doesn't have any devices.".FormatString(vendorId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES").FormatString(vendorId));
             foreach (var device in devices)
                 if (device.Id == deviceId)
                     return device;
-            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND").FormatString(deviceId));
         }
 
         /// <summary>
@@ -211,11 +212,11 @@ namespace SpecProbe.Usb
         {
             var devices = ListSubDevices(vendorId, deviceId);
             if (devices.Length == 0)
-                throw new ArgumentException("Vendor ID {0} doesn't have any sub-devices that device ID {1} uses.".FormatString(vendorId, deviceId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES").FormatString(vendorId, deviceId));
             foreach (var device in devices)
                 if (device.VendorId == subVendorId && device.Id == subDeviceId)
                     return device;
-            throw new ArgumentException("Device ID {0} not found.".FormatString(deviceId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND").FormatString(deviceId));
         }
 
         /// <summary>
@@ -248,7 +249,7 @@ namespace SpecProbe.Usb
             foreach (var classType in classes)
                 if (classType.Id == classId)
                     return classType;
-            throw new ArgumentException("Class ID {0} not found.".FormatString(classId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND").FormatString(classId));
         }
 
         /// <summary>
@@ -283,11 +284,11 @@ namespace SpecProbe.Usb
         {
             var subclasses = ListSubclasses(classId);
             if (subclasses.Length == 0)
-                throw new ArgumentException("Class ID {0} doesn't have any subclasses.".FormatString(classId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES").FormatString(classId));
             foreach (var subclass in subclasses)
                 if (subclass.Id == subclassId)
                     return subclass;
-            throw new ArgumentException("Subclass ID {0} not found.".FormatString(subclassId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND").FormatString(subclassId));
         }
 
         /// <summary>
@@ -327,11 +328,11 @@ namespace SpecProbe.Usb
         {
             var protocols = ListProtocols(classId, subclassId);
             if (protocols.Length == 0)
-                throw new ArgumentException("Class ID {0} doesn't have any protocols that subclass ID {1} uses.".FormatString(classId, subclassId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS").FormatString(classId, subclassId));
             foreach (var protocolInfo in protocols)
                 if (protocolInfo.Id == protocolId)
                     return protocolInfo;
-            throw new ArgumentException("Protocol ID {0} not found.".FormatString(protocolId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND").FormatString(protocolId));
         }
 
         /// <summary>
@@ -363,7 +364,7 @@ namespace SpecProbe.Usb
             foreach (var audioTerminalType in audioTerminals)
                 if (audioTerminalType.Id == audioTerminalId)
                     return audioTerminalType;
-            throw new ArgumentException("Audio terminal ID {0} not found.".FormatString(audioTerminalId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND").FormatString(audioTerminalId));
         }
 
         /// <summary>
@@ -391,7 +392,7 @@ namespace SpecProbe.Usb
             foreach (var hidType in hids)
                 if (hidType.Id == hidId)
                     return hidType;
-            throw new ArgumentException("HID ID {0} not found.".FormatString(hidId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND").FormatString(hidId));
         }
 
         /// <summary>
@@ -419,7 +420,7 @@ namespace SpecProbe.Usb
             foreach (var hidItemType in hidItems)
                 if (hidItemType.Id == hidItemId)
                     return hidItemType;
-            throw new ArgumentException("HID item ID {0} not found.".FormatString(hidItemId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND").FormatString(hidItemId));
         }
 
         /// <summary>
@@ -447,7 +448,7 @@ namespace SpecProbe.Usb
             foreach (var physicalBiasType in physicalBiass)
                 if (physicalBiasType.Id == physicalBiasId)
                     return physicalBiasType;
-            throw new ArgumentException("HID physical bias ID {0} not found.".FormatString(physicalBiasId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND").FormatString(physicalBiasId));
         }
 
         /// <summary>
@@ -475,7 +476,7 @@ namespace SpecProbe.Usb
             foreach (var physicalDescriptorType in physicalDescriptors)
                 if (physicalDescriptorType.Id == physicalDescriptorId)
                     return physicalDescriptorType;
-            throw new ArgumentException("HID physical descriptor ID {0} not found.".FormatString(physicalDescriptorId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND").FormatString(physicalDescriptorId));
         }
 
         /// <summary>
@@ -503,7 +504,7 @@ namespace SpecProbe.Usb
             foreach (var hidUsagePage in hidUsagePages)
                 if (hidUsagePage.Id == hidUsagePageId)
                     return hidUsagePage;
-            throw new ArgumentException("HID usage page ID {0} not found.".FormatString(hidUsagePageId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND").FormatString(hidUsagePageId));
         }
 
         /// <summary>
@@ -538,11 +539,11 @@ namespace SpecProbe.Usb
         {
             var hidUsages = ListHidUsages(hidUsagePageId);
             if (hidUsages.Length == 0)
-                throw new ArgumentException("HID usage page ID {0} doesn't have any HID Usage.".FormatString(hidUsagePageId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES").FormatString(hidUsagePageId));
             foreach (var hidUsage in hidUsages)
                 if (hidUsage.Id == hidUsageId)
                     return hidUsage;
-            throw new ArgumentException("HID usage ID {0} not found.".FormatString(hidUsageId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND").FormatString(hidUsageId));
         }
 
         /// <summary>
@@ -573,7 +574,7 @@ namespace SpecProbe.Usb
             foreach (var language in languages)
                 if (language.Id == languageId)
                     return language;
-            throw new ArgumentException("Language ID {0} not found.".FormatString(languageId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND").FormatString(languageId));
         }
 
         /// <summary>
@@ -608,11 +609,11 @@ namespace SpecProbe.Usb
         {
             var dialects = ListDialects(languageId);
             if (dialects.Length == 0)
-                throw new ArgumentException("Language ID {0} doesn't have any dialects.".FormatString(languageId));
+                throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS").FormatString(languageId));
             foreach (var dialect in dialects)
                 if (dialect.Id == dialectId)
                     return dialect;
-            throw new ArgumentException("Dialect ID {0} not found.".FormatString(dialectId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND").FormatString(dialectId));
         }
 
         /// <summary>
@@ -643,7 +644,7 @@ namespace SpecProbe.Usb
             foreach (var countryCodeType in countryCodes)
                 if (countryCodeType.Id == countryCodeId)
                     return countryCodeType;
-            throw new ArgumentException("Country code ID {0} not found.".FormatString(countryCodeId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND").FormatString(countryCodeId));
         }
 
         /// <summary>
@@ -671,7 +672,7 @@ namespace SpecProbe.Usb
             foreach (var videoTerminalType in videoTerminals)
                 if (videoTerminalType.Id == videoTerminalId)
                     return videoTerminalType;
-            throw new ArgumentException("Video terminal ID {0} not found.".FormatString(videoTerminalId));
+            throw new ArgumentException(LanguageTools.GetLocalized("SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND").FormatString(videoTerminalId));
         }
 
         /// <summary>

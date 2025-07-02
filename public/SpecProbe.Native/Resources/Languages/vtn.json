@@ -1,0 +1,14 @@
+{
+  "lang": "vtn",
+  "name": "Vietnamese",
+  "cultures": [
+    "vi",
+    "vi-VN"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Hệ thống 32 bit không còn được hỗ trợ nữa. Xem {0} để biết thêm thông tin."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "lang": "kor-T",
+  "name": "Korean",
+  "cultures": [
+    "ko",
+    "ko-KP",
+    "ko-KR"
+  ],
+  "locs": [
+    {
+      "loc": "SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32비트 시스템은 더 이상 지원되지 않습니다. 자세한 내용은 {0}을 참조하세요."
+    }
+  ]
+}
