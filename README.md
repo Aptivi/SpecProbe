@@ -36,7 +36,7 @@
 
 <!----------------------------------------------------------------------------->
 
-[Releases]: https://gitlab.com/aptivi/main/SpecProbe/-/releases
+[Releases]: https://github.com/Aptivi/SpecProbe/releases
 [NuGet]: https://www.nuget.org/packages/SpecProbe/
 
 [Libraries]: https://aptivi.gitbook.io/specprobe-manual/project-dependencies

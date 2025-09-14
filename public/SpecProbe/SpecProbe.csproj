@@ -9,7 +9,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Description>SpecProbe is the reboot of the Linux, macOS, and Windows hardware information frontend.</Description>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.com/aptivi/main/SpecProbe</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Aptivi/SpecProbe</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>git://gitlab.com/aptivi/main/SpecProbe.git</RepositoryUrl>
     <PackageIcon>OfficialAppIcon-SpecProbe-512.png</PackageIcon>
