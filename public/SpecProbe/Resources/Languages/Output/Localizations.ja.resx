@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+        <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+            <xsd:element name="metadata">
+            <xsd:complexType>
+                <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                </xsd:sequence>
+                <xsd:attribute name="name" use="required" type="xsd:string" />
+                <xsd:attribute name="type" type="xsd:string" />
+                <xsd:attribute name="mimetype" type="xsd:string" />
+                <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="assembly">
+            <xsd:complexType>
+                <xsd:attribute name="alias" type="xsd:string" />
+                <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="data">
+            <xsd:complexType>
+                <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                </xsd:sequence>
+                <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="resheader">
+            <xsd:complexType>
+                <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                </xsd:sequence>
+                <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+            </xsd:element>
+        </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+    <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="SPECPROBE_COMMON_UNKNOWN" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="SPECPROBE_COMMON_UNKNOWNVENDOR" xml:space="preserve">
+    <value>不明なベンダー</value>
+  </data>
+  <data name="SPECPROBE_PARTS_UNKNOWNGPU" xml:space="preserve">
+    <value>不明なグラフィックカード</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_VENDORNOTFOUND" xml:space="preserve">
+    <value>ベンダーID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_VENDORHASNODEVICES" xml:space="preserve">
+    <value>ベンダーID {0} にはデバイスがありません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_DEVICENOTFOUND" xml:space="preserve">
+    <value>デバイスID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_DEVICEHASNOSUBDEVICES" xml:space="preserve">
+    <value>ベンダーID {0} には、デバイスID {1} が使用するサブデバイスがありません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_CLASSIDNOTFOUND" xml:space="preserve">
+    <value>クラスID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_CLASSHASNOSUBCLASSES" xml:space="preserve">
+    <value>クラスID {0} にはサブクラスがありません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_SUBCLASSIDNOTFOUND" xml:space="preserve">
+    <value>サブクラスID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_SUBCLASSHASNOINTERFACES" xml:space="preserve">
+    <value>クラスID {0} には、サブクラスID {1} が使用するインターフェースがありません。</value>
+  </data>
+  <data name="SPECPROBE_PCI_EXCEPTION_INTERFACEIDNOTFOUND" xml:space="preserve">
+    <value>インターフェースID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_PROBERS_EXCEPTION_CANTPARSEMEMSTATUS" xml:space="preserve">
+    <value>メモリステータスを取得できません</value>
+  </data>
+  <data name="SPECPROBE_PROBERS_EXCEPTION_CGQUARTZPROBEFAILED" xml:space="preserve">
+    <value>Quartz からの CGGetOnlineDisplayList() プローブ部分が失敗しました:</value>
+  </data>
+  <data name="SPECPROBE_PROBERS_EXCEPTION_CGQUARTZLISTFAILED" xml:space="preserve">
+    <value>Quartz からの CGGetOnlineDisplayList() 画面リスト部分が失敗しました:</value>
+  </data>
+  <data name="SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS" xml:space="preserve">
+    <value>ビデオカードを解析できません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_SUBCLASSHASNOPROTOCOLS" xml:space="preserve">
+    <value>クラスID {0} には、サブクラスID {1} が使用するプロトコルがありません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_PROTOCOLIDNOTFOUND" xml:space="preserve">
+    <value>プロトコルID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_AUDIOTERMINALIDNOTFOUND" xml:space="preserve">
+    <value>オーディオ端末ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDIDNOTFOUND" xml:space="preserve">
+    <value>HID ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDITEMIDNOTFOUND" xml:space="preserve">
+    <value>HID アイテム ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDPHYSBIASIDNOTFOUND" xml:space="preserve">
+    <value>HID 物理バイアス ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDPHYSDESCIDNOTFOUND" xml:space="preserve">
+    <value>HID 物理記述子 ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEIDNOTFOUND" xml:space="preserve">
+    <value>HID 使用ページ ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDUSAGEPAGEHASNOUSAGES" xml:space="preserve">
+    <value>HID 使用ページ ID {0} には HID 使用がありません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_HIDUSAGEIDNOTFOUND" xml:space="preserve">
+    <value>HID 使用 ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_LANGUAGEIDNOTFOUND" xml:space="preserve">
+    <value>言語 ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_LANGUAGEHASNODIALECTS" xml:space="preserve">
+    <value>言語 ID {0} には方言がありません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_DIALECTIDNOTFOUND" xml:space="preserve">
+    <value>方言 ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_COUNTRYCODEIDNOTFOUND" xml:space="preserve">
+    <value>国コード ID {0} が見つかりません。</value>
+  </data>
+  <data name="SPECPROBE_USB_EXCEPTION_VIDEOTERMINALIDNOTFOUND" xml:space="preserve">
+    <value>ビデオ端末 ID {0} が見つかりません。</value>
+  </data>
+
+</root>

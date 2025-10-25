@@ -16,9 +16,6 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>hardware, information</PackageTags>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
-    
-    <!-- For cross platform and .NET 8.0+ support -->
-    <AptLocDisableInvalidCultureWarnings>true</AptLocDisableInvalidCultureWarnings>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,16 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LocaleStation" Version="1.3.2" />
-    <PackageReference Include="LocaleStation.Tools" Version="1.3.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="Resources\Languages\*.json" AptLocIsLanguagePath="true" />
   </ItemGroup>
 
 </Project>

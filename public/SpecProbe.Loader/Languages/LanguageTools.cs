@@ -17,20 +17,17 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using LocaleStation.Tools;
-using SpecProbe.Loader.Localized;
+using MainLangTools = SpecProbe.Software.Languages.LanguageTools;
 
 namespace SpecProbe.Loader.Languages
 {
     internal static class LanguageTools
     {
-        private const string localType = "SpecProbe.Loader";
-
         internal static string GetLocalized(string id)
         {
-            if (!LanguageCommon.IsCustomActionDefined(localType))
-                LanguageCommon.AddCustomAction(localType, new(() => LocalStrings.Languages, () => LocalStrings.Localizations, LocalStrings.Translate, LocalStrings.CheckCulture, LocalStrings.ListLanguagesCulture, LocalStrings.Exists));
-            return LanguageCommon.Translate(id);
+            if (!MainLangTools.resourceManagers.ContainsKey("SpecProbe.Loader"))
+                MainLangTools.resourceManagers.Add("SpecProbe.Loader", new("SpecProbe.Loader.Resources.Languages.Output.Localizations", typeof(LanguageTools).Assembly));
+            return MainLangTools.GetLocalized(id);
         }
     }
 }
