@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Textify.Offline" Version="2.13.3" />
+    <PackageReference Include="Textify.Offline" Version="2.13.4" />
   </ItemGroup>
 
 </Project>
