@@ -25,7 +25,6 @@ using SpecProbe.Usb;
 using System.Diagnostics;
 using Terminaux.Colors.Data;
 using Terminaux.Writer.ConsoleWriters;
-using Terminaux.Writer.FancyWriters;
 
 namespace SpecProbe.ConsoleTest
 {
