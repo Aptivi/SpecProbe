@@ -1,4 +1,4 @@
-name: Build libspecprober library (macOS - AMD64)
+name: Build libspecprober library (Linux - AMD64)
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
     
 jobs:
   build:
-    runs-on: macos-15-intel
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -23,5 +23,5 @@ jobs:
       - name: libspecprober artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "libspecprober library Mac AMD64"
-          path: interop/libspecprober/libspecprober.dylib
+          name: "libspecprober library Linux AMD64"
+          path: interop/libspecprober/libspecprober.so

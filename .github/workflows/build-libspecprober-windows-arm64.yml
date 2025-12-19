@@ -1,0 +1,29 @@
+name: Build libspecprober library (Windows - ARM64)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+          ref: ${{ github.ref }}
+      - name: Setting up MSBuild
+        uses: microsoft/setup-msbuild@v2
+      - name: libdxhelper compilation
+        run: |
+          cd interop/libdxhelper/libdxhelper ; msbuild libdxhelper.sln /p:Configuration=Release /p:Platform=ARM64
+      - name: libdxhelper artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: "libdxhelper library Windows ARM64"
+          path: interop/libdxhelper/libdxhelper/ARM64/Release/libdxhelper.dll

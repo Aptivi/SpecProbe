@@ -34,6 +34,8 @@ namespace SpecProbe.Probers
 {
     internal static class ProcessorProber
     {
+        private static object nativeLock = new();
+
         public static ProcessorPart Probe(out Exception[] errors)
         {
             if (PlatformHelper.IsOnWindows())
@@ -594,21 +596,24 @@ namespace SpecProbe.Probers
 
         private static (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValuesUnchecked(uint eax, uint ecx)
         {
-            var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
-
-            // Get the value in a specified leaf
-            var values = cpuValuesDelegate.Invoke(eax, ecx);
-
-            // Extract the values from the native array
-            uint[] parsedValues = new uint[4];
-            for (int step = 0; step < parsedValues.Length; step++)
+            lock (nativeLock)
             {
-                var nativeValue = values + sizeof(uint) * step;
-                parsedValues[step] = (uint)Marshal.ReadInt32(nativeValue);
-            }
+                var cpuValuesDelegate = ProcessorHelper.GetValuesDelegate();
 
-            // Return the result
-            return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
+                // Get the value in a specified leaf
+                var values = cpuValuesDelegate.Invoke(eax, ecx);
+
+                // Extract the values from the native array
+                uint[] parsedValues = new uint[4];
+                for (int step = 0; step < parsedValues.Length; step++)
+                {
+                    var nativeValue = values + sizeof(uint) * step;
+                    parsedValues[step] = (uint)Marshal.ReadInt32(nativeValue);
+                }
+
+                // Return the result
+                return (true, parsedValues[0], parsedValues[1], parsedValues[2], parsedValues[3]);
+            }
         }
 
         private static string[] BuildFeatureList((bool exists, uint eax, uint ebx, uint ecx, uint edx) values, int valueNum, string[] featureNames)

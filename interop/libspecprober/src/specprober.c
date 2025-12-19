@@ -22,6 +22,7 @@
 #include <cpuid.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 /* -------------------------------------------------------------------- */
 
@@ -32,7 +33,7 @@
 
 /* -------------------------------------------------------------------- */
 
-unsigned int
+uint32_t
     specprobe_get_max
     (
     )
@@ -51,7 +52,7 @@ unsigned int
     return __get_cpuid_max(0x0, NULL);
 }
 
-unsigned int
+uint32_t
     specprobe_get_max_ext
     (
     )
@@ -70,11 +71,11 @@ unsigned int
     return __get_cpuid_max(0x80000000, NULL);
 }
 
-unsigned int*
+uint32_t*
     specprobe_get_values
     (
-        unsigned int eax,
-        unsigned int ecx
+        uint32_t eax,
+        uint32_t ecx
     )
 /*
  * -----------------------------------------------------------------------
@@ -89,8 +90,8 @@ unsigned int*
  * -----------------------------------------------------------------------
  */
 {
-    unsigned int* values = malloc(4);
-    unsigned int ebx = 0, edx = 0;
+    static uint32_t values[4];
+    uint32_t ebx = 0, edx = 0;
 
     // Execute the CPUID using a specified leaf
 #if defined(__i386__) && defined(__PIC__)

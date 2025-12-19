@@ -18,21 +18,25 @@
 
 /* -------------------------------------------------------------------- */
 
-unsigned int
+#include <stdint.h>
+
+/* -------------------------------------------------------------------- */
+
+uint32_t
     specprobe_get_max
     (
     );
 
-unsigned int
+uint32_t
     specprobe_get_max_ext
     (
     );
 
-unsigned int*
+uint32_t*
 specprobe_get_values
 (
-    unsigned int eax,
-    unsigned int ecx
+    uint32_t eax,
+    uint32_t ecx
 );
 
 char*
