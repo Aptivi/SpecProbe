@@ -282,6 +282,28 @@ namespace SpecProbe.ConsoleTest
             TextWriterRaw.Write();
             stopwatch.Reset();
 
+            // Architecture check
+            SeparatorWriterColor.WriteSeparator("Architecture", true, 15);
+            stopwatch.Start();
+            bool isX86 = PlatformHelper.IsOnX86();
+            bool isAmd64 = PlatformHelper.IsOnAmd64();
+            bool isArm = PlatformHelper.IsOnArm();
+            bool isArm64 = PlatformHelper.IsOnArm64();
+            stopwatch.Stop();
+            TextWriterColor.WriteColor("- X86: ", false, 3);
+            TextWriterColor.WriteColor($"{isX86}", true, 8);
+            TextWriterColor.WriteColor("- AMD64: ", false, 3);
+            TextWriterColor.WriteColor($"{isAmd64}", true, 8);
+            TextWriterColor.WriteColor("- ARM32: ", false, 3);
+            TextWriterColor.WriteColor($"{isArm}", true, 8);
+            TextWriterColor.WriteColor("- ARM64: ", false, 3);
+            TextWriterColor.WriteColor($"{isArm64}", true, 8);
+            TextWriterRaw.Write();
+            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+            TextWriterRaw.Write();
+            stopwatch.Reset();
+
             totalStopwatch.Stop();
             SeparatorWriterColor.WriteSeparator("Conclusion", true, 15);
             TextWriterColor.WriteColor("Total time: ", false, 3);

@@ -108,6 +108,14 @@ namespace SpecProbe.Software.Platform
             IsOnArm64();
 
         /// <summary>
+        /// Is this system an x86 or AMD64 system?
+        /// </summary>
+        /// <returns>True if running on x86 or AMD64 systems. Otherwise, false.</returns>
+        public static bool IsOnX86OrAmd64() =>
+            IsOnX86() ||
+            IsOnAmd64();
+
+        /// <summary>
         /// Is this system an ARM system?
         /// </summary>
         /// <returns>True if running on ARM systems. Otherwise, false.</returns>
@@ -120,6 +128,20 @@ namespace SpecProbe.Software.Platform
         /// <returns>True if running on ARM64 systems. Otherwise, false.</returns>
         public static bool IsOnArm64() =>
             RuntimeInformation.OSArchitecture == Architecture.Arm64;
+
+        /// <summary>
+        /// Is this system an AMD64 system?
+        /// </summary>
+        /// <returns>True if running on AMD64 systems. Otherwise, false.</returns>
+        public static bool IsOnAmd64() =>
+            RuntimeInformation.OSArchitecture == Architecture.X64;
+
+        /// <summary>
+        /// Is this system an x86 system?
+        /// </summary>
+        /// <returns>True if running on x86 systems. Otherwise, false.</returns>
+        public static bool IsOnX86() =>
+            RuntimeInformation.OSArchitecture == Architecture.X86;
 
         /// <summary>
         /// Is this system a Unix system that contains musl libc?
