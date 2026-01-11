@@ -17,14 +17,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Software.Kernel;
-using SpecProbe.Software.Languages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
+using SpecProbe.Software.Kernel;
+using SpecProbe.Software.Languages;
 
 namespace SpecProbe.Software.Platform
 {
@@ -316,19 +317,81 @@ namespace SpecProbe.Software.Platform
         /// </summary>
         /// <param name="file">Target file name with extension</param>
         /// <returns>Possible list of paths</returns>
-        public static string[] GetPossiblePaths(string file)
+        public static string[] GetPossiblePaths(string file) =>
+            GetPossiblePaths(file, GetPaths());
+
+        /// <summary>
+        /// Gets the possible paths that this file is found on
+        /// </summary>
+        /// <param name="file">Target file name with extension</param>
+        /// <param name="lookupPaths">Lookup paths with a directory path for each item</param>
+        /// <returns>Possible list of paths</returns>
+        public static string[] GetPossiblePaths(string file, string[] lookupPaths)
         {
             if (Path.IsPathRooted(file))
                 file = Path.GetFileName(file);
-            var paths = GetPaths();
             List<string> finalPaths = [];
-            foreach (string path in paths)
+            foreach (string path in lookupPaths)
             {
                 string finalPath = Path.Combine(path, file);
                 if (File.Exists(finalPath))
                     finalPaths.Add(finalPath);
             }
             return [.. finalPaths];
+        }
+
+        /// <summary>
+        /// Tries to parse the file name
+        /// </summary>
+        /// <param name="name">File name to parse</param>
+        /// <returns>True if valid; else false.</returns>
+        public static bool TryParseFileName(string name)
+        {
+            try
+            {
+                return !(name.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Failed to parse file name {0}: {1}", name, ex.Message);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Tries to parse the path
+        /// </summary>
+        /// <param name="path">Path to parse</param>
+        /// <returns>True if valid; else false.</returns>
+        public static bool TryParsePath(string path)
+        {
+            try
+            {
+                return !(path.IndexOfAny(GetInvalidPathChars()) >= 0);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Failed to parse path {0}: {1}", path, ex.Message);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the invalid path chars, taking some of Windows' invalid path characters into account
+        /// </summary>
+        /// <returns>A list of invalid path characters</returns>
+        public static char[] GetInvalidPathChars()
+        {
+            var FinalInvalidPathChars = Path.GetInvalidPathChars();
+            var WindowsInvalidPathChars = new[] { '"', '<', '>' };
+            if (IsOnWindows())
+            {
+                // It's weird of .NET 6.0 to not consider the above three Windows invalid directory chars to be invalid,
+                // so make them invalid as in .NET Framework.
+                Array.Resize(ref FinalInvalidPathChars, 36);
+                WindowsInvalidPathChars.CopyTo(FinalInvalidPathChars, FinalInvalidPathChars.Length - 3);
+            }
+            return FinalInvalidPathChars;
         }
 
         /// <summary>
