@@ -1,11 +1,11 @@
-We've updated this project to make our building workflows more consistent!
+We've updated this project to add more path tools!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[*]` Updated PCI and USB IDs for new devices
-- `[*]` Re-built libspecprober for consistency
+- `[+]` Added more path tools
+- `[*]` Updated PCI IDs for new devices
 
 Review the commit history if you want to get a deep insight about the changes.
 
