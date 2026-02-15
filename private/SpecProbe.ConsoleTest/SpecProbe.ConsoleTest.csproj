@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Terminaux" Version="8.0.12" />
+    <PackageReference Include="Terminaux" Version="8.1.1.1" />
     
     <PackageReference Remove="Microsoft.SourceLink.GitHub" />
   </ItemGroup>

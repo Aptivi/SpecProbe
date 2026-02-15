@@ -42,7 +42,7 @@ namespace SpecProbe
             if (cachedParts.Keys.Contains(HardwarePartType.Processor) && cachedParts[HardwarePartType.Processor].parts.Length > 0)
                 return cachedParts[HardwarePartType.Processor].parts[0] as ProcessorPart;
             var part = ProcessorProber.Probe(out Exception[] errors);
-            cachedParts.Add(HardwarePartType.Processor, ([part], errors));
+            cachedParts[HardwarePartType.Processor] = ([part], errors);
             return part;
         }
 
@@ -54,7 +54,7 @@ namespace SpecProbe
             if (cachedParts.Keys.Contains(HardwarePartType.Memory) && cachedParts[HardwarePartType.Memory].parts.Length > 0)
                 return cachedParts[HardwarePartType.Memory].parts[0] as MemoryPart;
             var part = MemoryProber.Probe(out Exception[] errors);
-            cachedParts.Add(HardwarePartType.Memory, ([part], errors));
+            cachedParts[HardwarePartType.Memory] = ([part], errors);
             return part;
         }
 
@@ -66,7 +66,7 @@ namespace SpecProbe
             if (cachedParts.Keys.Contains(HardwarePartType.Video) && cachedParts[HardwarePartType.Video].parts.Length > 0)
                 return cachedParts[HardwarePartType.Video].parts as VideoPart[];
             var parts = VideoProber.Probe(out Exception[] errors);
-            cachedParts.Add(HardwarePartType.Video, (parts, errors));
+            cachedParts[HardwarePartType.Video] = (parts, errors);
             return parts;
         }
 
@@ -78,7 +78,7 @@ namespace SpecProbe
             if (cachedParts.Keys.Contains(HardwarePartType.HardDisk) && cachedParts[HardwarePartType.HardDisk].parts.Length > 0)
                 return cachedParts[HardwarePartType.HardDisk].parts as HardDiskPart[];
             var parts = HardDiskProber.Probe(out Exception[] errors);
-            cachedParts.Add(HardwarePartType.HardDisk, (parts, errors));
+            cachedParts[HardwarePartType.HardDisk] = (parts, errors);
             return parts;
         }
 
