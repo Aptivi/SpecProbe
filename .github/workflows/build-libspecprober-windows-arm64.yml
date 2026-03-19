@@ -23,7 +23,8 @@ jobs:
         run: |
           cd interop/libdxhelper/libdxhelper ; msbuild libdxhelper.sln /p:Configuration=Release /p:Platform=ARM64
       - name: libdxhelper artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: "libdxhelper library Windows ARM64"
           path: interop/libdxhelper/libdxhelper/ARM64/Release/libdxhelper.dll
+          archive: false
