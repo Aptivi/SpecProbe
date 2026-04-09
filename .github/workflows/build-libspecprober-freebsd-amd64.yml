@@ -26,9 +26,16 @@ jobs:
           run: |
             pkg install -y cmake ninja
             cd interop/libspecprober ; cmake . ; make
+            cd ../libspecprober_ldelf_fbsd ; cmake . ; make
       - name: libspecprober artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: "libspecprober library Linux AMD64"
+          name: "libspecprober library FreeBSD AMD64"
           path: interop/libspecprober/libspecprober.so
+          archive: false
+      - name: libspecprober_ldelf_fbsd artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: "libspecprober_ldelf_fbsd library FreeBSD AMD64"
+          path: interop/libspecprober_ldelf_fbsd/libspecprober_ldelf_fbsd.so
           archive: false
