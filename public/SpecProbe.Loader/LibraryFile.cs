@@ -57,6 +57,8 @@ namespace SpecProbe.Loader
                         handle = LoadWindowsLibrary(path);
                     else if (PlatformHelper.IsOnMacOS())
                         handle = LoadMacOSLibrary(path);
+                    else if (PlatformHelper.IsOnFreeBSD())
+                        handle = LoadFreeBSDLibrary(path);
                     else if (PlatformHelper.IsOnUnix())
                         handle = LoadLinuxLibrary(path);
                     else
@@ -115,6 +117,14 @@ namespace SpecProbe.Loader
                 result = MacOSX.dlsym(handle, symbolName);
                 found = result != IntPtr.Zero;
             }
+            else if (PlatformHelper.IsOnFreeBSD())
+            {
+                if (PlatformHelper.IsRunningFromMono())
+                    result = Mono.dlsym(handle, symbolName);
+                else
+                    result = LoadFreeBSDLibrarySymbolDl(symbolName);
+                found = result != IntPtr.Zero;
+            }
             else if (PlatformHelper.IsOnUnix())
             {
                 if (PlatformHelper.IsRunningFromMono())
@@ -149,6 +159,16 @@ namespace SpecProbe.Loader
                 result = Mono.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
             else
                 result = LoadLinuxLibraryDl(path);
+            return result;
+        }
+
+        private IntPtr LoadFreeBSDLibrary(string path)
+        {
+            IntPtr result;
+            if (PlatformHelper.IsRunningFromMono())
+                result = Mono.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+            else
+                result = LoadFreeBSDLibraryDl(path);
             return result;
         }
 
@@ -193,6 +213,13 @@ namespace SpecProbe.Loader
             }
         }
 
+        private IntPtr LoadFreeBSDLibraryDl(string path)
+        {
+            // Use dlopen from libc
+            IntPtr libPtr = FreeBSD.sp_le_dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+            return libPtr;
+        }
+
         private IntPtr LoadLinuxLibrarySymbolDl(string symbolName)
         {
             if (dlChecked)
@@ -222,6 +249,13 @@ namespace SpecProbe.Loader
             }
         }
 
+        private IntPtr LoadFreeBSDLibrarySymbolDl(string symbolName)
+        {
+            // Use dlsym from libc
+            IntPtr libPtr = FreeBSD.sp_le_dlsym(handle, symbolName);
+            return libPtr;
+        }
+
         private static class Windows
         {
             [DllImport("kernel32.dll", SetLastError = true)]
@@ -240,6 +274,16 @@ namespace SpecProbe.Loader
             internal static extern IntPtr dlopen_new(string filename, int flags);
             [DllImport("libdl.so.2", EntryPoint = "dlsym", SetLastError = true)]
             internal static extern IntPtr dlsym_new(IntPtr handle, string symbol);
+        }
+
+        private static class FreeBSD
+        {
+            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
+            internal static extern IntPtr sp_le_dlopen(string filename, int flags);
+            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
+            internal static extern IntPtr sp_le_dlsym(IntPtr handle, string symbol);
+            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
+            internal static extern IntPtr sp_le_dlerror();
         }
 
         private static class MacOSX

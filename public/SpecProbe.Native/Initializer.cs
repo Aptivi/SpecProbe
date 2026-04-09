@@ -55,6 +55,7 @@ namespace SpecProbe.Native
                             throw new PlatformNotSupportedException(string.Format(LanguageTools.GetLocalized("SPECPROBE_NATIVE_EXCEPTION_32BITUNSUPPORTED"), "https://officialaptivi.wordpress.com/2024/08/03/final-word-regarding-32-bit-support/")),
                     };
                     break;
+                case Platform.FreeBSD:
                 case Platform.Linux:
                 case Platform.MacOS:
                     switch (bitness)
@@ -78,11 +79,7 @@ namespace SpecProbe.Native
         private static string GetLibraryPath(string libraryName)
         {
             string execPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "/";
-            string nonSpecificRid =
-                    (PlatformHelper.IsOnWindows() ? "win-" :
-                     PlatformHelper.IsOnMacOS() ? "osx-" :
-                     PlatformHelper.IsOnUnix() ? "linux-" :
-                     "freebsd-") + RuntimeInformation.OSArchitecture.ToString().ToLower();
+            string nonSpecificRid = PlatformHelper.GetCurrentGenericRid();
             string directory = $"runtimes/{nonSpecificRid}/native/";
             string libName = $"{libraryName}{(PlatformHelper.IsOnWindows() ? ".dll" : PlatformHelper.IsOnMacOS() ? ".dylib" : ".so")}";
             string path = $"{execPath}{directory}{libName}";
