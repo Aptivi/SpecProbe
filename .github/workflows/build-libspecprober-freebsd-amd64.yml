@@ -1,0 +1,34 @@
+name: Build libspecprober library (FreeBSD - AMD64)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'true'
+          ref: ${{ github.ref }}
+      - name: Test
+        id: test
+        uses: vmactions/freebsd-vm@v1
+        with:
+          release: "15.0"
+          arch: "x86_64"
+          run: |
+            pkg install -y cmake ninja
+            cd interop/libspecprober ; cmake . ; make
+      - name: libspecprober artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: "libspecprober library Linux AMD64"
+          path: interop/libspecprober/libspecprober.so
+          archive: false
