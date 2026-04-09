@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SpecProbe.ConsoleTest": {
+      "commandName": "Project"
+    },
+    "SpecProbe.ConsoleTest - Software only": {
+      "commandName": "Project",
+      "commandLineArgs": "--software-only"
+    }
+  }
+}

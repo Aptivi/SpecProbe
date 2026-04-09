@@ -89,6 +89,23 @@ namespace SpecProbe.Software.Platform
         }
 
         /// <summary>
+        /// Is this system a FreeBSD system?
+        /// </summary>
+        /// <returns>True if running on FreeBSD. Otherwise, false.</returns>
+        public static bool IsOnFreeBSD()
+        {
+            if (platform == Platform.FreeBSD)
+                return true;
+            if (IsOnUnix())
+            {
+                string System = UnameManager.GetUname(UnameTypes.KernelName);
+                return System.Contains("FreeBSD");
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Is this system an Android system?
         /// </summary>
         /// <returns>True if running on Android phones using Termux. Otherwise, false.</returns>
@@ -154,7 +171,7 @@ namespace SpecProbe.Software.Platform
                 return isMuslLinux;
             try
             {
-                if (!IsOnUnix() || IsOnMacOS() || IsOnWindows())
+                if (!IsOnUnix() || IsOnMacOS() || IsOnWindows() || IsOnFreeBSD())
                     return false;
                 var gnuRel = gnuGetLibcVersion();
                 isMuslLinux = false;
@@ -240,10 +257,19 @@ namespace SpecProbe.Software.Platform
         /// </summary>
         /// <param name="includeMusl">Whether to detect MUSL libc</param>
         /// <returns>Returns a runtime identifier (win-x64 for example).</returns>
-        public static string GetCurrentGenericRid(bool includeMusl = true) =>
-            $"{(IsOnWindows() ? "win" : IsOnMacOS() ? "osx" : IsOnUnix() ? "linux" : "freebsd")}-" +
-            $"{(includeMusl && IsOnUnixMusl() ? "musl-" : "")}" +
-            $"{RuntimeInformation.OSArchitecture.ToString().ToLower()}";
+        public static string GetCurrentGenericRid(bool includeMusl = true)
+        {
+            string platform = "linux";
+            string muslPlatform = includeMusl && IsOnUnixMusl() ? "musl-" : "";
+            string arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
+            if (IsOnWindows())
+                platform = "win";
+            else if (IsOnMacOS())
+                platform = "osx";
+            else if (IsOnFreeBSD())
+                platform = "freebsd";
+            return $"{platform}-{muslPlatform}{arch}";
+        }
 
         /// <summary>
         /// Gets the platform enumeration from the current platform
@@ -258,6 +284,8 @@ namespace SpecProbe.Software.Platform
                     platform = Platform.Windows;
                 else if (IsOnMacOS())
                     platform = Platform.MacOS;
+                else if (IsOnFreeBSD())
+                    platform = Platform.FreeBSD;
                 else if (IsOnUnix())
                     platform = Platform.Linux;
                 else

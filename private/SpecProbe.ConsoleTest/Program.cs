@@ -17,178 +17,191 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using Colorimetry.Data;
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Pci;
 using SpecProbe.Software.Platform;
 using SpecProbe.Usb;
 using System.Diagnostics;
-using Terminaux.Colors.Data;
+using System.Linq;
 using Terminaux.Writer.ConsoleWriters;
 
 namespace SpecProbe.ConsoleTest
 {
-
     static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
+            // Determine whether we need to parse software only
+            bool softwareOnly = args.Contains("--software-only");
+
             // Stopwatch for measurement
             var stopwatch = new Stopwatch();
             var totalStopwatch = new Stopwatch();
 
-            // Processor
-            SeparatorWriterColor.WriteSeparatorColor("Processor information", 15);
-            stopwatch.Start();
-            totalStopwatch.Start();
-            var processor = HardwareProber.GetProcessor();
-            var processorErrors = HardwareProber.GetParseExceptions(HardwarePartType.Processor);
-            stopwatch.Stop();
-            if (processor is not null)
+            // Hardware parsing code
+            if (!softwareOnly)
             {
-                TextWriterColor.WriteColor("- Processor cores: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
-                TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
-                TextWriterColor.WriteColor("- Logical cores: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
-                TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
-                TextWriterColor.WriteColor("- Name: ", false, 3);
-                TextWriterColor.WriteColor($"{(processor.OnHypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
-                TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
-                TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
-                TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
-                TextWriterColor.WriteColor("- Clock speed: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
-                TextWriterColor.WriteColor("- Virtualization: ", false, 3);
-                TextWriterColor.WriteColor($"{processor.Hypervisor} [{processor.HypervisorVendor}]", true, 8);
-                TextWriterColor.WriteColor("- Features: ", false, 3);
-                TextWriterColor.WriteColor($"{string.Join(", ", processor.Flags)}", true, 8);
-            }
-            else
-                TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
-            TextWriterRaw.Write();
-            foreach (var exc in processorErrors)
-            {
-                TextWriterColor.WriteColor("Error: ", false, 3);
-                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
-                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
-            }
-            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
-            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterRaw.Write();
-            stopwatch.Reset();
-
-            // Memory
-            SeparatorWriterColor.WriteSeparator("Memory information", true, 15);
-            stopwatch.Start();
-            var memory = HardwareProber.GetMemory();
-            var memoryErrors = HardwareProber.GetParseExceptions(HardwarePartType.Memory);
-            stopwatch.Stop();
-            if (memory is not null)
-            {
-                TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
-                TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
-                TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
-                TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
-                TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
-                TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
-            }
-            else
-                TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
-            TextWriterRaw.Write();
-            foreach (var exc in memoryErrors)
-            {
-                TextWriterColor.WriteColor("Error: ", false, 3);
-                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
-                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
-            }
-            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
-            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterRaw.Write();
-            stopwatch.Reset();
-
-            // Video
-            SeparatorWriterColor.WriteSeparator("Video information", true, 15);
-            stopwatch.Start();
-            var videoParts = HardwareProber.GetVideos() ?? [];
-            var videoErrors = HardwareProber.GetParseExceptions(HardwarePartType.Video);
-            stopwatch.Stop();
-            foreach (var video in videoParts)
-            {
-                TextWriterColor.WriteColor("- Video card name: ", false, 3);
-                TextWriterColor.WriteColor($"{video.VideoCardName}", true, 8);
-                TextWriterColor.WriteColor("- Video card vendor ID: ", false, 3);
-                TextWriterColor.WriteColor($"{video.VendorId} [0x{video.VendorId:X4}]", true, 8);
-                TextWriterColor.WriteColor("- Video card model ID: ", false, 3);
-                TextWriterColor.WriteColor($"{video.ModelId} [0x{video.ModelId:X4}]", true, 8);
-                TextWriterColor.WriteColor("- Video card PCI name: ", false, 3);
-                TextWriterColor.WriteColor($"{video.VideoCardPciName}", true, 8);
-                TextWriterColor.WriteColor("- Video card vendor name: ", false, 3);
-                TextWriterColor.WriteColor($"{video.VendorName}", true, 8);
-            }
-            TextWriterRaw.Write();
-            foreach (var exc in videoErrors)
-            {
-                TextWriterColor.WriteColor("Error: ", false, 3);
-                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
-                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
-            }
-            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
-            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterRaw.Write();
-            stopwatch.Reset();
-
-            // Hard drive
-            SeparatorWriterColor.WriteSeparator("Hard drive information", true, 15);
-            stopwatch.Start();
-            var hardDiskParts = HardwareProber.GetHardDisks() ?? [];
-            var hardDiskErrors = HardwareProber.GetParseExceptions(HardwarePartType.HardDisk);
-            stopwatch.Stop();
-            foreach (var hardDisk in hardDiskParts)
-            {
-                TextWriterColor.WriteColor("- Hard drive size: ", false, 3);
-                TextWriterColor.WriteColor($"{hardDisk.HardDiskSize}", true, 8);
-                TextWriterColor.WriteColor("- Partition count: ", false, 3);
-                TextWriterColor.WriteColor($"{hardDisk.PartitionCount}", true, 8);
-                TextWriterColor.WriteColor("- Partition table type: ", false, 3);
-                TextWriterColor.WriteColor($"{hardDisk.PartitionTableType}", true, 8);
-                for (int i = 0; i < hardDisk.Partitions.Length; i++)
+                // Processor
+                SeparatorWriterColor.WriteSeparatorColor("Processor information", 15);
+                stopwatch.Start();
+                totalStopwatch.Start();
+                var processor = HardwareProber.GetProcessor();
+                var processorErrors = HardwareProber.GetParseExceptions(HardwarePartType.Processor);
+                stopwatch.Stop();
+                if (processor is not null)
                 {
-                    HardDiskPart.PartitionPart partition = hardDisk.Partitions[i];
-                    TextWriterColor.WriteColor("--- Partition number (real): ", false, 3);
-                    TextWriterColor.WriteColor($"{i + 1}", true, 8);
-                    TextWriterColor.WriteColor("  - Partition number (OS): ", false, 3);
-                    TextWriterColor.WriteColor($"{partition.PartitionNumber}", true, 8);
-                    TextWriterColor.WriteColor("  - Partition size: ", false, 3);
-                    TextWriterColor.WriteColor($"{partition.PartitionSize}", true, 8);
-                    TextWriterColor.WriteColor("  - Partition offset: ", false, 3);
-                    TextWriterColor.WriteColor($"{partition.PartitionOffset} -> {partition.PartitionOffsetTo}", true, 8);
-                    TextWriterColor.WriteColor("  - Partition type: ", false, 3);
-                    TextWriterColor.WriteColor($"{partition.PartitionType}", true, 8);
-                    TextWriterColor.WriteColor("  - Partition bootable? ", false, 3);
-                    TextWriterColor.WriteColor($"{partition.PartitionBootable}", true, 8);
+                    TextWriterColor.WriteColor("- Processor cores: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.ProcessorCores}", true, 8);
+                    TextWriterColor.WriteColor("- Cores for each core: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.Cores}", true, 8);
+                    TextWriterColor.WriteColor("- Logical cores: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
+                    TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
+                    TextWriterColor.WriteColor("- Name: ", false, 3);
+                    TextWriterColor.WriteColor($"{(processor.OnHypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
+                    TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.CpuidVendor}", true, 8);
+                    TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
+                    TextWriterColor.WriteColor("- Clock speed: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+                    TextWriterColor.WriteColor("- Virtualization: ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.Hypervisor} [{processor.HypervisorVendor}]", true, 8);
+                    TextWriterColor.WriteColor("- Features: ", false, 3);
+                    TextWriterColor.WriteColor($"{string.Join(", ", processor.Flags)}", true, 8);
                 }
+                else
+                    TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
+                TextWriterRaw.Write();
+                foreach (var exc in processorErrors)
+                {
+                    TextWriterColor.WriteColor("Error: ", false, 3);
+                    TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                    TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
+                }
+                TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+                TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+                TextWriterRaw.Write();
+                stopwatch.Reset();
+
+                // Memory
+                SeparatorWriterColor.WriteSeparator("Memory information", true, 15);
+                stopwatch.Start();
+                var memory = HardwareProber.GetMemory();
+                var memoryErrors = HardwareProber.GetParseExceptions(HardwarePartType.Memory);
+                stopwatch.Stop();
+                if (memory is not null)
+                {
+                    TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
+                    TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
+                    TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
+                    TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
+                    TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
+                    TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+                }
+                else
+                    TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
+                TextWriterRaw.Write();
+                foreach (var exc in memoryErrors)
+                {
+                    TextWriterColor.WriteColor("Error: ", false, 3);
+                    TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                    TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
+                }
+                TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+                TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+                TextWriterRaw.Write();
+                stopwatch.Reset();
+
+                // Video
+                SeparatorWriterColor.WriteSeparator("Video information", true, 15);
+                stopwatch.Start();
+                var videoParts = HardwareProber.GetVideos() ?? [];
+                var videoErrors = HardwareProber.GetParseExceptions(HardwarePartType.Video);
+                stopwatch.Stop();
+                foreach (var video in videoParts)
+                {
+                    TextWriterColor.WriteColor("- Video card name: ", false, 3);
+                    TextWriterColor.WriteColor($"{video.VideoCardName}", true, 8);
+                    TextWriterColor.WriteColor("- Video card vendor ID: ", false, 3);
+                    TextWriterColor.WriteColor($"{video.VendorId} [0x{video.VendorId:X4}]", true, 8);
+                    TextWriterColor.WriteColor("- Video card model ID: ", false, 3);
+                    TextWriterColor.WriteColor($"{video.ModelId} [0x{video.ModelId:X4}]", true, 8);
+                    TextWriterColor.WriteColor("- Video card PCI name: ", false, 3);
+                    TextWriterColor.WriteColor($"{video.VideoCardPciName}", true, 8);
+                    TextWriterColor.WriteColor("- Video card vendor name: ", false, 3);
+                    TextWriterColor.WriteColor($"{video.VendorName}", true, 8);
+                }
+                TextWriterRaw.Write();
+                foreach (var exc in videoErrors)
+                {
+                    TextWriterColor.WriteColor("Error: ", false, 3);
+                    TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                    TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
+                }
+                TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+                TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+                TextWriterRaw.Write();
+                stopwatch.Reset();
+
+                // Hard drive
+                SeparatorWriterColor.WriteSeparator("Hard drive information", true, 15);
+                stopwatch.Start();
+                var hardDiskParts = HardwareProber.GetHardDisks() ?? [];
+                var hardDiskErrors = HardwareProber.GetParseExceptions(HardwarePartType.HardDisk);
+                stopwatch.Stop();
+                foreach (var hardDisk in hardDiskParts)
+                {
+                    TextWriterColor.WriteColor("- Hard drive size: ", false, 3);
+                    TextWriterColor.WriteColor($"{hardDisk.HardDiskSize}", true, 8);
+                    TextWriterColor.WriteColor("- Partition count: ", false, 3);
+                    TextWriterColor.WriteColor($"{hardDisk.PartitionCount}", true, 8);
+                    TextWriterColor.WriteColor("- Partition table type: ", false, 3);
+                    TextWriterColor.WriteColor($"{hardDisk.PartitionTableType}", true, 8);
+                    for (int i = 0; i < hardDisk.Partitions.Length; i++)
+                    {
+                        HardDiskPart.PartitionPart partition = hardDisk.Partitions[i];
+                        TextWriterColor.WriteColor("--- Partition number (real): ", false, 3);
+                        TextWriterColor.WriteColor($"{i + 1}", true, 8);
+                        TextWriterColor.WriteColor("  - Partition number (OS): ", false, 3);
+                        TextWriterColor.WriteColor($"{partition.PartitionNumber}", true, 8);
+                        TextWriterColor.WriteColor("  - Partition size: ", false, 3);
+                        TextWriterColor.WriteColor($"{partition.PartitionSize}", true, 8);
+                        TextWriterColor.WriteColor("  - Partition offset: ", false, 3);
+                        TextWriterColor.WriteColor($"{partition.PartitionOffset} -> {partition.PartitionOffsetTo}", true, 8);
+                        TextWriterColor.WriteColor("  - Partition type: ", false, 3);
+                        TextWriterColor.WriteColor($"{partition.PartitionType}", true, 8);
+                        TextWriterColor.WriteColor("  - Partition bootable? ", false, 3);
+                        TextWriterColor.WriteColor($"{partition.PartitionBootable}", true, 8);
+                    }
+                }
+                TextWriterRaw.Write();
+                foreach (var exc in hardDiskErrors)
+                {
+                    TextWriterColor.WriteColor("Error: ", false, 3);
+                    TextWriterColor.WriteColor($"{exc.Message}", true, 8);
+                    TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
+                }
+                TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+                TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+                TextWriterRaw.Write();
+                stopwatch.Reset();
             }
-            TextWriterRaw.Write();
-            foreach (var exc in hardDiskErrors)
-            {
-                TextWriterColor.WriteColor("Error: ", false, 3);
-                TextWriterColor.WriteColor($"{exc.Message}", true, 8);
-                TextWriterColor.WriteColor($"{exc.StackTrace}", true, 8);
-            }
-            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
-            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
-            TextWriterRaw.Write();
-            stopwatch.Reset();
 
             // RID graph
             SeparatorWriterColor.WriteSeparator("RID graph", true, 15);
             stopwatch.Start();
+            Platform platform = PlatformHelper.GetPlatform();
+            string rid = PlatformHelper.GetCurrentGenericRid();
             string[] graph = RidGraphReader.GetGraphFromRid();
             stopwatch.Stop();
+            TextWriterColor.WriteColor("- Platform: ", false, 3);
+            TextWriterColor.WriteColor($"{platform}", true, 8);
+            TextWriterColor.WriteColor("- RID: ", false, 3);
+            TextWriterColor.WriteColor(rid, true, 8);
             TextWriterColor.WriteColor("- Found RIDs: ", false, 3);
             TextWriterColor.WriteColor($"{string.Join(", ", graph)}", true, 8);
             TextWriterRaw.Write();

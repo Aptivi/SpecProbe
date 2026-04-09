@@ -37,6 +37,10 @@ namespace SpecProbe.Software.Platform
         /// </summary>
         MacOS,
         /// <summary>
+        /// FreeBSD platform.
+        /// </summary>
+        FreeBSD,
+        /// <summary>
         /// Unknown platform
         /// </summary>
         Unknown = -1,
