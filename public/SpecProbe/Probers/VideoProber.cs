@@ -26,6 +26,7 @@ using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using Textify.General;
@@ -41,10 +42,10 @@ namespace SpecProbe.Probers
             else if (PlatformHelper.IsOnMacOS())
                 return ProbeMacOS(out errors);
             else
-                return ProbeLinux(out errors);
+                return ProbeUnix(out errors);
         }
 
-        public static VideoPart[] ProbeLinux(out Exception[] errors)
+        public static VideoPart[] ProbeUnix(out Exception[] errors)
         {
             // Some variables to install.
             List<Exception> exceptions = [];
@@ -54,7 +55,8 @@ namespace SpecProbe.Probers
 
             try
             {
-                string glxinfoOutput = PlatformHelper.ExecuteProcessToString(PlatformHelper.IsOnFreeBSD() ? "/usr/local/bin/glxinfo" : "/usr/bin/glxinfo", "-B");
+                string glxInfoPath = File.Exists("/usr/local/bin/glxinfo") ? "/usr/local/bin/glxinfo" : "/usr/bin/glxinfo";
+                string glxinfoOutput = PlatformHelper.ExecuteProcessToString(glxInfoPath, "-B");
                 string[] glxinfoOutputLines = glxinfoOutput.Replace("\r", "").Split('\n');
                 foreach (string glxinfoOutputLine in glxinfoOutputLines)
                 {
