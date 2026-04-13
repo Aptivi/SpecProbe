@@ -54,7 +54,7 @@ namespace SpecProbe.Probers
 
             try
             {
-                string glxinfoOutput = PlatformHelper.ExecuteProcessToString("/usr/bin/glxinfo", "-B");
+                string glxinfoOutput = PlatformHelper.ExecuteProcessToString(PlatformHelper.IsOnFreeBSD() ? "/usr/local/bin/glxinfo" : "/usr/bin/glxinfo", "-B");
                 string[] glxinfoOutputLines = glxinfoOutput.Replace("\r", "").Split('\n');
                 foreach (string glxinfoOutputLine in glxinfoOutputLines)
                 {

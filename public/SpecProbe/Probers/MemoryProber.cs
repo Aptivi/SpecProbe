@@ -38,6 +38,8 @@ namespace SpecProbe.Probers
                 return ProbeWindows(out errors);
             else if (PlatformHelper.IsOnMacOS())
                 return ProbeMacOS(out errors);
+            else if (PlatformHelper.IsOnFreeBSD())
+                return ProbeFreeBSD(out errors);
             else
                 return ProbeLinux(out errors);
         }
@@ -127,6 +129,44 @@ namespace SpecProbe.Probers
                         totalMemory = long.Parse(sysctlOutputLine.Substring(total.Length));
                     if (sysctlOutputLine.StartsWith(totalUsable))
                         totalPhysicalMemory = long.Parse(sysctlOutputLine.Substring(totalUsable.Length));
+                }
+            }
+            catch (Exception ex)
+            {
+                exceptions.Add(ex);
+            }
+
+            // Finally, return a single item array containing information
+            MemoryPart part = new()
+            {
+                TotalMemory = totalMemory,
+                TotalPhysicalMemory = totalPhysicalMemory,
+            };
+            errors = [.. exceptions];
+            return part;
+        }
+
+        public static MemoryPart ProbeFreeBSD(out Exception[] errors)
+        {
+            // Some variables to install.
+            List<Exception> exceptions = [];
+            long totalMemory = 0;
+            long totalPhysicalMemory = 0;
+
+            // Some constants
+            const string total = "hw.realmem: ";
+            const string totalUsable = "hw.physmem: ";
+
+            try
+            {
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/sbin/sysctl", "hw.realmem hw.physmem");
+                string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
+                foreach (string sysctlOutputLine in sysctlOutputLines)
+                {
+                    if (sysctlOutputLine.StartsWith(total))
+                        totalPhysicalMemory = long.Parse(sysctlOutputLine.Substring(total.Length));
+                    if (sysctlOutputLine.StartsWith(totalUsable))
+                        totalMemory = long.Parse(sysctlOutputLine.Substring(totalUsable.Length));
                 }
             }
             catch (Exception ex)

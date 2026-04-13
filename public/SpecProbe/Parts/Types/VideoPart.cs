@@ -48,7 +48,7 @@ namespace SpecProbe.Parts.Types
         /// Video card PCI name from the PCI ID database
         /// </summary>
         public string VideoCardPciName =>
-            PciListParser.IsDeviceRegistered((int)vendorId, (int)modelId) ?
+            PciListParser.IsVendorRegistered((int)vendorId) && PciListParser.IsDeviceRegistered((int)vendorId, (int)modelId) ?
             PciListParser.GetDevice((int)vendorId, (int)modelId).Name :
             LanguageTools.GetLocalized("SPECPROBE_PARTS_UNKNOWNGPU");
 
