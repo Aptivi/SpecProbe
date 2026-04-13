@@ -464,7 +464,7 @@ namespace SpecProbe.Probers
             List<Exception> exceptions = [];
             string[] features = [];
             int numberOfCores = 0;
-            int numberOfCoresForEachCore = 1;
+            int numberOfCoresForEachCore = 0;
             int numberOfLogicalCores = 0;
             uint cacheL1 = 0;
             uint cacheL2 = 0;
