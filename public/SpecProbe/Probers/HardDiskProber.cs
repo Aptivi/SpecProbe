@@ -56,7 +56,7 @@ namespace SpecProbe.Probers
             try
             {
                 string blockListFolder = "/sys/block";
-                string[] blockFolders = Directory.GetDirectories(blockListFolder).Where((dir) => !dir.Contains("/sys/block/loop")).ToArray();
+                string[] blockFolders = Directory.GetDirectories(blockListFolder).Where((dir) => !dir.ContainsAnyOf(["/sys/block/loop", "/sys/block/zram"])).ToArray();
                 for (int i = 0; i < blockFolders.Length; i++)
                 {
                     string blockFolder = blockFolders[i];

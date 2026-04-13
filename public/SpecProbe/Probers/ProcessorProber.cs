@@ -136,7 +136,7 @@ namespace SpecProbe.Probers
                             numberOfLogicalCores = logicalIdNum + 1;
                         }
 
-                        // Get the number of logical processors
+                        // Get the number of cores
                         if (cpuInfoLine.StartsWith(cpuCores))
                         {
                             string coreNumString = cpuInfoLine.Replace(cpuCores, "");
