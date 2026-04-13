@@ -1,10 +1,11 @@
-We've updated this project to fix a crash when trying to parse drives on Android!
+We're introducing initial support for FreeBSD in SpecProbe!
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Fixed crash when trying to parse drives on Android
+- `[+]` Added initial support for FreeBSD systems
+- `[*]` General improvements and bug fixes
 
 Review the commit history if you want to get a deep insight about the changes.
 
