@@ -51,106 +51,106 @@ namespace SpecProbe.Probers.Types.HardDisk
                     string blockStateFile = $"{blockFolder}/removable";
                     string blockStateStr = File.ReadAllLines(blockStateFile)[0];
                     int blockState = int.Parse(blockStateStr);
-                    if (blockState == 0)
+                    bool removable = blockState != 0;
+
+                    // Now, get the size
+                    string blockSizeFile = $"{blockFolder}/size";
+                    string blockSizeStr = File.ReadAllLines(blockSizeFile)[0];
+                    ulong blockSize = ulong.Parse(blockSizeStr);
+                    ulong actualSize = blockSize * 512;
+
+                    // Get the partitions
+                    string devName = blockFolder.Substring(blockFolder.LastIndexOf("/") + 1);
+                    string devPartFolderInitial = $"{blockFolder}/{devName}";
+
+                    // Check if the dev name ends with a number (such as nvme0n1p1, mmcblk0p1, etc.)
+                    bool appendPartitionChar = int.TryParse($"{devName[devName.Length - 1]}", out int devNum);
+                    int partNum = 1;
+                    PartitionTableType ptType = PartitionTableType.Unknown;
+                    while (true)
                     {
-                        // Now, get the size
-                        string blockSizeFile = $"{blockFolder}/size";
-                        string blockSizeStr = File.ReadAllLines(blockSizeFile)[0];
-                        ulong blockSize = ulong.Parse(blockSizeStr);
-                        ulong actualSize = blockSize * 512;
-
-                        // Get the partitions
-                        string devName = blockFolder.Substring(blockFolder.LastIndexOf("/") + 1);
-                        string devPartFolderInitial = $"{blockFolder}/{devName}";
-
-                        // Check if the dev name ends with a number (such as nvme0n1p1, mmcblk0p1, etc.)
-                        bool appendPartitionChar = int.TryParse($"{devName[devName.Length - 1]}", out int devNum);
-                        int partNum = 1;
-                        PartitionTableType ptType = PartitionTableType.Unknown;
-                        while (true)
+                        string partPath = appendPartitionChar ?
+                            $"{devPartFolderInitial}p{partNum}" :
+                            $"{devPartFolderInitial}{partNum}";
+                        string partDevPath = appendPartitionChar ?
+                            $"/dev/{devName}p{partNum}" :
+                            $"/dev/{devName}{partNum}";
+                        if (!Directory.Exists(partPath))
                         {
-                            string partPath = appendPartitionChar ?
-                                $"{devPartFolderInitial}p{partNum}" :
-                                $"{devPartFolderInitial}{partNum}";
-                            string partDevPath = appendPartitionChar ?
-                                $"/dev/{devName}p{partNum}" :
-                                $"/dev/{devName}{partNum}";
-                            if (!Directory.Exists(partPath))
+                            if (partNum <= 4)
                             {
-                                if (partNum <= 4)
-                                {
-                                    partNum++;
-                                    continue;
-                                }
-                                break;
+                                partNum++;
+                                continue;
                             }
-
-                            // Get the actual size
-                            string partSizeFile = $"{partPath}/size";
-                            string partStartFile = $"{partPath}/start";
-                            string partSizeStr = File.ReadAllLines(partSizeFile)[0];
-                            string partStartStr = File.ReadAllLines(partStartFile)[0];
-                            long partSize = long.Parse(partSizeStr);
-                            long partStart = long.Parse(partStartStr);
-                            long partActualSize = partSize * 512;
-                            long partActualStart = partStart * 512;
-
-                            // Get the partition type
-                            string options = $"-f --output PARTTYPE -n {partDevPath}";
-                            string optionsPt = $"-f --output PTTYPE -n {partDevPath}";
-                            string output = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", options).Trim(['\r', '\n']);
-                            string outputPt = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", optionsPt).Trim(['\r', '\n']);
-                            var type = PartitionType.Unknown;
-                            if (Guid.TryParse(output, out Guid gptType))
-                                type = GptPartitionTypeTools.TranslateFromGpt(gptType);
-                            else if (int.TryParse(output.Substring(2), NumberStyles.HexNumber, null, out int mbrType))
-                                type = (PartitionType)mbrType;
-                            ptType = outputPt switch
-                            {
-                                "dos" => PartitionTableType.MBR,
-                                "msdos" => PartitionTableType.MBR,
-                                "gpt" => PartitionTableType.GPT,
-
-                                // Rare partition tables
-                                "aix" => PartitionTableType.AIX,
-                                "amiga" => PartitionTableType.Amiga,
-                                "atari" => PartitionTableType.Atari,
-                                "bsd" => PartitionTableType.BSD,
-                                "dasd" => PartitionTableType.DASD,
-                                "dvh" => PartitionTableType.DVH,
-                                "mac" => PartitionTableType.Apple,
-                                "pc98" => PartitionTableType.PC98,
-                                "rdb" => PartitionTableType.RDB,
-                                "sun" => PartitionTableType.Sun,
-
-                                // Loopback
-                                "loop" => PartitionTableType.Loop,
-
-                                // Nonexistent tables
-                                "" =>    PartitionTableType.Unknown,
-                                _ =>     PartitionTableType.Other,
-                            };
-                            partitions.Add(new HardDiskPart.PartitionPart
-                            {
-                                PartitionNumber = partNum,
-                                PartitionSize = partActualSize,
-                                PartitionOffset = partActualStart,
-                                PartitionType = type,
-                                PartitionBootable = type == PartitionType.EFISystem,
-                            });
-                            partNum++;
+                            break;
                         }
 
-                        // Add disk
-                        diskParts.Add(new HardDiskPart
+                        // Get the actual size
+                        string partSizeFile = $"{partPath}/size";
+                        string partStartFile = $"{partPath}/start";
+                        string partSizeStr = File.ReadAllLines(partSizeFile)[0];
+                        string partStartStr = File.ReadAllLines(partStartFile)[0];
+                        long partSize = long.Parse(partSizeStr);
+                        long partStart = long.Parse(partStartStr);
+                        long partActualSize = partSize * 512;
+                        long partActualStart = partStart * 512;
+
+                        // Get the partition type
+                        string options = $"-f --output PARTTYPE -n {partDevPath}";
+                        string optionsPt = $"-f --output PTTYPE -n {partDevPath}";
+                        string output = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", options).Trim(['\r', '\n']);
+                        string outputPt = PlatformHelper.ExecuteProcessToString("/usr/bin/lsblk", optionsPt).Trim(['\r', '\n']);
+                        var type = PartitionType.Unknown;
+                        if (Guid.TryParse(output, out Guid gptType))
+                            type = GptPartitionTypeTools.TranslateFromGpt(gptType);
+                        else if (int.TryParse(output.Substring(2), NumberStyles.HexNumber, null, out int mbrType))
+                            type = (PartitionType)mbrType;
+                        ptType = outputPt switch
                         {
-                            HardDiskSize = actualSize,
-                            HardDiskNumber = devNum,
-                            Partitions = [.. partitions],
-                            PartitionTableType = ptType,
+                            "dos" => PartitionTableType.MBR,
+                            "msdos" => PartitionTableType.MBR,
+                            "gpt" => PartitionTableType.GPT,
+
+                            // Rare partition tables
+                            "aix" => PartitionTableType.AIX,
+                            "amiga" => PartitionTableType.Amiga,
+                            "atari" => PartitionTableType.Atari,
+                            "bsd" => PartitionTableType.BSD,
+                            "dasd" => PartitionTableType.DASD,
+                            "dvh" => PartitionTableType.DVH,
+                            "mac" => PartitionTableType.Apple,
+                            "pc98" => PartitionTableType.PC98,
+                            "rdb" => PartitionTableType.RDB,
+                            "sun" => PartitionTableType.Sun,
+
+                            // Loopback
+                            "loop" => PartitionTableType.Loop,
+
+                            // Nonexistent tables
+                            "" =>    PartitionTableType.Unknown,
+                            _ =>     PartitionTableType.Other,
+                        };
+                        partitions.Add(new HardDiskPart.PartitionPart
+                        {
+                            PartitionNumber = partNum,
+                            PartitionSize = partActualSize,
+                            PartitionOffset = partActualStart,
+                            PartitionType = type,
+                            PartitionBootable = type == PartitionType.EFISystem,
                         });
-                        partitions.Clear();
+                        partNum++;
                     }
+
+                    // Add disk
+                    diskParts.Add(new HardDiskPart
+                    {
+                        HardDiskSize = actualSize,
+                        HardDiskNumber = devNum,
+                        Removable = removable,
+                        Partitions = [.. partitions],
+                        PartitionTableType = ptType,
+                    });
+                    partitions.Clear();
                 }
             }
             catch (Exception ex)

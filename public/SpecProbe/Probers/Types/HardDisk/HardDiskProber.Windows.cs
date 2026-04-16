@@ -48,7 +48,7 @@ namespace SpecProbe.Probers.Types.HardDisk
                     IntPtr driveHandle = PlatformWindowsInterop.CreateFile(drive, FileAccess.Read, FileShare.ReadWrite, IntPtr.Zero, FileMode.Open, FileAttributes.System, IntPtr.Zero);
                     if (driveHandle != new IntPtr(-1))
                     {
-                        // Get the hard drive number
+                        // Get the hard drive number, size, and removable condition
                         bool result = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveGeometry, null, 0, out PlatformWindowsInterop.DISK_GEOMETRY drvGeom, Marshal.SizeOf<PlatformWindowsInterop.DISK_GEOMETRY>(), out _, IntPtr.Zero);
                         if (!result)
                             continue;
@@ -57,94 +57,91 @@ namespace SpecProbe.Probers.Types.HardDisk
                             continue;
                         ulong hardDiskSize = (ulong)(drvGeom.Cylinders * drvGeom.TracksPerCylinder * drvGeom.SectorsPerTrack * drvGeom.BytesPerSector);
                         int diskNum = devNumber.DeviceNumber;
+                        bool removable = drvGeom.MediaType == PlatformWindowsInterop.MEDIA_TYPE.RemovableMedia;
 
-                        // Check the type
-                        if (drvGeom.MediaType == PlatformWindowsInterop.MEDIA_TYPE.FixedMedia)
+                        // Get the partitions
+                        var partitionTableType = PartitionTableType.Unknown;
+                        var parts = new List<HardDiskPart.PartitionPart>();
+                        IntPtr driveLayoutPtr = IntPtr.Zero;
+                        int buffSize = 1024;
+                        int error;
+                        do
                         {
-                            // Add a hard disk
-                            var disk = new HardDiskPart()
-                            {
-                                HardDiskSize = hardDiskSize,
-                                HardDiskNumber = diskNum,
-                                Partitions = [],
-                            };
+                            // Allocate the drive layout pointer
+                            error = 0;
+                            driveLayoutPtr = Marshal.AllocHGlobal(buffSize);
 
-                            // Get the partitions
-                            var parts = new List<HardDiskPart.PartitionPart>();
-                            IntPtr driveLayoutPtr = IntPtr.Zero;
-                            int buffSize = 1024;
-                            int error;
-                            do
+                            // Try to get the drive layout
+                            bool partResult = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveLayoutEx, IntPtr.Zero, 0, driveLayoutPtr, (uint)buffSize, out _, IntPtr.Zero);
+                            if (partResult)
                             {
-                                // Allocate the drive layout pointer
-                                error = 0;
-                                driveLayoutPtr = Marshal.AllocHGlobal(buffSize);
-
-                                // Try to get the drive layout
-                                bool partResult = PlatformWindowsInterop.DeviceIoControl(driveHandle, PlatformWindowsInterop.EIOControlCode.DiskGetDriveLayoutEx, IntPtr.Zero, 0, driveLayoutPtr, (uint)buffSize, out _, IntPtr.Zero);
-                                if (partResult)
+                                // Get partition table type
+                                PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX driveLayout = Marshal.PtrToStructure<PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX>(driveLayoutPtr);
+                                switch (driveLayout.PartitionStyle)
                                 {
-                                    // Get partition table type
-                                    PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX driveLayout = Marshal.PtrToStructure<PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX>(driveLayoutPtr);
-                                    switch (driveLayout.PartitionStyle)
-                                    {
-                                        case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR:
-                                            disk.PartitionTableType = PartitionTableType.MBR;
-                                            break;
-                                        case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT:
-                                            disk.PartitionTableType = PartitionTableType.GPT;
-                                            break;
-                                    }
+                                    case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_MBR:
+                                        partitionTableType = PartitionTableType.MBR;
+                                        break;
+                                    case PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT:
+                                        partitionTableType = PartitionTableType.GPT;
+                                        break;
+                                }
 
-                                    // Get all the partitions
-                                    for (uint partIdx = 0; partIdx < driveLayout.PartitionCount; partIdx++)
-                                    {
-                                        // Make a pointer to a partition info instance
-                                        IntPtr ptr = new(driveLayoutPtr.ToInt64() + Marshal.OffsetOf(typeof(PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX), "PartitionEntry").ToInt64() + partIdx * Marshal.SizeOf(typeof(PlatformWindowsInterop.PARTITION_INFORMATION_EX)));
-                                        PlatformWindowsInterop.PARTITION_INFORMATION_EX partInfo = Marshal.PtrToStructure<PlatformWindowsInterop.PARTITION_INFORMATION_EX>(ptr);
+                                // Get all the partitions
+                                for (uint partIdx = 0; partIdx < driveLayout.PartitionCount; partIdx++)
+                                {
+                                    // Make a pointer to a partition info instance
+                                    IntPtr ptr = new(driveLayoutPtr.ToInt64() + Marshal.OffsetOf(typeof(PlatformWindowsInterop.DRIVE_LAYOUT_INFORMATION_EX), "PartitionEntry").ToInt64() + partIdx * Marshal.SizeOf(typeof(PlatformWindowsInterop.PARTITION_INFORMATION_EX)));
+                                    PlatformWindowsInterop.PARTITION_INFORMATION_EX partInfo = Marshal.PtrToStructure<PlatformWindowsInterop.PARTITION_INFORMATION_EX>(ptr);
 
-                                        // Check to see if this partition is a recognizable MBR/GPT partition
-                                        var type = PartitionType.Unknown;
-                                        bool isGpt = partInfo.PartitionStyle == PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT;
-                                        if (isGpt || partInfo.Mbr.RecognizedPartition)
+                                    // Check to see if this partition is a recognizable MBR/GPT partition
+                                    var type = PartitionType.Unknown;
+                                    bool isGpt = partInfo.PartitionStyle == PlatformWindowsInterop.PARTITION_STYLE.PARTITION_STYLE_GPT;
+                                    if (isGpt || partInfo.Mbr.RecognizedPartition)
+                                    {
+                                        // Try to get partition type
+                                        if (isGpt)
                                         {
-                                            // Try to get partition type
-                                            if (isGpt)
-                                            {
-                                                var typeGuid = partInfo.Gpt.PartitionType;
-                                                type = GptPartitionTypeTools.TranslateFromGpt(typeGuid);
-                                            }
-                                            else
-                                                type = (PartitionType)partInfo.Mbr.PartitionType;
+                                            var typeGuid = partInfo.Gpt.PartitionType;
+                                            type = GptPartitionTypeTools.TranslateFromGpt(typeGuid);
                                         }
-
-                                        // Add this partition
-                                        parts.Add(new()
-                                        {
-                                            PartitionNumber = (int)partInfo.PartitionNumber,
-                                            PartitionSize = partInfo.PartitionLength,
-                                            PartitionType = type,
-                                            PartitionBootable = isGpt ? type == PartitionType.EFISystem : partInfo.Mbr.BootIndicator,
-                                            PartitionOffset = partInfo.StartingOffset,
-                                        });
+                                        else
+                                            type = (PartitionType)partInfo.Mbr.PartitionType;
                                     }
-                                }
-                                else
-                                {
-                                    // Increase the buffer size by multiplying it by two.
-                                    error = Marshal.GetLastWin32Error();
-                                    buffSize *= 2;
-                                }
 
-                                // Free the drive layout handle
-                                Marshal.FreeHGlobal(driveLayoutPtr);
-                                driveLayoutPtr = IntPtr.Zero;
-                            } while (error == 0x7A);
+                                    // Add this partition
+                                    parts.Add(new()
+                                    {
+                                        PartitionNumber = (int)partInfo.PartitionNumber,
+                                        PartitionSize = partInfo.PartitionLength,
+                                        PartitionType = type,
+                                        PartitionBootable = isGpt ? type == PartitionType.EFISystem : partInfo.Mbr.BootIndicator,
+                                        PartitionOffset = partInfo.StartingOffset,
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                // Increase the buffer size by multiplying it by two.
+                                error = Marshal.GetLastWin32Error();
+                                buffSize *= 2;
+                            }
 
-                            // Add a hard disk
-                            disk.Partitions = parts.ToArray();
-                            diskParts.Add(disk);
-                        }
+                            // Free the drive layout handle
+                            Marshal.FreeHGlobal(driveLayoutPtr);
+                            driveLayoutPtr = IntPtr.Zero;
+                        } while (error == 0x7A);
+
+                        // Add a hard disk
+                        var disk = new HardDiskPart()
+                        {
+                            HardDiskSize = hardDiskSize,
+                            HardDiskNumber = diskNum,
+                            Removable = removable,
+                            Partitions = [.. parts],
+                            PartitionTableType = partitionTableType,
+                        };
+                        diskParts.Add(disk);
 
                         // Close the handle
                         PlatformWindowsInterop.CloseHandle(driveHandle);

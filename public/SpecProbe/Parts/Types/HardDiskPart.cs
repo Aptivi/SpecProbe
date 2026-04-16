@@ -86,6 +86,7 @@ namespace SpecProbe.Parts.Types
 
         private ulong hardDiskSize;
         private int hardDiskNum;
+        private bool removable;
         private PartitionTableType partTableType = PartitionTableType.Unknown;
         private PartitionPart[] parts = [];
 
@@ -116,6 +117,14 @@ namespace SpecProbe.Parts.Types
         {
             get => partTableType;
             internal set => partTableType = value;
+        }
+        /// <summary>
+        /// Whether the disk is removable or not
+        /// </summary>
+        public bool Removable
+        {
+            get => removable;
+            internal set => removable = value;
         }
 
         /// <summary>

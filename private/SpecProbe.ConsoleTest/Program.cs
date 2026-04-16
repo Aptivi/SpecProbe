@@ -106,7 +106,7 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor($"{memory.SystemReservedMemory} ({memory.SystemReservedMemory.SizeString()})", true, 8);
                 }
                 else
-                    TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
+                    TextWriterColor.WriteColor("- Unable to fetch memory.", ConsoleColors.Red);
                 TextWriterRaw.Write();
                 foreach (var exc in memoryErrors)
                 {
@@ -160,6 +160,8 @@ namespace SpecProbe.ConsoleTest
                 {
                     TextWriterColor.WriteColor("- Hard drive size: ", false, 3);
                     TextWriterColor.WriteColor($"{hardDisk.HardDiskSize} ({hardDisk.HardDiskSize.SizeString()})", true, 8);
+                    TextWriterColor.WriteColor("- Removable media: ", false, 3);
+                    TextWriterColor.WriteColor($"{hardDisk.Removable}", true, 8);
                     TextWriterColor.WriteColor("- Partition count: ", false, 3);
                     TextWriterColor.WriteColor($"{hardDisk.PartitionCount}", true, 8);
                     TextWriterColor.WriteColor("- Partition table type: ", false, 3);

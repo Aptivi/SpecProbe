@@ -71,14 +71,10 @@ namespace SpecProbe.Probers.Types.HardDisk
                     string daPartId = daName.Substring(daName.Length);
                     string daNameTag = $". Name: {daName}";
 
-                    // Execute "sysctl" on the block to determine whether this disk is fixed or removable
+                    // Execute "sysctl" on the block to determine whether this disk is fixed or removable and set flag as appropriate
                     string sysctlOutput = PlatformHelper.ExecuteProcessToString("/sbin/sysctl", $"kern.cam.{daName}.{daPartId}.flags");
                     string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
                     blockFixed = !sysctlOutputLines[0].Contains(camRemovable);
-
-                    // Don't continue if the drive is not fixed
-                    if (!blockFixed)
-                        continue;
 
                     // Execute "gpart list" on that block
                     string gpartOutput = PlatformHelper.ExecuteProcessToString("/sbin/gpart", $"list {reallyDiskId}");
@@ -157,6 +153,7 @@ namespace SpecProbe.Probers.Types.HardDisk
                     {
                         HardDiskSize = actualSize,
                         HardDiskNumber = i,
+                        Removable = !blockFixed,
                         Partitions = [.. partitions],
                         PartitionTableType =
                             Enum.TryParse<PartitionTableType>(blockScheme, out var partitionTableType) ? partitionTableType :

@@ -75,8 +75,6 @@ namespace SpecProbe.Probers.Types.HardDisk
                     string[] diskutilOutputLines = diskutilOutput.Replace("\r", "").Split('\n');
                     foreach (string diskutilOutputLine in diskutilOutputLines)
                     {
-                        if (!blockFixed)
-                            break;
                         string trimmedLine = diskutilOutputLine.Trim();
                         if (trimmedLine.StartsWith(blockVirtualTag))
                         {
@@ -148,10 +146,6 @@ namespace SpecProbe.Probers.Types.HardDisk
                         }
                     }
 
-                    // Don't continue if the drive is not fixed
-                    if (!blockFixed)
-                        continue;
-
                     // Get the disk and the partition number
                     int partNum = 0;
                     if (!blockIsDisk)
@@ -171,6 +165,7 @@ namespace SpecProbe.Probers.Types.HardDisk
                         {
                             HardDiskSize = actualSize,
                             HardDiskNumber = diskNum,
+                            Removable = !blockFixed,
                             Partitions = [.. partitions],
                             PartitionTableType =
                                 blockScheme == "GUID_partition_scheme" ? PartitionTableType.GPT :
