@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>중복된 라이브러리 파일이 발견되었습니다.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>32비트 시스템은 더 이상 지원되지 않습니다. 자세한 내용은 {0}을 참조하세요.</value>
+  </data>
 
 </root>

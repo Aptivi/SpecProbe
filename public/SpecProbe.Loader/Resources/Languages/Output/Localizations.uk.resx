@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Знайдено дублікати файлів бібліотеки.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>32-розрядні системи більше не підтримуються. Див. {0} для отримання додаткової інформації.</value>
+  </data>
 
 </root>

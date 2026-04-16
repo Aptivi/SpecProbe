@@ -50,6 +50,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Doppelte Bibliotheksdateien gefunden."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-Bit-Systeme werden nicht mehr unterstützt. Weitere Informationen finden Sie unter {0}."
     }
   ]
 }

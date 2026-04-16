@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>重複したライブラリ ファイルが見つかりました。</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>32ビットシステムはサポートされなくなりました。詳細については{0}を参照してください。</value>
+  </data>
 
 </root>

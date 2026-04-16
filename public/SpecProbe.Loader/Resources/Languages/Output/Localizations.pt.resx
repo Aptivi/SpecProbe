@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Ficheiros de biblioteca duplicados encontrados.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>Os sistemas de 32 bits já não são suportados. Consulte {0} para mais informações.</value>
+  </data>
 
 </root>

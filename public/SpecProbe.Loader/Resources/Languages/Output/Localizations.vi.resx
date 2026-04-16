@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Đã tìm thấy tệp thư viện trùng lặp.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>Hệ thống 32 bit không còn được hỗ trợ nữa. Xem {0} để biết thêm thông tin.</value>
+  </data>
 
 </root>

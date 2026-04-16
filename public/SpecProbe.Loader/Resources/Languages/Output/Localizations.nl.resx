@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Dubbele bibliotheekbestanden gevonden.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>32-bits systemen worden niet langer ondersteund. Zie {0} voor meer informatie.</value>
+  </data>
 
 </root>

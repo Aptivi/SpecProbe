@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Βρέθηκαν διπλότυπα αρχεία βιβλιοθήκης.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>Τα συστήματα 32-bit δεν υποστηρίζονται πλέον. Δείτε {0} για περισσότερες πληροφορίες.</value>
+  </data>
 
 </root>

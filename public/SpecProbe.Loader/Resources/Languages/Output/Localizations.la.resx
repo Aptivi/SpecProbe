@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Fasciculi bibliothecae duplicati inventi sunt.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>Systema 32-bit iam non sustinentur. Vide {0} pro pluribus informationibus.</value>
+  </data>
 
 </root>

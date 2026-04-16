@@ -42,6 +42,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Fuarthas comhaid leabharlainne dúblacha."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Ní thacaítear le córais 32-giotán a thuilleadh. Féach {0} le haghaidh tuilleadh eolais."
     }
   ]
 }

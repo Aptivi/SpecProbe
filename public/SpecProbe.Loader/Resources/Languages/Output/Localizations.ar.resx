@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>تم العثور على ملفات مكتبة مكررة.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>لم تعد أنظمة 32 بت مدعومة. راجع {0} لمزيد من المعلومات.</value>
+  </data>
 
 </root>

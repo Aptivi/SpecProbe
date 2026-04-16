@@ -41,6 +41,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Berkas pustaka duplikat ditemukan."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "Sistem 32-bit tidak lagi didukung. Lihat {0} untuk informasi lebih lanjut."
     }
   ]
 }

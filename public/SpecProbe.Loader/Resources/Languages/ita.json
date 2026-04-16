@@ -44,6 +44,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Sono stati trovati file di libreria duplicati."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "I sistemi a 32 bit non sono più supportati. Vedi {0} per maggiori informazioni."
     }
   ]
 }

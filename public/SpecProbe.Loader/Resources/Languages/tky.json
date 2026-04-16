@@ -42,6 +42,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Yinelenen kitaplık dosyaları bulundu."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32 bit sistemler artık desteklenmiyor. Daha fazla bilgi için {0}'a bakın."
     }
   ]
 }

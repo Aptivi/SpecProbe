@@ -144,5 +144,8 @@
   <data name="SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES" xml:space="preserve">
     <value>Fail perpustakaan pendua ditemui.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
+    <value>Sistem 32-bit tidak lagi disokong. Lihat {0} untuk mendapatkan maklumat lanjut.</value>
+  </data>
 
 </root>

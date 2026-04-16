@@ -45,6 +45,10 @@
     {
       "loc": "SPECPROBE_LOADER_EXCEPTION_DUPLICATELIBFILES",
       "text": "Duplikate bibliotekfiler funnet."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
+      "text": "32-bits systemer støttes ikke lenger. Se {0} for mer informasjon."
     }
   ]
 }
