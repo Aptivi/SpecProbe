@@ -18,9 +18,7 @@
 //
 
 using SpecProbe.Languages;
-using SpecProbe.Probers;
 using SpecProbe.Probers.Platform;
-using System.Linq;
 
 namespace SpecProbe.Parts.Types
 {

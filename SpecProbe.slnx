@@ -11,7 +11,6 @@
   </Folder>
   <Folder Name="/Public/">
     <Project Path="public/SpecProbe.Loader/SpecProbe.Loader.csproj" />
-    <Project Path="public/SpecProbe.Native/SpecProbe.Native.csproj" />
     <Project Path="public/SpecProbe.Software/SpecProbe.Software.csproj" />
     <Project Path="public/SpecProbe/SpecProbe.csproj" />
   </Folder>

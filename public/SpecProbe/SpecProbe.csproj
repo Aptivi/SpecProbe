@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecProbe.Native\SpecProbe.Native.csproj" />
+    <ProjectReference Include="..\SpecProbe.Loader\SpecProbe.Loader.csproj" />
     <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
   </ItemGroup>
 

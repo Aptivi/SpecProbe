@@ -18,8 +18,8 @@
 //
 
 using SpecProbe.Languages;
-using SpecProbe.Native.Helpers;
-using SpecProbe.Native.Structs;
+using SpecProbe.Loader.Native.Helpers;
+using SpecProbe.Loader.Native.Structs;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;

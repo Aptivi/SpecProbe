@@ -23,7 +23,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Xml.Linq;
 using SpecProbe.Software.Kernel;
 using SpecProbe.Software.Languages;
 

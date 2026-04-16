@@ -19,12 +19,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../assets/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
-    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecProbe.Software\SpecProbe.Software.csproj" />
+    <!-- This is the only way to reliably copy all the runtimes -->
+    <None Include="runtimes\**\*.*" Pack="True" PackagePath="runtimes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <!-- Necessary targets -->
+    <None Include="SpecProbe.Loader.targets" Pack="True" PackagePath="/" />
+
+    <!-- For packaging -->
+    <None Include="../../assets/OfficialAppIcon-SpecProbe-512.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
