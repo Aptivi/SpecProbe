@@ -290,8 +290,6 @@ namespace SpecProbe.Probers
             const string cpuClockSpeed = "hw.cpufrequency: ";
             const string vendorId = "machdep.cpu.vendor: ";
             const string modelId = "machdep.cpu.brand_string: ";
-            const string l1Name = "hw.l1icachesize: ";
-            const string l2Name = "hw.l2cachesize: ";
 
             try
             {
@@ -315,7 +313,7 @@ namespace SpecProbe.Probers
                 }
 
                 // Then, fill the rest
-                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string machdep.cpu.features machdep.cpu.leaf7_features machdep.cpu.extfeatures hw.l1icachesize hw.l2cachesize");
+                string sysctlOutput = PlatformHelper.ExecuteProcessToString("/usr/sbin/sysctl", "machdep.cpu.core_count machdep.cpu.cores_per_package hw.cpufrequency machdep.cpu.vendor machdep.cpu.brand_string machdep.cpu.features machdep.cpu.leaf7_features machdep.cpu.extfeatures");
                 string[] sysctlOutputLines = sysctlOutput.Replace("\r", "").Split('\n');
                 foreach (string sysctlOutputLine in sysctlOutputLines)
                 {
@@ -326,13 +324,12 @@ namespace SpecProbe.Probers
                     if (sysctlOutputLine.StartsWith(cpuClockSpeed))
                         clockSpeed = double.Parse(sysctlOutputLine.Substring(cpuClockSpeed.Length)) / 1000 / 1000;
                     if (sysctlOutputLine.StartsWith(vendorId) && string.IsNullOrEmpty(cpuidVendor))
+                    {
                         cpuidVendor = sysctlOutputLine.Substring(vendorId.Length);
+                        vendor = MapRealVendorFromCpuid(cpuidVendor);
+                    }
                     if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
                         name = sysctlOutputLine.Substring(modelId.Length);
-                    if (sysctlOutputLine.StartsWith(l1Name))
-                        cacheL1 = uint.Parse(sysctlOutputLine.Substring(l1Name.Length));
-                    if (sysctlOutputLine.StartsWith(l2Name))
-                        cacheL2 = uint.Parse(sysctlOutputLine.Substring(l2Name.Length));
                 }
             }
             catch (Exception ex)
@@ -342,6 +339,10 @@ namespace SpecProbe.Probers
 
             // Get the real hypervisor vendor
             string realHvVendor = MapRealHvVendorFromCpuid(hypervisorVendor);
+
+            // Get the cache sizes
+            if (!PlatformHelper.IsOnArmOrArm64())
+                (cacheL1, cacheL2, cacheL3) = GetCacheLevelSizes(vendor);
 
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
@@ -421,7 +422,10 @@ namespace SpecProbe.Probers
                     if (sysctlOutputLine.StartsWith(cpuClockSpeed))
                         clockSpeed = double.Parse(sysctlOutputLine.Substring(cpuClockSpeed.Length)) / 1000 / 1000;
                     if (sysctlOutputLine.StartsWith(vendorId) && string.IsNullOrEmpty(cpuidVendor))
+                    {
                         cpuidVendor = sysctlOutputLine.Substring(vendorId.Length);
+                        vendor = MapRealVendorFromCpuid(cpuidVendor);
+                    }
                     if (sysctlOutputLine.StartsWith(modelId) && string.IsNullOrEmpty(name))
                         name = sysctlOutputLine.Substring(modelId.Length);
                 }
@@ -433,6 +437,10 @@ namespace SpecProbe.Probers
 
             // Get the real hypervisor vendor
             string realHvVendor = MapRealHvVendorFromCpuid(hypervisorVendor);
+
+            // Get the cache sizes
+            if (!PlatformHelper.IsOnArmOrArm64())
+                (cacheL1, cacheL2, cacheL3) = GetCacheLevelSizes(vendor);
 
             // Finally, return a single item array containing processor information
             ProcessorPart processorPart = new()
@@ -665,6 +673,81 @@ namespace SpecProbe.Probers
 
             // Build the hypervisor string
             return new(chars);
+        }
+
+        private static (uint l1, uint l2, uint l3) GetCacheLevelSizes(string vendor)
+        {
+            if (vendor == "AMD")
+                return GetCacheLevelSizesAMD();
+            return GetCacheLevelSizesIntel();
+        }
+
+        private static (uint l1, uint l2, uint l3) GetCacheLevelSizesAMD()
+        {
+            // Pass 1: use CPUID with eax 0x8000001D, ecx subleaf
+            (uint l1, uint l2, uint l3) = GetCacheLevelSizesIntel(0x8000001D);
+            if (l1 == 0 && l2 == 0 && l3 == 0)
+            {
+                // Most likely an old AMD processor. Use CPUID with eax 0x80000005, ecx 0
+                var (_, _, _, ecx, edx) = GetValuesUnchecked(0x80000005, 0);
+                uint dataL1SizeKB = (ecx >> 24) & 0xFF;
+                uint instructionL1SizeKB = (edx >> 24) & 0xFF;
+
+                // Use CPUID with eax 0x80000006, ecx 0
+                (_, _, _, ecx, edx) = GetValuesUnchecked(0x80000006, 0);
+                uint l2SizeKB = (ecx >> 16) & 0xFFFF;
+                uint l3SizeKB = ((edx >> 18) & 0x3FFF) * 512;
+
+                // Convert to bytes
+                l1 = (dataL1SizeKB + instructionL1SizeKB) * 1024;
+                l2 = l2SizeKB * 1024;
+                l3 = l3SizeKB * 1024;
+            }
+            return (l1, l2, l3);
+        }
+
+        private static (uint l1, uint l2, uint l3) GetCacheLevelSizesIntel(uint inputEAX = 0x04)
+        {
+            // Use CPUID with eax 0x00000004, ecx subleaf
+            uint subleaf = 0;
+            uint l1 = 0, l2 = 0, l3 = 0;
+            while (true)
+            {
+                // Get cache values
+                var (exists, eax, ebx, ecx, _) = GetValuesUnchecked(inputEAX, subleaf);
+                if (!exists)
+                    break;
+
+                // Get cache type and level
+                uint cacheType = eax & 0x1F;
+                uint cacheLevel = (eax >> 5) & 0x07;
+
+                // Check to see if we have any caches left
+                if (cacheType == 0)
+                    break;
+
+                // Get ways, partitions, line sizes, and sets
+                uint lineSize = (ebx & 0xFFF) + 1;
+                uint partitions = ((ebx >> 12) & 0x3FF) + 1;
+                uint ways = ((ebx >> 22) & 0x3FF) + 1;
+                uint sets = ecx + 1;
+                uint size = ways * partitions * lineSize * sets;
+
+                // Install the size values
+                if (size > 0)
+                {
+                    if (cacheLevel == 1)
+                        l1 += size;
+                    else if (cacheLevel == 2)
+                        l2 += size;
+                    else if (cacheLevel == 3)
+                        l3 += size;
+                }
+
+                // Move on to the next cache info array item
+                subleaf++;
+            }
+            return (l1, l2, l3);
         }
 
         private static (bool exists, uint eax, uint ebx, uint ecx, uint edx) GetValues(uint eax, uint ecx)
