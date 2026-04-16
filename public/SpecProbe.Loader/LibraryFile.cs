@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Loader.Interop.LoadLibrary;
 using SpecProbe.Loader.Languages;
 using SpecProbe.Software.Platform;
 using System;
@@ -31,9 +32,6 @@ namespace SpecProbe.Loader
     /// </summary>
     public class LibraryFile
     {
-        const int RTLD_LAZY = 1;
-        const int RTLD_GLOBAL = 8;
-
         internal IntPtr handle = IntPtr.Zero;
         private bool usesNewLibdl = false;
         private bool dlChecked = false;
@@ -92,13 +90,13 @@ namespace SpecProbe.Loader
             if (PlatformHelper.IsOnWindows())
             {
                 string resultingSymbol = symbolName;
-                result = Windows.GetProcAddress(handle, resultingSymbol);
+                result = LibraryLoader.Win_GetProcAddress(handle, resultingSymbol);
                 if (result == IntPtr.Zero)
                 {
                     resultingSymbol = "_" + resultingSymbol + "@";
                     for (int stackSize = 0; stackSize < 128; stackSize += 4)
                     {
-                        IntPtr candidate = Windows.GetProcAddress(handle, resultingSymbol + stackSize);
+                        IntPtr candidate = LibraryLoader.Win_GetProcAddress(handle, resultingSymbol + stackSize);
                         if (candidate != IntPtr.Zero)
                         {
                             result = candidate;
@@ -114,13 +112,13 @@ namespace SpecProbe.Loader
             }
             else if (PlatformHelper.IsOnMacOS())
             {
-                result = MacOSX.dlsym(handle, symbolName);
+                result = LibraryLoader.Mac_dlsym(handle, symbolName);
                 found = result != IntPtr.Zero;
             }
             else if (PlatformHelper.IsOnFreeBSD())
             {
                 if (PlatformHelper.IsRunningFromMono())
-                    result = Mono.dlsym(handle, symbolName);
+                    result = LibraryLoader.Mono_dlsym(handle, symbolName);
                 else
                     result = LoadFreeBSDLibrarySymbolDl(symbolName);
                 found = result != IntPtr.Zero;
@@ -128,7 +126,7 @@ namespace SpecProbe.Loader
             else if (PlatformHelper.IsOnUnix())
             {
                 if (PlatformHelper.IsRunningFromMono())
-                    result = Mono.dlsym(handle, symbolName);
+                    result = LibraryLoader.Mono_dlsym(handle, symbolName);
                 else
                     result = LoadLinuxLibrarySymbolDl(symbolName);
                 found = result != IntPtr.Zero;
@@ -156,7 +154,7 @@ namespace SpecProbe.Loader
         {
             IntPtr result;
             if (PlatformHelper.IsRunningFromMono())
-                result = Mono.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+                result = LibraryLoader.Mono_dlopen(path, LibraryLoader.LAZY_GLOBAL);
             else
                 result = LoadLinuxLibraryDl(path);
             return result;
@@ -166,7 +164,7 @@ namespace SpecProbe.Loader
         {
             IntPtr result;
             if (PlatformHelper.IsRunningFromMono())
-                result = Mono.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+                result = LibraryLoader.Mono_dlopen(path, LibraryLoader.LAZY_GLOBAL);
             else
                 result = LoadFreeBSDLibraryDl(path);
             return result;
@@ -174,13 +172,13 @@ namespace SpecProbe.Loader
 
         private IntPtr LoadWindowsLibrary(string path)
         {
-            var result = Windows.LoadLibrary(path);
+            var result = LibraryLoader.Win_LoadLibrary(path);
             return result;
         }
 
         private IntPtr LoadMacOSLibrary(string path)
         {
-            var result = MacOSX.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+            var result = LibraryLoader.Mac_dlopen(path, LibraryLoader.LAZY_GLOBAL);
             return result;
         }
 
@@ -190,9 +188,9 @@ namespace SpecProbe.Loader
             {
                 // We've already checked for libdl. Use appropriate path.
                 if (usesNewLibdl)
-                    return Linux.dlopen_new(path, RTLD_LAZY | RTLD_GLOBAL);
+                    return LibraryLoader.Linux_dlopen_new(path, LibraryLoader.LAZY_GLOBAL);
                 else
-                    return Linux.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+                    return LibraryLoader.Linux_dlopen(path, LibraryLoader.LAZY_GLOBAL);
             }
             else
             {
@@ -200,13 +198,13 @@ namespace SpecProbe.Loader
                 IntPtr libPtr;
                 try
                 {
-                    libPtr = Linux.dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+                    libPtr = LibraryLoader.Linux_dlopen(path, LibraryLoader.LAZY_GLOBAL);
                     dlChecked = true;
                 }
                 catch
                 {
                     usesNewLibdl = true;
-                    libPtr = Linux.dlopen_new(path, RTLD_LAZY | RTLD_GLOBAL);
+                    libPtr = LibraryLoader.Linux_dlopen_new(path, LibraryLoader.LAZY_GLOBAL);
                     dlChecked = true;
                 }
                 return libPtr;
@@ -216,7 +214,7 @@ namespace SpecProbe.Loader
         private IntPtr LoadFreeBSDLibraryDl(string path)
         {
             // Use dlopen from libc
-            IntPtr libPtr = FreeBSD.sp_le_dlopen(path, RTLD_LAZY | RTLD_GLOBAL);
+            IntPtr libPtr = LibraryLoader.FreeBSD_dlopen(path, LibraryLoader.LAZY_GLOBAL);
             return libPtr;
         }
 
@@ -226,9 +224,9 @@ namespace SpecProbe.Loader
             {
                 // We've already checked for libdl. Use appropriate path.
                 if (usesNewLibdl)
-                    return Linux.dlsym_new(handle, symbolName);
+                    return LibraryLoader.Linux_dlsym_new(handle, symbolName);
                 else
-                    return Linux.dlsym(handle, symbolName);
+                    return LibraryLoader.Linux_dlsym(handle, symbolName);
             }
             else
             {
@@ -236,13 +234,13 @@ namespace SpecProbe.Loader
                 IntPtr libPtr;
                 try
                 {
-                    libPtr = Linux.dlsym(handle, symbolName);
+                    libPtr = LibraryLoader.Linux_dlsym(handle, symbolName);
                     dlChecked = true;
                 }
                 catch
                 {
                     usesNewLibdl = true;
-                    libPtr = Linux.dlsym_new(handle, symbolName);
+                    libPtr = LibraryLoader.Linux_dlsym_new(handle, symbolName);
                     dlChecked = true;
                 }
                 return libPtr;
@@ -252,54 +250,8 @@ namespace SpecProbe.Loader
         private IntPtr LoadFreeBSDLibrarySymbolDl(string symbolName)
         {
             // Use dlsym from libc
-            IntPtr libPtr = FreeBSD.sp_le_dlsym(handle, symbolName);
+            IntPtr libPtr = LibraryLoader.FreeBSD_dlsym(handle, symbolName);
             return libPtr;
-        }
-
-        private static class Windows
-        {
-            [DllImport("kernel32.dll", SetLastError = true)]
-            internal static extern IntPtr LoadLibrary(string filename);
-            [DllImport("kernel32.dll", SetLastError = true)]
-            internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-        }
-
-        private static class Linux
-        {
-            [DllImport("libdl.so", SetLastError = true)]
-            internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("libdl.so", SetLastError = true)]
-            internal static extern IntPtr dlsym(IntPtr handle, string symbol);
-            [DllImport("libdl.so.2", EntryPoint = "dlopen", SetLastError = true)]
-            internal static extern IntPtr dlopen_new(string filename, int flags);
-            [DllImport("libdl.so.2", EntryPoint = "dlsym", SetLastError = true)]
-            internal static extern IntPtr dlsym_new(IntPtr handle, string symbol);
-        }
-
-        private static class FreeBSD
-        {
-            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
-            internal static extern IntPtr sp_le_dlopen(string filename, int flags);
-            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
-            internal static extern IntPtr sp_le_dlsym(IntPtr handle, string symbol);
-            [DllImport("runtimes/freebsd-x64/native/libspecprober_ldelf_fbsd.so", SetLastError = true)]
-            internal static extern IntPtr sp_le_dlerror();
-        }
-
-        private static class MacOSX
-        {
-            [DllImport("libSystem.dylib", SetLastError = true)]
-            internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("libSystem.dylib", SetLastError = true)]
-            internal static extern IntPtr dlsym(IntPtr handle, string symbol);
-        }
-
-        private static class Mono
-        {
-            [DllImport("__Internal", SetLastError = true)]
-            internal static extern IntPtr dlopen(string filename, int flags);
-            [DllImport("__Internal", SetLastError = true)]
-            internal static extern IntPtr dlsym(IntPtr handle, string symbol);
         }
 
         /// <summary>

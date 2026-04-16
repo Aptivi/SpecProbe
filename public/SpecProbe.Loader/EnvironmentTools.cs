@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.Loader.Interop.Environment;
 using SpecProbe.Loader.Languages;
 using System;
 using System.Collections;
@@ -64,7 +65,7 @@ namespace SpecProbe.Loader
         {
             int size = 0;
             IntPtr varNamePtr = Marshal.StringToHGlobalAnsi(variable);
-            int result = getenv_s(ref size, IntPtr.Zero, 0, varNamePtr);
+            int result = EnvironmentManager.Win_getenv_s(ref size, IntPtr.Zero, 0, varNamePtr);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR"), variable) + $" [0x{Marshal.GetLastWin32Error():X8}]");
 
@@ -74,7 +75,7 @@ namespace SpecProbe.Loader
 
             // Allocate the buffer with the returned size
             IntPtr buffer = Marshal.AllocHGlobal(size * sizeof(char));
-            result = getenv_s(ref size, buffer, size, varNamePtr);
+            result = EnvironmentManager.Win_getenv_s(ref size, buffer, size, varNamePtr);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTGETENVVAR_SIZE"), variable, size) + $" [0x{Marshal.GetLastWin32Error():X8}]");
 
@@ -90,7 +91,7 @@ namespace SpecProbe.Loader
         /// <returns>A value expressed in a string</returns>
         public static string GetEnvironmentVariableLibc(string variable)
         {
-            var valuePtr = getenv(variable);
+            var valuePtr = EnvironmentManager.Linux_getenv(variable);
             if (valuePtr == IntPtr.Zero)
                 return "";
             string value = Marshal.PtrToStringAnsi(valuePtr);
@@ -135,7 +136,7 @@ namespace SpecProbe.Loader
         /// <param name="value">Value to set (overwrite)</param>
         public static void SetEnvironmentVariableUcrt(string variable, string value)
         {
-            int result = _putenv_s(variable, value);
+            int result = EnvironmentManager.Win_putenv_s(variable, value);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
@@ -148,7 +149,7 @@ namespace SpecProbe.Loader
         public static void SetEnvironmentVariableAppendUcrt(string variable, string value)
         {
             string oldValue = GetEnvironmentVariableUcrt(variable);
-            int result = _putenv_s(variable, oldValue + value);
+            int result = EnvironmentManager.Win_putenv_s(variable, oldValue + value);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
@@ -163,7 +164,7 @@ namespace SpecProbe.Loader
             string oldValue = GetEnvironmentVariableUcrt(variable);
             if (!string.IsNullOrEmpty(oldValue))
             {
-                int result = _putenv_s(variable, value);
+                int result = EnvironmentManager.Win_putenv_s(variable, value);
                 if (result != 0)
                     throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
             }
@@ -176,7 +177,7 @@ namespace SpecProbe.Loader
         /// <param name="value">Value to set (overwrite)</param>
         public static void SetEnvironmentVariableLibc(string variable, string value)
         {
-            int result = setenv(variable, value, 1);
+            int result = EnvironmentManager.Linux_setenv(variable, value, 1);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
@@ -189,7 +190,7 @@ namespace SpecProbe.Loader
         public static void SetEnvironmentVariableAppendLibc(string variable, string value)
         {
             string oldValue = GetEnvironmentVariableLibc(variable);
-            int result = setenv(variable, oldValue + value, 1);
+            int result = EnvironmentManager.Linux_setenv(variable, oldValue + value, 1);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
@@ -201,28 +202,9 @@ namespace SpecProbe.Loader
         /// <param name="value">Value to set (no overwrite)</param>
         public static void SetEnvironmentVariableNoOverwriteLibc(string variable, string value)
         {
-            string oldValue = GetEnvironmentVariableLibc(variable);
-            int result = setenv(variable, value, 0);
+            int result = EnvironmentManager.Linux_setenv(variable, value, 0);
             if (result != 0)
                 throw new Exception(string.Format(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_CANTSETENVVAR"), variable, value) + $" [0x{Marshal.GetLastWin32Error():X8}]");
         }
-
-        #region Interop
-        #region Windows
-        [DllImport("UCRTBASE.DLL", SetLastError = true)]
-        internal static extern int getenv_s(ref int requiredSize, IntPtr buffer, int bufferSize, IntPtr varname);
-
-        [DllImport("UCRTBASE.DLL", SetLastError = true)]
-        internal static extern int _putenv_s(string e, string v);
-        #endregion
-
-        #region Unix
-        [DllImport("libc", CharSet = CharSet.Ansi, SetLastError = true)]
-        internal static extern IntPtr getenv(string name);
-
-        [DllImport("libc", CharSet = CharSet.Ansi, SetLastError = true)]
-        internal static extern int setenv(string name, string value, int overwrite);
-        #endregion
-        #endregion
     }
 }

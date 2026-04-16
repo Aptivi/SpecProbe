@@ -41,6 +41,9 @@ namespace SpecProbe.Software.Platform
         private static bool firstTimeWslDetection = true;
         private static bool isWsl = false;
 
+        [DllImport("libc", EntryPoint = "gnu_get_libc_version")]
+        private static extern IntPtr gnuGetLibcVersion();
+
         /// <summary>
         /// Is this system a Windows system?
         /// </summary>
@@ -467,10 +470,5 @@ namespace SpecProbe.Software.Platform
         {
             GetPlatform();
         }
-
-        #region Interop
-        [DllImport("libc", EntryPoint = "gnu_get_libc_version")]
-        private static extern IntPtr gnuGetLibcVersion();
-        #endregion
     }
 }
