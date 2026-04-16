@@ -18,6 +18,7 @@
 //
 
 using Colorimetry.Data;
+using Magico.Reflection;
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Pci;
@@ -60,6 +61,8 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor($"{processor.LogicalCores}", true, 8);
                     TextWriterColor.WriteColor("- L1, L2, L3 cache sizes in bytes: ", false, 3);
                     TextWriterColor.WriteColor($"{processor.L1CacheSize}, {processor.L2CacheSize}, {processor.L3CacheSize}", true, 8);
+                    TextWriterColor.WriteColor("- L1, L2, L3 cache sizes (human readable): ", false, 3);
+                    TextWriterColor.WriteColor($"{processor.L1CacheSize.SizeString()}, {processor.L2CacheSize.SizeString()}, {processor.L3CacheSize.SizeString()}", true, 8);
                     TextWriterColor.WriteColor("- Name: ", false, 3);
                     TextWriterColor.WriteColor($"{(processor.OnHypervisor ? "[virt'd] " : "")}{processor.Name}", true, 8);
                     TextWriterColor.WriteColor("- Vendor (CPUID): ", false, 3);
@@ -67,7 +70,7 @@ namespace SpecProbe.ConsoleTest
                     TextWriterColor.WriteColor("- Vendor (Real): ", false, 3);
                     TextWriterColor.WriteColor($"{processor.Vendor}", true, 8);
                     TextWriterColor.WriteColor("- Clock speed: ", false, 3);
-                    TextWriterColor.WriteColor($"{processor.Speed}", true, 8);
+                    TextWriterColor.WriteColor($"{processor.Speed} MHz", true, 8);
                     TextWriterColor.WriteColor("- Virtualization: ", false, 3);
                     TextWriterColor.WriteColor($"{processor.Hypervisor} [{processor.HypervisorVendor}]", true, 8);
                     TextWriterColor.WriteColor("- Features: ", false, 3);
@@ -96,11 +99,11 @@ namespace SpecProbe.ConsoleTest
                 if (memory is not null)
                 {
                     TextWriterColor.WriteColor("- Total memory (system): ", false, 3);
-                    TextWriterColor.WriteColor($"{memory.TotalMemory}", true, 8);
+                    TextWriterColor.WriteColor($"{memory.TotalMemory} ({memory.TotalMemory.SizeString()})", true, 8);
                     TextWriterColor.WriteColor("- Total memory (real): ", false, 3);
-                    TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory}", true, 8);
+                    TextWriterColor.WriteColor($"{memory.TotalPhysicalMemory} ({memory.TotalPhysicalMemory.SizeString()})", true, 8);
                     TextWriterColor.WriteColor("- Reserved memory: ", false, 3);
-                    TextWriterColor.WriteColor($"{memory.SystemReservedMemory}", true, 8);
+                    TextWriterColor.WriteColor($"{memory.SystemReservedMemory} ({memory.SystemReservedMemory.SizeString()})", true, 8);
                 }
                 else
                     TextWriterColor.WriteColor("- Unable to fetch processors.", ConsoleColors.Red);
@@ -156,7 +159,7 @@ namespace SpecProbe.ConsoleTest
                 foreach (var hardDisk in hardDiskParts)
                 {
                     TextWriterColor.WriteColor("- Hard drive size: ", false, 3);
-                    TextWriterColor.WriteColor($"{hardDisk.HardDiskSize}", true, 8);
+                    TextWriterColor.WriteColor($"{hardDisk.HardDiskSize} ({hardDisk.HardDiskSize.SizeString()})", true, 8);
                     TextWriterColor.WriteColor("- Partition count: ", false, 3);
                     TextWriterColor.WriteColor($"{hardDisk.PartitionCount}", true, 8);
                     TextWriterColor.WriteColor("- Partition table type: ", false, 3);
@@ -169,7 +172,7 @@ namespace SpecProbe.ConsoleTest
                         TextWriterColor.WriteColor("  - Partition number (OS): ", false, 3);
                         TextWriterColor.WriteColor($"{partition.PartitionNumber}", true, 8);
                         TextWriterColor.WriteColor("  - Partition size: ", false, 3);
-                        TextWriterColor.WriteColor($"{partition.PartitionSize}", true, 8);
+                        TextWriterColor.WriteColor($"{partition.PartitionSize} ({partition.PartitionSize.SizeString()})", true, 8);
                         TextWriterColor.WriteColor("  - Partition offset: ", false, 3);
                         TextWriterColor.WriteColor($"{partition.PartitionOffset} -> {partition.PartitionOffsetTo}", true, 8);
                         TextWriterColor.WriteColor("  - Partition type: ", false, 3);
