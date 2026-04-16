@@ -26,7 +26,7 @@ namespace SpecProbe.Probers.Platform
         // Sourced from https://github.com/util-linux/util-linux/blob/master/sys-utils/lscpu-arm.c
         internal static List<ArmImplementer> implementers =
         [
-            new(0x41, "ARM", 
+            new(0x41, "ARM",
                 [
                     new(0x810, "ARM810"),
                     new(0x920, "ARM920"),
@@ -38,7 +38,7 @@ namespace SpecProbe.Probers.Platform
                     new(0xa20, "ARM1020"),
                     new(0xa22, "ARM1022"),
                     new(0xa26, "ARM1026"),
-                    new(0xb02, "ARM11 MPCore"),
+                    new(0xb02, "ARM11-MPCore"),
                     new(0xb36, "ARM1136"),
                     new(0xb56, "ARM1156"),
                     new(0xb76, "ARM1176"),
@@ -74,10 +74,12 @@ namespace SpecProbe.Probers.Platform
                     new(0xd0d, "Cortex-A77"),
                     new(0xd0e, "Cortex-A76AE"),
                     new(0xd13, "Cortex-R52"),
+                    new(0xd14, "Cortex-R82AE"),
                     new(0xd15, "Cortex-R82"),
                     new(0xd16, "Cortex-R52+"),
                     new(0xd20, "Cortex-M23"),
                     new(0xd21, "Cortex-M33"),
+                    new(0xd24, "Cortex-M52"),
                     new(0xd22, "Cortex-M55"),
                     new(0xd23, "Cortex-M85"),
                     new(0xd40, "Neoverse-V1"),
@@ -98,10 +100,18 @@ namespace SpecProbe.Probers.Platform
                     new(0xd80, "Cortex-A520"),
                     new(0xd81, "Cortex-A720"),
                     new(0xd82, "Cortex-X4"),
+                    new(0xd83, "Neoverse-V3AE"),
                     new(0xd84, "Neoverse-V3"),
                     new(0xd85, "Cortex-X925"),
                     new(0xd87, "Cortex-A725"),
+                    new(0xd88, "Cortex-A520AE"),
+                    new(0xd89, "Cortex-A720AE"),
+                    new(0xd8a, "C1-Nano"),
+                    new(0xd8b, "C1-Pro"),
+                    new(0xd8c, "C1-Ultra"),
                     new(0xd8e, "Neoverse-N3"),
+                    new(0xd8f, "Cortex-A320"),
+                    new(0xd90, "C1-Premium"),
                 ]),
             new(0x42, "Broadcom",
                 [
@@ -133,6 +143,7 @@ namespace SpecProbe.Probers.Platform
             new(0x46, "FUJITSU",
                 [
                     new(0x001, "A64FX"),
+                    new(0x003, "MONAKA"),
                 ]),
             new(0x48, "HiSilicon",
                 [
@@ -144,8 +155,9 @@ namespace SpecProbe.Probers.Platform
             new(0x4e, "NVIDIA",
                 [
                     new(0x000, "Denver"),
-                    new(0x003, "Denver 2"),
+                    new(0x003, "Denver-2"),
                     new(0x004, "Carmel"),
+                    new(0x010, "Olympus"),
                 ]),
             new(0x50, "APM",
                 [
