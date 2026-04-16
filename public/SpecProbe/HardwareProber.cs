@@ -19,7 +19,10 @@
 
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
-using SpecProbe.Probers;
+using SpecProbe.Probers.Types.HardDisk;
+using SpecProbe.Probers.Types.Memory;
+using SpecProbe.Probers.Types.Processor;
+using SpecProbe.Probers.Types.Video;
 using System;
 using System.Collections.Generic;
 using System.Linq;

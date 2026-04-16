@@ -18,90 +18,18 @@
 //
 
 using SpecProbe.Languages;
-using SpecProbe.Loader.Native.Helpers;
-using SpecProbe.Loader.Native.Structs;
 using SpecProbe.Parts.Types;
 using SpecProbe.Probers.Platform;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Text;
 using Textify.General;
 
-namespace SpecProbe.Probers
+namespace SpecProbe.Probers.Types.Video
 {
-    internal static class VideoProber
+    internal static partial class VideoProber
     {
-        public static VideoPart[] Probe(out Exception[] errors)
-        {
-            if (PlatformHelper.IsOnWindows())
-                return ProbeWindows(out errors);
-            else if (PlatformHelper.IsOnMacOS())
-                return ProbeMacOS(out errors);
-            else
-                return ProbeUnix(out errors);
-        }
-
-        public static VideoPart[] ProbeUnix(out Exception[] errors)
-        {
-            // Some variables to install.
-            List<Exception> exceptions = [];
-            string videoCardName = "";
-            uint vendorId = 0;
-            uint modelId = 0;
-
-            try
-            {
-                string glxInfoPath = File.Exists("/usr/local/bin/glxinfo") ? "/usr/local/bin/glxinfo" : "/usr/bin/glxinfo";
-                string glxinfoOutput = PlatformHelper.ExecuteProcessToString(glxInfoPath, "-B");
-                string[] glxinfoOutputLines = glxinfoOutput.Replace("\r", "").Split('\n');
-                foreach (string glxinfoOutputLine in glxinfoOutputLines)
-                {
-                    string rendererTag = "OpenGL renderer string: ";
-                    string vendorTag = "    Vendor: ";
-                    string deviceTag = "    Device: ";
-                    if (glxinfoOutputLine.StartsWith(rendererTag))
-                    {
-                        // Trim the tag to get the GPU name.
-                        videoCardName = glxinfoOutputLine.Substring(rendererTag.Length);
-                    }
-                    if (glxinfoOutputLine.StartsWith(vendorTag))
-                    {
-                        // Trim the tag to get the GPU vendor name to get the ID.
-                        string vendorName = glxinfoOutputLine.Substring(vendorTag.Length);
-                        vendorName = vendorName.Substring(vendorName.LastIndexOf('(') + 1);
-                        vendorName = vendorName.Substring(0, vendorName.IndexOf(')'));
-                        vendorId = uint.Parse(vendorName.Substring(2), NumberStyles.HexNumber);
-                    }
-                    if (glxinfoOutputLine.StartsWith(deviceTag))
-                    {
-                        // Trim the tag to get the GPU device name to get the ID.
-                        string deviceName = glxinfoOutputLine.Substring(deviceTag.Length);
-                        deviceName = deviceName.Substring(deviceName.LastIndexOf('(') + 1);
-                        deviceName = deviceName.Substring(0, deviceName.IndexOf(')'));
-                        modelId = uint.Parse(deviceName.Substring(2), NumberStyles.HexNumber);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                exceptions.Add(ex);
-            }
-
-            // Finally, return a single item array containing information
-            VideoPart part = new()
-            {
-                VideoCardName = videoCardName,
-                VendorId = vendorId,
-                ModelId = modelId,
-            };
-            errors = [.. exceptions];
-            return new[] { part };
-        }
-
         public static VideoPart[] ProbeMacOS(out Exception[] errors)
         {
             // Video card list
@@ -214,56 +142,6 @@ namespace SpecProbe.Probers
             // Finally, return an array containing information
             errors = [.. exceptions];
             return videos.ToArray();
-        }
-
-        public static VideoPart[] ProbeWindows(out Exception[] errors)
-        {
-            List<Exception> exceptions = [];
-            List<VideoPart> parts = [];
-
-            try
-            {
-                // Employ libdxhelper to get info about GPUs
-                bool result = VideoHelper.GetGpus().Invoke(out IntPtr gpus, out int length);
-                if (!result)
-                    throw new Exception(LanguageTools.GetLocalized("SPECPROBE_PROBERS_EXCEPTION_CANTPARSEGPUS"));
-
-                // Enumerate parsed GPUs
-                for (int i = 0; i < length - 1; i++)
-                {
-                    // Get the GPU part
-                    int size = Marshal.SizeOf(typeof(GpuInfo));
-                    GpuInfo gpuPart = (GpuInfo)Marshal.PtrToStructure(gpus + (size * i), typeof(GpuInfo));
-
-                    // Build the name
-                    char[] nameChars = gpuPart.name;
-                    StringBuilder builder = new();
-                    for (int c = 0; c < nameChars.Length; c += 2)
-                    {
-                        // Get the character and check for null char
-                        char character = nameChars[c];
-                        if (character == '\0')
-                            break;
-                        builder.Append(character);
-                    }
-
-                    // Install the part
-                    parts.Add(new VideoPart()
-                    {
-                        VideoCardName = builder.ToString(),
-                        VendorId = (uint)gpuPart.vendorId,
-                        ModelId = (uint)gpuPart.deviceId,
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                exceptions.Add(ex);
-            }
-
-            // Finally, return an array containing information
-            errors = [.. exceptions];
-            return parts.ToArray();
         }
     }
 }
