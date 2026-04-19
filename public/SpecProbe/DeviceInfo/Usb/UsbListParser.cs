@@ -17,15 +17,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.DeviceInfo.Usb.Elements;
 using SpecProbe.Languages;
-using SpecProbe.Usb.Elements;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Textify.General;
 
-namespace SpecProbe.Usb
+namespace SpecProbe.DeviceInfo.Usb
 {
     /// <summary>
     /// USB ID list parser
@@ -1192,7 +1192,7 @@ namespace SpecProbe.Usb
         private static string[] GetUsbIdsLines()
         {
             // Open the USB ID list stream (source: http://www.linux-usb.org/usb-ids.html)
-            var stream = typeof(UsbListParser).Assembly.GetManifestResourceStream("SpecProbe.Usb.List.usb.ids");
+            var stream = typeof(UsbListParser).Assembly.GetManifestResourceStream("SpecProbe.DeviceInfo.Usb.List.usb.ids");
             var reader = new StreamReader(stream);
 
             // Get the lines

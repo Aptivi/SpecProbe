@@ -17,39 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB device class information
+    /// USB audio terminal information
     /// </summary>
-    public class UsbDeviceClassInfo
+    public class UsbAudioTerminalInfo
     {
-        internal string className;
-        internal int classId;
-        internal UsbDeviceSubclassInfo[] subclasses = [];
+        internal string audioTerminalName;
+        internal int audioTerminalId;
 
         /// <summary>
-        /// Class name
+        /// Audio Terminal name
         /// </summary>
         public string Name =>
-            className;
+            audioTerminalName;
 
         /// <summary>
-        /// Class ID
+        /// Audio Terminal ID
         /// </summary>
         public int Id =>
-            classId;
+            audioTerminalId;
 
-        /// <summary>
-        /// List of subclasses that derive from this class
-        /// </summary>
-        public UsbDeviceSubclassInfo[] Subclasses =>
-            subclasses;
-
-        internal UsbDeviceClassInfo(string className, int classId)
+        internal UsbAudioTerminalInfo(string audioTerminalName, int audioTerminalId)
         {
-            this.className = className;
-            this.classId = classId;
+            this.audioTerminalName = audioTerminalName;
+            this.audioTerminalId = audioTerminalId;
         }
     }
 }

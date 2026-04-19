@@ -17,39 +17,39 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB language information
+    /// USB HID usage page information
     /// </summary>
-    public class UsbLanguageInfo
+    public class UsbHidUsagePageInfo
     {
-        internal string languageName;
-        internal int languageId;
-        internal UsbLanguageDialectInfo[] dialects = [];
+        internal string pageName;
+        internal int pageId;
+        internal UsbHidUsageInfo[] usages = [];
 
         /// <summary>
-        /// Language name
+        /// Page name
         /// </summary>
         public string Name =>
-            languageName;
+            pageName;
 
         /// <summary>
-        /// Language ID
+        /// Page ID
         /// </summary>
         public int Id =>
-            languageId;
+            pageId;
 
         /// <summary>
-        /// List of language dialects that this language provides
+        /// List of HID usages that this page provides
         /// </summary>
-        public UsbLanguageDialectInfo[] Dialects =>
-            dialects;
+        public UsbHidUsageInfo[] Usages =>
+            usages;
 
-        internal UsbLanguageInfo(string languageName, int languageId)
+        internal UsbHidUsagePageInfo(string pageName, int pageId)
         {
-            this.languageName = languageName;
-            this.languageId = languageId;
+            this.pageName = pageName;
+            this.pageId = pageId;
         }
     }
 }

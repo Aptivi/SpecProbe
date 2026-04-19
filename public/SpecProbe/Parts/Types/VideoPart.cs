@@ -17,8 +17,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.DeviceInfo.Pci;
 using SpecProbe.Languages;
-using SpecProbe.Pci;
 
 namespace SpecProbe.Parts.Types
 {

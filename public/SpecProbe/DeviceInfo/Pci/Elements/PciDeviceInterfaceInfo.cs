@@ -17,47 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Pci.Elements
 {
     /// <summary>
-    /// USB device information
+    /// PCI device interface information
     /// </summary>
-    public class UsbDeviceInfo
+    public class PciDeviceInterfaceInfo
     {
-        internal string deviceName;
-        internal int deviceId;
-        internal int vendorId;
-        internal UsbDeviceInfo[] subDevices = [];
+        internal string interfaceName;
+        internal int interfaceId;
 
         /// <summary>
-        /// Device name
+        /// Interface name
         /// </summary>
         public string Name =>
-            deviceName;
+            interfaceName;
 
         /// <summary>
-        /// Device ID
+        /// Interface ID
         /// </summary>
         public int Id =>
-            deviceId;
+            interfaceId;
 
-        /// <summary>
-        /// Vendor ID
-        /// </summary>
-        public int VendorId =>
-            vendorId;
-
-        /// <summary>
-        /// List of subdevices
-        /// </summary>
-        public UsbDeviceInfo[] SubDevices =>
-            subDevices;
-
-        internal UsbDeviceInfo(string deviceName, int deviceId, int vendorId)
+        internal PciDeviceInterfaceInfo(string interfaceName, int interfaceId)
         {
-            this.deviceName = deviceName;
-            this.deviceId = deviceId;
-            this.vendorId = vendorId;
+            this.interfaceName = interfaceName;
+            this.interfaceId = interfaceId;
         }
     }
 }

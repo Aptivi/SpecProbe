@@ -17,39 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Pci.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// PCI device subclass information
+    /// USB human interface device information
     /// </summary>
-    public class PciDeviceSubclassInfo
+    public class UsbHidInfo
     {
-        internal string subclassName;
-        internal int subclassId;
-        internal PciDeviceInterfaceInfo[] interfaces = [];
+        internal string hidName;
+        internal int hidId;
 
         /// <summary>
-        /// Subclass name
+        /// Audio Terminal name
         /// </summary>
         public string Name =>
-            subclassName;
+            hidName;
 
         /// <summary>
-        /// Subclass ID
+        /// Audio Terminal ID
         /// </summary>
         public int Id =>
-            subclassId;
+            hidId;
 
-        /// <summary>
-        /// List of programmable device interfaces that this subclass provides
-        /// </summary>
-        public PciDeviceInterfaceInfo[] Interfaces =>
-            interfaces;
-
-        internal PciDeviceSubclassInfo(string subclassName, int subclassId)
+        internal UsbHidInfo(string hidName, int hidId)
         {
-            this.subclassName = subclassName;
-            this.subclassId = subclassId;
+            this.hidName = hidName;
+            this.hidId = hidId;
         }
     }
 }

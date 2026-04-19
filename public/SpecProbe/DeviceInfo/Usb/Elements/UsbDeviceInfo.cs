@@ -17,32 +17,47 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB physical descriptor information
+    /// USB device information
     /// </summary>
-    public class UsbPhysicalDescriptorInfo
+    public class UsbDeviceInfo
     {
-        internal string physicalDescriptorName;
-        internal int physicalDescriptorId;
+        internal string deviceName;
+        internal int deviceId;
+        internal int vendorId;
+        internal UsbDeviceInfo[] subDevices = [];
 
         /// <summary>
-        /// Audio Terminal name
+        /// Device name
         /// </summary>
         public string Name =>
-            physicalDescriptorName;
+            deviceName;
 
         /// <summary>
-        /// Audio Terminal ID
+        /// Device ID
         /// </summary>
         public int Id =>
-            physicalDescriptorId;
+            deviceId;
 
-        internal UsbPhysicalDescriptorInfo(string physicalDescriptorName, int physicalDescriptorId)
+        /// <summary>
+        /// Vendor ID
+        /// </summary>
+        public int VendorId =>
+            vendorId;
+
+        /// <summary>
+        /// List of subdevices
+        /// </summary>
+        public UsbDeviceInfo[] SubDevices =>
+            subDevices;
+
+        internal UsbDeviceInfo(string deviceName, int deviceId, int vendorId)
         {
-            this.physicalDescriptorName = physicalDescriptorName;
-            this.physicalDescriptorId = physicalDescriptorId;
+            this.deviceName = deviceName;
+            this.deviceId = deviceId;
+            this.vendorId = vendorId;
         }
     }
 }

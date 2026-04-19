@@ -17,32 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Pci.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// PCI device interface information
+    /// USB HID usage information
     /// </summary>
-    public class PciDeviceInterfaceInfo
+    public class UsbHidUsageInfo
     {
-        internal string interfaceName;
-        internal int interfaceId;
+        internal string usageName;
+        internal int usageId;
 
         /// <summary>
-        /// Interface name
+        /// Usage name
         /// </summary>
         public string Name =>
-            interfaceName;
+            usageName;
 
         /// <summary>
-        /// Interface ID
+        /// Usage ID
         /// </summary>
         public int Id =>
-            interfaceId;
+            usageId;
 
-        internal PciDeviceInterfaceInfo(string interfaceName, int interfaceId)
+        internal UsbHidUsageInfo(string usageName, int usageId)
         {
-            this.interfaceName = interfaceName;
-            this.interfaceId = interfaceId;
+            this.usageName = usageName;
+            this.usageId = usageId;
         }
     }
 }

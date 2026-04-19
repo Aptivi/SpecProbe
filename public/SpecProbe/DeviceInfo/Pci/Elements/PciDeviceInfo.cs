@@ -17,7 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Pci.Elements
+namespace SpecProbe.DeviceInfo.Pci.Elements
 {
     /// <summary>
     /// PCI device information

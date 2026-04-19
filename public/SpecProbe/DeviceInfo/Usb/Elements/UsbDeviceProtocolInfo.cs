@@ -17,39 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB HID usage page information
+    /// USB device protocol information
     /// </summary>
-    public class UsbHidUsagePageInfo
+    public class UsbDeviceProtocolInfo
     {
-        internal string pageName;
-        internal int pageId;
-        internal UsbHidUsageInfo[] usages = [];
+        internal string protocolName;
+        internal int protocolId;
 
         /// <summary>
-        /// Page name
+        /// Protocol name
         /// </summary>
         public string Name =>
-            pageName;
+            protocolName;
 
         /// <summary>
-        /// Page ID
+        /// Protocol ID
         /// </summary>
         public int Id =>
-            pageId;
+            protocolId;
 
-        /// <summary>
-        /// List of HID usages that this page provides
-        /// </summary>
-        public UsbHidUsageInfo[] Usages =>
-            usages;
-
-        internal UsbHidUsagePageInfo(string pageName, int pageId)
+        internal UsbDeviceProtocolInfo(string protocolName, int protocolId)
         {
-            this.pageName = pageName;
-            this.pageId = pageId;
+            this.protocolName = protocolName;
+            this.protocolId = protocolId;
         }
     }
 }

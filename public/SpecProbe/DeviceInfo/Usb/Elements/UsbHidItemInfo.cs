@@ -17,32 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB country code information
+    /// USB human interface device information
     /// </summary>
-    public class UsbCountryCodeInfo
+    public class UsbHidItemInfo
     {
-        internal string countryCodeName;
-        internal int countryCodeId;
+        internal string hidItemName;
+        internal int hidItemId;
 
         /// <summary>
         /// Audio Terminal name
         /// </summary>
         public string Name =>
-            countryCodeName;
+            hidItemName;
 
         /// <summary>
         /// Audio Terminal ID
         /// </summary>
         public int Id =>
-            countryCodeId;
+            hidItemId;
 
-        internal UsbCountryCodeInfo(string countryCodeName, int countryCodeId)
+        internal UsbHidItemInfo(string hidItemName, int hidItemId)
         {
-            this.countryCodeName = countryCodeName;
-            this.countryCodeId = countryCodeId;
+            this.hidItemName = hidItemName;
+            this.hidItemId = hidItemId;
         }
     }
 }

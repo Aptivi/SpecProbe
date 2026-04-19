@@ -20,11 +20,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using SpecProbe.Isa.Elements;
+using SpecProbe.DeviceInfo.Isa.Elements;
 using SpecProbe.Languages;
 using Textify.General;
 
-namespace SpecProbe.Isa
+namespace SpecProbe.DeviceInfo.Isa
 {
     /// <summary>
     /// ISA ID list parser
@@ -94,7 +94,7 @@ namespace SpecProbe.Isa
         private static string[] GetIsaIdsLines()
         {
             // Open the ISA ID list stream (source: https://github.com/torvalds/linux/blob/master/drivers/eisa/eisa.ids)
-            var stream = typeof(IsaListParser).Assembly.GetManifestResourceStream("SpecProbe.Isa.List.eisa.ids");
+            var stream = typeof(IsaListParser).Assembly.GetManifestResourceStream("SpecProbe.DeviceInfo.Isa.List.eisa.ids");
             var reader = new StreamReader(stream);
 
             // Get the lines

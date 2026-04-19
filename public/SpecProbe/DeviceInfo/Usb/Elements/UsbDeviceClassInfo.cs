@@ -17,32 +17,39 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB physical bias information
+    /// USB device class information
     /// </summary>
-    public class UsbPhysicalBiasInfo
+    public class UsbDeviceClassInfo
     {
-        internal string physicalBiasName;
-        internal int physicalBiasId;
+        internal string className;
+        internal int classId;
+        internal UsbDeviceSubclassInfo[] subclasses = [];
 
         /// <summary>
-        /// Audio Terminal name
+        /// Class name
         /// </summary>
         public string Name =>
-            physicalBiasName;
+            className;
 
         /// <summary>
-        /// Audio Terminal ID
+        /// Class ID
         /// </summary>
         public int Id =>
-            physicalBiasId;
+            classId;
 
-        internal UsbPhysicalBiasInfo(string physicalBiasName, int physicalBiasId)
+        /// <summary>
+        /// List of subclasses that derive from this class
+        /// </summary>
+        public UsbDeviceSubclassInfo[] Subclasses =>
+            subclasses;
+
+        internal UsbDeviceClassInfo(string className, int classId)
         {
-            this.physicalBiasName = physicalBiasName;
-            this.physicalBiasId = physicalBiasId;
+            this.className = className;
+            this.classId = classId;
         }
     }
 }

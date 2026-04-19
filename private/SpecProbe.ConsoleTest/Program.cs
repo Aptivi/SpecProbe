@@ -19,12 +19,12 @@
 
 using Colorimetry.Data;
 using Magico.Reflection;
-using SpecProbe.Isa;
+using SpecProbe.DeviceInfo.Isa;
+using SpecProbe.DeviceInfo.Pci;
+using SpecProbe.DeviceInfo.Usb;
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
-using SpecProbe.Pci;
 using SpecProbe.Software.Platform;
-using SpecProbe.Usb;
 using System.Diagnostics;
 using System.Linq;
 using Terminaux.Writer.ConsoleWriters;

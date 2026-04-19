@@ -17,32 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB human interface device information
+    /// USB physical bias information
     /// </summary>
-    public class UsbHidInfo
+    public class UsbPhysicalBiasInfo
     {
-        internal string hidName;
-        internal int hidId;
+        internal string physicalBiasName;
+        internal int physicalBiasId;
 
         /// <summary>
         /// Audio Terminal name
         /// </summary>
         public string Name =>
-            hidName;
+            physicalBiasName;
 
         /// <summary>
         /// Audio Terminal ID
         /// </summary>
         public int Id =>
-            hidId;
+            physicalBiasId;
 
-        internal UsbHidInfo(string hidName, int hidId)
+        internal UsbPhysicalBiasInfo(string physicalBiasName, int physicalBiasId)
         {
-            this.hidName = hidName;
-            this.hidId = hidId;
+            this.physicalBiasName = physicalBiasName;
+            this.physicalBiasId = physicalBiasId;
         }
     }
 }

@@ -17,32 +17,39 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB HID usage information
+    /// USB vendor information
     /// </summary>
-    public class UsbHidUsageInfo
+    public class UsbVendorInfo
     {
-        internal string usageName;
-        internal int usageId;
+        internal string vendorName;
+        internal int vendorId;
+        internal UsbDeviceInfo[] devices = [];
 
         /// <summary>
-        /// Usage name
+        /// Vendor name
         /// </summary>
         public string Name =>
-            usageName;
+            vendorName;
 
         /// <summary>
-        /// Usage ID
+        /// Vendor ID
         /// </summary>
         public int Id =>
-            usageId;
+            vendorId;
 
-        internal UsbHidUsageInfo(string usageName, int usageId)
+        /// <summary>
+        /// List of USB device info that this vendor made
+        /// </summary>
+        public UsbDeviceInfo[] Devices =>
+            devices;
+
+        internal UsbVendorInfo(string vendorName, int vendorId)
         {
-            this.usageName = usageName;
-            this.usageId = usageId;
+            this.vendorName = vendorName;
+            this.vendorId = vendorId;
         }
     }
 }

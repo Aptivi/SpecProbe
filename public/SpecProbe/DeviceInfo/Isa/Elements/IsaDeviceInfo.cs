@@ -17,39 +17,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Pci.Elements
+namespace SpecProbe.DeviceInfo.Isa.Elements
 {
     /// <summary>
-    /// PCI vendor information
+    /// ISA device info
     /// </summary>
-    public class PciVendorInfo
+    public class IsaDeviceInfo
     {
-        internal string vendorName;
-        internal int vendorId;
-        internal PciDeviceInfo[] devices = [];
+        internal string deviceName;
+        internal string deviceId;
 
         /// <summary>
-        /// Vendor name
+        /// Device name
         /// </summary>
         public string Name =>
-            vendorName;
+            deviceName;
 
         /// <summary>
-        /// Vendor ID
+        /// Device ID
         /// </summary>
-        public int Id =>
-            vendorId;
+        public string Id =>
+            deviceId;
 
-        /// <summary>
-        /// List of PCI device info that this vendor made
-        /// </summary>
-        public PciDeviceInfo[] Devices =>
-            devices;
-
-        internal PciVendorInfo(string vendorName, int vendorId)
+        internal IsaDeviceInfo(string deviceName, string deviceId)
         {
-            this.vendorName = vendorName;
-            this.vendorId = vendorId;
+            this.deviceName = deviceName;
+            this.deviceId = deviceId;
         }
     }
 }

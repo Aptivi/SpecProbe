@@ -17,15 +17,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+using SpecProbe.DeviceInfo.Pci.Elements;
 using SpecProbe.Languages;
-using SpecProbe.Pci.Elements;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Textify.General;
 
-namespace SpecProbe.Pci
+namespace SpecProbe.DeviceInfo.Pci
 {
     /// <summary>
     /// PCI ID list parser
@@ -464,7 +464,7 @@ namespace SpecProbe.Pci
         private static string[] GetPciIdsLines()
         {
             // Open the PCI ID list stream (source: https://pci-ids.ucw.cz/)
-            var stream = typeof(PciListParser).Assembly.GetManifestResourceStream("SpecProbe.Pci.List.pci.ids");
+            var stream = typeof(PciListParser).Assembly.GetManifestResourceStream("SpecProbe.DeviceInfo.Pci.List.pci.ids");
             var reader = new StreamReader(stream);
 
             // Get the lines

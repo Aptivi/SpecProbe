@@ -17,32 +17,39 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-namespace SpecProbe.Usb.Elements
+namespace SpecProbe.DeviceInfo.Usb.Elements
 {
     /// <summary>
-    /// USB device protocol information
+    /// USB language information
     /// </summary>
-    public class UsbDeviceProtocolInfo
+    public class UsbLanguageInfo
     {
-        internal string protocolName;
-        internal int protocolId;
+        internal string languageName;
+        internal int languageId;
+        internal UsbLanguageDialectInfo[] dialects = [];
 
         /// <summary>
-        /// Protocol name
+        /// Language name
         /// </summary>
         public string Name =>
-            protocolName;
+            languageName;
 
         /// <summary>
-        /// Protocol ID
+        /// Language ID
         /// </summary>
         public int Id =>
-            protocolId;
+            languageId;
 
-        internal UsbDeviceProtocolInfo(string protocolName, int protocolId)
+        /// <summary>
+        /// List of language dialects that this language provides
+        /// </summary>
+        public UsbLanguageDialectInfo[] Dialects =>
+            dialects;
+
+        internal UsbLanguageInfo(string languageName, int languageId)
         {
-            this.protocolName = protocolName;
-            this.protocolId = protocolId;
+            this.languageName = languageName;
+            this.languageId = languageId;
         }
     }
 }
