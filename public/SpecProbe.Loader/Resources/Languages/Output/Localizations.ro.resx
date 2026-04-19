@@ -147,5 +147,8 @@
   <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
     <value>Sistemele pe 32 de biți nu mai sunt acceptate. Consultați {0} pentru mai multe informații.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED" xml:space="preserve">
+    <value>Managerul bibliotecii a eșuat</value>
+  </data>
 
 </root>

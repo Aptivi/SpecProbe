@@ -45,6 +45,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "32ビットシステムはサポートされなくなりました。詳細については{0}を参照してください。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "図書館管理者が失敗した"
     }
   ]
 }

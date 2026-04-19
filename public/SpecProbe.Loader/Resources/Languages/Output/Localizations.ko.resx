@@ -147,5 +147,8 @@
   <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
     <value>32비트 시스템은 더 이상 지원되지 않습니다. 자세한 내용은 {0}을 참조하세요.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED" xml:space="preserve">
+    <value>도서관 관리자가 실패했습니다</value>
+  </data>
 
 </root>

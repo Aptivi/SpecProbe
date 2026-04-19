@@ -74,7 +74,6 @@ namespace SpecProbe.Loader.Native
             }
 
             // Check for null
-            // TODO: SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED -> "Library manager has failed"
             if (libManager is null)
                 throw new Exception(LanguageTools.GetLocalized("SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED"));
 

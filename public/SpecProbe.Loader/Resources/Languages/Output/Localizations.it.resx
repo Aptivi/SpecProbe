@@ -147,5 +147,8 @@
   <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
     <value>I sistemi a 32 bit non sono più supportati. Vedi {0} per maggiori informazioni.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED" xml:space="preserve">
+    <value>Il responsabile della biblioteca ha fallito</value>
+  </data>
 
 </root>

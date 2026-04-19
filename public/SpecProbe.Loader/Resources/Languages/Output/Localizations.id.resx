@@ -147,5 +147,8 @@
   <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED" xml:space="preserve">
     <value>Sistem 32-bit tidak lagi didukung. Lihat {0} untuk informasi lebih lanjut.</value>
   </data>
+  <data name="SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED" xml:space="preserve">
+    <value>Manajer perpustakaan telah gagal</value>
+  </data>
 
 </root>

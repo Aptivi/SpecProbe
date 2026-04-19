@@ -51,6 +51,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "32-bits systemen worden niet langer ondersteund. Zie {0} voor meer informatie."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "De bibliotheekbeheerder heeft gefaald"
     }
   ]
 }

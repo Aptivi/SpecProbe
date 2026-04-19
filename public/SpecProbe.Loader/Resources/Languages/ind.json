@@ -45,6 +45,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "32-bit sistam ab samarthit nahin hain. adhik jaanakaaree ke lie {0} dekhe"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "laibreree mainejar phel ho gaya hai"
     }
   ]
 }

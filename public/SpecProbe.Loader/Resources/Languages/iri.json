@@ -46,6 +46,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "Ní thacaítear le córais 32-giotán a thuilleadh. Féach {0} le haghaidh tuilleadh eolais."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "Theip ar bhainisteoir na leabharlainne"
     }
   ]
 }

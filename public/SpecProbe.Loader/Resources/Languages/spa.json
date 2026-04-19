@@ -70,6 +70,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "Los sistemas de 32 bits ya no son compatibles. Consulta {0} para más información."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "El administrador de la biblioteca ha fallado"
     }
   ]
 }

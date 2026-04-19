@@ -46,6 +46,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "Τα συστήματα 32-bit δεν υποστηρίζονται πλέον. Δείτε {0} για περισσότερες πληροφορίες."
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "Ο διαχειριστής της βιβλιοθήκης απέτυχε"
     }
   ]
 }

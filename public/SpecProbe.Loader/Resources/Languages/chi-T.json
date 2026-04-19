@@ -53,6 +53,10 @@
     {
       "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_32BITUNSUPPORTED",
       "text": "不再支持 32 位系统。请参阅 {0} 了解更多信息。"
+    },
+    {
+      "loc": "SPECPROBE_LOADER_NATIVE_EXCEPTION_LIBMANAGERFAILED",
+      "text": "图书馆管理器故障"
     }
   ]
 }
