@@ -30,12 +30,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Isa\List\eisa.ids" />
     <EmbeddedResource Include="Pci\List\pci.ids" />
     <EmbeddedResource Include="Usb\List\usb.ids" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Textify.Offline" Version="2.13.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Isa\List\" />
   </ItemGroup>
 
 </Project>

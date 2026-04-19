@@ -19,6 +19,7 @@
 
 using Colorimetry.Data;
 using Magico.Reflection;
+using SpecProbe.Isa;
 using SpecProbe.Parts;
 using SpecProbe.Parts.Types;
 using SpecProbe.Pci;
@@ -222,6 +223,22 @@ namespace SpecProbe.ConsoleTest
             stopwatch.Stop();
             TextWriterColor.WriteColor("- WSL: ", false, 3);
             TextWriterColor.WriteColor($"{wsl}", true, 8);
+            TextWriterRaw.Write();
+            TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
+            TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
+            TextWriterRaw.Write();
+            stopwatch.Reset();
+
+            // ISA ID parse
+            SeparatorWriterColor.WriteSeparator("ISA ID", true, 15);
+            stopwatch.Start();
+            var isaDevices = IsaListParser.ListDevices();
+            var isaDevice = IsaListParser.GetDevice("ISA8309");
+            stopwatch.Stop();
+            TextWriterColor.WriteColor($"- Device count: ", false, 3);
+            TextWriterColor.WriteColor($"{isaDevices.Length} devices", true, 8);
+            TextWriterColor.WriteColor($"- Device name for {isaDevice.Id}: ", false, 3);
+            TextWriterColor.WriteColor($"{isaDevice.Name}", true, 8);
             TextWriterRaw.Write();
             TextWriterColor.WriteColor("Total time taken to parse: ", false, 3);
             TextWriterColor.WriteColor($"{stopwatch.Elapsed}", true, 8);
