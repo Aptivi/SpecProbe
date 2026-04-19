@@ -1,10 +1,16 @@
-We're introducing initial support for FreeBSD in SpecProbe!
+This version of SpecProbe finishes all the work required to finalize support for FreeBSD and to resturucture parts of SpecProbe, while adding new features.
 
 ### Changes
 
 This release contains a variety of changes, including, but not limited to:
 
-- `[+]` Added initial support for FreeBSD systems
+- `[+]` Added removable hard drive support
+- `[+]` Added error messages for loading libraries
+- `[+]` Added L1, L2, and L3 support for FreeBSD and macOS (x64)
+- `[+]` Added new ARM implementers
+- `[+]` Added more PCI IDs
+- `[*]` Merged SpecProbe.Native and SpecProbe.Loader to one library
+- `[*]` Restructured parts of code
 - `[*]` General improvements and bug fixes
 
 Review the commit history if you want to get a deep insight about the changes.
