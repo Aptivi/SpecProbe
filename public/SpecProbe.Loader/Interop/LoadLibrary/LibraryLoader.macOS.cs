@@ -29,5 +29,8 @@ namespace SpecProbe.Loader.Interop.LoadLibrary
 
         [DllImport("libSystem.dylib", EntryPoint = "dlsym", SetLastError = true)]
         internal static extern IntPtr Mac_dlsym(IntPtr handle, string symbol);
+
+        [DllImport("libSystem.dylib", EntryPoint = "dlerror", SetLastError = true)]
+        internal static extern IntPtr Mac_dlerror();
     }
 }

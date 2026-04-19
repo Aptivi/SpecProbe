@@ -35,6 +35,9 @@ namespace SpecProbe.Loader.Interop.LoadLibrary
         [DllImport("libdl.so", EntryPoint = "dlsym", SetLastError = true)]
         internal static extern IntPtr Linux_dlsym(IntPtr handle, string symbol);
 
+        [DllImport("libdl.so", EntryPoint = "dlerror", SetLastError = true)]
+        internal static extern IntPtr Linux_dlerror();
+
         // Modern distros
         [DllImport("libdl.so.2", EntryPoint = "dlopen", SetLastError = true)]
         internal static extern IntPtr Linux_dlopen_new(string filename, int flags);
@@ -42,11 +45,17 @@ namespace SpecProbe.Loader.Interop.LoadLibrary
         [DllImport("libdl.so.2", EntryPoint = "dlsym", SetLastError = true)]
         internal static extern IntPtr Linux_dlsym_new(IntPtr handle, string symbol);
 
+        [DllImport("libdl.so.2", EntryPoint = "dlerror", SetLastError = true)]
+        internal static extern IntPtr Linux_dlerror_new();
+
         // Mono
         [DllImport("__Internal", EntryPoint = "dlopen", SetLastError = true)]
         internal static extern IntPtr Mono_dlopen(string filename, int flags);
 
         [DllImport("__Internal", EntryPoint = "dlsym", SetLastError = true)]
         internal static extern IntPtr Mono_dlsym(IntPtr handle, string symbol);
+
+        [DllImport("__Internal", EntryPoint = "dlerror", SetLastError = true)]
+        internal static extern IntPtr Mono_dlerror();
     }
 }

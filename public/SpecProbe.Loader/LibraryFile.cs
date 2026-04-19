@@ -51,18 +51,19 @@ namespace SpecProbe.Loader
             {
                 try
                 {
+                    string loadError = "";
                     if (PlatformHelper.IsOnWindows())
-                        handle = LoadWindowsLibrary(path);
+                        handle = LoadWindowsLibrary(path, out loadError);
                     else if (PlatformHelper.IsOnMacOS())
-                        handle = LoadMacOSLibrary(path);
+                        handle = LoadMacOSLibrary(path, out loadError);
                     else if (PlatformHelper.IsOnFreeBSD())
-                        handle = LoadFreeBSDLibrary(path);
+                        handle = LoadFreeBSDLibrary(path, out loadError);
                     else if (PlatformHelper.IsOnUnix())
-                        handle = LoadLinuxLibrary(path);
+                        handle = LoadLinuxLibrary(path, out loadError);
                     else
                         throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM"));
                     if (handle == IntPtr.Zero)
-                        throw new InvalidOperationException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED") + $" [0x{Marshal.GetLastWin32Error():X8}]");
+                        throw new InvalidOperationException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_LIBLOADFAILED") + $" [{loadError}]");
                 }
                 catch (Exception ex)
                 {
@@ -79,8 +80,7 @@ namespace SpecProbe.Loader
 
         internal IntPtr LoadSymbol(string symbolName)
         {
-            IntPtr result = IntPtr.Zero;
-            bool found = false;
+            IntPtr result;
 
             // Check handle
             if (handle == IntPtr.Zero)
@@ -100,20 +100,14 @@ namespace SpecProbe.Loader
                         if (candidate != IntPtr.Zero)
                         {
                             result = candidate;
-                            found = true;
                             break;
                         }
                     }
-                    if (!found)
-                        result = IntPtr.Zero;
                 }
-                else
-                    found = true;
             }
             else if (PlatformHelper.IsOnMacOS())
             {
                 result = LibraryLoader.Mac_dlsym(handle, symbolName);
-                found = result != IntPtr.Zero;
             }
             else if (PlatformHelper.IsOnFreeBSD())
             {
@@ -121,7 +115,6 @@ namespace SpecProbe.Loader
                     result = LibraryLoader.Mono_dlsym(handle, symbolName);
                 else
                     result = LoadFreeBSDLibrarySymbolDl(symbolName);
-                found = result != IntPtr.Zero;
             }
             else if (PlatformHelper.IsOnUnix())
             {
@@ -129,14 +122,9 @@ namespace SpecProbe.Loader
                     result = LibraryLoader.Mono_dlsym(handle, symbolName);
                 else
                     result = LoadLinuxLibrarySymbolDl(symbolName);
-                found = result != IntPtr.Zero;
             }
             else
                 throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM"));
-
-            // If we found a symbol, bail
-            if (found)
-                return result;
             return result;
         }
 
@@ -150,71 +138,91 @@ namespace SpecProbe.Loader
             where T : class =>
             Marshal.GetDelegateForFunctionPointer(ptr, typeof(T)) as T;
 
-        private IntPtr LoadLinuxLibrary(string path)
+        private IntPtr LoadLinuxLibrary(string path, out string loadError)
         {
             IntPtr result;
             if (PlatformHelper.IsRunningFromMono())
+            {
                 result = LibraryLoader.Mono_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+                loadError = Marshal.PtrToStringAnsi(LibraryLoader.Mono_dlerror());
+            }
             else
-                result = LoadLinuxLibraryDl(path);
+                result = LoadLinuxLibraryDl(path, out loadError);
             return result;
         }
 
-        private IntPtr LoadFreeBSDLibrary(string path)
+        private IntPtr LoadFreeBSDLibrary(string path, out string loadError)
         {
             IntPtr result;
             if (PlatformHelper.IsRunningFromMono())
+            {
                 result = LibraryLoader.Mono_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+                loadError = Marshal.PtrToStringAnsi(LibraryLoader.Mono_dlerror());
+            }
             else
-                result = LoadFreeBSDLibraryDl(path);
+                result = LoadFreeBSDLibraryDl(path, out loadError);
             return result;
         }
 
-        private IntPtr LoadWindowsLibrary(string path)
+        private IntPtr LoadWindowsLibrary(string path, out string loadError)
         {
             var result = LibraryLoader.Win_LoadLibrary(path);
+            int error = Marshal.GetLastWin32Error();
+            int hresult = Marshal.GetHRForLastWin32Error();
+            var exception = Marshal.GetExceptionForHR(hresult);
+            loadError = $"0x{error:X8} , {hresult}: {exception.Message}";
             return result;
         }
 
-        private IntPtr LoadMacOSLibrary(string path)
+        private IntPtr LoadMacOSLibrary(string path, out string loadError)
         {
             var result = LibraryLoader.Mac_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+            loadError = Marshal.PtrToStringAnsi(LibraryLoader.Mac_dlerror());
             return result;
         }
 
-        private IntPtr LoadLinuxLibraryDl(string path)
+        private IntPtr LoadLinuxLibraryDl(string path, out string loadError)
         {
+            IntPtr libPtr;
             if (dlChecked)
             {
                 // We've already checked for libdl. Use appropriate path.
                 if (usesNewLibdl)
-                    return LibraryLoader.Linux_dlopen_new(path, LibraryLoader.LAZY_GLOBAL);
+                {
+                    libPtr = LibraryLoader.Linux_dlopen_new(path, LibraryLoader.LAZY_GLOBAL);
+                    loadError = Marshal.PtrToStringAnsi(LibraryLoader.Linux_dlerror_new());
+                }
                 else
-                    return LibraryLoader.Linux_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+                {
+                    libPtr = LibraryLoader.Linux_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+                    loadError = Marshal.PtrToStringAnsi(LibraryLoader.Linux_dlerror());
+                }
             }
             else
             {
                 // Now, we need to check for libdl.
-                IntPtr libPtr;
                 try
                 {
                     libPtr = LibraryLoader.Linux_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+                    loadError = Marshal.PtrToStringAnsi(LibraryLoader.Linux_dlerror());
                     dlChecked = true;
                 }
                 catch
                 {
                     usesNewLibdl = true;
                     libPtr = LibraryLoader.Linux_dlopen_new(path, LibraryLoader.LAZY_GLOBAL);
+                    loadError = Marshal.PtrToStringAnsi(LibraryLoader.Linux_dlerror_new());
                     dlChecked = true;
                 }
-                return libPtr;
             }
+            return libPtr;
         }
 
-        private IntPtr LoadFreeBSDLibraryDl(string path)
+        private IntPtr LoadFreeBSDLibraryDl(string path, out string loadError)
         {
             // Use dlopen from libc
             IntPtr libPtr = LibraryLoader.FreeBSD_dlopen(path, LibraryLoader.LAZY_GLOBAL);
+            loadError = Marshal.PtrToStringAnsi(LibraryLoader.FreeBSD_dlerror());
             return libPtr;
         }
 
