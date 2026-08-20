@@ -22,6 +22,7 @@ using SpecProbe.Loader.Languages;
 using SpecProbe.Software.Platform;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -30,6 +31,7 @@ namespace SpecProbe.Loader
     /// <summary>
     /// A class to store information about a native library file or a stream.
     /// </summary>
+    [DebuggerDisplay("[0x{NativeHandle.ToString(\"X16\"),nq}] {string.Join(\", \", FilePaths)}")]
     public class LibraryFile
     {
         internal IntPtr handle = IntPtr.Zero;
@@ -40,6 +42,34 @@ namespace SpecProbe.Loader
         /// Paths or file names of the native library.
         /// </summary>
         public string[] FilePaths { get; } = [];
+
+        /// <summary>
+        /// Gets the handle to the loaded native library
+        /// </summary>
+        public IntPtr NativeHandle =>
+            handle;
+
+        /// <summary>
+        /// Gets a delegate to the native method
+        /// </summary>
+        /// <typeparam name="T">Delegate defining native function</typeparam>
+        /// <param name="ptr">Pointer to native method's entry point</param>
+        /// <returns></returns>
+        public T? GetNativeMethodDelegate<T>(IntPtr ptr)
+            where T : class =>
+            Marshal.GetDelegateForFunctionPointer(ptr, typeof(T)) as T;
+
+        /// <summary>
+        /// Checks to see if a native method exists or not
+        /// </summary>
+        /// <param name="methodName">Method name to check</param>
+        /// <param name="ptr">Output to native method entry point address</param>
+        /// <returns></returns>
+        public bool NativeMethodExists(string methodName, out IntPtr ptr)
+        {
+            ptr = LoadSymbol(methodName);
+            return ptr != IntPtr.Zero;
+        }
 
         internal void LoadItem()
         {
@@ -127,16 +157,6 @@ namespace SpecProbe.Loader
                 throw new PlatformNotSupportedException(LanguageTools.GetLocalized("SPECPROBE_LOADER_EXCEPTION_UNSUPPORTEDPLATFORM"));
             return result;
         }
-
-        internal bool NativeMethodExists(string methodName, out IntPtr ptr)
-        {
-            ptr = LoadSymbol(methodName);
-            return ptr != IntPtr.Zero;
-        }
-
-        internal T? GetNativeMethodDelegate<T>(IntPtr ptr)
-            where T : class =>
-            Marshal.GetDelegateForFunctionPointer(ptr, typeof(T)) as T;
 
         private IntPtr LoadLinuxLibrary(string path, out string loadError)
         {

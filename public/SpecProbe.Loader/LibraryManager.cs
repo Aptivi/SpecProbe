@@ -17,9 +17,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-using SpecProbe.Loader.Languages;
 using System;
 using System.Collections.Generic;
+using SpecProbe.Loader.Languages;
 
 namespace SpecProbe.Loader
 {
@@ -31,6 +31,12 @@ namespace SpecProbe.Loader
         private bool _libLoaded = false;
         private readonly object _resourceLocker = new();
         private readonly LibraryFile[] _files;
+
+        /// <summary>
+        /// Gets an array of library files
+        /// </summary>
+        public LibraryFile[] LibraryFiles =>
+            _files;
 
         /// <summary>
         /// Loads native libraries.
@@ -68,6 +74,35 @@ namespace SpecProbe.Loader
                     nativeDelegate = libraryFile.GetNativeMethodDelegate<T>(ptr);
             }
             return nativeDelegate;
+        }
+
+        /// <summary>
+        /// Gets the native method address
+        /// </summary>
+        /// <param name="methodName">Native method name</param>
+        /// <returns></returns>
+        public IntPtr GetNativeMethodAddress(string methodName)
+        {
+            foreach (var libraryFile in _files)
+            {
+                if (libraryFile.NativeMethodExists(methodName, out IntPtr ptr))
+                    return ptr;
+            }
+            return IntPtr.Zero;
+        }
+
+        /// <summary>
+        /// Gets the library address
+        /// </summary>
+        /// <returns></returns>
+        public IntPtr GetLibraryHandle()
+        {
+            foreach (var libraryFile in _files)
+            {
+                if (libraryFile.handle != IntPtr.Zero)
+                    return libraryFile.handle;
+            }
+            return IntPtr.Zero;
         }
 
         /// <summary>
